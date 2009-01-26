@@ -1,0 +1,51 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ParkedInService WSDL service -->
+
+  <service name="ParkedInServiceHttpPort" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://client.service.mpark.stokkur"/>
+      <parameter name="wsdlServiceElement" value="ParkedInService"/>
+      <parameter name="schemaQualified" value="http://client.service.mpark.stokkur,http://types.services.mpark.stokkur,http://business.commons.mpark.stokkur"/>
+      <parameter name="wsdlServicePort" value="ParkedInServiceHttpPort"/>
+      <parameter name="className" value="is.idega.idegaweb.egov.ws.parkingservice.client.ParkedInServiceHttpBindingSkeleton"/>
+      <parameter name="wsdlPortType" value="ParkedInService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+      <parameter name="scope" value="Session"/>
+
+      <typeMapping
+        xmlns:ns="http://business.commons.mpark.stokkur"
+        qname="ns:CarInfo"
+        type="java:is.idega.idegaweb.egov.ws.parkingservice.client.CarInfo"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://types.services.mpark.stokkur"
+        qname="ns:ParkedInReply"
+        type="java:is.idega.idegaweb.egov.ws.parkingservice.client.ParkedInReply"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://types.services.mpark.stokkur"
+        qname="ns:ParkedInRequest"
+        type="java:is.idega.idegaweb.egov.ws.parkingservice.client.ParkedInRequest"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
