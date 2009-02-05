@@ -8,6 +8,8 @@ import is.idega.webservice.parkingservice.client.ParkedInService_ServiceLocator;
 
 import java.net.URL;
 
+import com.idega.util.IWTimestamp;
+
 public class TestClient {
 	public static void main(String[] args) {
 		TestClient client = new TestClient();
@@ -34,6 +36,7 @@ public class TestClient {
 				System.out.println("msisdn = " + reply.getMsisdn());
 				System.out.println("parkedIn = " + reply.getParkedIn());
 				System.out.println("zoneNumber = " + reply.getZoneNumber());
+				
 			}
 		}
 		catch(Exception e) {
