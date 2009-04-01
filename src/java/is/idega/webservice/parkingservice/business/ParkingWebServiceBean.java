@@ -18,7 +18,7 @@ import com.idega.idegaweb.IWMainApplication;
 
 @Scope("singleton")
 @Service("parkingWebService")
-public class ParkingWebServiceBeab implements ParkingWebService {
+public class ParkingWebServiceBean implements ParkingWebService {
 	private static final String PARKING_SERVICE_ENDPOINT = "parking_service_endpoint";
 	private static final String PARKING_SERVICE_USER = "parking_service_user";
 
