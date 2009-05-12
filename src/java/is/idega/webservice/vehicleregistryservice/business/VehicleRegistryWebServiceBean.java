@@ -41,7 +41,6 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 		if (manager != null) {
 			cache = manager.getCache(VEHICLE_REGISTRY_CACHE);
 			if (cache.containsKey(registrationNumber)) {
-				System.out.println("got registration from cache");
 				return (Vehicle)cache.get(registrationNumber);
 			}
 		}
@@ -49,7 +48,7 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 		try {
 			VehicleRegistryServiceLocator locator = new VehicleRegistryServiceLocator();
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
-			Vehicle vehicles[] = port.basicVehicleInformation(userid, password, registrationNumber, "", "", "");
+			Vehicle vehicles[] = port.basicVehicleInformation(userid, password, "", registrationNumber, "", "");
 			if (vehicles != null && vehicles.length > 0) {
 				if (cache != null) {
 					cache.put(registrationNumber, vehicles[0]);
