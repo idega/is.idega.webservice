@@ -22,7 +22,7 @@ public class TestClient {
 			VehicleRegistryServiceLocator locator = new VehicleRegistryServiceLocator();
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
 			
-			Vehicle vehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", "", "ZP328", "", "");
+			Vehicle vehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", "TEST1", "", "", "");
 			System.out.println("vehicles.length = " + vehicles.length);
 			for (Vehicle vehicle: vehicles) {
 				System.out.println("vehicle.get_import() = " + vehicle.get_import());
