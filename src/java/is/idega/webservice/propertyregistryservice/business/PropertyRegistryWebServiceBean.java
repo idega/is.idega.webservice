@@ -36,6 +36,7 @@ public class PropertyRegistryWebServiceBean implements
 	private static final String PROPERTY_APARTMENTNUMBER = "MEINI_FEPILOG";
 	private static final String PROPERTY_FNR = "MEINI_FASTANR";
 	private static final String PROPERTY_NAME = "MEINI_HEIMILISFANG";
+	private static final String PROPERTY_TYPE = "MEINI_NOTKTXTEINING";
 	
 	private static final String OWNER_ID = "VWEIGANDI_ID";
 	private static final String OWNER_CHANGED_DATE = "VWEIGANDI_CHANGEDAT";
@@ -128,6 +129,10 @@ public class PropertyRegistryWebServiceBean implements
 						else if (nodeName.equals(PROPERTY_NAME)) {
 							propety.setNameNumber(value);
 						}
+						else if (nodeName.equals(PROPERTY_TYPE)) {
+							propety.setType(value);
+						}
+
 					}
 
 					returnProperty.add(propety);

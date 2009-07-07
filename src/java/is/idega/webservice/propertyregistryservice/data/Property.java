@@ -4,14 +4,16 @@ public class Property {
 	private String apartmentNumber = null;
 	private String nameNumber = null;
 	private String fnr = null;
+	private String type = null;
 		
 	public Property() {
 	}
 
-	public Property(String fnr, String nameNumber, String apartmentNumber) {
+	public Property(String fnr, String nameNumber, String apartmentNumber, String type) {
 		this.nameNumber = nameNumber;
 		this.fnr = fnr;
 		this.apartmentNumber = apartmentNumber;
+		this.type = type;
 	}
 
 	// getters
@@ -27,6 +29,10 @@ public class Property {
 		return this.apartmentNumber;
 	}
 
+	public String getType() {
+		return this.type;
+	}
+	
 	//setters
 	public void setFNR(String fnr) {
 		this.fnr = fnr;
@@ -38,5 +44,9 @@ public class Property {
 
 	public void setApartmentNumber(String apartmentNumber) {
 		this.apartmentNumber = apartmentNumber;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
 	}
 }
