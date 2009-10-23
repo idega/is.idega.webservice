@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.idega.core.cache.IWCacheManager2;
 import com.idega.idegaweb.IWMainApplication;
+import com.idega.util.IWTimestamp;
 
 @Scope("singleton")
 @Service("vehicleRegistryWebService")
@@ -50,10 +51,33 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
 			Vehicle vehicles[] = port.basicVehicleInformation(userid, password, "", registrationNumber, "", "");
 			if (vehicles != null && vehicles.length > 0) {
-				if (cache != null) {
-					cache.put(registrationNumber, vehicles[0]);
+				if (vehicles.length == 1) {
+					if (cache != null) {
+						cache.put(registrationNumber, vehicles[0]);
+					}
+					return vehicles[0];
 				}
-				return vehicles[0];
+				else {
+					IWTimestamp stamp = null;
+					String permNo = null;
+					for (Vehicle vehicle : vehicles) {
+						IWTimestamp regDate = new IWTimestamp(vehicle.getFirstregDate());
+						if (stamp == null || stamp.isEarlierThan(regDate)) {
+							stamp = regDate;
+							permNo = vehicle.getPermNo();
+						}
+					}
+					
+					if (permNo != null) {
+						Vehicle permVehicles[] = port.basicVehicleInformation(userid, password, permNo, "", "", "");
+						if (permVehicles != null && permVehicles.length > 0) {
+							if (cache != null) {
+								cache.put(registrationNumber, vehicles[0]);
+							}
+							return vehicles[0];
+						}
+					}
+				}
 			}
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
