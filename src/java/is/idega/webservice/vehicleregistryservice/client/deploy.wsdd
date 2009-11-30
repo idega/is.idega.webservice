@@ -12,590 +12,27 @@
 
   <!-- Services from VehicleRegistryService WSDL service -->
 
-  <service name="VehicleRegistryServiceSoap" provider="java:RPC" style="wrapped" use="literal">
-      <parameter name="wsdlTargetNamespace" value="https://ws.lt.is/VehicleRegistryService"/>
-      <parameter name="wsdlServiceElement" value="VehicleRegistryService"/>
-      <parameter name="schemaQualified" value="https://ws.lt.is/VehicleRegistryService"/>
-      <parameter name="wsdlServicePort" value="VehicleRegistryServiceSoap"/>
-      <parameter name="className" value="is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleRegistryServiceSoap_BindingSkeleton"/>
-      <parameter name="wsdlPortType" value="VehicleRegistryServiceSoap"/>
-      <parameter name="typeMappingVersion" value="1.2"/>
-      <parameter name="allowedMethods" value="*"/>
-      <parameter name="scope" value="Session"/>
-
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfUpdatelock"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Updatelock[]"
-        innerType="cmp-ns:Updatelock" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Reading"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Reading"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfVehicleAll"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleAll[]"
-        innerType="cmp-ns:VehicleAll" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfOutOfUse"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.OutOfUse[]"
-        innerType="cmp-ns:OutOfUse" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Adr"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Adr"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfOwner"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Owner[]"
-        innerType="cmp-ns:Owner" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Operator"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Operator"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfVehicle"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Vehicle[]"
-        innerType="cmp-ns:Vehicle" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfAddonsChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.AddonsChange[]"
-        innerType="cmp-ns:AddonsChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfVehicleChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleChange[]"
-        innerType="cmp-ns:VehicleChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfAdr"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Adr[]"
-        innerType="cmp-ns:Adr" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Size"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Size"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfString"
-        type="java:java.lang.String[]"
-        innerType="cmp-ns:string" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:SuperstructureChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.SuperstructureChange"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:CoOwner"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.CoOwner"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfInspectionRemark"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.InspectionRemark[]"
-        innerType="cmp-ns:InspectionRemark" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Change"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Change"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Disaster"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Disaster"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Plate"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Plate"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Owner"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Owner"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfSuperstructureChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.SuperstructureChange[]"
-        innerType="cmp-ns:SuperstructureChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:VehicleChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleChange"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:OwnerRegistrationError"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.OwnerRegistrationError"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfReading"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Reading[]"
-        innerType="cmp-ns:Reading" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfTypeChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.TypeChange[]"
-        innerType="cmp-ns:TypeChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfStat"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Stat[]"
-        innerType="cmp-ns:Stat" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfInspection"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Inspection[]"
-        innerType="cmp-ns:Inspection" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Updatelock"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Updatelock"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfExciseTax"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.ExciseTax[]"
-        innerType="cmp-ns:ExciseTax" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfPlate"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Plate[]"
-        innerType="cmp-ns:Plate" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:EstimatedAutomobileTax"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.EstimatedAutomobileTax"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Remark"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Remark"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Technical"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Technical"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:VehicleExtra"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleExtra"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:TypeChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.TypeChange"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfCoOwner"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.CoOwner[]"
-        innerType="cmp-ns:CoOwner" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:TotalStatus"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.TotalStatus"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Tyre"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Tyre"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:SpecialEquipmentChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.SpecialEquipmentChange"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfRegistration"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Registration[]"
-        innerType="cmp-ns:Registration" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Change[]"
-        innerType="cmp-ns:Change" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfBoolean"
-        type="java:boolean[]"
-        innerType="cmp-ns:boolean" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfRemark"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Remark[]"
-        innerType="cmp-ns:Remark" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Axle"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Axle"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:InspectionRemark"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.InspectionRemark"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfStolen"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Stolen[]"
-        innerType="cmp-ns:Stolen" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Stat"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Stat"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Registration"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Registration"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ExciseTax"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.ExciseTax"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfOperator"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Operator[]"
-        innerType="cmp-ns:Operator" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:OutOfUse"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.OutOfUse"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:AutomobileTaxClass"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.AutomobileTaxClass"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfDisaster"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Disaster[]"
-        innerType="cmp-ns:Disaster" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:VehicleAll"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleAll"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Vehicle"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Vehicle"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:AddonsChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.AddonsChange"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfSpecialEquipmentChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.SpecialEquipmentChange[]"
-        innerType="cmp-ns:SpecialEquipmentChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Stolen"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Stolen"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfOwnerRegistrationError"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.OwnerRegistrationError[]"
-        innerType="cmp-ns:OwnerRegistrationError" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Inspection"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Inspection"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Version"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Version"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Mass"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Mass"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Wage"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Wage"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-  </service>
   <service name="VehicleRegistryServiceSoap12" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="https://ws.lt.is/VehicleRegistryService"/>
       <parameter name="wsdlServiceElement" value="VehicleRegistryService"/>
       <parameter name="schemaQualified" value="https://ws.lt.is/VehicleRegistryService"/>
       <parameter name="wsdlServicePort" value="VehicleRegistryServiceSoap12"/>
-      <parameter name="className" value="is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleRegistryServiceSoap12Skeleton"/>
+      <parameter name="className" value="is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap12Skeleton"/>
       <parameter name="wsdlPortType" value="VehicleRegistryServiceSoap"/>
       <parameter name="typeMappingVersion" value="1.2"/>
       <parameter name="allowedMethods" value="*"/>
-      <parameter name="scope" value="Session"/>
 
       <arrayMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfUpdatelock"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Updatelock[]"
-        innerType="cmp-ns:Updatelock" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfOwnerRegistrationError"
+        type="java:is.idega.webservice.vehicleregistryservice.client.OwnerRegistrationError[]"
+        innerType="cmp-ns:OwnerRegistrationError" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
         encodingStyle=""
       />
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Reading"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Reading"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfVehicleAll"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleAll[]"
-        innerType="cmp-ns:VehicleAll" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfOutOfUse"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.OutOfUse[]"
-        innerType="cmp-ns:OutOfUse" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Adr"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Adr"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfOwner"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Owner[]"
-        innerType="cmp-ns:Owner" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Operator"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Operator"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfVehicle"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Vehicle[]"
-        innerType="cmp-ns:Vehicle" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfAddonsChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.AddonsChange[]"
-        innerType="cmp-ns:AddonsChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfVehicleChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleChange[]"
-        innerType="cmp-ns:VehicleChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfAdr"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Adr[]"
-        innerType="cmp-ns:Adr" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Size"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Size"
+        qname="ns:Wage"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Wage"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
@@ -609,8 +46,114 @@
       />
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:VehicleChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.VehicleChange"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Change"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Change"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfRemark"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Remark[]"
+        innerType="cmp-ns:Remark" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfInspection"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Inspection[]"
+        innerType="cmp-ns:Inspection" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfRegistration"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Registration[]"
+        innerType="cmp-ns:Registration" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfAdr"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Adr[]"
+        innerType="cmp-ns:Adr" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfOutOfUse"
+        type="java:is.idega.webservice.vehicleregistryservice.client.OutOfUse[]"
+        innerType="cmp-ns:OutOfUse" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:OwnerRegistrationError"
+        type="java:is.idega.webservice.vehicleregistryservice.client.OwnerRegistrationError"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Axle"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Axle"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Version"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Version"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Size"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Size"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Vehicle"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Vehicle"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
         qname="ns:SuperstructureChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.SuperstructureChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.SuperstructureChange"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfPlate"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Plate[]"
+        innerType="cmp-ns:Plate" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Adr"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Adr"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
@@ -618,143 +161,67 @@
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
         qname="ns:CoOwner"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.CoOwner"
+        type="java:is.idega.webservice.vehicleregistryservice.client.CoOwner"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfInspectionRemark"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.InspectionRemark[]"
-        innerType="cmp-ns:InspectionRemark" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Change"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Change"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Disaster"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Disaster"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Plate"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Plate"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Owner"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Owner"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfSuperstructureChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.SuperstructureChange[]"
-        innerType="cmp-ns:SuperstructureChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:VehicleChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleChange"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:OwnerRegistrationError"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.OwnerRegistrationError"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfReading"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Reading[]"
-        innerType="cmp-ns:Reading" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
         encodingStyle=""
       />
       <arrayMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
         qname="ns:ArrayOfTypeChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.TypeChange[]"
+        type="java:is.idega.webservice.vehicleregistryservice.client.TypeChange[]"
         innerType="cmp-ns:TypeChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfStat"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Stat[]"
-        innerType="cmp-ns:Stat" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfInspection"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Inspection[]"
-        innerType="cmp-ns:Inspection" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
         encodingStyle=""
       />
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
         qname="ns:Updatelock"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Updatelock"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Updatelock"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
       <arrayMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfExciseTax"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.ExciseTax[]"
-        innerType="cmp-ns:ExciseTax" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfAddonsChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.AddonsChange[]"
+        innerType="cmp-ns:AddonsChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
         encodingStyle=""
       />
       <arrayMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfPlate"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Plate[]"
-        innerType="cmp-ns:Plate" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfInspectionRemark"
+        type="java:is.idega.webservice.vehicleregistryservice.client.InspectionRemark[]"
+        innerType="cmp-ns:InspectionRemark" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
         encodingStyle=""
       />
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:EstimatedAutomobileTax"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.EstimatedAutomobileTax"
+        qname="ns:Owner"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Owner"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfStolen"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Stolen[]"
+        innerType="cmp-ns:Stolen" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
         encodingStyle=""
       />
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
         qname="ns:Remark"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Remark"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Remark"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Technical"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Technical"
+        qname="ns:Inspection"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Inspection"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
@@ -762,62 +229,85 @@
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
         qname="ns:VehicleExtra"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleExtra"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:TypeChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.TypeChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.VehicleExtra"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
       <arrayMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfCoOwner"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.CoOwner[]"
-        innerType="cmp-ns:CoOwner" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfOwner"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Owner[]"
+        innerType="cmp-ns:Owner" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
         encodingStyle=""
       />
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:TotalStatus"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.TotalStatus"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Tyre"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Tyre"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:SpecialEquipmentChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.SpecialEquipmentChange"
+        qname="ns:InspectionRemark"
+        type="java:is.idega.webservice.vehicleregistryservice.client.InspectionRemark"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
       <arrayMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfRegistration"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Registration[]"
-        innerType="cmp-ns:Registration" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfDisaster"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Disaster[]"
+        innerType="cmp-ns:Disaster" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ExciseTax"
+        type="java:is.idega.webservice.vehicleregistryservice.client.ExciseTax"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Disaster"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Disaster"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Registration"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Registration"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
       <arrayMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Change[]"
-        innerType="cmp-ns:Change" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfVehicleAll"
+        type="java:is.idega.webservice.vehicleregistryservice.client.VehicleAll[]"
+        innerType="cmp-ns:VehicleAll" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Stolen"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Stolen"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:VehicleAll"
+        type="java:is.idega.webservice.vehicleregistryservice.client.VehicleAll"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfUpdatelock"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Updatelock[]"
+        innerType="cmp-ns:Updatelock" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
         encodingStyle=""
       />
       <arrayMapping
@@ -827,148 +317,10 @@
         innerType="cmp-ns:boolean" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
         encodingStyle=""
       />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfRemark"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Remark[]"
-        innerType="cmp-ns:Remark" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Axle"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Axle"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:InspectionRemark"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.InspectionRemark"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfStolen"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Stolen[]"
-        innerType="cmp-ns:Stolen" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Stat"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Stat"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Registration"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Registration"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ExciseTax"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.ExciseTax"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfOperator"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Operator[]"
-        innerType="cmp-ns:Operator" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
         qname="ns:OutOfUse"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.OutOfUse"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:AutomobileTaxClass"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.AutomobileTaxClass"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfDisaster"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Disaster[]"
-        innerType="cmp-ns:Disaster" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:VehicleAll"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.VehicleAll"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Vehicle"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Vehicle"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:AddonsChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.AddonsChange"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfSpecialEquipmentChange"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.SpecialEquipmentChange[]"
-        innerType="cmp-ns:SpecialEquipmentChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Stolen"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Stolen"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <arrayMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:ArrayOfOwnerRegistrationError"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.OwnerRegistrationError[]"
-        innerType="cmp-ns:OwnerRegistrationError" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Inspection"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Inspection"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Version"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Version"
+        type="java:is.idega.webservice.vehicleregistryservice.client.OutOfUse"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
@@ -976,17 +328,663 @@
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
         qname="ns:Mass"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Mass"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Mass"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
       <typeMapping
         xmlns:ns="https://ws.lt.is/VehicleRegistryService"
-        qname="ns:Wage"
-        type="java:is.idega.idegaweb.egov.ws.vehicleregistryservice.client.Wage"
+        qname="ns:TypeChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.TypeChange"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:SpecialEquipmentChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.SpecialEquipmentChange"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Tyre"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Tyre"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Technical"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Technical"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Operator"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Operator"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfReading"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Reading[]"
+        innerType="cmp-ns:Reading" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Change[]"
+        innerType="cmp-ns:Change" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:EstimatedAutomobileTax"
+        type="java:is.idega.webservice.vehicleregistryservice.client.EstimatedAutomobileTax"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfCoOwner"
+        type="java:is.idega.webservice.vehicleregistryservice.client.CoOwner[]"
+        innerType="cmp-ns:CoOwner" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfExciseTax"
+        type="java:is.idega.webservice.vehicleregistryservice.client.ExciseTax[]"
+        innerType="cmp-ns:ExciseTax" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:AddonsChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.AddonsChange"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:TotalStatus"
+        type="java:is.idega.webservice.vehicleregistryservice.client.TotalStatus"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:AutomobileTaxClass"
+        type="java:is.idega.webservice.vehicleregistryservice.client.AutomobileTaxClass"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfOperator"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Operator[]"
+        innerType="cmp-ns:Operator" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Stat"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Stat"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfSpecialEquipmentChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.SpecialEquipmentChange[]"
+        innerType="cmp-ns:SpecialEquipmentChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfVehicle"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Vehicle[]"
+        innerType="cmp-ns:Vehicle" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Reading"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Reading"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfSuperstructureChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.SuperstructureChange[]"
+        innerType="cmp-ns:SuperstructureChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfStat"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Stat[]"
+        innerType="cmp-ns:Stat" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Plate"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Plate"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfVehicleChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.VehicleChange[]"
+        innerType="cmp-ns:VehicleChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+  </service>
+  <service name="VehicleRegistryServiceSoap" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="https://ws.lt.is/VehicleRegistryService"/>
+      <parameter name="wsdlServiceElement" value="VehicleRegistryService"/>
+      <parameter name="schemaQualified" value="https://ws.lt.is/VehicleRegistryService"/>
+      <parameter name="wsdlServicePort" value="VehicleRegistryServiceSoap"/>
+      <parameter name="className" value="is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_BindingSkeleton"/>
+      <parameter name="wsdlPortType" value="VehicleRegistryServiceSoap"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <parameter name="allowedMethods" value="*"/>
+
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfOwnerRegistrationError"
+        type="java:is.idega.webservice.vehicleregistryservice.client.OwnerRegistrationError[]"
+        innerType="cmp-ns:OwnerRegistrationError" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Wage"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Wage"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfString"
+        type="java:java.lang.String[]"
+        innerType="cmp-ns:string" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:VehicleChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.VehicleChange"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Change"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Change"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfRemark"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Remark[]"
+        innerType="cmp-ns:Remark" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfInspection"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Inspection[]"
+        innerType="cmp-ns:Inspection" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfRegistration"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Registration[]"
+        innerType="cmp-ns:Registration" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfAdr"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Adr[]"
+        innerType="cmp-ns:Adr" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfOutOfUse"
+        type="java:is.idega.webservice.vehicleregistryservice.client.OutOfUse[]"
+        innerType="cmp-ns:OutOfUse" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:OwnerRegistrationError"
+        type="java:is.idega.webservice.vehicleregistryservice.client.OwnerRegistrationError"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Axle"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Axle"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Version"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Version"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Size"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Size"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Vehicle"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Vehicle"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:SuperstructureChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.SuperstructureChange"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfPlate"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Plate[]"
+        innerType="cmp-ns:Plate" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Adr"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Adr"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:CoOwner"
+        type="java:is.idega.webservice.vehicleregistryservice.client.CoOwner"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfTypeChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.TypeChange[]"
+        innerType="cmp-ns:TypeChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Updatelock"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Updatelock"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfAddonsChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.AddonsChange[]"
+        innerType="cmp-ns:AddonsChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfInspectionRemark"
+        type="java:is.idega.webservice.vehicleregistryservice.client.InspectionRemark[]"
+        innerType="cmp-ns:InspectionRemark" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Owner"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Owner"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfStolen"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Stolen[]"
+        innerType="cmp-ns:Stolen" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Remark"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Remark"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Inspection"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Inspection"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:VehicleExtra"
+        type="java:is.idega.webservice.vehicleregistryservice.client.VehicleExtra"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfOwner"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Owner[]"
+        innerType="cmp-ns:Owner" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:InspectionRemark"
+        type="java:is.idega.webservice.vehicleregistryservice.client.InspectionRemark"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfDisaster"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Disaster[]"
+        innerType="cmp-ns:Disaster" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ExciseTax"
+        type="java:is.idega.webservice.vehicleregistryservice.client.ExciseTax"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Disaster"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Disaster"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Registration"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Registration"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfVehicleAll"
+        type="java:is.idega.webservice.vehicleregistryservice.client.VehicleAll[]"
+        innerType="cmp-ns:VehicleAll" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Stolen"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Stolen"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:VehicleAll"
+        type="java:is.idega.webservice.vehicleregistryservice.client.VehicleAll"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfUpdatelock"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Updatelock[]"
+        innerType="cmp-ns:Updatelock" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfBoolean"
+        type="java:boolean[]"
+        innerType="cmp-ns:boolean" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:OutOfUse"
+        type="java:is.idega.webservice.vehicleregistryservice.client.OutOfUse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Mass"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Mass"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:TypeChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.TypeChange"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:SpecialEquipmentChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.SpecialEquipmentChange"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Tyre"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Tyre"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Technical"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Technical"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Operator"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Operator"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfReading"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Reading[]"
+        innerType="cmp-ns:Reading" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Change[]"
+        innerType="cmp-ns:Change" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:EstimatedAutomobileTax"
+        type="java:is.idega.webservice.vehicleregistryservice.client.EstimatedAutomobileTax"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfCoOwner"
+        type="java:is.idega.webservice.vehicleregistryservice.client.CoOwner[]"
+        innerType="cmp-ns:CoOwner" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfExciseTax"
+        type="java:is.idega.webservice.vehicleregistryservice.client.ExciseTax[]"
+        innerType="cmp-ns:ExciseTax" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:AddonsChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.AddonsChange"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:TotalStatus"
+        type="java:is.idega.webservice.vehicleregistryservice.client.TotalStatus"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:AutomobileTaxClass"
+        type="java:is.idega.webservice.vehicleregistryservice.client.AutomobileTaxClass"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfOperator"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Operator[]"
+        innerType="cmp-ns:Operator" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Stat"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Stat"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfSpecialEquipmentChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.SpecialEquipmentChange[]"
+        innerType="cmp-ns:SpecialEquipmentChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfVehicle"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Vehicle[]"
+        innerType="cmp-ns:Vehicle" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Reading"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Reading"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfSuperstructureChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.SuperstructureChange[]"
+        innerType="cmp-ns:SuperstructureChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfStat"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Stat[]"
+        innerType="cmp-ns:Stat" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:Plate"
+        type="java:is.idega.webservice.vehicleregistryservice.client.Plate"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="https://ws.lt.is/VehicleRegistryService"
+        qname="ns:ArrayOfVehicleChange"
+        type="java:is.idega.webservice.vehicleregistryservice.client.VehicleChange[]"
+        innerType="cmp-ns:VehicleChange" xmlns:cmp-ns="https://ws.lt.is/VehicleRegistryService"
         encodingStyle=""
       />
   </service>

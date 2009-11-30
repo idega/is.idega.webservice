@@ -28,6 +28,12 @@ public class VehicleExtra  implements java.io.Serializable {
 
     private boolean hasEncumbrances;
 
+    private int encumbrancesStatus;
+
+    private java.lang.String inspectionFine;
+
+    private java.util.Calendar queryTimeStamp;
+
     public VehicleExtra() {
     }
 
@@ -41,7 +47,10 @@ public class VehicleExtra  implements java.io.Serializable {
            is.idega.webservice.vehicleregistryservice.client.TotalStatus totalStatus,
            is.idega.webservice.vehicleregistryservice.client.Reading[] alestrar,
            is.idega.webservice.vehicleregistryservice.client.EstimatedAutomobileTax estimatedAutomobileTaxes,
-           boolean hasEncumbrances) {
+           boolean hasEncumbrances,
+           int encumbrancesStatus,
+           java.lang.String inspectionFine,
+           java.util.Calendar queryTimeStamp) {
            this.permNo = permNo;
            this.regNo = regNo;
            this.vin = vin;
@@ -52,6 +61,9 @@ public class VehicleExtra  implements java.io.Serializable {
            this.alestrar = alestrar;
            this.estimatedAutomobileTaxes = estimatedAutomobileTaxes;
            this.hasEncumbrances = hasEncumbrances;
+           this.encumbrancesStatus = encumbrancesStatus;
+           this.inspectionFine = inspectionFine;
+           this.queryTimeStamp = queryTimeStamp;
     }
 
 
@@ -254,6 +266,66 @@ public class VehicleExtra  implements java.io.Serializable {
         this.hasEncumbrances = hasEncumbrances;
     }
 
+
+    /**
+     * Gets the encumbrancesStatus value for this VehicleExtra.
+     * 
+     * @return encumbrancesStatus
+     */
+    public int getEncumbrancesStatus() {
+        return encumbrancesStatus;
+    }
+
+
+    /**
+     * Sets the encumbrancesStatus value for this VehicleExtra.
+     * 
+     * @param encumbrancesStatus
+     */
+    public void setEncumbrancesStatus(int encumbrancesStatus) {
+        this.encumbrancesStatus = encumbrancesStatus;
+    }
+
+
+    /**
+     * Gets the inspectionFine value for this VehicleExtra.
+     * 
+     * @return inspectionFine
+     */
+    public java.lang.String getInspectionFine() {
+        return inspectionFine;
+    }
+
+
+    /**
+     * Sets the inspectionFine value for this VehicleExtra.
+     * 
+     * @param inspectionFine
+     */
+    public void setInspectionFine(java.lang.String inspectionFine) {
+        this.inspectionFine = inspectionFine;
+    }
+
+
+    /**
+     * Gets the queryTimeStamp value for this VehicleExtra.
+     * 
+     * @return queryTimeStamp
+     */
+    public java.util.Calendar getQueryTimeStamp() {
+        return queryTimeStamp;
+    }
+
+
+    /**
+     * Sets the queryTimeStamp value for this VehicleExtra.
+     * 
+     * @param queryTimeStamp
+     */
+    public void setQueryTimeStamp(java.util.Calendar queryTimeStamp) {
+        this.queryTimeStamp = queryTimeStamp;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof VehicleExtra)) return false;
@@ -293,7 +365,14 @@ public class VehicleExtra  implements java.io.Serializable {
             ((this.estimatedAutomobileTaxes==null && other.getEstimatedAutomobileTaxes()==null) || 
              (this.estimatedAutomobileTaxes!=null &&
               this.estimatedAutomobileTaxes.equals(other.getEstimatedAutomobileTaxes()))) &&
-            this.hasEncumbrances == other.isHasEncumbrances();
+            this.hasEncumbrances == other.isHasEncumbrances() &&
+            this.encumbrancesStatus == other.getEncumbrancesStatus() &&
+            ((this.inspectionFine==null && other.getInspectionFine()==null) || 
+             (this.inspectionFine!=null &&
+              this.inspectionFine.equals(other.getInspectionFine()))) &&
+            ((this.queryTimeStamp==null && other.getQueryTimeStamp()==null) || 
+             (this.queryTimeStamp!=null &&
+              this.queryTimeStamp.equals(other.getQueryTimeStamp())));
         __equalsCalc = null;
         return _equals;
     }
@@ -349,6 +428,13 @@ public class VehicleExtra  implements java.io.Serializable {
             _hashCode += getEstimatedAutomobileTaxes().hashCode();
         }
         _hashCode += (isHasEncumbrances() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+        _hashCode += getEncumbrancesStatus();
+        if (getInspectionFine() != null) {
+            _hashCode += getInspectionFine().hashCode();
+        }
+        if (getQueryTimeStamp() != null) {
+            _hashCode += getQueryTimeStamp().hashCode();
+        }
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -428,6 +514,25 @@ public class VehicleExtra  implements java.io.Serializable {
         elemField.setFieldName("hasEncumbrances");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "HasEncumbrances"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("encumbrancesStatus");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "EncumbrancesStatus"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("inspectionFine");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "InspectionFine"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("queryTimeStamp");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "QueryTimeStamp"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

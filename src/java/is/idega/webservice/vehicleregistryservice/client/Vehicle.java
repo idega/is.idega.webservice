@@ -16,6 +16,8 @@ public class Vehicle  implements java.io.Serializable {
 
     private java.lang.String typeNo;
 
+    private java.lang.String type;
+
     private java.lang.String typeApproval;
 
     private java.lang.String typeapprovalextension;
@@ -132,6 +134,10 @@ public class Vehicle  implements java.io.Serializable {
 
     private is.idega.webservice.vehicleregistryservice.client.Adr[] adrs;
 
+    private java.lang.String latestRegistration;
+
+    private java.util.Calendar queryTimeStamp;
+
     public Vehicle() {
     }
 
@@ -140,6 +146,7 @@ public class Vehicle  implements java.io.Serializable {
            java.lang.String regNo,
            java.lang.String vin,
            java.lang.String typeNo,
+           java.lang.String type,
            java.lang.String typeApproval,
            java.lang.String typeapprovalextension,
            java.lang.String eutypeapproval,
@@ -197,11 +204,14 @@ public class Vehicle  implements java.io.Serializable {
            is.idega.webservice.vehicleregistryservice.client.SpecialEquipmentChange[] specialEquipmentChanges,
            is.idega.webservice.vehicleregistryservice.client.AddonsChange[] addonsChanges,
            is.idega.webservice.vehicleregistryservice.client.SuperstructureChange[] superstructureChanges,
-           is.idega.webservice.vehicleregistryservice.client.Adr[] adrs) {
+           is.idega.webservice.vehicleregistryservice.client.Adr[] adrs,
+           java.lang.String latestRegistration,
+           java.util.Calendar queryTimeStamp) {
            this.permNo = permNo;
            this.regNo = regNo;
            this.vin = vin;
            this.typeNo = typeNo;
+           this.type = type;
            this.typeApproval = typeApproval;
            this.typeapprovalextension = typeapprovalextension;
            this.eutypeapproval = eutypeapproval;
@@ -260,6 +270,8 @@ public class Vehicle  implements java.io.Serializable {
            this.addonsChanges = addonsChanges;
            this.superstructureChanges = superstructureChanges;
            this.adrs = adrs;
+           this.latestRegistration = latestRegistration;
+           this.queryTimeStamp = queryTimeStamp;
     }
 
 
@@ -340,6 +352,26 @@ public class Vehicle  implements java.io.Serializable {
      */
     public void setTypeNo(java.lang.String typeNo) {
         this.typeNo = typeNo;
+    }
+
+
+    /**
+     * Gets the type value for this Vehicle.
+     * 
+     * @return type
+     */
+    public java.lang.String getType() {
+        return type;
+    }
+
+
+    /**
+     * Sets the type value for this Vehicle.
+     * 
+     * @param type
+     */
+    public void setType(java.lang.String type) {
+        this.type = type;
     }
 
 
@@ -1502,6 +1534,46 @@ public class Vehicle  implements java.io.Serializable {
         this.adrs = adrs;
     }
 
+
+    /**
+     * Gets the latestRegistration value for this Vehicle.
+     * 
+     * @return latestRegistration
+     */
+    public java.lang.String getLatestRegistration() {
+        return latestRegistration;
+    }
+
+
+    /**
+     * Sets the latestRegistration value for this Vehicle.
+     * 
+     * @param latestRegistration
+     */
+    public void setLatestRegistration(java.lang.String latestRegistration) {
+        this.latestRegistration = latestRegistration;
+    }
+
+
+    /**
+     * Gets the queryTimeStamp value for this Vehicle.
+     * 
+     * @return queryTimeStamp
+     */
+    public java.util.Calendar getQueryTimeStamp() {
+        return queryTimeStamp;
+    }
+
+
+    /**
+     * Sets the queryTimeStamp value for this Vehicle.
+     * 
+     * @param queryTimeStamp
+     */
+    public void setQueryTimeStamp(java.util.Calendar queryTimeStamp) {
+        this.queryTimeStamp = queryTimeStamp;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Vehicle)) return false;
@@ -1526,6 +1598,9 @@ public class Vehicle  implements java.io.Serializable {
             ((this.typeNo==null && other.getTypeNo()==null) || 
              (this.typeNo!=null &&
               this.typeNo.equals(other.getTypeNo()))) &&
+            ((this.type==null && other.getType()==null) || 
+             (this.type!=null &&
+              this.type.equals(other.getType()))) &&
             ((this.typeApproval==null && other.getTypeApproval()==null) || 
              (this.typeApproval!=null &&
               this.typeApproval.equals(other.getTypeApproval()))) &&
@@ -1687,7 +1762,13 @@ public class Vehicle  implements java.io.Serializable {
               java.util.Arrays.equals(this.superstructureChanges, other.getSuperstructureChanges()))) &&
             ((this.adrs==null && other.getAdrs()==null) || 
              (this.adrs!=null &&
-              java.util.Arrays.equals(this.adrs, other.getAdrs())));
+              java.util.Arrays.equals(this.adrs, other.getAdrs()))) &&
+            ((this.latestRegistration==null && other.getLatestRegistration()==null) || 
+             (this.latestRegistration!=null &&
+              this.latestRegistration.equals(other.getLatestRegistration()))) &&
+            ((this.queryTimeStamp==null && other.getQueryTimeStamp()==null) || 
+             (this.queryTimeStamp!=null &&
+              this.queryTimeStamp.equals(other.getQueryTimeStamp())));
         __equalsCalc = null;
         return _equals;
     }
@@ -1710,6 +1791,9 @@ public class Vehicle  implements java.io.Serializable {
         }
         if (getTypeNo() != null) {
             _hashCode += getTypeNo().hashCode();
+        }
+        if (getType() != null) {
+            _hashCode += getType().hashCode();
         }
         if (getTypeApproval() != null) {
             _hashCode += getTypeApproval().hashCode();
@@ -2009,6 +2093,12 @@ public class Vehicle  implements java.io.Serializable {
                 }
             }
         }
+        if (getLatestRegistration() != null) {
+            _hashCode += getLatestRegistration().hashCode();
+        }
+        if (getQueryTimeStamp() != null) {
+            _hashCode += getQueryTimeStamp().hashCode();
+        }
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -2043,6 +2133,13 @@ public class Vehicle  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("typeNo");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "TypeNo"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("type");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Type"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
@@ -2463,6 +2560,19 @@ public class Vehicle  implements java.io.Serializable {
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         elemField.setItemQName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Adr"));
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("latestRegistration");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "LatestRegistration"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("queryTimeStamp");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "QueryTimeStamp"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
+        elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
 

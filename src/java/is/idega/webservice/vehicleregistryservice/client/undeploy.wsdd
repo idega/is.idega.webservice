@@ -11,8 +11,8 @@
 
   <!-- Services from VehicleRegistryService WSDL service -->
 
-  <service name="VehicleRegistryServiceSoap"/>
   <service name="VehicleRegistryServiceSoap12"/>
-  <service name="VehicleRegistryServiceHttpPost"/>
   <service name="VehicleRegistryServiceHttpGet"/>
+  <service name="VehicleRegistryServiceSoap"/>
+  <service name="VehicleRegistryServiceHttpPost"/>
 </undeployment>

@@ -25,51 +25,6 @@ public class VehicleRegistryServiceLocator extends org.apache.axis.client.Servic
         super(wsdlLoc, sName);
     }
 
-    // Use to get a proxy class for VehicleRegistryServiceSoap
-    private java.lang.String VehicleRegistryServiceSoap_address = "https://ws.lt.is/vehicleregistry/vehicleregistryservice.asmx";
-
-    public java.lang.String getVehicleRegistryServiceSoapAddress() {
-        return VehicleRegistryServiceSoap_address;
-    }
-
-    // The WSDD service name defaults to the port name.
-    private java.lang.String VehicleRegistryServiceSoapWSDDServiceName = "VehicleRegistryServiceSoap";
-
-    public java.lang.String getVehicleRegistryServiceSoapWSDDServiceName() {
-        return VehicleRegistryServiceSoapWSDDServiceName;
-    }
-
-    public void setVehicleRegistryServiceSoapWSDDServiceName(java.lang.String name) {
-        VehicleRegistryServiceSoapWSDDServiceName = name;
-    }
-
-    public is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_PortType getVehicleRegistryServiceSoap() throws javax.xml.rpc.ServiceException {
-       java.net.URL endpoint;
-        try {
-            endpoint = new java.net.URL(VehicleRegistryServiceSoap_address);
-        }
-        catch (java.net.MalformedURLException e) {
-            throw new javax.xml.rpc.ServiceException(e);
-        }
-        return getVehicleRegistryServiceSoap(endpoint);
-    }
-
-    public is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_PortType getVehicleRegistryServiceSoap(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
-        try {
-            is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_BindingStub _stub = new is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_BindingStub(portAddress, this);
-            _stub.setPortName(getVehicleRegistryServiceSoapWSDDServiceName());
-            return _stub;
-        }
-        catch (org.apache.axis.AxisFault e) {
-            return null;
-        }
-    }
-
-    public void setVehicleRegistryServiceSoapEndpointAddress(java.lang.String address) {
-        VehicleRegistryServiceSoap_address = address;
-    }
-
-
     // Use to get a proxy class for VehicleRegistryServiceSoap12
     private java.lang.String VehicleRegistryServiceSoap12_address = "https://ws.lt.is/vehicleregistry/vehicleregistryservice.asmx";
 
@@ -114,6 +69,51 @@ public class VehicleRegistryServiceLocator extends org.apache.axis.client.Servic
         VehicleRegistryServiceSoap12_address = address;
     }
 
+
+    // Use to get a proxy class for VehicleRegistryServiceSoap
+    private java.lang.String VehicleRegistryServiceSoap_address = "https://ws.lt.is/vehicleregistry/vehicleregistryservice.asmx";
+
+    public java.lang.String getVehicleRegistryServiceSoapAddress() {
+        return VehicleRegistryServiceSoap_address;
+    }
+
+    // The WSDD service name defaults to the port name.
+    private java.lang.String VehicleRegistryServiceSoapWSDDServiceName = "VehicleRegistryServiceSoap";
+
+    public java.lang.String getVehicleRegistryServiceSoapWSDDServiceName() {
+        return VehicleRegistryServiceSoapWSDDServiceName;
+    }
+
+    public void setVehicleRegistryServiceSoapWSDDServiceName(java.lang.String name) {
+        VehicleRegistryServiceSoapWSDDServiceName = name;
+    }
+
+    public is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_PortType getVehicleRegistryServiceSoap() throws javax.xml.rpc.ServiceException {
+       java.net.URL endpoint;
+        try {
+            endpoint = new java.net.URL(VehicleRegistryServiceSoap_address);
+        }
+        catch (java.net.MalformedURLException e) {
+            throw new javax.xml.rpc.ServiceException(e);
+        }
+        return getVehicleRegistryServiceSoap(endpoint);
+    }
+
+    public is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_PortType getVehicleRegistryServiceSoap(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+        try {
+            is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_BindingStub _stub = new is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_BindingStub(portAddress, this);
+            _stub.setPortName(getVehicleRegistryServiceSoapWSDDServiceName());
+            return _stub;
+        }
+        catch (org.apache.axis.AxisFault e) {
+            return null;
+        }
+    }
+
+    public void setVehicleRegistryServiceSoapEndpointAddress(java.lang.String address) {
+        VehicleRegistryServiceSoap_address = address;
+    }
+
     /**
      * For the given interface, get the stub implementation.
      * If this service has no port for the given interface,
@@ -124,13 +124,13 @@ public class VehicleRegistryServiceLocator extends org.apache.axis.client.Servic
     public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
         try {
             if (is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
-                is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_BindingStub _stub = new is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_BindingStub(new java.net.URL(VehicleRegistryServiceSoap_address), this);
-                _stub.setPortName(getVehicleRegistryServiceSoapWSDDServiceName());
+                is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap12Stub _stub = new is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap12Stub(new java.net.URL(VehicleRegistryServiceSoap12_address), this);
+                _stub.setPortName(getVehicleRegistryServiceSoap12WSDDServiceName());
                 return _stub;
             }
             if (is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_PortType.class.isAssignableFrom(serviceEndpointInterface)) {
-                is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap12Stub _stub = new is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap12Stub(new java.net.URL(VehicleRegistryServiceSoap12_address), this);
-                _stub.setPortName(getVehicleRegistryServiceSoap12WSDDServiceName());
+                is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_BindingStub _stub = new is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_BindingStub(new java.net.URL(VehicleRegistryServiceSoap_address), this);
+                _stub.setPortName(getVehicleRegistryServiceSoapWSDDServiceName());
                 return _stub;
             }
         }
@@ -150,11 +150,11 @@ public class VehicleRegistryServiceLocator extends org.apache.axis.client.Servic
             return getPort(serviceEndpointInterface);
         }
         java.lang.String inputPortName = portName.getLocalPart();
-        if ("VehicleRegistryServiceSoap".equals(inputPortName)) {
-            return getVehicleRegistryServiceSoap();
-        }
-        else if ("VehicleRegistryServiceSoap12".equals(inputPortName)) {
+        if ("VehicleRegistryServiceSoap12".equals(inputPortName)) {
             return getVehicleRegistryServiceSoap12();
+        }
+        else if ("VehicleRegistryServiceSoap".equals(inputPortName)) {
+            return getVehicleRegistryServiceSoap();
         }
         else  {
             java.rmi.Remote _stub = getPort(serviceEndpointInterface);
@@ -172,8 +172,8 @@ public class VehicleRegistryServiceLocator extends org.apache.axis.client.Servic
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "VehicleRegistryServiceSoap"));
             ports.add(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "VehicleRegistryServiceSoap12"));
+            ports.add(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "VehicleRegistryServiceSoap"));
         }
         return ports.iterator();
     }
@@ -183,12 +183,12 @@ public class VehicleRegistryServiceLocator extends org.apache.axis.client.Servic
     */
     public void setEndpointAddress(java.lang.String portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
         
-if ("VehicleRegistryServiceSoap".equals(portName)) {
-            setVehicleRegistryServiceSoapEndpointAddress(address);
-        }
-        else 
 if ("VehicleRegistryServiceSoap12".equals(portName)) {
             setVehicleRegistryServiceSoap12EndpointAddress(address);
+        }
+        else 
+if ("VehicleRegistryServiceSoap".equals(portName)) {
+            setVehicleRegistryServiceSoapEndpointAddress(address);
         }
         else 
 { // Unknown Port Name

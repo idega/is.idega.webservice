@@ -12,14 +12,18 @@ public class VehicleAll  implements java.io.Serializable {
 
     private is.idega.webservice.vehicleregistryservice.client.VehicleExtra vehicleExtra;
 
+    private java.util.Calendar queryTimeStamp;
+
     public VehicleAll() {
     }
 
     public VehicleAll(
            is.idega.webservice.vehicleregistryservice.client.Vehicle vehicle,
-           is.idega.webservice.vehicleregistryservice.client.VehicleExtra vehicleExtra) {
+           is.idega.webservice.vehicleregistryservice.client.VehicleExtra vehicleExtra,
+           java.util.Calendar queryTimeStamp) {
            this.vehicle = vehicle;
            this.vehicleExtra = vehicleExtra;
+           this.queryTimeStamp = queryTimeStamp;
     }
 
 
@@ -62,6 +66,26 @@ public class VehicleAll  implements java.io.Serializable {
         this.vehicleExtra = vehicleExtra;
     }
 
+
+    /**
+     * Gets the queryTimeStamp value for this VehicleAll.
+     * 
+     * @return queryTimeStamp
+     */
+    public java.util.Calendar getQueryTimeStamp() {
+        return queryTimeStamp;
+    }
+
+
+    /**
+     * Sets the queryTimeStamp value for this VehicleAll.
+     * 
+     * @param queryTimeStamp
+     */
+    public void setQueryTimeStamp(java.util.Calendar queryTimeStamp) {
+        this.queryTimeStamp = queryTimeStamp;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof VehicleAll)) return false;
@@ -79,7 +103,10 @@ public class VehicleAll  implements java.io.Serializable {
               this.vehicle.equals(other.getVehicle()))) &&
             ((this.vehicleExtra==null && other.getVehicleExtra()==null) || 
              (this.vehicleExtra!=null &&
-              this.vehicleExtra.equals(other.getVehicleExtra())));
+              this.vehicleExtra.equals(other.getVehicleExtra()))) &&
+            ((this.queryTimeStamp==null && other.getQueryTimeStamp()==null) || 
+             (this.queryTimeStamp!=null &&
+              this.queryTimeStamp.equals(other.getQueryTimeStamp())));
         __equalsCalc = null;
         return _equals;
     }
@@ -96,6 +123,9 @@ public class VehicleAll  implements java.io.Serializable {
         }
         if (getVehicleExtra() != null) {
             _hashCode += getVehicleExtra().hashCode();
+        }
+        if (getQueryTimeStamp() != null) {
+            _hashCode += getQueryTimeStamp().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -119,6 +149,12 @@ public class VehicleAll  implements java.io.Serializable {
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "VehicleExtra"));
         elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "VehicleExtra"));
         elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("queryTimeStamp");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "QueryTimeStamp"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }

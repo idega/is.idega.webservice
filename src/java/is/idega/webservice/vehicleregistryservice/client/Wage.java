@@ -8,23 +8,23 @@
 package is.idega.webservice.vehicleregistryservice.client;
 
 public class Wage  implements java.io.Serializable {
-    private java.lang.String automobileTax;
-
-    private java.lang.String insurance;
-
-    private java.lang.String weightTax;
+    private java.lang.String weightTaxNotOverDuePayments;
 
     private java.lang.String weightTaxInterestOnOverduePayments;
 
     private java.lang.String weightTaxCosts;
 
+    private java.lang.String automobileTax;
+
     private java.lang.String automobileTaxNotOverDuePayments;
 
-    private java.lang.String weightTaxNotOverDuePayments;
+    private java.lang.String automobileTaxInterestOnOverduePayments;
 
     private java.lang.String automobileTaxCosts;
 
-    private java.lang.String automobileTaxInterestOnOverduePayments;
+    private java.lang.String insurance;
+
+    private java.lang.String weightTax;
 
     private java.lang.String interestRate;
 
@@ -38,28 +38,28 @@ public class Wage  implements java.io.Serializable {
     }
 
     public Wage(
-           java.lang.String automobileTax,
-           java.lang.String insurance,
-           java.lang.String weightTax,
+           java.lang.String weightTaxNotOverDuePayments,
            java.lang.String weightTaxInterestOnOverduePayments,
            java.lang.String weightTaxCosts,
+           java.lang.String automobileTax,
            java.lang.String automobileTaxNotOverDuePayments,
-           java.lang.String weightTaxNotOverDuePayments,
-           java.lang.String automobileTaxCosts,
            java.lang.String automobileTaxInterestOnOverduePayments,
+           java.lang.String automobileTaxCosts,
+           java.lang.String insurance,
+           java.lang.String weightTax,
            java.lang.String interestRate,
            java.lang.String expenses,
            java.lang.String notOverdue,
            java.lang.String total) {
-           this.automobileTax = automobileTax;
-           this.insurance = insurance;
-           this.weightTax = weightTax;
+           this.weightTaxNotOverDuePayments = weightTaxNotOverDuePayments;
            this.weightTaxInterestOnOverduePayments = weightTaxInterestOnOverduePayments;
            this.weightTaxCosts = weightTaxCosts;
+           this.automobileTax = automobileTax;
            this.automobileTaxNotOverDuePayments = automobileTaxNotOverDuePayments;
-           this.weightTaxNotOverDuePayments = weightTaxNotOverDuePayments;
-           this.automobileTaxCosts = automobileTaxCosts;
            this.automobileTaxInterestOnOverduePayments = automobileTaxInterestOnOverduePayments;
+           this.automobileTaxCosts = automobileTaxCosts;
+           this.insurance = insurance;
+           this.weightTax = weightTax;
            this.interestRate = interestRate;
            this.expenses = expenses;
            this.notOverdue = notOverdue;
@@ -68,62 +68,22 @@ public class Wage  implements java.io.Serializable {
 
 
     /**
-     * Gets the automobileTax value for this Wage.
+     * Gets the weightTaxNotOverDuePayments value for this Wage.
      * 
-     * @return automobileTax
+     * @return weightTaxNotOverDuePayments
      */
-    public java.lang.String getAutomobileTax() {
-        return automobileTax;
+    public java.lang.String getWeightTaxNotOverDuePayments() {
+        return weightTaxNotOverDuePayments;
     }
 
 
     /**
-     * Sets the automobileTax value for this Wage.
+     * Sets the weightTaxNotOverDuePayments value for this Wage.
      * 
-     * @param automobileTax
+     * @param weightTaxNotOverDuePayments
      */
-    public void setAutomobileTax(java.lang.String automobileTax) {
-        this.automobileTax = automobileTax;
-    }
-
-
-    /**
-     * Gets the insurance value for this Wage.
-     * 
-     * @return insurance
-     */
-    public java.lang.String getInsurance() {
-        return insurance;
-    }
-
-
-    /**
-     * Sets the insurance value for this Wage.
-     * 
-     * @param insurance
-     */
-    public void setInsurance(java.lang.String insurance) {
-        this.insurance = insurance;
-    }
-
-
-    /**
-     * Gets the weightTax value for this Wage.
-     * 
-     * @return weightTax
-     */
-    public java.lang.String getWeightTax() {
-        return weightTax;
-    }
-
-
-    /**
-     * Sets the weightTax value for this Wage.
-     * 
-     * @param weightTax
-     */
-    public void setWeightTax(java.lang.String weightTax) {
-        this.weightTax = weightTax;
+    public void setWeightTaxNotOverDuePayments(java.lang.String weightTaxNotOverDuePayments) {
+        this.weightTaxNotOverDuePayments = weightTaxNotOverDuePayments;
     }
 
 
@@ -168,6 +128,26 @@ public class Wage  implements java.io.Serializable {
 
 
     /**
+     * Gets the automobileTax value for this Wage.
+     * 
+     * @return automobileTax
+     */
+    public java.lang.String getAutomobileTax() {
+        return automobileTax;
+    }
+
+
+    /**
+     * Sets the automobileTax value for this Wage.
+     * 
+     * @param automobileTax
+     */
+    public void setAutomobileTax(java.lang.String automobileTax) {
+        this.automobileTax = automobileTax;
+    }
+
+
+    /**
      * Gets the automobileTaxNotOverDuePayments value for this Wage.
      * 
      * @return automobileTaxNotOverDuePayments
@@ -188,22 +168,22 @@ public class Wage  implements java.io.Serializable {
 
 
     /**
-     * Gets the weightTaxNotOverDuePayments value for this Wage.
+     * Gets the automobileTaxInterestOnOverduePayments value for this Wage.
      * 
-     * @return weightTaxNotOverDuePayments
+     * @return automobileTaxInterestOnOverduePayments
      */
-    public java.lang.String getWeightTaxNotOverDuePayments() {
-        return weightTaxNotOverDuePayments;
+    public java.lang.String getAutomobileTaxInterestOnOverduePayments() {
+        return automobileTaxInterestOnOverduePayments;
     }
 
 
     /**
-     * Sets the weightTaxNotOverDuePayments value for this Wage.
+     * Sets the automobileTaxInterestOnOverduePayments value for this Wage.
      * 
-     * @param weightTaxNotOverDuePayments
+     * @param automobileTaxInterestOnOverduePayments
      */
-    public void setWeightTaxNotOverDuePayments(java.lang.String weightTaxNotOverDuePayments) {
-        this.weightTaxNotOverDuePayments = weightTaxNotOverDuePayments;
+    public void setAutomobileTaxInterestOnOverduePayments(java.lang.String automobileTaxInterestOnOverduePayments) {
+        this.automobileTaxInterestOnOverduePayments = automobileTaxInterestOnOverduePayments;
     }
 
 
@@ -228,22 +208,42 @@ public class Wage  implements java.io.Serializable {
 
 
     /**
-     * Gets the automobileTaxInterestOnOverduePayments value for this Wage.
+     * Gets the insurance value for this Wage.
      * 
-     * @return automobileTaxInterestOnOverduePayments
+     * @return insurance
      */
-    public java.lang.String getAutomobileTaxInterestOnOverduePayments() {
-        return automobileTaxInterestOnOverduePayments;
+    public java.lang.String getInsurance() {
+        return insurance;
     }
 
 
     /**
-     * Sets the automobileTaxInterestOnOverduePayments value for this Wage.
+     * Sets the insurance value for this Wage.
      * 
-     * @param automobileTaxInterestOnOverduePayments
+     * @param insurance
      */
-    public void setAutomobileTaxInterestOnOverduePayments(java.lang.String automobileTaxInterestOnOverduePayments) {
-        this.automobileTaxInterestOnOverduePayments = automobileTaxInterestOnOverduePayments;
+    public void setInsurance(java.lang.String insurance) {
+        this.insurance = insurance;
+    }
+
+
+    /**
+     * Gets the weightTax value for this Wage.
+     * 
+     * @return weightTax
+     */
+    public java.lang.String getWeightTax() {
+        return weightTax;
+    }
+
+
+    /**
+     * Sets the weightTax value for this Wage.
+     * 
+     * @param weightTax
+     */
+    public void setWeightTax(java.lang.String weightTax) {
+        this.weightTax = weightTax;
     }
 
 
@@ -338,33 +338,33 @@ public class Wage  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
-            ((this.automobileTax==null && other.getAutomobileTax()==null) || 
-             (this.automobileTax!=null &&
-              this.automobileTax.equals(other.getAutomobileTax()))) &&
-            ((this.insurance==null && other.getInsurance()==null) || 
-             (this.insurance!=null &&
-              this.insurance.equals(other.getInsurance()))) &&
-            ((this.weightTax==null && other.getWeightTax()==null) || 
-             (this.weightTax!=null &&
-              this.weightTax.equals(other.getWeightTax()))) &&
+            ((this.weightTaxNotOverDuePayments==null && other.getWeightTaxNotOverDuePayments()==null) || 
+             (this.weightTaxNotOverDuePayments!=null &&
+              this.weightTaxNotOverDuePayments.equals(other.getWeightTaxNotOverDuePayments()))) &&
             ((this.weightTaxInterestOnOverduePayments==null && other.getWeightTaxInterestOnOverduePayments()==null) || 
              (this.weightTaxInterestOnOverduePayments!=null &&
               this.weightTaxInterestOnOverduePayments.equals(other.getWeightTaxInterestOnOverduePayments()))) &&
             ((this.weightTaxCosts==null && other.getWeightTaxCosts()==null) || 
              (this.weightTaxCosts!=null &&
               this.weightTaxCosts.equals(other.getWeightTaxCosts()))) &&
+            ((this.automobileTax==null && other.getAutomobileTax()==null) || 
+             (this.automobileTax!=null &&
+              this.automobileTax.equals(other.getAutomobileTax()))) &&
             ((this.automobileTaxNotOverDuePayments==null && other.getAutomobileTaxNotOverDuePayments()==null) || 
              (this.automobileTaxNotOverDuePayments!=null &&
               this.automobileTaxNotOverDuePayments.equals(other.getAutomobileTaxNotOverDuePayments()))) &&
-            ((this.weightTaxNotOverDuePayments==null && other.getWeightTaxNotOverDuePayments()==null) || 
-             (this.weightTaxNotOverDuePayments!=null &&
-              this.weightTaxNotOverDuePayments.equals(other.getWeightTaxNotOverDuePayments()))) &&
-            ((this.automobileTaxCosts==null && other.getAutomobileTaxCosts()==null) || 
-             (this.automobileTaxCosts!=null &&
-              this.automobileTaxCosts.equals(other.getAutomobileTaxCosts()))) &&
             ((this.automobileTaxInterestOnOverduePayments==null && other.getAutomobileTaxInterestOnOverduePayments()==null) || 
              (this.automobileTaxInterestOnOverduePayments!=null &&
               this.automobileTaxInterestOnOverduePayments.equals(other.getAutomobileTaxInterestOnOverduePayments()))) &&
+            ((this.automobileTaxCosts==null && other.getAutomobileTaxCosts()==null) || 
+             (this.automobileTaxCosts!=null &&
+              this.automobileTaxCosts.equals(other.getAutomobileTaxCosts()))) &&
+            ((this.insurance==null && other.getInsurance()==null) || 
+             (this.insurance!=null &&
+              this.insurance.equals(other.getInsurance()))) &&
+            ((this.weightTax==null && other.getWeightTax()==null) || 
+             (this.weightTax!=null &&
+              this.weightTax.equals(other.getWeightTax()))) &&
             ((this.interestRate==null && other.getInterestRate()==null) || 
              (this.interestRate!=null &&
               this.interestRate.equals(other.getInterestRate()))) &&
@@ -388,14 +388,8 @@ public class Wage  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
-        if (getAutomobileTax() != null) {
-            _hashCode += getAutomobileTax().hashCode();
-        }
-        if (getInsurance() != null) {
-            _hashCode += getInsurance().hashCode();
-        }
-        if (getWeightTax() != null) {
-            _hashCode += getWeightTax().hashCode();
+        if (getWeightTaxNotOverDuePayments() != null) {
+            _hashCode += getWeightTaxNotOverDuePayments().hashCode();
         }
         if (getWeightTaxInterestOnOverduePayments() != null) {
             _hashCode += getWeightTaxInterestOnOverduePayments().hashCode();
@@ -403,17 +397,23 @@ public class Wage  implements java.io.Serializable {
         if (getWeightTaxCosts() != null) {
             _hashCode += getWeightTaxCosts().hashCode();
         }
+        if (getAutomobileTax() != null) {
+            _hashCode += getAutomobileTax().hashCode();
+        }
         if (getAutomobileTaxNotOverDuePayments() != null) {
             _hashCode += getAutomobileTaxNotOverDuePayments().hashCode();
         }
-        if (getWeightTaxNotOverDuePayments() != null) {
-            _hashCode += getWeightTaxNotOverDuePayments().hashCode();
+        if (getAutomobileTaxInterestOnOverduePayments() != null) {
+            _hashCode += getAutomobileTaxInterestOnOverduePayments().hashCode();
         }
         if (getAutomobileTaxCosts() != null) {
             _hashCode += getAutomobileTaxCosts().hashCode();
         }
-        if (getAutomobileTaxInterestOnOverduePayments() != null) {
-            _hashCode += getAutomobileTaxInterestOnOverduePayments().hashCode();
+        if (getInsurance() != null) {
+            _hashCode += getInsurance().hashCode();
+        }
+        if (getWeightTax() != null) {
+            _hashCode += getWeightTax().hashCode();
         }
         if (getInterestRate() != null) {
             _hashCode += getInterestRate().hashCode();
@@ -438,22 +438,8 @@ public class Wage  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Wage"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("automobileTax");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AutomobileTax"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("insurance");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Insurance"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("weightTax");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "WeightTax"));
+        elemField.setFieldName("weightTaxNotOverDuePayments");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "WeightTaxNotOverDuePayments"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
@@ -473,6 +459,13 @@ public class Wage  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("automobileTax");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AutomobileTax"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("automobileTaxNotOverDuePayments");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AutomobileTaxNotOverDuePayments"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -480,8 +473,8 @@ public class Wage  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("weightTaxNotOverDuePayments");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "WeightTaxNotOverDuePayments"));
+        elemField.setFieldName("automobileTaxInterestOnOverduePayments");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AutomobileTaxInterestOnOverduePayments"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
@@ -494,8 +487,15 @@ public class Wage  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("automobileTaxInterestOnOverduePayments");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AutomobileTaxInterestOnOverduePayments"));
+        elemField.setFieldName("insurance");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Insurance"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("weightTax");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "WeightTax"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
