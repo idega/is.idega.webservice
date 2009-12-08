@@ -28,7 +28,7 @@ public class MainSoap_BindingSkeleton implements is.idega.webservice.propertyreg
 
     static {
         org.apache.axis.description.OperationDesc _oper;
-        org.apache.axis.description.FaultDesc _fault;
+        //org.apache.axis.description.FaultDesc _fault;
         org.apache.axis.description.ParameterDesc [] _params;
         _params = new org.apache.axis.description.ParameterDesc [] {
         };

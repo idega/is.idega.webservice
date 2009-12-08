@@ -164,7 +164,7 @@ public class TestClient {
 			length = elements.length;
 						
 			for (int i = 0; i < length; i++) {
-				MessageElement element = elements[i];
+				//MessageElement element = elements[i];
 				List<AssessmentEntry> entries = parseEntries(elements[i]);
 				if (entries != null && !entries.isEmpty()) {
 					Iterator it = entries.iterator();
@@ -195,9 +195,9 @@ public class TestClient {
 		}
 	}
 	
-	private byte[] getAssessmentPDF() {
+	/*private byte[] getAssessmentPDF() {
 		return null;
-	}
+	}*/
 	
 	private List<AssessmentEntry> parseEntries(MessageElement element) {
 		List<AssessmentEntry> returnEntries = new ArrayList<AssessmentEntry>();

@@ -8,8 +8,6 @@ import is.idega.webservice.parkingservice.client.ParkedInService_ServiceLocator;
 
 import java.net.URL;
 
-import com.idega.util.IWTimestamp;
-
 public class TestClient {
 	public static void main(String[] args) {
 		TestClient client = new TestClient();
