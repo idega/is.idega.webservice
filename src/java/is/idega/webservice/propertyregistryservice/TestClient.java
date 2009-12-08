@@ -153,7 +153,8 @@ public class TestClient {
 					pInfo[i].setFromValue("2009");
 				}
 				else if (pInfo[i].getFromField().equals("fra_kt")) {
-					pInfo[i].setFromValue("2109595809");					
+					//pInfo[i].setFromValue("2109595809");					
+					pInfo[i].setFromValue("5302697609");					
 				}
 			}
 									
@@ -161,27 +162,31 @@ public class TestClient {
 			MessageElement elements[] = result.get_any();
 
 			length = elements.length;
+						
 			for (int i = 0; i < length; i++) {
 				MessageElement element = elements[i];
 				List<AssessmentEntry> entries = parseEntries(elements[i]);
 				if (entries != null && !entries.isEmpty()) {
 					Iterator it = entries.iterator();
+					int count = 0;
 					while (it.hasNext()) {
 						AssessmentEntry entry = (AssessmentEntry) it.next();
-						System.out.println("name = " + entry.getName());
-						System.out.println("owner percentage = " + entry.getOwnerPercentage());
+						//System.out.println("name = " + entry.getName());
+						//System.out.println("owner percentage = " + entry.getOwnerPercentage());
 						System.out.println("property code = " + entry.getPropertyCode());
 						System.out.println("address = " + entry.getAddress());
-						System.out.println("ass. code = " + entry.getAssessmentCode());
-						System.out.println("ass. info = " + entry.getAssessmentInfo());
-						System.out.println("ass. type = " + entry.getAssessmentType());
-						System.out.println("ass. year = " + entry.getAssessmentYear());
-						System.out.println("ssn = " + entry.getSsn());
+						//System.out.println("ass. code = " + entry.getAssessmentCode());
+						//System.out.println("ass. info = " + entry.getAssessmentInfo());
+						//System.out.println("ass. type = " + entry.getAssessmentType());
+						//System.out.println("ass. year = " + entry.getAssessmentYear());
+						//System.out.println("ssn = " + entry.getSsn());
 						
 						if (entry.getPropertyCode().equals("2022847")) {
 							doStuff2(entry);
 						}
+						count++;
 					}
+					System.out.println("count = " + count);
 				}
 			}
 		}
