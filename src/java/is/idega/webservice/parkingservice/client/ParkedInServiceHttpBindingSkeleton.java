@@ -28,7 +28,7 @@ public class ParkedInServiceHttpBindingSkeleton implements is.idega.webservice.p
 
     static {
         org.apache.axis.description.OperationDesc _oper;
-        org.apache.axis.description.FaultDesc _fault;
+        //org.apache.axis.description.FaultDesc _fault;
         org.apache.axis.description.ParameterDesc [] _params;
         _params = new org.apache.axis.description.ParameterDesc [] {
             new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://client.service.mpark.stokkur", "request"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://types.services.mpark.stokkur", "ParkedInRequest"), is.idega.webservice.parkingservice.client.ParkedInRequest.class, false, false), 

@@ -28,7 +28,7 @@ public class VehicleRegistryServiceSoap_BindingSkeleton implements is.idega.webs
 
     static {
         org.apache.axis.description.OperationDesc _oper;
-        org.apache.axis.description.FaultDesc _fault;
+        //org.apache.axis.description.FaultDesc _fault;
         org.apache.axis.description.ParameterDesc [] _params;
         _params = new org.apache.axis.description.ParameterDesc [] {
             new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "userName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false), 
