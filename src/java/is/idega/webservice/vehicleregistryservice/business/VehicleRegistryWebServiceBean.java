@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import com.idega.core.cache.IWCacheManager2;
 import com.idega.idegaweb.IWMainApplication;
-import com.idega.util.IWTimestamp;
 
 @Scope("singleton")
 @Service("vehicleRegistryWebService")
@@ -58,12 +57,9 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 					return vehicles[0];
 				}
 				else {
-					IWTimestamp stamp = null;
 					String permNo = null;
 					for (Vehicle vehicle : vehicles) {
-						IWTimestamp regDate = new IWTimestamp(vehicle.getFirstregDate());
-						if (stamp == null || stamp.isEarlierThan(regDate)) {
-							stamp = regDate;
+						if (!vehicle.getLatestRegistration().equals("Afskráð")) {
 							permNo = vehicle.getPermNo();
 						}
 					}
@@ -72,9 +68,9 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 						Vehicle permVehicles[] = port.basicVehicleInformation(userid, password, permNo, "", "", "");
 						if (permVehicles != null && permVehicles.length > 0) {
 							if (cache != null) {
-								cache.put(registrationNumber, vehicles[0]);
+								cache.put(registrationNumber, permVehicles[0]);
 							}
-							return vehicles[0];
+							return permVehicles[0];
 						}
 					}
 				}

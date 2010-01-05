@@ -23,8 +23,35 @@ public class TestClient {
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
 			
 			Vehicle vehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", "", "R55055", "", "");
-			System.out.println("vehicles.length = " + vehicles.length);
-			for (Vehicle vehicle: vehicles) {
+
+			Vehicle vehicle = null;
+			if (vehicles != null && vehicles.length > 0) {
+				if (vehicles.length == 1) {
+					System.out.println("Found only one vehicle...");
+					vehicle = vehicles[0];
+				}
+				else {
+					System.out.println("Found more than one vehicle...");
+					String permNo = null;
+					for (Vehicle vehicle1 : vehicles) {
+						System.out.println("Vehicle: " + vehicle1.getPermNo() + " / " + vehicle1.getLatestRegistration());
+						if (!vehicle1.getLatestRegistration().equals("Afskráð")) {
+							permNo = vehicle1.getPermNo();
+						}
+					}
+					
+					if (permNo != null) {
+						System.out.println("Using permNo: " + permNo);
+						Vehicle permVehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", permNo, "", "", "");
+						if (permVehicles != null && permVehicles.length > 0) {
+							System.out.println(permVehicles.length);
+							vehicle = permVehicles[0];
+						}
+					}
+				}
+			}
+
+			if (vehicle != null) {
 				System.out.println("vehicle.get_import() = " + vehicle.get_import());
 				System.out.println("vehicle.getColor() = " + vehicle.getColor());
 				System.out.println("vehicle.getCountry() = " + vehicle.getCountry());
