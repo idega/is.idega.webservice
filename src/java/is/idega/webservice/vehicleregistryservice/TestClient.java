@@ -22,7 +22,7 @@ public class TestClient {
 			VehicleRegistryServiceLocator locator = new VehicleRegistryServiceLocator();
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
 			
-			Vehicle vehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", "", "R55055", "", "");
+			Vehicle vehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", "", "AB421", "", "");
 
 			Vehicle vehicle = null;
 			if (vehicles != null && vehicles.length > 0) {
@@ -35,7 +35,7 @@ public class TestClient {
 					String permNo = null;
 					for (Vehicle vehicle1 : vehicles) {
 						System.out.println("Vehicle: " + vehicle1.getPermNo() + " / " + vehicle1.getLatestRegistration());
-						if (!vehicle1.getLatestRegistration().equals("Afskráð")) {
+						if (!vehicle1.getLatestRegistration().startsWith("Afskr")) {
 							permNo = vehicle1.getPermNo();
 						}
 					}

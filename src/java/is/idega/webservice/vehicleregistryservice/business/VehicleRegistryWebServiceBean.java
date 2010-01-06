@@ -59,7 +59,7 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 				else {
 					String permNo = null;
 					for (Vehicle vehicle : vehicles) {
-						if (!vehicle.getLatestRegistration().equals("Afskráð")) {
+						if (!vehicle.getLatestRegistration().startsWith("Afskr")) {
 							permNo = vehicle.getPermNo();
 						}
 					}
