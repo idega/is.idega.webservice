@@ -7,6 +7,8 @@ import is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceS
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Map;
 
 import javax.xml.rpc.ServiceException;
@@ -58,9 +60,25 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 				}
 				else {
 					String permNo = null;
+
+					Collection<Vehicle> registered = new ArrayList<Vehicle>();
 					for (Vehicle vehicle : vehicles) {
 						if (!vehicle.getLatestRegistration().startsWith("Afskr")) {
-							permNo = vehicle.getPermNo();
+							registered.add(vehicle);
+						}
+					}
+					
+					if (!registered.isEmpty()) {
+						if (registered.size() == 1) {
+							permNo = registered.iterator().next().getPermNo();
+						}
+						else {
+							for (Vehicle vehicle : registered) {
+								if (vehicle.getPermNo().equalsIgnoreCase(registrationNumber)) {
+									permNo = vehicle.getPermNo();
+									break;
+								}
+							}
 						}
 					}
 					

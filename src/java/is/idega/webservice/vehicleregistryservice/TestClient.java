@@ -8,6 +8,8 @@ import is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceL
 import is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_PortType;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class TestClient {
 	public static void main(String[] args) {
@@ -21,8 +23,10 @@ public class TestClient {
 
 			VehicleRegistryServiceLocator locator = new VehicleRegistryServiceLocator();
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
-			
-			Vehicle vehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", "", "AB421", "", "");
+
+			//MD998, SD816
+			String vehicleNumber = "MD998";
+			Vehicle vehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", "", vehicleNumber, "", "");
 
 			Vehicle vehicle = null;
 			if (vehicles != null && vehicles.length > 0) {
@@ -33,10 +37,26 @@ public class TestClient {
 				else {
 					System.out.println("Found more than one vehicle...");
 					String permNo = null;
+					
+					Collection<Vehicle> registered = new ArrayList<Vehicle>();
 					for (Vehicle vehicle1 : vehicles) {
 						System.out.println("Vehicle: " + vehicle1.getPermNo() + " / " + vehicle1.getLatestRegistration());
 						if (!vehicle1.getLatestRegistration().startsWith("Afskr")) {
-							permNo = vehicle1.getPermNo();
+							registered.add(vehicle1);
+						}
+					}
+					
+					if (!registered.isEmpty()) {
+						if (registered.size() == 1) {
+							permNo = registered.iterator().next().getPermNo();
+						}
+						else {
+							for (Vehicle vehicle2 : registered) {
+								if (vehicle2.getPermNo().equals(vehicleNumber)) {
+									permNo = vehicle2.getPermNo();
+									break;
+								}
+							}
 						}
 					}
 					
