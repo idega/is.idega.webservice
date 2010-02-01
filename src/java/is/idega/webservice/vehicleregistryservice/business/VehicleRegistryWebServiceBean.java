@@ -56,7 +56,12 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 					if (cache != null) {
 						cache.put(registrationNumber, vehicles[0]);
 					}
-					return vehicles[0];
+					if (!vehicles[0].getLatestRegistration().startsWith("Afskr")) {
+						return vehicles[0];
+					}
+					else {
+						return null;
+					}
 				}
 				else {
 					String permNo = null;
