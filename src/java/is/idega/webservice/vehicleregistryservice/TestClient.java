@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import com.idega.util.IWTimestamp;
+
 public class TestClient {
 	public static void main(String[] args) {
 		TestClient client = new TestClient();
@@ -25,7 +27,7 @@ public class TestClient {
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
 
 			//MD998, SD816
-			String vehicleNumber = "VV213";
+			String vehicleNumber = "G193";
 			Vehicle vehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", "", vehicleNumber, "", "");
 
 			Vehicle vehicle = null;
@@ -55,6 +57,18 @@ public class TestClient {
 								if (vehicle2.getPermNo().equals(vehicleNumber)) {
 									permNo = vehicle2.getPermNo();
 									break;
+								}
+							}
+							
+							if (permNo == null) {
+								IWTimestamp lastRegistration = null;
+								for (Vehicle vehicle2 : registered) {
+									IWTimestamp firstRegistration = new IWTimestamp(vehicle2.getFirstregDate());
+									System.out.println("Vehicle: " + vehicle2.getPermNo() + " / " + vehicle2.getFirstregDate());
+									if (lastRegistration == null || (lastRegistration != null && lastRegistration.isEarlierThan(firstRegistration))) {
+										lastRegistration = firstRegistration;
+										permNo = vehicle2.getPermNo();
+									}
 								}
 							}
 						}
