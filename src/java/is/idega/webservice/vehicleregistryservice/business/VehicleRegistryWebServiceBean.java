@@ -51,6 +51,8 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 		try {
 			VehicleRegistryServiceLocator locator = new VehicleRegistryServiceLocator();
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
+			((org.apache.axis.client.Stub) port).setTimeout(5000); //Setting timeout to stop the load if the service is not answering
+
 			Vehicle vehicles[] = port.basicVehicleInformation(userid, password, "", registrationNumber, "", "");
 			if (vehicles != null && vehicles.length > 0) {
 				if (vehicles.length == 1) {
