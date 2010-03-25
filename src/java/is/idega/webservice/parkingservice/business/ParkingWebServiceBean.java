@@ -29,9 +29,13 @@ public class ParkingWebServiceBean implements ParkingWebService {
 		String userid = IWMainApplication.getDefaultIWApplicationContext()
 				.getApplicationSettings().getProperty(PARKING_SERVICE_USER, "");
 		
+		int timeout = Integer.parseInt(IWMainApplication.getDefaultIWApplicationContext().getApplicationSettings().getProperty("egov.parking.timeout", "5000"));
+		
 		try {
 			ParkedInService_ServiceLocator locator = new ParkedInService_ServiceLocator();
 			ParkedInService_PortType port = locator.getParkedInServiceHttpPort(new URL(endpoint));
+			((org.apache.axis.client.Stub) port).setTimeout(timeout); //Setting timeout to stop the load if the service is not answering
+
 			ParkedInRequest request = new ParkedInRequest(registrationNumber, userid);
 			ParkedInReply reply = port.parkedIn(request);
 			if (reply != null) {

@@ -176,9 +176,12 @@ public class PropertyRegistryWebServiceBean implements
 		String company = IWMainApplication.getDefaultIWApplicationContext()
 				.getApplicationSettings().getProperty(TAX_COMPANY, "");
 
+		int timeout = Integer.parseInt(IWMainApplication.getDefaultIWApplicationContext().getApplicationSettings().getProperty("egov.propertytax.timeout", "60000"));
+
 		try {
 			MainLocator locator = new MainLocator();
 			MainSoap_PortType port = locator.getMainSoap(new URL(endpoint));
+			((org.apache.axis.client.Stub) port).setTimeout(timeout); //Setting timeout to stop the load if the service is not answering
 			String session = port.login(company, userid, password);
 			
 			StringBuffer filter = new StringBuffer("vweigandi_alagar = '");

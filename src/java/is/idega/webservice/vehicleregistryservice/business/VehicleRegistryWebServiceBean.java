@@ -39,6 +39,8 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 				.getApplicationSettings().getProperty(
 						VEHICLE_REGISTRY_PASSWORD, "");
 
+		int timeout = Integer.parseInt(IWMainApplication.getDefaultIWApplicationContext().getApplicationSettings().getProperty("egov.parking.timeout", "5000"));
+
 		IWCacheManager2 manager = IWCacheManager2.getInstance(IWMainApplication.getDefaultIWMainApplication());
 		Map cache = null;
 		if (manager != null) {
@@ -51,7 +53,7 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 		try {
 			VehicleRegistryServiceLocator locator = new VehicleRegistryServiceLocator();
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
-			((org.apache.axis.client.Stub) port).setTimeout(5000); //Setting timeout to stop the load if the service is not answering
+			((org.apache.axis.client.Stub) port).setTimeout(timeout); //Setting timeout to stop the load if the service is not answering
 
 			Vehicle vehicles[] = port.basicVehicleInformation(userid, password, "", registrationNumber, "", "");
 			if (vehicles != null && vehicles.length > 0) {
