@@ -27,7 +27,7 @@ public class TestClient {
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
 
 			//MD998, SD816
-			String vehicleNumber = "G193";
+			String vehicleNumber = "SV339";
 			Vehicle vehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", "", vehicleNumber, "", "");
 
 			Vehicle vehicle = null;

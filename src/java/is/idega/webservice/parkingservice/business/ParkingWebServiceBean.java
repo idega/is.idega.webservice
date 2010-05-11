@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import com.idega.idegaweb.IWMainApplication;
+import com.idega.util.IWTimestamp;
 
 @Scope("singleton")
 @Service("parkingWebService")
@@ -23,6 +24,10 @@ public class ParkingWebServiceBean implements ParkingWebService {
 	private static final String PARKING_SERVICE_USER = "parking_service_user";
 
 	public ParkedInReply getParkingInfo(String registrationNumber) {
+		long start = System.currentTimeMillis();
+		
+		System.out.println("[ParkingWebService] Starting lookup on vehicle '" + registrationNumber + "': " + new IWTimestamp(start).toString());
+
 		String endpoint = IWMainApplication.getDefaultIWApplicationContext()
 				.getApplicationSettings().getProperty(PARKING_SERVICE_ENDPOINT,
 						"");
@@ -35,10 +40,12 @@ public class ParkingWebServiceBean implements ParkingWebService {
 			ParkedInService_ServiceLocator locator = new ParkedInService_ServiceLocator();
 			ParkedInService_PortType port = locator.getParkedInServiceHttpPort(new URL(endpoint));
 			((org.apache.axis.client.Stub) port).setTimeout(timeout); //Setting timeout to stop the load if the service is not answering
+			System.out.println("[ParkingWebService] Fetching parking info for '" + registrationNumber + "' from web service: " + (System.currentTimeMillis() - start) + "ms");
 
 			ParkedInRequest request = new ParkedInRequest(registrationNumber, userid);
 			ParkedInReply reply = port.parkedIn(request);
 			if (reply != null) {
+				System.out.println("[ParkingWebService] Returning parking info for '" + registrationNumber + "': " + (System.currentTimeMillis() - start) + "ms");
 				return reply;
 			}
 		} catch (MalformedURLException e) {
@@ -49,6 +56,7 @@ public class ParkingWebServiceBean implements ParkingWebService {
 			e.printStackTrace();
 		}		
 
+		System.out.println("[ParkingWebService] Returning null for '" + registrationNumber + "': " + (System.currentTimeMillis() - start) + "ms");
 		return null;
 	}
 }
