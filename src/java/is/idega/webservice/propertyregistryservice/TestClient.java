@@ -52,9 +52,9 @@ public class TestClient {
 				}
 			}
 
-			//String session = port.login(company, "wsreykjavik", "99Ert");
+			String session = port.login(company, "wsreykjavik", "99Ert");
 			//String session = port.login(company, "wsrvk", "rvk5762");
-			String session = port.login(company, "idegapalli", "58Rfv");
+			//String session = port.login(company, "idegapalli", "58Rfv");
 			
 			String query = "lfafg220";
 			if (Integer.parseInt(entry.getAssessmentType()) > 1) {
