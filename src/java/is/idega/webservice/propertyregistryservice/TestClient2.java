@@ -53,7 +53,7 @@ public class TestClient2 {
 
 			GetDataResponseGetDataResult result = port.getData(session,
 					"meini", "meini_alagar = '2009' and meini_heimilisfang='"
-							+ "Ljósavík 24" + "'", false);
+							+ "Laufásvegur 18A" + "'", false);
 
 			
 			MessageElement properties[] = result.get_any();

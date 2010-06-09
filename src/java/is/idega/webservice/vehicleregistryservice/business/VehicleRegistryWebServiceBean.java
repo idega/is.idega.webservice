@@ -31,7 +31,9 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 	public Vehicle getVehicleInfo(String registrationNumber) {
 		long start = System.currentTimeMillis();
 		
-		System.out.println("[VehicleRegistryWebService] Starting lookup on vehicle '" + registrationNumber + "': " + new IWTimestamp(start).toString());
+		if (IWMainApplication.isDebugActive()) {
+			System.out.println("[VehicleRegistryWebService] Starting lookup on vehicle '" + registrationNumber + "': " + new IWTimestamp(start).toString());
+		}
 		String endpoint = IWMainApplication.getDefaultIWApplicationContext()
 				.getApplicationSettings().getProperty(
 						VEHICLE_REGISTRY_ENDPOINT, "");
@@ -49,7 +51,9 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 		if (manager != null) {
 			cache = manager.getCache(VEHICLE_REGISTRY_CACHE);
 			if (cache.containsKey(registrationNumber)) {
-				System.out.println("[VehicleRegistryWebService] Fetching vehicle '" + registrationNumber + "' from cache: " + (System.currentTimeMillis() - start) + "ms");
+				if (IWMainApplication.isDebugActive()) {
+					System.out.println("[VehicleRegistryWebService] Fetching vehicle '" + registrationNumber + "' from cache: " + (System.currentTimeMillis() - start) + "ms");
+				}
 				return (Vehicle)cache.get(registrationNumber);
 			}
 		}
@@ -59,7 +63,9 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
 			((org.apache.axis.client.Stub) port).setTimeout(timeout); //Setting timeout to stop the load if the service is not answering
 
-			System.out.println("[VehicleRegistryWebService] Fetching vehicle '" + registrationNumber + "' from web service: " + (System.currentTimeMillis() - start) + "ms");
+			if (IWMainApplication.isDebugActive()) {
+				System.out.println("[VehicleRegistryWebService] Fetching vehicle '" + registrationNumber + "' from web service: " + (System.currentTimeMillis() - start) + "ms");
+			}
 			Vehicle vehicles[] = port.basicVehicleInformation(userid, password, "", registrationNumber, "", "");
 			if (vehicles != null && vehicles.length > 0) {
 				if (vehicles.length == 1) {
@@ -67,16 +73,22 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 						cache.put(registrationNumber, vehicles[0]);
 					}
 					if ((vehicles[0].getLatestRegistration() != null && !vehicles[0].getLatestRegistration().startsWith("Afskr")) || (vehicles[0].getVehiclestatus() != null && !vehicles[0].getVehiclestatus().startsWith("Afskr"))) {
-						System.out.println("[VehicleRegistryWebService] Returning vehicle '" + registrationNumber + "': " + (System.currentTimeMillis() - start) + "ms");
+						if (IWMainApplication.isDebugActive()) {
+							System.out.println("[VehicleRegistryWebService] Returning vehicle '" + registrationNumber + "': " + (System.currentTimeMillis() - start) + "ms");
+						}
 						return vehicles[0];
 					}
 					else {
-						System.out.println("[VehicleRegistryWebService] No valid vehicle found; regNo = '" + registrationNumber + "': " + (System.currentTimeMillis() - start) + "ms");
+						if (IWMainApplication.isDebugActive()) {
+							System.out.println("[VehicleRegistryWebService] No valid vehicle found; regNo = '" + registrationNumber + "': " + (System.currentTimeMillis() - start) + "ms");
+						}
 						return null;
 					}
 				}
 				else {
-					System.out.println("[VehicleRegistryWebService] Found more than one vehicle with regNo = '" + registrationNumber + "': " + (System.currentTimeMillis() - start) + "ms");
+					if (IWMainApplication.isDebugActive()) {
+						System.out.println("[VehicleRegistryWebService] Found more than one vehicle with regNo = '" + registrationNumber + "': " + (System.currentTimeMillis() - start) + "ms");
+					}
 					String permNo = null;
 
 					Collection<Vehicle> registered = new ArrayList<Vehicle>();
@@ -112,26 +124,36 @@ public class VehicleRegistryWebServiceBean implements VehicleRegistryWebService 
 					}
 					
 					if (permNo != null) {
-						System.out.println("[VehicleRegistryWebService] Fetching vehicle with permNo = '" + permNo + "' and regNo = '" + registrationNumber + "' from web service: " + (System.currentTimeMillis() - start) + "ms");
+						if (IWMainApplication.isDebugActive()) {
+							System.out.println("[VehicleRegistryWebService] Fetching vehicle with permNo = '" + permNo + "' and regNo = '" + registrationNumber + "' from web service: " + (System.currentTimeMillis() - start) + "ms");
+						}
 						Vehicle permVehicles[] = port.basicVehicleInformation(userid, password, permNo, "", "", "");
 						if (permVehicles != null && permVehicles.length > 0) {
 							if (cache != null) {
 								cache.put(registrationNumber, permVehicles[0]);
 							}
-							System.out.println("[VehicleRegistryWebService] Returning vehicle '" + registrationNumber + "': " + (System.currentTimeMillis() - start) + "ms");
+							if (IWMainApplication.isDebugActive()) {
+								System.out.println("[VehicleRegistryWebService] Returning vehicle '" + registrationNumber + "': " + (System.currentTimeMillis() - start) + "ms");
+							}
 							return permVehicles[0];
 						}
 					}
 				}
 			}
 		} catch (MalformedURLException e) {
-			System.out.println("[VehicleRegistryWebService] Exception thrown (" + e.getMessage() + "): " + (System.currentTimeMillis() - start) + "ms");
+			if (IWMainApplication.isDebugActive()) {
+				System.out.println("[VehicleRegistryWebService] Exception thrown (" + e.getMessage() + "): " + (System.currentTimeMillis() - start) + "ms");
+			}
 			e.printStackTrace();
 		} catch (ServiceException e) {
-			System.out.println("[VehicleRegistryWebService] Exception thrown (" + e.getMessage() + "): " + (System.currentTimeMillis() - start) + "ms");
+			if (IWMainApplication.isDebugActive()) {
+				System.out.println("[VehicleRegistryWebService] Exception thrown (" + e.getMessage() + "): " + (System.currentTimeMillis() - start) + "ms");
+			}
 			e.printStackTrace();
 		} catch (RemoteException e) {
-			System.out.println("[VehicleRegistryWebService] Exception thrown (" + e.getMessage() + "): " + (System.currentTimeMillis() - start) + "ms");
+			if (IWMainApplication.isDebugActive()) {
+				System.out.println("[VehicleRegistryWebService] Exception thrown (" + e.getMessage() + "): " + (System.currentTimeMillis() - start) + "ms");
+			}
 			e.printStackTrace();
 		}
 
