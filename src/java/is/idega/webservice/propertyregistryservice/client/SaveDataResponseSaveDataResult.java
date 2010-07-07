@@ -42,7 +42,6 @@ public class SaveDataResponseSaveDataResult  implements java.io.Serializable, or
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof SaveDataResponseSaveDataResult)) return false;
         SaveDataResponseSaveDataResult other = (SaveDataResponseSaveDataResult) obj;
-        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);

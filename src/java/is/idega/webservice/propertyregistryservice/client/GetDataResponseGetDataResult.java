@@ -42,7 +42,6 @@ public class GetDataResponseGetDataResult  implements java.io.Serializable, org.
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof GetDataResponseGetDataResult)) return false;
         GetDataResponseGetDataResult other = (GetDataResponseGetDataResult) obj;
-        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);

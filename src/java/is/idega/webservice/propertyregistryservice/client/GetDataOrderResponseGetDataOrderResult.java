@@ -42,7 +42,6 @@ public class GetDataOrderResponseGetDataOrderResult  implements java.io.Serializ
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof GetDataOrderResponseGetDataOrderResult)) return false;
         GetDataOrderResponseGetDataOrderResult other = (GetDataOrderResponseGetDataOrderResult) obj;
-        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);

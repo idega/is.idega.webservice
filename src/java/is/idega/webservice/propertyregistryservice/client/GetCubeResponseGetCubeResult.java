@@ -42,7 +42,6 @@ public class GetCubeResponseGetCubeResult  implements java.io.Serializable, org.
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof GetCubeResponseGetCubeResult)) return false;
         GetCubeResponseGetCubeResult other = (GetCubeResponseGetCubeResult) obj;
-        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);

@@ -42,7 +42,6 @@ public class SaveDataDsChanges  implements java.io.Serializable, org.apache.axis
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof SaveDataDsChanges)) return false;
         SaveDataDsChanges other = (SaveDataDsChanges) obj;
-        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);

@@ -90,7 +90,6 @@ public class Updatelock  implements java.io.Serializable {
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Updatelock)) return false;
         Updatelock other = (Updatelock) obj;
-        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
