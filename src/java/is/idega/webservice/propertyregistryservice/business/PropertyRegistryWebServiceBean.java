@@ -54,8 +54,11 @@ public class PropertyRegistryWebServiceBean implements
 	private static final String OWNER_DATE_DELIVERED = "VWEIGANDI_FDAGUR";
 
 
-
 	public List<Property> getApartmentNumberList(String address, String assessmentYear) {
+		return getApartmentNumberList(address, assessmentYear, false);
+	}
+	
+	public List<Property> getApartmentNumberList(String address, String assessmentYear, boolean altered) {
 		List <Property>apartmentNumbers = new ArrayList<Property>();
 
 		String endpoint = IWMainApplication.getDefaultIWApplicationContext()
@@ -100,6 +103,19 @@ public class PropertyRegistryWebServiceBean implements
 			e.printStackTrace();
 		}
 
+		if (apartmentNumbers.isEmpty() && !altered) {
+			String allButLast = address.substring(0, address.length() - 1);
+			String last = address.substring(address.length() - 1);
+	
+			if (!last.matches("[0-9]")) {
+				StringBuffer newAddress = new StringBuffer();
+				newAddress.append(allButLast);
+				newAddress.append(last.toUpperCase());
+				
+				return getApartmentNumberList(newAddress.toString(), assessmentYear, true);
+			}
+		}
+		
 		return apartmentNumbers;
 	}
 	
