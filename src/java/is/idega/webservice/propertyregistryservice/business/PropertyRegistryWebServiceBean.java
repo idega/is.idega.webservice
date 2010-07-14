@@ -55,10 +55,16 @@ public class PropertyRegistryWebServiceBean implements
 
 
 	public List<Property> getApartmentNumberList(String address, String assessmentYear) {
+		address = address.trim();
 		return getApartmentNumberList(address, assessmentYear, false);
 	}
 	
-	public List<Property> getApartmentNumberList(String address, String assessmentYear, boolean altered) {
+	public static void main(String[] args) {
+		String address = "Skúlagata 10a      ".trim();
+		System.out.println(address + ": " + address.length());
+	}
+	
+	private List<Property> getApartmentNumberList(String address, String assessmentYear, boolean altered) {
 		List <Property>apartmentNumbers = new ArrayList<Property>();
 
 		String endpoint = IWMainApplication.getDefaultIWApplicationContext()
