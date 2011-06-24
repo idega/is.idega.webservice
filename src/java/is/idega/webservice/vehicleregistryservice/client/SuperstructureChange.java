@@ -2,12 +2,14 @@
  * SuperstructureChange.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package is.idega.webservice.vehicleregistryservice.client;
 
 public class SuperstructureChange  implements java.io.Serializable {
+    private is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData;
+
     private java.lang.String date;
 
     private java.lang.String type;
@@ -24,18 +26,40 @@ public class SuperstructureChange  implements java.io.Serializable {
     }
 
     public SuperstructureChange(
+           is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData,
            java.lang.String date,
            java.lang.String type,
            java.lang.String length,
            java.lang.String width,
            java.lang.String mass,
            java.lang.String invalidDate) {
+           this.extensionData = extensionData;
            this.date = date;
            this.type = type;
            this.length = length;
            this.width = width;
            this.mass = mass;
            this.invalidDate = invalidDate;
+    }
+
+
+    /**
+     * Gets the extensionData value for this SuperstructureChange.
+     * 
+     * @return extensionData
+     */
+    public is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject getExtensionData() {
+        return extensionData;
+    }
+
+
+    /**
+     * Sets the extensionData value for this SuperstructureChange.
+     * 
+     * @param extensionData
+     */
+    public void setExtensionData(is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData) {
+        this.extensionData = extensionData;
     }
 
 
@@ -162,6 +186,7 @@ public class SuperstructureChange  implements java.io.Serializable {
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof SuperstructureChange)) return false;
         SuperstructureChange other = (SuperstructureChange) obj;
+        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
@@ -169,6 +194,9 @@ public class SuperstructureChange  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.extensionData==null && other.getExtensionData()==null) || 
+             (this.extensionData!=null &&
+              this.extensionData.equals(other.getExtensionData()))) &&
             ((this.date==null && other.getDate()==null) || 
              (this.date!=null &&
               this.date.equals(other.getDate()))) &&
@@ -198,6 +226,9 @@ public class SuperstructureChange  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getExtensionData() != null) {
+            _hashCode += getExtensionData().hashCode();
+        }
         if (getDate() != null) {
             _hashCode += getDate().hashCode();
         }
@@ -227,6 +258,13 @@ public class SuperstructureChange  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "SuperstructureChange"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("extensionData");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionData"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionDataObject"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("date");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Date"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));

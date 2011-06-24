@@ -2,7 +2,7 @@
  * VehicleRegistryServiceSoap12Stub.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package is.idega.webservice.vehicleregistryservice.client;
@@ -16,8 +16,9 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
     static org.apache.axis.description.OperationDesc [] _operations;
 
     static {
-        _operations = new org.apache.axis.description.OperationDesc[9];
+        _operations = new org.apache.axis.description.OperationDesc[12];
         _initOperationDesc1();
+        _initOperationDesc2();
     }
 
     private static void _initOperationDesc1(){
@@ -129,6 +130,60 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
         _operations[3] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("AllAccidents");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "userName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "password"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "permno"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "regno"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "vin"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "queryInformation"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Accidents"));
+        oper.setReturnClass(is.idega.webservice.vehicleregistryservice.client.Accidents.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AllAccidentsResult"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[4] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("VehicleCompleteHistoryPDF");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "userName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "password"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "permno"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "regno"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "vin"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "queryInformation"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "base64Binary"));
+        oper.setReturnClass(byte[].class);
+        oper.setReturnQName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "VehicleCompleteHistoryPDFResult"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[5] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
         oper.setName("AllVehicleInformationXml");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "userName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         param.setOmittable(true);
@@ -156,7 +211,7 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
         oper.setReturnQName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AllVehicleInformationXmlResult"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[4] = oper;
+        _operations[6] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("BasicVehicleInformationXml");
@@ -186,7 +241,7 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
         oper.setReturnQName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "BasicVehicleInformationXmlResult"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[5] = oper;
+        _operations[7] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("AdditionalVehicleInformationXml");
@@ -216,7 +271,7 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
         oper.setReturnQName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AdditionalVehicleInformationXmlResult"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[6] = oper;
+        _operations[8] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("StatRecordsXml");
@@ -237,7 +292,39 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
         oper.setReturnQName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "StatRecordsXmlResult"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[7] = oper;
+        _operations[9] = oper;
+
+    }
+
+    private static void _initOperationDesc2(){
+        org.apache.axis.description.OperationDesc oper;
+        org.apache.axis.description.ParameterDesc param;
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("AllAccidentsXml");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "userName"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "password"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "permno"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "regno"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "vin"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "queryInformation"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param.setOmittable(true);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AllAccidentsXmlResult"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[10] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("GetServiceVersion");
@@ -246,7 +333,7 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
         oper.setReturnQName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "GetServiceVersionResult"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[8] = oper;
+        _operations[11] = oper;
 
     }
 
@@ -271,14 +358,35 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
             javax.xml.namespace.QName qName2;
             java.lang.Class beansf = org.apache.axis.encoding.ser.BeanSerializerFactory.class;
             java.lang.Class beandf = org.apache.axis.encoding.ser.BeanDeserializerFactory.class;
-            /*java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
+            java.lang.Class enumsf = org.apache.axis.encoding.ser.EnumSerializerFactory.class;
             java.lang.Class enumdf = org.apache.axis.encoding.ser.EnumDeserializerFactory.class;
             java.lang.Class arraysf = org.apache.axis.encoding.ser.ArraySerializerFactory.class;
             java.lang.Class arraydf = org.apache.axis.encoding.ser.ArrayDeserializerFactory.class;
             java.lang.Class simplesf = org.apache.axis.encoding.ser.SimpleSerializerFactory.class;
             java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
             java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
-            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;*/
+            java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Accident");
+            cachedSerQNames.add(qName);
+            cls = is.idega.webservice.vehicleregistryservice.client.Accident.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Accidents");
+            cachedSerQNames.add(qName);
+            cls = is.idega.webservice.vehicleregistryservice.client.Accidents.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AccidentVehicle");
+            cachedSerQNames.add(qName);
+            cls = is.idega.webservice.vehicleregistryservice.client.AccidentVehicle.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
             qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AddonsChange");
             cachedSerQNames.add(qName);
             cls = is.idega.webservice.vehicleregistryservice.client.AddonsChange.class;
@@ -292,6 +400,24 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ArrayOfAccident");
+            cachedSerQNames.add(qName);
+            cls = is.idega.webservice.vehicleregistryservice.client.Accident[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Accident");
+            qName2 = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Accident");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ArrayOfAccidentVehicle");
+            cachedSerQNames.add(qName);
+            cls = is.idega.webservice.vehicleregistryservice.client.AccidentVehicle[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AccidentVehicle");
+            qName2 = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AccidentVehicle");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
             qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ArrayOfAddonsChange");
             cachedSerQNames.add(qName);
@@ -353,6 +479,15 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
             cachedSerClasses.add(cls);
             qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExciseTax");
             qName2 = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExciseTax");
+            cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
+            cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
+
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ArrayOfImpacts");
+            cachedSerQNames.add(qName);
+            cls = is.idega.webservice.vehicleregistryservice.client.Impacts[].class;
+            cachedSerClasses.add(cls);
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Impacts");
+            qName2 = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Impacts");
             cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
             cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
@@ -581,6 +716,20 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
             qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExciseTax");
             cachedSerQNames.add(qName);
             cls = is.idega.webservice.vehicleregistryservice.client.ExciseTax.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionDataObject");
+            cachedSerQNames.add(qName);
+            cls = is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject.class;
+            cachedSerClasses.add(cls);
+            cachedSerFactories.add(beansf);
+            cachedDeserFactories.add(beandf);
+
+            qName = new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Impacts");
+            cachedSerQNames.add(qName);
+            cls = is.idega.webservice.vehicleregistryservice.client.Impacts.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -976,12 +1125,80 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
 }
     }
 
-    public java.lang.String allVehicleInformationXml(java.lang.String userName, java.lang.String password, java.lang.String xmlVersion, java.lang.String permno, java.lang.String regno, java.lang.String vin, java.lang.String queryInformation) throws java.rmi.RemoteException {
+    public is.idega.webservice.vehicleregistryservice.client.Accidents allAccidents(java.lang.String userName, java.lang.String password, java.lang.String permno, java.lang.String regno, java.lang.String vin, java.lang.String queryInformation) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
         _call.setOperation(_operations[4]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("https://ws.lt.is/VehicleRegistryService/AllAccidents");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP12_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AllAccidents"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {userName, password, permno, regno, vin, queryInformation});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (is.idega.webservice.vehicleregistryservice.client.Accidents) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (is.idega.webservice.vehicleregistryservice.client.Accidents) org.apache.axis.utils.JavaUtils.convert(_resp, is.idega.webservice.vehicleregistryservice.client.Accidents.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public byte[] vehicleCompleteHistoryPDF(java.lang.String userName, java.lang.String password, java.lang.String permno, java.lang.String regno, java.lang.String vin, java.lang.String queryInformation) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[5]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("https://ws.lt.is/VehicleRegistryService/VehicleCompleteHistoryPDF");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP12_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "VehicleCompleteHistoryPDF"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {userName, password, permno, regno, vin, queryInformation});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (byte[]) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (byte[]) org.apache.axis.utils.JavaUtils.convert(_resp, byte[].class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
+    public java.lang.String allVehicleInformationXml(java.lang.String userName, java.lang.String password, java.lang.String xmlVersion, java.lang.String permno, java.lang.String regno, java.lang.String vin, java.lang.String queryInformation) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[6]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("https://ws.lt.is/VehicleRegistryService/AllVehicleInformationXml");
         _call.setEncodingStyle(null);
@@ -1015,7 +1232,7 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[5]);
+        _call.setOperation(_operations[7]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("https://ws.lt.is/VehicleRegistryService/BasicVehicleInformationXml");
         _call.setEncodingStyle(null);
@@ -1049,7 +1266,7 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[6]);
+        _call.setOperation(_operations[8]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("https://ws.lt.is/VehicleRegistryService/AdditionalVehicleInformationXml");
         _call.setEncodingStyle(null);
@@ -1083,7 +1300,7 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[7]);
+        _call.setOperation(_operations[9]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("https://ws.lt.is/VehicleRegistryService/StatRecordsXml");
         _call.setEncodingStyle(null);
@@ -1112,12 +1329,46 @@ public class VehicleRegistryServiceSoap12Stub extends org.apache.axis.client.Stu
 }
     }
 
+    public java.lang.String allAccidentsXml(java.lang.String userName, java.lang.String password, java.lang.String permno, java.lang.String regno, java.lang.String vin, java.lang.String queryInformation) throws java.rmi.RemoteException {
+        if (super.cachedEndpoint == null) {
+            throw new org.apache.axis.NoEndPointException();
+        }
+        org.apache.axis.client.Call _call = createCall();
+        _call.setOperation(_operations[10]);
+        _call.setUseSOAPAction(true);
+        _call.setSOAPActionURI("https://ws.lt.is/VehicleRegistryService/AllAccidentsXml");
+        _call.setEncodingStyle(null);
+        _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
+        _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
+        _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP12_CONSTANTS);
+        _call.setOperationName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AllAccidentsXml"));
+
+        setRequestHeaders(_call);
+        setAttachments(_call);
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {userName, password, permno, regno, vin, queryInformation});
+
+        if (_resp instanceof java.rmi.RemoteException) {
+            throw (java.rmi.RemoteException)_resp;
+        }
+        else {
+            extractAttachments(_call);
+            try {
+                return (java.lang.String) _resp;
+            } catch (java.lang.Exception _exception) {
+                return (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_resp, java.lang.String.class);
+            }
+        }
+  } catch (org.apache.axis.AxisFault axisFaultException) {
+  throw axisFaultException;
+}
+    }
+
     public is.idega.webservice.vehicleregistryservice.client.Version getServiceVersion() throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
         org.apache.axis.client.Call _call = createCall();
-        _call.setOperation(_operations[8]);
+        _call.setOperation(_operations[11]);
         _call.setUseSOAPAction(true);
         _call.setSOAPActionURI("https://ws.lt.is/VehicleRegistryService/GetServiceVersion");
         _call.setEncodingStyle(null);

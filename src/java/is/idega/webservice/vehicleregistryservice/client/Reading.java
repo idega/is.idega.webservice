@@ -2,12 +2,14 @@
  * Reading.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package is.idega.webservice.vehicleregistryservice.client;
 
 public class Reading  implements java.io.Serializable {
+    private is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData;
+
     private java.lang.String readingDate;
 
     private java.lang.String gaugeStatus;
@@ -34,6 +36,7 @@ public class Reading  implements java.io.Serializable {
     }
 
     public Reading(
+           is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData,
            java.lang.String readingDate,
            java.lang.String gaugeStatus,
            java.lang.String rateClass,
@@ -45,6 +48,7 @@ public class Reading  implements java.io.Serializable {
            java.lang.String gaugeNumber,
            java.lang.String usageGroup,
            java.lang.String taxGroup) {
+           this.extensionData = extensionData;
            this.readingDate = readingDate;
            this.gaugeStatus = gaugeStatus;
            this.rateClass = rateClass;
@@ -56,6 +60,26 @@ public class Reading  implements java.io.Serializable {
            this.gaugeNumber = gaugeNumber;
            this.usageGroup = usageGroup;
            this.taxGroup = taxGroup;
+    }
+
+
+    /**
+     * Gets the extensionData value for this Reading.
+     * 
+     * @return extensionData
+     */
+    public is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject getExtensionData() {
+        return extensionData;
+    }
+
+
+    /**
+     * Sets the extensionData value for this Reading.
+     * 
+     * @param extensionData
+     */
+    public void setExtensionData(is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData) {
+        this.extensionData = extensionData;
     }
 
 
@@ -282,6 +306,7 @@ public class Reading  implements java.io.Serializable {
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Reading)) return false;
         Reading other = (Reading) obj;
+        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
@@ -289,6 +314,9 @@ public class Reading  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.extensionData==null && other.getExtensionData()==null) || 
+             (this.extensionData!=null &&
+              this.extensionData.equals(other.getExtensionData()))) &&
             ((this.readingDate==null && other.getReadingDate()==null) || 
              (this.readingDate!=null &&
               this.readingDate.equals(other.getReadingDate()))) &&
@@ -333,6 +361,9 @@ public class Reading  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getExtensionData() != null) {
+            _hashCode += getExtensionData().hashCode();
+        }
         if (getReadingDate() != null) {
             _hashCode += getReadingDate().hashCode();
         }
@@ -377,6 +408,13 @@ public class Reading  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Reading"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("extensionData");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionData"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionDataObject"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("readingDate");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ReadingDate"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));

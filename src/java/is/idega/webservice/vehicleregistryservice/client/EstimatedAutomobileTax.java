@@ -2,12 +2,14 @@
  * EstimatedAutomobileTax.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package is.idega.webservice.vehicleregistryservice.client;
 
 public class EstimatedAutomobileTax  implements java.io.Serializable {
+    private is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData;
+
     private java.lang.String term_1;
 
     private java.lang.String automobileTax_1;
@@ -24,18 +26,40 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
     }
 
     public EstimatedAutomobileTax(
+           is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData,
            java.lang.String term_1,
            java.lang.String automobileTax_1,
            java.lang.String weightTax_1,
            java.lang.String term_2,
            java.lang.String automobileTax_2,
            java.lang.String weightTax_2) {
+           this.extensionData = extensionData;
            this.term_1 = term_1;
            this.automobileTax_1 = automobileTax_1;
            this.weightTax_1 = weightTax_1;
            this.term_2 = term_2;
            this.automobileTax_2 = automobileTax_2;
            this.weightTax_2 = weightTax_2;
+    }
+
+
+    /**
+     * Gets the extensionData value for this EstimatedAutomobileTax.
+     * 
+     * @return extensionData
+     */
+    public is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject getExtensionData() {
+        return extensionData;
+    }
+
+
+    /**
+     * Sets the extensionData value for this EstimatedAutomobileTax.
+     * 
+     * @param extensionData
+     */
+    public void setExtensionData(is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData) {
+        this.extensionData = extensionData;
     }
 
 
@@ -162,6 +186,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof EstimatedAutomobileTax)) return false;
         EstimatedAutomobileTax other = (EstimatedAutomobileTax) obj;
+        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
@@ -169,6 +194,9 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.extensionData==null && other.getExtensionData()==null) || 
+             (this.extensionData!=null &&
+              this.extensionData.equals(other.getExtensionData()))) &&
             ((this.term_1==null && other.getTerm_1()==null) || 
              (this.term_1!=null &&
               this.term_1.equals(other.getTerm_1()))) &&
@@ -198,6 +226,9 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getExtensionData() != null) {
+            _hashCode += getExtensionData().hashCode();
+        }
         if (getTerm_1() != null) {
             _hashCode += getTerm_1().hashCode();
         }
@@ -227,6 +258,13 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "EstimatedAutomobileTax"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("extensionData");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionData"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionDataObject"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("term_1");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Term_1"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));

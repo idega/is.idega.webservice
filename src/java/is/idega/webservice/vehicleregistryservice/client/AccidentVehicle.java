@@ -1,5 +1,5 @@
 /**
- * Disaster.java
+ * AccidentVehicle.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
@@ -7,32 +7,36 @@
 
 package is.idega.webservice.vehicleregistryservice.client;
 
-public class Disaster  implements java.io.Serializable {
+public class AccidentVehicle  implements java.io.Serializable {
     private is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData;
 
-    private java.lang.String date;
+    private java.lang.String make;
 
-    private java.lang.String invalidDate;
+    private java.lang.String vehcom;
 
-    private java.lang.String type;
+    private java.lang.String vehgroup;
 
-    public Disaster() {
+    private java.lang.String damage;
+
+    public AccidentVehicle() {
     }
 
-    public Disaster(
+    public AccidentVehicle(
            is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData,
-           java.lang.String date,
-           java.lang.String invalidDate,
-           java.lang.String type) {
+           java.lang.String make,
+           java.lang.String vehcom,
+           java.lang.String vehgroup,
+           java.lang.String damage) {
            this.extensionData = extensionData;
-           this.date = date;
-           this.invalidDate = invalidDate;
-           this.type = type;
+           this.make = make;
+           this.vehcom = vehcom;
+           this.vehgroup = vehgroup;
+           this.damage = damage;
     }
 
 
     /**
-     * Gets the extensionData value for this Disaster.
+     * Gets the extensionData value for this AccidentVehicle.
      * 
      * @return extensionData
      */
@@ -42,7 +46,7 @@ public class Disaster  implements java.io.Serializable {
 
 
     /**
-     * Sets the extensionData value for this Disaster.
+     * Sets the extensionData value for this AccidentVehicle.
      * 
      * @param extensionData
      */
@@ -52,68 +56,88 @@ public class Disaster  implements java.io.Serializable {
 
 
     /**
-     * Gets the date value for this Disaster.
+     * Gets the make value for this AccidentVehicle.
      * 
-     * @return date
+     * @return make
      */
-    public java.lang.String getDate() {
-        return date;
+    public java.lang.String getMake() {
+        return make;
     }
 
 
     /**
-     * Sets the date value for this Disaster.
+     * Sets the make value for this AccidentVehicle.
      * 
-     * @param date
+     * @param make
      */
-    public void setDate(java.lang.String date) {
-        this.date = date;
+    public void setMake(java.lang.String make) {
+        this.make = make;
     }
 
 
     /**
-     * Gets the invalidDate value for this Disaster.
+     * Gets the vehcom value for this AccidentVehicle.
      * 
-     * @return invalidDate
+     * @return vehcom
      */
-    public java.lang.String getInvalidDate() {
-        return invalidDate;
+    public java.lang.String getVehcom() {
+        return vehcom;
     }
 
 
     /**
-     * Sets the invalidDate value for this Disaster.
+     * Sets the vehcom value for this AccidentVehicle.
      * 
-     * @param invalidDate
+     * @param vehcom
      */
-    public void setInvalidDate(java.lang.String invalidDate) {
-        this.invalidDate = invalidDate;
+    public void setVehcom(java.lang.String vehcom) {
+        this.vehcom = vehcom;
     }
 
 
     /**
-     * Gets the type value for this Disaster.
+     * Gets the vehgroup value for this AccidentVehicle.
      * 
-     * @return type
+     * @return vehgroup
      */
-    public java.lang.String getType() {
-        return type;
+    public java.lang.String getVehgroup() {
+        return vehgroup;
     }
 
 
     /**
-     * Sets the type value for this Disaster.
+     * Sets the vehgroup value for this AccidentVehicle.
      * 
-     * @param type
+     * @param vehgroup
      */
-    public void setType(java.lang.String type) {
-        this.type = type;
+    public void setVehgroup(java.lang.String vehgroup) {
+        this.vehgroup = vehgroup;
+    }
+
+
+    /**
+     * Gets the damage value for this AccidentVehicle.
+     * 
+     * @return damage
+     */
+    public java.lang.String getDamage() {
+        return damage;
+    }
+
+
+    /**
+     * Sets the damage value for this AccidentVehicle.
+     * 
+     * @param damage
+     */
+    public void setDamage(java.lang.String damage) {
+        this.damage = damage;
     }
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Disaster)) return false;
-        Disaster other = (Disaster) obj;
+        if (!(obj instanceof AccidentVehicle)) return false;
+        AccidentVehicle other = (AccidentVehicle) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -125,15 +149,18 @@ public class Disaster  implements java.io.Serializable {
             ((this.extensionData==null && other.getExtensionData()==null) || 
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.date==null && other.getDate()==null) || 
-             (this.date!=null &&
-              this.date.equals(other.getDate()))) &&
-            ((this.invalidDate==null && other.getInvalidDate()==null) || 
-             (this.invalidDate!=null &&
-              this.invalidDate.equals(other.getInvalidDate()))) &&
-            ((this.type==null && other.getType()==null) || 
-             (this.type!=null &&
-              this.type.equals(other.getType())));
+            ((this.make==null && other.getMake()==null) || 
+             (this.make!=null &&
+              this.make.equals(other.getMake()))) &&
+            ((this.vehcom==null && other.getVehcom()==null) || 
+             (this.vehcom!=null &&
+              this.vehcom.equals(other.getVehcom()))) &&
+            ((this.vehgroup==null && other.getVehgroup()==null) || 
+             (this.vehgroup!=null &&
+              this.vehgroup.equals(other.getVehgroup()))) &&
+            ((this.damage==null && other.getDamage()==null) || 
+             (this.damage!=null &&
+              this.damage.equals(other.getDamage())));
         __equalsCalc = null;
         return _equals;
     }
@@ -148,14 +175,17 @@ public class Disaster  implements java.io.Serializable {
         if (getExtensionData() != null) {
             _hashCode += getExtensionData().hashCode();
         }
-        if (getDate() != null) {
-            _hashCode += getDate().hashCode();
+        if (getMake() != null) {
+            _hashCode += getMake().hashCode();
         }
-        if (getInvalidDate() != null) {
-            _hashCode += getInvalidDate().hashCode();
+        if (getVehcom() != null) {
+            _hashCode += getVehcom().hashCode();
         }
-        if (getType() != null) {
-            _hashCode += getType().hashCode();
+        if (getVehgroup() != null) {
+            _hashCode += getVehgroup().hashCode();
+        }
+        if (getDamage() != null) {
+            _hashCode += getDamage().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -163,10 +193,10 @@ public class Disaster  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Disaster.class, true);
+        new org.apache.axis.description.TypeDesc(AccidentVehicle.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Disaster"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "AccidentVehicle"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("extensionData");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionData"));
@@ -175,22 +205,29 @@ public class Disaster  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("date");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Date"));
+        elemField.setFieldName("make");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Make"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("invalidDate");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "InvalidDate"));
+        elemField.setFieldName("vehcom");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Vehcom"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("type");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Type"));
+        elemField.setFieldName("vehgroup");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Vehgroup"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("damage");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Damage"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

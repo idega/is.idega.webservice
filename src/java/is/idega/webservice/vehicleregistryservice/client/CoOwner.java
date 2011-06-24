@@ -2,12 +2,14 @@
  * CoOwner.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package is.idega.webservice.vehicleregistryservice.client;
 
 public class CoOwner  implements java.io.Serializable {
+    private is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData;
+
     private java.lang.String persidno;
 
     private java.lang.String fullname;
@@ -22,16 +24,38 @@ public class CoOwner  implements java.io.Serializable {
     }
 
     public CoOwner(
+           is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData,
            java.lang.String persidno,
            java.lang.String fullname,
            java.lang.String address,
            java.lang.String postalcode,
            java.lang.String city) {
+           this.extensionData = extensionData;
            this.persidno = persidno;
            this.fullname = fullname;
            this.address = address;
            this.postalcode = postalcode;
            this.city = city;
+    }
+
+
+    /**
+     * Gets the extensionData value for this CoOwner.
+     * 
+     * @return extensionData
+     */
+    public is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject getExtensionData() {
+        return extensionData;
+    }
+
+
+    /**
+     * Sets the extensionData value for this CoOwner.
+     * 
+     * @param extensionData
+     */
+    public void setExtensionData(is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData) {
+        this.extensionData = extensionData;
     }
 
 
@@ -138,6 +162,7 @@ public class CoOwner  implements java.io.Serializable {
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof CoOwner)) return false;
         CoOwner other = (CoOwner) obj;
+        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
@@ -145,6 +170,9 @@ public class CoOwner  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.extensionData==null && other.getExtensionData()==null) || 
+             (this.extensionData!=null &&
+              this.extensionData.equals(other.getExtensionData()))) &&
             ((this.persidno==null && other.getPersidno()==null) || 
              (this.persidno!=null &&
               this.persidno.equals(other.getPersidno()))) &&
@@ -171,6 +199,9 @@ public class CoOwner  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getExtensionData() != null) {
+            _hashCode += getExtensionData().hashCode();
+        }
         if (getPersidno() != null) {
             _hashCode += getPersidno().hashCode();
         }
@@ -197,6 +228,13 @@ public class CoOwner  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "CoOwner"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("extensionData");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionData"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionDataObject"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("persidno");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Persidno"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));

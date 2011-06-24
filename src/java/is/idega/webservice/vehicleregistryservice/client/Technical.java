@@ -2,12 +2,14 @@
  * Technical.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package is.idega.webservice.vehicleregistryservice.client;
 
 public class Technical  implements java.io.Serializable {
+    private is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData;
+
     private java.lang.String vehgroup;
 
     private java.lang.String engine;
@@ -98,10 +100,17 @@ public class Technical  implements java.io.Serializable {
 
     private is.idega.webservice.vehicleregistryservice.client.Mass mass;
 
+    private java.lang.String priceRange;
+
+    private java.lang.String mainCategory;
+
+    private java.lang.String excemptionCategory;
+
     public Technical() {
     }
 
     public Technical(
+           is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData,
            java.lang.String vehgroup,
            java.lang.String engine,
            java.lang.String pass,
@@ -146,7 +155,11 @@ public class Technical  implements java.io.Serializable {
            is.idega.webservice.vehicleregistryservice.client.Tyre tyre,
            is.idega.webservice.vehicleregistryservice.client.Size size,
            is.idega.webservice.vehicleregistryservice.client.Axle axle,
-           is.idega.webservice.vehicleregistryservice.client.Mass mass) {
+           is.idega.webservice.vehicleregistryservice.client.Mass mass,
+           java.lang.String priceRange,
+           java.lang.String mainCategory,
+           java.lang.String excemptionCategory) {
+           this.extensionData = extensionData;
            this.vehgroup = vehgroup;
            this.engine = engine;
            this.pass = pass;
@@ -192,6 +205,29 @@ public class Technical  implements java.io.Serializable {
            this.size = size;
            this.axle = axle;
            this.mass = mass;
+           this.priceRange = priceRange;
+           this.mainCategory = mainCategory;
+           this.excemptionCategory = excemptionCategory;
+    }
+
+
+    /**
+     * Gets the extensionData value for this Technical.
+     * 
+     * @return extensionData
+     */
+    public is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject getExtensionData() {
+        return extensionData;
+    }
+
+
+    /**
+     * Sets the extensionData value for this Technical.
+     * 
+     * @param extensionData
+     */
+    public void setExtensionData(is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData) {
+        this.extensionData = extensionData;
     }
 
 
@@ -1094,10 +1130,71 @@ public class Technical  implements java.io.Serializable {
         this.mass = mass;
     }
 
+
+    /**
+     * Gets the priceRange value for this Technical.
+     * 
+     * @return priceRange
+     */
+    public java.lang.String getPriceRange() {
+        return priceRange;
+    }
+
+
+    /**
+     * Sets the priceRange value for this Technical.
+     * 
+     * @param priceRange
+     */
+    public void setPriceRange(java.lang.String priceRange) {
+        this.priceRange = priceRange;
+    }
+
+
+    /**
+     * Gets the mainCategory value for this Technical.
+     * 
+     * @return mainCategory
+     */
+    public java.lang.String getMainCategory() {
+        return mainCategory;
+    }
+
+
+    /**
+     * Sets the mainCategory value for this Technical.
+     * 
+     * @param mainCategory
+     */
+    public void setMainCategory(java.lang.String mainCategory) {
+        this.mainCategory = mainCategory;
+    }
+
+
+    /**
+     * Gets the excemptionCategory value for this Technical.
+     * 
+     * @return excemptionCategory
+     */
+    public java.lang.String getExcemptionCategory() {
+        return excemptionCategory;
+    }
+
+
+    /**
+     * Sets the excemptionCategory value for this Technical.
+     * 
+     * @param excemptionCategory
+     */
+    public void setExcemptionCategory(java.lang.String excemptionCategory) {
+        this.excemptionCategory = excemptionCategory;
+    }
+
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Technical)) return false;
         Technical other = (Technical) obj;
+        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
@@ -1105,6 +1202,9 @@ public class Technical  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.extensionData==null && other.getExtensionData()==null) || 
+             (this.extensionData!=null &&
+              this.extensionData.equals(other.getExtensionData()))) &&
             ((this.vehgroup==null && other.getVehgroup()==null) || 
              (this.vehgroup!=null &&
               this.vehgroup.equals(other.getVehgroup()))) &&
@@ -1237,7 +1337,16 @@ public class Technical  implements java.io.Serializable {
               this.axle.equals(other.getAxle()))) &&
             ((this.mass==null && other.getMass()==null) || 
              (this.mass!=null &&
-              this.mass.equals(other.getMass())));
+              this.mass.equals(other.getMass()))) &&
+            ((this.priceRange==null && other.getPriceRange()==null) || 
+             (this.priceRange!=null &&
+              this.priceRange.equals(other.getPriceRange()))) &&
+            ((this.mainCategory==null && other.getMainCategory()==null) || 
+             (this.mainCategory!=null &&
+              this.mainCategory.equals(other.getMainCategory()))) &&
+            ((this.excemptionCategory==null && other.getExcemptionCategory()==null) || 
+             (this.excemptionCategory!=null &&
+              this.excemptionCategory.equals(other.getExcemptionCategory())));
         __equalsCalc = null;
         return _equals;
     }
@@ -1249,6 +1358,9 @@ public class Technical  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getExtensionData() != null) {
+            _hashCode += getExtensionData().hashCode();
+        }
         if (getVehgroup() != null) {
             _hashCode += getVehgroup().hashCode();
         }
@@ -1390,6 +1502,15 @@ public class Technical  implements java.io.Serializable {
         if (getMass() != null) {
             _hashCode += getMass().hashCode();
         }
+        if (getPriceRange() != null) {
+            _hashCode += getPriceRange().hashCode();
+        }
+        if (getMainCategory() != null) {
+            _hashCode += getMainCategory().hashCode();
+        }
+        if (getExcemptionCategory() != null) {
+            _hashCode += getExcemptionCategory().hashCode();
+        }
         __hashCodeCalc = false;
         return _hashCode;
     }
@@ -1401,6 +1522,13 @@ public class Technical  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Technical"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("extensionData");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionData"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionDataObject"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("vehgroup");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Vehgroup"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -1712,6 +1840,27 @@ public class Technical  implements java.io.Serializable {
         elemField.setFieldName("mass");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Mass"));
         elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Mass"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("priceRange");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "PriceRange"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("mainCategory");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "MainCategory"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("excemptionCategory");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExcemptionCategory"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);

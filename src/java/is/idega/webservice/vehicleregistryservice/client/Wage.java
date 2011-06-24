@@ -2,12 +2,14 @@
  * Wage.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package is.idega.webservice.vehicleregistryservice.client;
 
 public class Wage  implements java.io.Serializable {
+    private is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData;
+
     private java.lang.String weightTaxNotOverDuePayments;
 
     private java.lang.String weightTaxInterestOnOverduePayments;
@@ -38,6 +40,7 @@ public class Wage  implements java.io.Serializable {
     }
 
     public Wage(
+           is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData,
            java.lang.String weightTaxNotOverDuePayments,
            java.lang.String weightTaxInterestOnOverduePayments,
            java.lang.String weightTaxCosts,
@@ -51,6 +54,7 @@ public class Wage  implements java.io.Serializable {
            java.lang.String expenses,
            java.lang.String notOverdue,
            java.lang.String total) {
+           this.extensionData = extensionData;
            this.weightTaxNotOverDuePayments = weightTaxNotOverDuePayments;
            this.weightTaxInterestOnOverduePayments = weightTaxInterestOnOverduePayments;
            this.weightTaxCosts = weightTaxCosts;
@@ -64,6 +68,26 @@ public class Wage  implements java.io.Serializable {
            this.expenses = expenses;
            this.notOverdue = notOverdue;
            this.total = total;
+    }
+
+
+    /**
+     * Gets the extensionData value for this Wage.
+     * 
+     * @return extensionData
+     */
+    public is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject getExtensionData() {
+        return extensionData;
+    }
+
+
+    /**
+     * Sets the extensionData value for this Wage.
+     * 
+     * @param extensionData
+     */
+    public void setExtensionData(is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData) {
+        this.extensionData = extensionData;
     }
 
 
@@ -330,6 +354,7 @@ public class Wage  implements java.io.Serializable {
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Wage)) return false;
         Wage other = (Wage) obj;
+        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
@@ -337,6 +362,9 @@ public class Wage  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.extensionData==null && other.getExtensionData()==null) || 
+             (this.extensionData!=null &&
+              this.extensionData.equals(other.getExtensionData()))) &&
             ((this.weightTaxNotOverDuePayments==null && other.getWeightTaxNotOverDuePayments()==null) || 
              (this.weightTaxNotOverDuePayments!=null &&
               this.weightTaxNotOverDuePayments.equals(other.getWeightTaxNotOverDuePayments()))) &&
@@ -387,6 +415,9 @@ public class Wage  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getExtensionData() != null) {
+            _hashCode += getExtensionData().hashCode();
+        }
         if (getWeightTaxNotOverDuePayments() != null) {
             _hashCode += getWeightTaxNotOverDuePayments().hashCode();
         }
@@ -437,6 +468,13 @@ public class Wage  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Wage"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("extensionData");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionData"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionDataObject"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("weightTaxNotOverDuePayments");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "WeightTaxNotOverDuePayments"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));

@@ -2,7 +2,7 @@
  * VehicleRegistryServiceSoap_PortType.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package is.idega.webservice.vehicleregistryservice.client;
@@ -32,7 +32,17 @@ public interface VehicleRegistryServiceSoap_PortType extends java.rmi.Remote {
     public is.idega.webservice.vehicleregistryservice.client.Stat[] statRecords(java.lang.String userName, java.lang.String password, java.lang.String queryInformation) throws java.rmi.RemoteException;
 
     /**
-     * Returns all vehicle information in xml format
+     * Returns all accidents on a vehicle.
+     */
+    public is.idega.webservice.vehicleregistryservice.client.Accidents allAccidents(java.lang.String userName, java.lang.String password, java.lang.String permno, java.lang.String regno, java.lang.String vin, java.lang.String queryInformation) throws java.rmi.RemoteException;
+
+    /**
+     * Returns vehicle complete history in pdf format.
+     */
+    public byte[] vehicleCompleteHistoryPDF(java.lang.String userName, java.lang.String password, java.lang.String permno, java.lang.String regno, java.lang.String vin, java.lang.String queryInformation) throws java.rmi.RemoteException;
+
+    /**
+     * Returns all accidents on a vehicle in xml format.
      */
     public java.lang.String allVehicleInformationXml(java.lang.String userName, java.lang.String password, java.lang.String xmlVersion, java.lang.String permno, java.lang.String regno, java.lang.String vin, java.lang.String queryInformation) throws java.rmi.RemoteException;
 
@@ -53,6 +63,11 @@ public interface VehicleRegistryServiceSoap_PortType extends java.rmi.Remote {
      * of record Reading in xml format
      */
     public java.lang.String statRecordsXml(java.lang.String userName, java.lang.String password, java.lang.String xmlVersion, java.lang.String queryInformation) throws java.rmi.RemoteException;
+
+    /**
+     * Returns all accidents for the given vehicle in xml format.
+     */
+    public java.lang.String allAccidentsXml(java.lang.String userName, java.lang.String password, java.lang.String permno, java.lang.String regno, java.lang.String vin, java.lang.String queryInformation) throws java.rmi.RemoteException;
 
     /**
      * Returns web service version

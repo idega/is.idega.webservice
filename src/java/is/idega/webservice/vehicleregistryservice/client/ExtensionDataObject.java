@@ -1,5 +1,5 @@
 /**
- * Version.java
+ * ExtensionDataObject.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
@@ -7,14 +7,14 @@
 
 package is.idega.webservice.vehicleregistryservice.client;
 
-public class Version  implements java.io.Serializable {
-    public Version() {
+public class ExtensionDataObject  implements java.io.Serializable {
+    public ExtensionDataObject() {
     }
 
     private java.lang.Object __equalsCalc = null;
     public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Version)) return false;
-        Version other = (Version) obj;
+        if (!(obj instanceof ExtensionDataObject)) return false;
+        ExtensionDataObject other = (ExtensionDataObject) obj;
         if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
@@ -40,10 +40,10 @@ public class Version  implements java.io.Serializable {
 
     // Type metadata
     private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Version.class, true);
+        new org.apache.axis.description.TypeDesc(ExtensionDataObject.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Version"));
+        typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionDataObject"));
     }
 
     /**

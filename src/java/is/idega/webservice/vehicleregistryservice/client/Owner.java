@@ -2,12 +2,14 @@
  * Owner.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package is.idega.webservice.vehicleregistryservice.client;
 
 public class Owner  implements java.io.Serializable {
+    private is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData;
+
     private boolean current;
 
     private boolean anonymous;
@@ -36,6 +38,7 @@ public class Owner  implements java.io.Serializable {
     }
 
     public Owner(
+           is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData,
            boolean current,
            boolean anonymous,
            java.lang.String purchaseDate,
@@ -48,6 +51,7 @@ public class Owner  implements java.io.Serializable {
            java.lang.String city,
            java.lang.String ownerinsurancecode,
            is.idega.webservice.vehicleregistryservice.client.CoOwner[] coOwners) {
+           this.extensionData = extensionData;
            this.current = current;
            this.anonymous = anonymous;
            this.purchaseDate = purchaseDate;
@@ -60,6 +64,26 @@ public class Owner  implements java.io.Serializable {
            this.city = city;
            this.ownerinsurancecode = ownerinsurancecode;
            this.coOwners = coOwners;
+    }
+
+
+    /**
+     * Gets the extensionData value for this Owner.
+     * 
+     * @return extensionData
+     */
+    public is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject getExtensionData() {
+        return extensionData;
+    }
+
+
+    /**
+     * Sets the extensionData value for this Owner.
+     * 
+     * @param extensionData
+     */
+    public void setExtensionData(is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData) {
+        this.extensionData = extensionData;
     }
 
 
@@ -306,6 +330,7 @@ public class Owner  implements java.io.Serializable {
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof Owner)) return false;
         Owner other = (Owner) obj;
+        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
@@ -313,6 +338,9 @@ public class Owner  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.extensionData==null && other.getExtensionData()==null) || 
+             (this.extensionData!=null &&
+              this.extensionData.equals(other.getExtensionData()))) &&
             this.current == other.isCurrent() &&
             this.anonymous == other.isAnonymous() &&
             ((this.purchaseDate==null && other.getPurchaseDate()==null) || 
@@ -356,6 +384,9 @@ public class Owner  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getExtensionData() != null) {
+            _hashCode += getExtensionData().hashCode();
+        }
         _hashCode += (isCurrent() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         _hashCode += (isAnonymous() ? Boolean.TRUE : Boolean.FALSE).hashCode();
         if (getPurchaseDate() != null) {
@@ -407,6 +438,13 @@ public class Owner  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Owner"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("extensionData");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionData"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionDataObject"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("current");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Current"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));

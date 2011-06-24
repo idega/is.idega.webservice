@@ -2,12 +2,14 @@
  * VehicleAll.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.3 Oct 05, 2005 (05:23:37 EDT) WSDL2Java emitter.
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
 
 package is.idega.webservice.vehicleregistryservice.client;
 
 public class VehicleAll  implements java.io.Serializable {
+    private is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData;
+
     private is.idega.webservice.vehicleregistryservice.client.Vehicle vehicle;
 
     private is.idega.webservice.vehicleregistryservice.client.VehicleExtra vehicleExtra;
@@ -18,12 +20,34 @@ public class VehicleAll  implements java.io.Serializable {
     }
 
     public VehicleAll(
+           is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData,
            is.idega.webservice.vehicleregistryservice.client.Vehicle vehicle,
            is.idega.webservice.vehicleregistryservice.client.VehicleExtra vehicleExtra,
            java.util.Calendar queryTimeStamp) {
+           this.extensionData = extensionData;
            this.vehicle = vehicle;
            this.vehicleExtra = vehicleExtra;
            this.queryTimeStamp = queryTimeStamp;
+    }
+
+
+    /**
+     * Gets the extensionData value for this VehicleAll.
+     * 
+     * @return extensionData
+     */
+    public is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject getExtensionData() {
+        return extensionData;
+    }
+
+
+    /**
+     * Sets the extensionData value for this VehicleAll.
+     * 
+     * @param extensionData
+     */
+    public void setExtensionData(is.idega.webservice.vehicleregistryservice.client.ExtensionDataObject extensionData) {
+        this.extensionData = extensionData;
     }
 
 
@@ -90,6 +114,7 @@ public class VehicleAll  implements java.io.Serializable {
     public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof VehicleAll)) return false;
         VehicleAll other = (VehicleAll) obj;
+        if (obj == null) return false;
         if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
@@ -97,6 +122,9 @@ public class VehicleAll  implements java.io.Serializable {
         __equalsCalc = obj;
         boolean _equals;
         _equals = true && 
+            ((this.extensionData==null && other.getExtensionData()==null) || 
+             (this.extensionData!=null &&
+              this.extensionData.equals(other.getExtensionData()))) &&
             ((this.vehicle==null && other.getVehicle()==null) || 
              (this.vehicle!=null &&
               this.vehicle.equals(other.getVehicle()))) &&
@@ -117,6 +145,9 @@ public class VehicleAll  implements java.io.Serializable {
         }
         __hashCodeCalc = true;
         int _hashCode = 1;
+        if (getExtensionData() != null) {
+            _hashCode += getExtensionData().hashCode();
+        }
         if (getVehicle() != null) {
             _hashCode += getVehicle().hashCode();
         }
@@ -137,6 +168,13 @@ public class VehicleAll  implements java.io.Serializable {
     static {
         typeDesc.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "VehicleAll"));
         org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("extensionData");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionData"));
+        elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExtensionDataObject"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("vehicle");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Vehicle"));
         elemField.setXmlType(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Vehicle"));
