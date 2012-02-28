@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
 
+import javax.ejb.FinderException;
 import javax.xml.rpc.ServiceException;
 import javax.xml.rpc.holders.StringHolder;
 
@@ -16,8 +17,15 @@ import localhost.eGovSAMLGenerator.webServices.generateSAMLFromToken.holders.__S
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import com.idega.business.IBORuntimeException;
+import com.idega.core.accesscontrol.business.LoginBusinessBean;
+import com.idega.core.accesscontrol.data.LoginTable;
+import com.idega.core.accesscontrol.data.LoginTableHome;
 import com.idega.core.idgenerator.business.UUIDGenerator;
+import com.idega.data.IDOLookup;
+import com.idega.data.IDOLookupException;
 import com.idega.idegaweb.IWMainApplication;
+import com.idega.user.data.User;
 
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerAccessPointLocator;
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerType;
@@ -33,7 +41,7 @@ public class IslandDotIsService {
 	private static final String LOGIN_SERVICE_USER = "island.is_login_service_user";
 	private static final String LOGIN_SERVICE_PASSWORD = "island.is_login_service_password";
 
-	public String getHash(String personalId, String token, String ipAddress) {
+	public boolean getHash(String personalId, String token, String ipAddress) {
 		String endpoint = IWMainApplication
 				.getDefaultIWApplicationContext()
 				.getApplicationSettings()
@@ -55,10 +63,9 @@ public class IslandDotIsService {
 			Status status = port.hashSSNForElection(token, personalId,
 					ipAddress);
 
-			System.out.println("message = " + status.getMessage());
-			System.out.println("code = " + status.getCode());
-			System.out.println("type = " + status.getType());
-			
+			if (status.getCode() == 0) {
+				return true;
+			}
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (ServiceException e) {
@@ -67,7 +74,7 @@ public class IslandDotIsService {
 			e.printStackTrace();
 		}
 
-		return null;
+		return false;
 	}
 
 	public String getPersonalIDFromToken(String token, String ipAddress) {
@@ -76,7 +83,7 @@ public class IslandDotIsService {
 				.getApplicationSettings()
 				.getProperty(
 						LOGIN_SERVICE_ENDPOINT,
-						"https://egov.webservice.is/sst/runtime.asvc/com.actional.soapstation.eGOV_SKRA_KosningKodun");
+						"https://egov.webservice.is/sst/runtime.asvc/com.actional.soapstation.eGOVDKM_AuthConsumer.AccessPoint?WSDL");
 		String user = IWMainApplication.getDefaultIWApplicationContext()
 				.getApplicationSettings().getProperty(LOGIN_SERVICE_USER, "");
 		
@@ -113,5 +120,31 @@ public class IslandDotIsService {
 		IslandDotIsService service = new IslandDotIsService();
 		service.getHash("0610703899", UUIDGenerator.getInstance()
 				.generateUUID(), "127.0.0.1");
+	}
+	
+	public User authenticateUser(String username, String password) throws java.rmi.RemoteException {
+		try {
+			LoginBusinessBean loginBean = LoginBusinessBean
+					.getDefaultLoginBusinessBean();
+			LoginTable loginTable = getLoginTableHome().findByLogin(username);
+			if (loginTable != null) {
+				// verify password
+				if (loginBean.verifyPassword(loginTable, password)) {
+					return loginTable.getUser();
+				}
+			}
+		} catch (FinderException e) {
+			e.printStackTrace();
+		} 
+
+		return null;
+	}
+	
+	private LoginTableHome getLoginTableHome() {
+		try {
+			return (LoginTableHome) IDOLookup.getHome(LoginTable.class);
+		} catch (IDOLookupException ile) {
+			throw new IBORuntimeException(ile);
+		}
 	}
 }
