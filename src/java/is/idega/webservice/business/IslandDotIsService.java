@@ -4,11 +4,15 @@ import is.skra.kosingar.kodun.KodunLocator;
 import is.skra.kosingar.kodun.Kodun_PortType;
 import is.skra.kosingar.kodun.Status;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
 
 import javax.ejb.FinderException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.rpc.ServiceException;
 import javax.xml.rpc.holders.StringHolder;
 
@@ -16,12 +20,13 @@ import localhost.eGovSAMLGenerator.webServices.generateSAMLFromToken.holders.__S
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import com.idega.business.IBORuntimeException;
 import com.idega.core.accesscontrol.business.LoginBusinessBean;
 import com.idega.core.accesscontrol.data.LoginTable;
 import com.idega.core.accesscontrol.data.LoginTableHome;
-import com.idega.core.idgenerator.business.UUIDGenerator;
 import com.idega.data.IDOLookup;
 import com.idega.data.IDOLookupException;
 import com.idega.idegaweb.IWMainApplication;
@@ -41,7 +46,7 @@ public class IslandDotIsService {
 	private static final String LOGIN_SERVICE_USER = "island.is_login_service_user";
 	private static final String LOGIN_SERVICE_PASSWORD = "island.is_login_service_password";
 
-	public boolean getHash(String personalId, String token, String ipAddress) {
+	public boolean createHash(String personalId, String token, String ipAddress) {
 		String endpoint = IWMainApplication
 				.getDefaultIWApplicationContext()
 				.getApplicationSettings()
@@ -49,10 +54,12 @@ public class IslandDotIsService {
 						ELECTION_SERVICE_ENDPOINT,
 						"https://egov.webservice.is/sst/runtime.asvc/com.actional.soapstation.eGOV_SKRA_KosningKodun");
 		String user = IWMainApplication.getDefaultIWApplicationContext()
-				.getApplicationSettings().getProperty(ELECTION_SERVICE_USER, "");
-		
+				.getApplicationSettings()
+				.getProperty(ELECTION_SERVICE_USER, "");
+
 		String password = IWMainApplication.getDefaultIWApplicationContext()
-				.getApplicationSettings().getProperty(ELECTION_SERVICE_PASSWORD, "");
+				.getApplicationSettings()
+				.getProperty(ELECTION_SERVICE_PASSWORD, "");
 
 		try {
 			KodunLocator locator = new KodunLocator();
@@ -66,6 +73,8 @@ public class IslandDotIsService {
 			if (status.getCode() == 0) {
 				return true;
 			}
+			
+			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (ServiceException e) {
@@ -86,24 +95,32 @@ public class IslandDotIsService {
 						"https://egov.webservice.is/sst/runtime.asvc/com.actional.soapstation.eGOVDKM_AuthConsumer.AccessPoint?WSDL");
 		String user = IWMainApplication.getDefaultIWApplicationContext()
 				.getApplicationSettings().getProperty(LOGIN_SERVICE_USER, "");
-		
+
 		String password = IWMainApplication.getDefaultIWApplicationContext()
-				.getApplicationSettings().getProperty(LOGIN_SERVICE_PASSWORD, "");
-		
+				.getApplicationSettings()
+				.getProperty(LOGIN_SERVICE_PASSWORD, "");
+
 		try {
 			EGOVDKM_AuthConsumerAccessPointLocator locator = new EGOVDKM_AuthConsumerAccessPointLocator();
-			EGOVDKM_AuthConsumerType port = locator.geteGOVDKM_AuthConsumerAccessPointPort(new URL(endpoint));
+			EGOVDKM_AuthConsumerType port = locator
+					.geteGOVDKM_AuthConsumerAccessPointPort(new URL(endpoint));
 			((org.apache.axis.client.Stub) port).setUsername(user);
 			((org.apache.axis.client.Stub) port).setPassword(password);
-			
-			__StatusHolder status = null;
-			StringHolder saml = null;
-			
+
+			__StatusHolder status = new __StatusHolder();
+			StringHolder saml = new StringHolder();
+
 			port.generateSAMLFromToken(token, ipAddress, status, saml);
-			
-			System.out.println("status = " + status.toString());
-			System.out.println("saml = " + saml.toString());
-			
+
+			System.out.println("status.code = " + status.value.getCode());
+			System.out.println("status.message = " + status.value.getMessage());
+			System.out.println("status.type = " + status.value.getType());
+			System.out.println("saml = " + saml.value);
+
+			DocumentBuilder builder = DocumentBuilderFactory.newInstance()
+					.newDocumentBuilder();
+			Document doc = builder.parse(saml.value);
+
 			return "0610703899";
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -111,18 +128,20 @@ public class IslandDotIsService {
 			e.printStackTrace();
 		} catch (RemoteException e) {
 			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
 		return null;
 	}
+
 	
-	public static void main(String args[]) {
-		IslandDotIsService service = new IslandDotIsService();
-		service.getHash("0610703899", UUIDGenerator.getInstance()
-				.generateUUID(), "127.0.0.1");
-	}
-	
-	public User authenticateUser(String username, String password) throws java.rmi.RemoteException {
+	public User authenticateUser(String username, String password)
+			throws java.rmi.RemoteException {
 		try {
 			LoginBusinessBean loginBean = LoginBusinessBean
 					.getDefaultLoginBusinessBean();
@@ -135,11 +154,11 @@ public class IslandDotIsService {
 			}
 		} catch (FinderException e) {
 			e.printStackTrace();
-		} 
+		}
 
 		return null;
 	}
-	
+
 	private LoginTableHome getLoginTableHome() {
 		try {
 			return (LoginTableHome) IDOLookup.getHome(LoginTable.class);

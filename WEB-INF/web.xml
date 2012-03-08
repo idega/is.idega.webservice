@@ -11,7 +11,7 @@
 
 	<filter-mapping>
 		<filter-name>IslandDotIsLoginFilter</filter-name>
-		<url-pattern>/innskraningislanddotis/*</url-pattern>
+		<url-pattern>/pages/innskraningislanddotis/*</url-pattern>
 	</filter-mapping>
 
 </web-app>

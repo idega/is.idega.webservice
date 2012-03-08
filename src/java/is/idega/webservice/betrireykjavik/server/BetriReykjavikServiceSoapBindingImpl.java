@@ -22,7 +22,7 @@ public class BetriReykjavikServiceSoapBindingImpl implements is.idega.webservice
     	User user = getBusiness().authenticateUser(username, password); 
     	if (user != null) {
     		String hash = UUIDGenerator.getInstance().generateUUID();
-    		if (getBusiness().getHash(user.getPersonalID(), hash, "")) {
+    		if (getBusiness().createHash(user.getPersonalID(), hash, "")) {
         		return hash;    			
     		}
     	}

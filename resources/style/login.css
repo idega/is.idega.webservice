@@ -1,0 +1,173 @@
+.login {	
+}
+
+.login div {
+	margin-bottom: 6px;
+}
+
+.login label {
+	width: 6em; 
+	display: block; 
+	float: left;
+	margin-right: 0.4em;
+}
+
+.login p {    
+	margin: 0;
+}
+
+.login div.submit {
+	margin-top: 12px;
+}
+
+.login div.submit input {
+	border: 1px #a0a0a0 solid;
+	padding: 3px 5px;
+}
+
+
+/* definitions for single line layout */
+.loginSingleline {	
+	max-width: 50em;
+}
+
+.loginSingleline div.username {	
+	display: inline;
+}
+
+.loginSingleline div.password {	
+	display: inline; 
+	margin-left: 0.6em;
+}
+
+.loginSingleline label {
+	width: 5em; 
+	text-align: right; 
+	margin-right: 0.2em;
+	margin-left: 0.6em;
+}
+
+.loginSingleline p {    
+    margin: 0; 
+    display: inline;
+}
+
+.loginSingleline div.submit {
+	text-align: left;
+	display: inline; 	
+	margin-left: 0.6em;
+}
+
+/* User password change window styles */
+
+.passwords input {
+	font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, Helvetica, sans-serif !important;
+	font-size: 14px !important;
+	background-color: #cef3cf;
+	border: 1px #b5e1b7 solid !important;
+	border-right-color: #80b082 !important;
+	border-bottom-color: #6e9870 !important;
+	border-left-color: #a9dcac !important;
+	padding: 4px 12px;
+}
+
+#passwordChanger {
+	padding: 10px 12px;
+}
+
+#passwordChanger .webfaceFormItem {
+	overflow: hidden !important;
+	margin-bottom: 15px !important;
+}
+
+#passwordChanger .webfaceFormItem span#header {
+	color:#042025;
+	font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode",Arial,Helvetica,sans-serif;
+	font-size:20px;
+	line-height: 24px;
+	margin:0 0 68px;
+}
+
+#passwordChanger .webfaceFormItem span#message {
+	color:#FF0000;
+	font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode",Arial,Helvetica,sans-serif;
+	font-size:12px;
+	margin:0 0 68px;
+}
+
+#passwordChanger .webfaceFormItem label {
+	font-weight: bold;
+	font-size: 12px;
+	float: left;
+	width: 120px;
+	line-height: 27px;
+}
+
+#passwordChanger .webfaceFormItem input {
+	border: 1px #a8a8a8 solid !important;
+	background-color: #fff;
+	width: 200px;
+}
+
+#passwordChanger .webfaceButtonLayer {
+	width: auto;
+	overflow: hidden;
+}
+
+#passwordChanger .webfaceButtonLayer input {
+	font-size: 14px !important;
+	padding: 4px 12px;
+	float: right;
+}
+
+div.loginButtonInContainer input {
+	cursor: pointer;
+}
+
+a.passwordChanger {
+	display: none;	
+}
+
+/* 
+For reference
+
+Image buttons should be styled like this:
+.login a{    
+    display:block;
+}
+.login a span {
+    display: none;
+}
+.login a.loginButton {
+	width: 56px; height: 17px; 
+    background: url(button_login.jpg); 	
+}
+
+.login a.logoutButton {
+	width: 56px; height: 17px; 
+    background: url(button_logout.jpg); 	
+}
+
+.login a.retryButton {
+	width: 56px; height: 17px; 
+    background: url(button_retry.jpg); 	
+}
+
+To do localization, it's like this:
+.login a{
+    width: 100px; height: 30px; 
+    border: 1px solid red; 
+    display:block;
+}
+login a span {
+    display: none;
+}
+.login .en a.loginButton {
+    background: url(login_en.png); 
+}
+.login .se a.loginButton {
+    background: url(login_se.png); 
+}
+and the same for logout and retry buttons
+*/
+
