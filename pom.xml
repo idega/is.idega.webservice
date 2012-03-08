@@ -43,7 +43,14 @@
     <dependency>
       <groupId>com.idega.block.platform</groupId>
       <artifactId>org.apache.axis</artifactId>
+     </dependency>
+     <dependency>
+      <groupId>xom</groupId>
+      <artifactId>xom</artifactId>
+      <type>jar</type>
+      <version>1.2.5</version>
      </dependency>    
+         
   </dependencies>
   
 </project>
