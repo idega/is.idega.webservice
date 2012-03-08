@@ -44,11 +44,6 @@
       <groupId>com.idega.block.platform</groupId>
       <artifactId>org.apache.axis</artifactId>
      </dependency>    
-      <dependency>
-      <groupId>org.opensaml</groupId>
-      <artifactId>opensaml</artifactId>
-      <version>2.5.2</version>
-     </dependency>    
   </dependencies>
   
 </project>
