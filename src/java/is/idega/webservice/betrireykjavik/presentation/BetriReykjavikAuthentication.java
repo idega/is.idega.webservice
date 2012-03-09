@@ -12,6 +12,7 @@ import com.idega.presentation.IWContext;
 import com.idega.presentation.Layer;
 import com.idega.presentation.Span;
 import com.idega.presentation.text.Link;
+import com.idega.presentation.text.Paragraph;
 import com.idega.presentation.text.Text;
 import com.idega.presentation.ui.Form;
 import com.idega.presentation.ui.HiddenInput;
@@ -68,19 +69,6 @@ public class BetriReykjavikAuthentication extends Block {
 	    	loginFailed = true;
 		}
 
-		/*if (loginFailed) {
-			displayAuthentificationFailedForm(iwc);			
-		} else {
-			displayAuthentificationForm(iwc);			
-		}*/
-		
-		displayAuthentificationForm(iwc);
-	}
-
-	public void displayAuthentificationFailedForm(IWContext iwc) {
-	}
-	
-	public void displayAuthentificationForm(IWContext iwc) {
 		String cssFile = iwb
 				.getVirtualPathWithFileNameString("style/login.css");
 		if (!PresentationUtil.addStyleSheetToHeader(iwc, cssFile)) {
@@ -90,6 +78,49 @@ public class BetriReykjavikAuthentication extends Block {
 			add(cssContainer);
 		}
 
+		if (loginFailed) {
+			displayAuthentificationFailedForm(iwc);			
+		} else {
+			displayAuthentificationForm(iwc);			
+		}
+	}
+
+	public void displayAuthentificationFailedForm(IWContext iwc) {
+		Layer top = new Layer();
+		top.setStyleClass("loginRedirect loginFailed loginForm");
+
+		Form form = new Form();
+		form.setStyleClass("loginForm");
+
+		top.add(form);
+
+		Paragraph paragraph = new Paragraph();
+		paragraph.setStyleClass("errorMessage");
+		
+		Text errorMessage = new Text(iwrb.getLocalizedString(
+				"betri_reykjavik.login_failed", "Login failed"));
+		
+		paragraph.add(errorMessage);
+		
+		form.add(paragraph);
+
+		Layer layer = new Layer();
+		layer.setStyleClass("submit #" + iwc.getLocale().getLanguage());
+
+		Link submit = new Link(new Span(new Text(iwrb.getLocalizedString(
+				"betri_reykjavik.tryagain_text", "Try again"))));
+		submit.setStyleClass("loginButton");
+		submit.setToFormSubmit(form);
+
+		layer.add(submit);
+		form.add(layer);
+
+		form.maintainParameter(RETURN_URL);
+		
+		this.add(top);
+	}
+	
+	public void displayAuthentificationForm(IWContext iwc) {
 		Layer top = new Layer();
 		top.setStyleClass("loginRedirect loggedOut loginForm");
 
