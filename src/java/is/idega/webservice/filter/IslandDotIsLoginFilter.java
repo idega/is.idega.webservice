@@ -48,8 +48,9 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 		IslandDotIsService service = (IslandDotIsService) springContext
 				.getBean("islandDotIsService");
 
+		String URI = request.getRequestURI();
 		String token = iwc.getParameter("token");
-		if (token != null && !"".equals(token.trim())) {
+		if (token != null && !"".equals(token.trim()) && URI.indexOf("innskraningislanddotis") != -1) {
 			String personalID = service.getPersonalIDFromToken(token,
 					iwc.getRemoteIpAddress());
 			if (personalID != null && !"".equals(personalID.trim())) {
