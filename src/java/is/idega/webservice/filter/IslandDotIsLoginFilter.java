@@ -1,5 +1,6 @@
 package is.idega.webservice.filter;
 
+import is.idega.idegaweb.egov.accounting.business.CitizenBusiness;
 import is.idega.webservice.business.IslandDotIsService;
 
 import java.io.IOException;
@@ -27,7 +28,9 @@ import com.idega.idegaweb.IWMainApplication;
 import com.idega.presentation.IWContext;
 import com.idega.servlet.filter.BaseFilter;
 import com.idega.user.business.UserBusiness;
+import com.idega.user.data.Group;
 import com.idega.user.data.User;
+import com.idega.util.IWTimestamp;
 
 public class IslandDotIsLoginFilter extends BaseFilter {
 
@@ -50,7 +53,8 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 
 		String URI = request.getRequestURI();
 		String token = iwc.getParameter("token");
-		if (token != null && !"".equals(token.trim()) && URI.indexOf("innskraningislanddotis") != -1) {
+		if (token != null && !"".equals(token.trim())
+				&& URI.indexOf("innskraningislanddotis") != -1) {
 			String personalID = service.getPersonalIDFromToken(token,
 					iwc.getRemoteIpAddress());
 			if (personalID != null && !"".equals(personalID.trim())) {
@@ -60,26 +64,51 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 					if (isLoggedOn) {
 						loginBusiness.logOutUser(iwc);
 					}
-					loginBusiness.logInByPersonalID(iwc, personalID);
-					HttpSession session = request.getSession();
-					User user = loginBusiness.getCurrentUser(session);
+
 					IWMainApplication iwMainApplication = getIWMainApplication(request);
 					IWApplicationContext iwac = iwMainApplication
 							.getIWApplicationContext();
 					UserBusiness userBusiness = (UserBusiness) IBOLookup
 							.getServiceInstance(iwac, UserBusiness.class);
+					CitizenBusiness citizenBusiness = (CitizenBusiness) IBOLookup
+							.getServiceInstance(iwac, CitizenBusiness.class);
 
-					int redirectPageId = userBusiness.getHomePageIDForUser(user);
+					// check if user has login, otherwise create a login and put
+					// in default group
+					if (!loginBusiness.hasUserLogin(request, personalID)) {
+						User user = userBusiness.getUser(personalID);
+						userBusiness.generateUserLogin(user);
+						Group acceptedCitizens;
+						try {
+							acceptedCitizens = citizenBusiness
+									.getRootAcceptedCitizenGroup();
+							acceptedCitizens.addGroup(user,
+									IWTimestamp.getTimestampRightNow());
+							if (user.getPrimaryGroup() == null) {
+								user.setPrimaryGroup(acceptedCitizens);
+								user.store();
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+
+					loginBusiness.logInByPersonalID(iwc, personalID);
+					HttpSession session = request.getSession();
+					User user = loginBusiness.getCurrentUser(session);
+
+					int redirectPageId = userBusiness
+							.getHomePageIDForUser(user);
 
 					if (redirectPageId > 0) {
-						response.sendRedirect(getBuilderService(iwac).getPageURI(
-								redirectPageId));
+						response.sendRedirect(getBuilderService(iwac)
+								.getPageURI(redirectPageId));
 					}
 				} catch (FinderException e) {
 					e.printStackTrace();
 				} catch (Exception e) {
 					e.printStackTrace();
-				}				
+				}
 			}
 		}
 
@@ -96,10 +125,10 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 
 	}
 
-	// protected com.idega.user.business.UserBusiness
-	// getUserBusiness(IWApplicationContext iwac) throws RemoteException {
-	// return (com.idega.user.business.UserBusiness)
-	// IBOLookup.getServiceInstance(iwac,
-	// com.idega.user.business.UserBusiness.class);
-	// }
+	/*
+	 * protected com.idega.user.business.UserBusiness getUserBusiness(
+	 * IWApplicationContext iwac) throws RemoteException { return
+	 * (com.idega.user.business.UserBusiness) IBOLookup
+	 * .getServiceInstance(iwac, com.idega.user.business.UserBusiness.class); }
+	 */
 }
