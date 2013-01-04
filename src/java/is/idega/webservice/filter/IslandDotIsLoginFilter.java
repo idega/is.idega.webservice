@@ -34,11 +34,13 @@ import com.idega.util.IWTimestamp;
 
 public class IslandDotIsLoginFilter extends BaseFilter {
 
+	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
 
 	}
 
+	@Override
 	public void doFilter(ServletRequest srequest, ServletResponse sresponse,
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) srequest;
@@ -95,7 +97,7 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 
 					loginBusiness.logInByPersonalID(iwc, personalID);
 					HttpSession session = request.getSession();
-					User user = loginBusiness.getCurrentUser(session);
+					User user = loginBusiness.getCurrentUserLegacy(session);
 
 					int redirectPageId = userBusiness
 							.getHomePageIDForUser(user);
@@ -120,6 +122,7 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 		return BuilderServiceFactory.getBuilderService(iwac);
 	}
 
+	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
 

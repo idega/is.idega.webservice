@@ -32,12 +32,15 @@ import org.springframework.stereotype.Service;
 
 import com.idega.business.IBORuntimeException;
 import com.idega.core.accesscontrol.business.LoginBusinessBean;
+import com.idega.core.accesscontrol.dao.UserLoginDAO;
 import com.idega.core.accesscontrol.data.LoginTable;
 import com.idega.core.accesscontrol.data.LoginTableHome;
+import com.idega.core.accesscontrol.data.bean.UserLogin;
 import com.idega.data.IDOLookup;
 import com.idega.data.IDOLookupException;
 import com.idega.idegaweb.IWMainApplication;
 import com.idega.user.data.User;
+import com.idega.util.expression.ELUtil;
 
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerAccessPointLocator;
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerType;
@@ -52,7 +55,7 @@ public class IslandDotIsService {
 	private static final String LOGIN_SERVICE_ENDPOINT = "island.is_login_service_endpoint";
 	private static final String LOGIN_SERVICE_USER = "island.is_login_service_user";
 	private static final String LOGIN_SERVICE_PASSWORD = "island.is_login_service_password";
-	
+
 	public boolean createHash(String personalId, String token, String ipAddress) {
 		String endpoint = IWMainApplication
 				.getDefaultIWApplicationContext()
@@ -124,14 +127,14 @@ public class IslandDotIsService {
 				if (personalId != null) {
 					return personalId;
 				}
-			}			
+			}
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
 			e.printStackTrace();
-		} 
+		}
 
 		return null;
 	}
@@ -158,7 +161,7 @@ public class IslandDotIsService {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private Map<String, String> samlInfo(String response) {
 
 		Map<String, String> info = new HashMap<String, String>();
@@ -181,7 +184,7 @@ public class IslandDotIsService {
 
 		return info;
 	}
-	
+
 	private Element firstChild( Element parent, String name, String namespace ) {
 		Element childElement = parent.getFirstChildElement( name );
 
@@ -214,7 +217,9 @@ public class IslandDotIsService {
 			LoginTable loginTable = getLoginTableHome().findByLogin(username);
 			if (loginTable != null) {
 				// verify password
-				if (loginBean.verifyPassword(loginTable, password)) {
+				UserLoginDAO userLoginDAO = ELUtil.getInstance().getBean(UserLoginDAO.class);
+				UserLogin login = userLoginDAO.findLogin(Integer.valueOf(loginTable.getUserLogin()));
+				if (loginBean.verifyPassword(login, password)) {
 					return loginTable.getUser();
 				}
 			}
