@@ -29,6 +29,7 @@ import com.idega.util.IWTimestamp;
 @Scope(BeanDefinition.SCOPE_SINGLETON)
 @Service("vehicleRegistryWebService")
 public class VehicleRegistryWebServiceBean extends DefaultSpringBean implements VehicleRegistryWebService {
+
 	private static final String VEHICLE_REGISTRY_CACHE = "vehicle_registry_cache";
 	private static final String VEHICLE_REGISTRY_PASSWORD = "vehicle_registry_password";
 	private static final String VEHICLE_REGISTRY_USER = "vehicle_registry_user";

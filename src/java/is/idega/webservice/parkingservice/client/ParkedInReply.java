@@ -49,7 +49,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Gets the carInfo value for this ParkedInReply.
-     * 
+     *
      * @return carInfo
      */
     public is.idega.webservice.parkingservice.client.CarInfo getCarInfo() {
@@ -59,7 +59,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Sets the carInfo value for this ParkedInReply.
-     * 
+     *
      * @param carInfo
      */
     public void setCarInfo(is.idega.webservice.parkingservice.client.CarInfo carInfo) {
@@ -69,7 +69,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Gets the carNumber value for this ParkedInReply.
-     * 
+     *
      * @return carNumber
      */
     public java.lang.String getCarNumber() {
@@ -79,7 +79,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Sets the carNumber value for this ParkedInReply.
-     * 
+     *
      * @param carNumber
      */
     public void setCarNumber(java.lang.String carNumber) {
@@ -89,7 +89,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Gets the code value for this ParkedInReply.
-     * 
+     *
      * @return code
      */
     public java.lang.Integer getCode() {
@@ -99,7 +99,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Sets the code value for this ParkedInReply.
-     * 
+     *
      * @param code
      */
     public void setCode(java.lang.Integer code) {
@@ -109,7 +109,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Gets the inDate value for this ParkedInReply.
-     * 
+     *
      * @return inDate
      */
     public java.lang.String getInDate() {
@@ -119,7 +119,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Sets the inDate value for this ParkedInReply.
-     * 
+     *
      * @param inDate
      */
     public void setInDate(java.lang.String inDate) {
@@ -129,7 +129,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Gets the message value for this ParkedInReply.
-     * 
+     *
      * @return message
      */
     public java.lang.String getMessage() {
@@ -139,7 +139,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Sets the message value for this ParkedInReply.
-     * 
+     *
      * @param message
      */
     public void setMessage(java.lang.String message) {
@@ -149,7 +149,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Gets the msisdn value for this ParkedInReply.
-     * 
+     *
      * @return msisdn
      */
     public java.lang.String getMsisdn() {
@@ -159,7 +159,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Sets the msisdn value for this ParkedInReply.
-     * 
+     *
      * @param msisdn
      */
     public void setMsisdn(java.lang.String msisdn) {
@@ -169,7 +169,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Gets the parkedIn value for this ParkedInReply.
-     * 
+     *
      * @return parkedIn
      */
     public java.lang.Boolean getParkedIn() {
@@ -179,7 +179,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Sets the parkedIn value for this ParkedInReply.
-     * 
+     *
      * @param parkedIn
      */
     public void setParkedIn(java.lang.Boolean parkedIn) {
@@ -189,7 +189,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Gets the zoneNumber value for this ParkedInReply.
-     * 
+     *
      * @return zoneNumber
      */
     public java.lang.Integer getZoneNumber() {
@@ -199,7 +199,7 @@ public class ParkedInReply  implements java.io.Serializable {
 
     /**
      * Sets the zoneNumber value for this ParkedInReply.
-     * 
+     *
      * @param zoneNumber
      */
     public void setZoneNumber(java.lang.Integer zoneNumber) {
@@ -207,7 +207,8 @@ public class ParkedInReply  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
         if (!(obj instanceof ParkedInReply)) return false;
         ParkedInReply other = (ParkedInReply) obj;
         if (this == obj) return true;
@@ -216,29 +217,29 @@ public class ParkedInReply  implements java.io.Serializable {
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.carInfo==null && other.getCarInfo()==null) || 
+        _equals = true &&
+            ((this.carInfo==null && other.getCarInfo()==null) ||
              (this.carInfo!=null &&
               this.carInfo.equals(other.getCarInfo()))) &&
-            ((this.carNumber==null && other.getCarNumber()==null) || 
+            ((this.carNumber==null && other.getCarNumber()==null) ||
              (this.carNumber!=null &&
               this.carNumber.equals(other.getCarNumber()))) &&
-            ((this.code==null && other.getCode()==null) || 
+            ((this.code==null && other.getCode()==null) ||
              (this.code!=null &&
               this.code.equals(other.getCode()))) &&
-            ((this.inDate==null && other.getInDate()==null) || 
+            ((this.inDate==null && other.getInDate()==null) ||
              (this.inDate!=null &&
               this.inDate.equals(other.getInDate()))) &&
-            ((this.message==null && other.getMessage()==null) || 
+            ((this.message==null && other.getMessage()==null) ||
              (this.message!=null &&
               this.message.equals(other.getMessage()))) &&
-            ((this.msisdn==null && other.getMsisdn()==null) || 
+            ((this.msisdn==null && other.getMsisdn()==null) ||
              (this.msisdn!=null &&
               this.msisdn.equals(other.getMsisdn()))) &&
-            ((this.parkedIn==null && other.getParkedIn()==null) || 
+            ((this.parkedIn==null && other.getParkedIn()==null) ||
              (this.parkedIn!=null &&
               this.parkedIn.equals(other.getParkedIn()))) &&
-            ((this.zoneNumber==null && other.getZoneNumber()==null) || 
+            ((this.zoneNumber==null && other.getZoneNumber()==null) ||
              (this.zoneNumber!=null &&
               this.zoneNumber.equals(other.getZoneNumber())));
         __equalsCalc = null;
@@ -246,7 +247,8 @@ public class ParkedInReply  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -355,10 +357,10 @@ public class ParkedInReply  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -367,12 +369,17 @@ public class ParkedInReply  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }
 
+    @Override
+	public String toString() {
+    	return "Parking info: car info: " + getCarInfo() + ", car number: " + getCarNumber() + " code: " + getCode() + ", in date: " + getInDate() +
+    			", message: " + getMessage() + ", msisdn: " + getMsisdn() + ", parked in: " + getParkedIn() + ", zone number: " + getZoneNumber();
+    }
 }
