@@ -6,9 +6,7 @@
     <version>5.0.0-SNAPSHOT</version>
   </parent>
   <name>External webservices</name>
-  <groupId>com.idega.block.egov</groupId>
   <artifactId>is.idega.webservice</artifactId>
-  <version>5.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <inceptionYear>2008</inceptionYear>
   <description>idega external webservice module</description>
