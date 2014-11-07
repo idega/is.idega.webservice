@@ -116,8 +116,6 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 			} else {
 				LOGGER.warning("Unable to get personal ID from token: " + token + ". URI: " + uri);
 			}
-		} else {
-			LOGGER.warning("Not processing login via Island.is. Token: " + token + ", URI: " + uri);
 		}
 
 		chain.doFilter(srequest, sresponse);
