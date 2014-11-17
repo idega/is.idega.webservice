@@ -5,6 +5,7 @@ import is.idega.webservice.business.IslandDotIsService;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.util.Locale;
 import java.util.logging.Logger;
 
 import javax.ejb.FinderException;
@@ -28,6 +29,8 @@ import com.idega.core.accesscontrol.data.LoginInfo;
 import com.idega.core.accesscontrol.data.LoginTable;
 import com.idega.core.builder.business.BuilderService;
 import com.idega.core.builder.business.BuilderServiceFactory;
+import com.idega.core.localisation.business.ICLocaleBusiness;
+import com.idega.core.localisation.business.LocaleSwitcher;
 import com.idega.idegaweb.IWApplicationContext;
 import com.idega.idegaweb.IWMainApplication;
 import com.idega.presentation.IWContext;
@@ -35,7 +38,9 @@ import com.idega.servlet.filter.BaseFilter;
 import com.idega.user.business.UserBusiness;
 import com.idega.user.data.Group;
 import com.idega.user.data.User;
+import com.idega.util.CoreConstants;
 import com.idega.util.IWTimestamp;
+import com.idega.util.URIUtil;
 
 public class IslandDotIsLoginFilter extends BaseFilter {
 
@@ -59,6 +64,7 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 		if (token != null && !"".equals(token.trim()) && uri.indexOf("innskraningislanddotis") != -1) {
 			String personalID = service.getPersonalIDFromToken(token, iwc.getRemoteIpAddress());
 			if (personalID != null && !"".equals(personalID.trim())) {
+
 				LoginBusinessBean loginBusiness = getLoginBusiness(request);
 				boolean isLoggedOn = loginBusiness.isLoggedOn(request);
 				try {
@@ -103,7 +109,22 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 						int redirectPageId = userBusiness.getHomePageIDForUser(user);
 
 						if (redirectPageId > 0) {
-							response.sendRedirect(getBuilderService(iwac).getPageURI(redirectPageId));
+							URIUtil util = new URIUtil(getBuilderService(iwac).getPageURI(redirectPageId));
+
+							Locale locale = userBusiness.getUsersPreferredLocale(user);
+							if (locale == null) {
+								locale = iwac.getIWMainApplication().getDefaultLocale();
+							}
+							if ("is".equals(locale.toString())) {
+								locale = ICLocaleBusiness.getLocaleFromLocaleString("is_IS");
+							}
+							util.setParameter(LocaleSwitcher.languageParameterString, locale.toString());
+
+							String responseUri = util.getUri();
+							response.sendRedirect(responseUri);
+						} else {
+							response.sendRedirect(CoreConstants.PAGES_URI_PREFIX);
+							LOGGER.warning(user + " (personal ID: " + personalID + ") does not have home page!");
 						}
 					} else {
 						LOGGER.info("Failed to login via Island.is. Personal ID: " + personalID);
