@@ -1,9 +1,5 @@
 package is.idega.webservice.business;
 
-import is.skra.kosingar.kodun.KodunLocator;
-import is.skra.kosingar.kodun.Kodun_PortType;
-import is.skra.kosingar.kodun.Status;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -19,14 +15,7 @@ import javax.ejb.FinderException;
 import javax.xml.rpc.ServiceException;
 import javax.xml.rpc.holders.StringHolder;
 
-import localhost.eGovSAMLGenerator.webServices.generateSAMLFromToken.holders.__StatusHolder;
-import nu.xom.Builder;
-import nu.xom.Document;
-import nu.xom.Element;
-import nu.xom.Elements;
-import nu.xom.ParsingException;
-import nu.xom.ValidityException;
-
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -44,10 +33,23 @@ import com.idega.util.expression.ELUtil;
 
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerAccessPointLocator;
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerType;
+import is.skra.kosingar.kodun.KodunLocator;
+import is.skra.kosingar.kodun.Kodun_PortType;
+import is.skra.kosingar.kodun.Status;
+import localhost.eGovSAMLGenerator.webServices.generateSAMLFromToken.holders.__StatusHolder;
+import nu.xom.Builder;
+import nu.xom.Document;
+import nu.xom.Element;
+import nu.xom.Elements;
+import nu.xom.ParsingException;
+import nu.xom.ValidityException;
 
-@Scope("singleton")
-@Service("islandDotIsService")
+@Scope(BeanDefinition.SCOPE_SINGLETON)
+@Service(IslandDotIsService.BEAN_NAME)
 public class IslandDotIsService {
+
+	public static final String BEAN_NAME = "islandDotIsService";
+
 	private static final String ELECTION_SERVICE_ENDPOINT = "island.is_election_service_endpoint";
 	private static final String ELECTION_SERVICE_USER = "island.is_election_service_user";
 	private static final String ELECTION_SERVICE_PASSWORD = "island.is_election_service_password";

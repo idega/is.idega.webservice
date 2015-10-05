@@ -1,8 +1,5 @@
 package is.idega.webservice.filter;
 
-import is.idega.idegaweb.egov.accounting.business.CitizenBusiness;
-import is.idega.webservice.business.IslandDotIsService;
-
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.Locale;
@@ -42,6 +39,9 @@ import com.idega.util.CoreConstants;
 import com.idega.util.IWTimestamp;
 import com.idega.util.URIUtil;
 
+import is.idega.idegaweb.egov.accounting.business.CitizenBusiness;
+import is.idega.webservice.business.IslandDotIsService;
+
 public class IslandDotIsLoginFilter extends BaseFilter {
 
 	private static final Logger LOGGER = Logger.getLogger(IslandDotIsLoginFilter.class.getName());
@@ -57,7 +57,7 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 
 		IWContext iwc = new IWContext(request, response, request.getSession().getServletContext());
 		WebApplicationContext springContext = WebApplicationContextUtils.getWebApplicationContext(iwc.getServletContext());
-		IslandDotIsService service = (IslandDotIsService) springContext.getBean("islandDotIsService");
+		IslandDotIsService service = (IslandDotIsService) springContext.getBean(IslandDotIsService.BEAN_NAME);
 
 		String uri = request.getRequestURI();
 		String token = iwc.getParameter("token");
