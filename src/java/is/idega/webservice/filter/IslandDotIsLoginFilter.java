@@ -1,11 +1,8 @@
 package is.idega.webservice.filter;
 
 import java.io.IOException;
-import java.rmi.RemoteException;
-import java.util.Locale;
 import java.util.logging.Logger;
 
-import javax.ejb.FinderException;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
@@ -13,33 +10,15 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.idega.block.login.LoginConstants;
-import com.idega.business.IBOLookup;
-import com.idega.core.accesscontrol.business.LoginBusinessBean;
-import com.idega.core.accesscontrol.business.LoginDBHandler;
-import com.idega.core.accesscontrol.data.LoginInfo;
-import com.idega.core.accesscontrol.data.LoginTable;
-import com.idega.core.builder.business.BuilderService;
-import com.idega.core.builder.business.BuilderServiceFactory;
-import com.idega.core.localisation.business.ICLocaleBusiness;
-import com.idega.core.localisation.business.LocaleSwitcher;
-import com.idega.idegaweb.IWApplicationContext;
-import com.idega.idegaweb.IWMainApplication;
 import com.idega.presentation.IWContext;
 import com.idega.servlet.filter.BaseFilter;
-import com.idega.user.business.UserBusiness;
-import com.idega.user.data.Group;
-import com.idega.user.data.User;
 import com.idega.util.CoreConstants;
-import com.idega.util.IWTimestamp;
-import com.idega.util.URIUtil;
+import com.idega.util.StringUtil;
 
-import is.idega.idegaweb.egov.accounting.business.CitizenBusiness;
 import is.idega.webservice.business.IslandDotIsService;
 
 public class IslandDotIsLoginFilter extends BaseFilter {
@@ -61,89 +40,21 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 
 		String uri = request.getRequestURI();
 		String token = iwc.getParameter("token");
-		if (token != null && !"".equals(token.trim()) && uri.indexOf("innskraningislanddotis") != -1) {
-			String personalID = service.getPersonalIDFromToken(token, iwc.getRemoteIpAddress());
-			if (personalID != null && !"".equals(personalID.trim())) {
-
-				LoginBusinessBean loginBusiness = getLoginBusiness(request);
-				boolean isLoggedOn = loginBusiness.isLoggedOn(request);
-				try {
-					if (isLoggedOn) {
-						loginBusiness.logOutUser(iwc);
-					}
-
-					IWMainApplication iwMainApplication = getIWMainApplication(request);
-					IWApplicationContext iwac = iwMainApplication.getIWApplicationContext();
-					UserBusiness userBusiness = IBOLookup.getServiceInstance(iwac, UserBusiness.class);
-					CitizenBusiness citizenBusiness = IBOLookup.getServiceInstance(iwac, CitizenBusiness.class);
-
-					// check if user has login, otherwise create a login and put in default group
-					if (!loginBusiness.hasUserLogin(request, personalID)) {
-						User user = userBusiness.getUser(personalID);
-						LoginTable loginTable = userBusiness.generateUserLogin(user);
-						LoginInfo loginInfo = LoginDBHandler.getLoginInfo(loginTable);
-						if (loginInfo != null) {
-							loginInfo.setChangeNextTime(Boolean.FALSE);
-							loginInfo.store();
-						}
-
-						Group acceptedCitizens;
-						try {
-							acceptedCitizens = citizenBusiness.getRootAcceptedCitizenGroup();
-							acceptedCitizens.addGroup(user,	IWTimestamp.getTimestampRightNow());
-							if (user.getPrimaryGroup() == null) {
-								user.setPrimaryGroup(acceptedCitizens);
-								user.store();
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-
-					if (loginBusiness.logInByPersonalID(iwc, personalID)) {
-						HttpSession session = request.getSession();
-						session.setAttribute(LoginConstants.LOGIN_TYPE, LoginConstants.LoginType.ISLAND_DOT_IS.toString());
-
-						User user = loginBusiness.getCurrentUserLegacy(session);
-
-						int redirectPageId = userBusiness.getHomePageIDForUser(user);
-
-						if (redirectPageId > 0) {
-							URIUtil util = new URIUtil(getBuilderService(iwac).getPageURI(redirectPageId));
-
-							Locale locale = userBusiness.getUsersPreferredLocale(user);
-							if (locale == null) {
-								locale = iwac.getIWMainApplication().getDefaultLocale();
-							}
-							if ("is".equals(locale.toString())) {
-								locale = ICLocaleBusiness.getLocaleFromLocaleString("is_IS");
-							}
-							util.setParameter(LocaleSwitcher.languageParameterString, locale.toString());
-
-							String responseUri = util.getUri();
-							response.sendRedirect(responseUri);
-						} else {
-							response.sendRedirect(CoreConstants.PAGES_URI_PREFIX);
-							LOGGER.warning(user + " (personal ID: " + personalID + ") does not have home page!");
-						}
-					} else {
-						LOGGER.info("Failed to login via Island.is. Personal ID: " + personalID);
-					}
-				} catch (FinderException e) {
-					e.printStackTrace();
-				} catch (Exception e) {
-					e.printStackTrace();
+		if (uri.indexOf("innskraningislanddotis") != -1) {
+			if (token != null && !"".equals(token.trim())) {
+				String personalID = service.getPersonalIDFromToken(token, iwc.getRemoteIpAddress());
+				if (personalID != null && !"".equals(personalID.trim())) {
+					String responsePage = service.getHomePageForCitizen(personalID, iwc);
+					response.sendRedirect(StringUtil.isEmpty(responsePage) ? CoreConstants.PAGES_URI_PREFIX : responsePage);
+				} else {
+					LOGGER.warning("Unable to get personal ID from token: " + token + ". URI: " + uri);
 				}
 			} else {
-				LOGGER.warning("Unable to get personal ID from token: " + token + ". URI: " + uri);
+				LOGGER.warning("Token is not provided as parameter with name 'token'");
 			}
 		}
 
 		chain.doFilter(srequest, sresponse);
-	}
-
-	protected BuilderService getBuilderService(IWApplicationContext iwac) throws RemoteException {
-		return BuilderServiceFactory.getBuilderService(iwac);
 	}
 
 	@Override

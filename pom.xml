@@ -31,7 +31,17 @@
     <dependency>
       <groupId>com.idega.block.platform</groupId>
       <artifactId>com.idega.core</artifactId>
-     </dependency>
+      <exclusions>
+      	<exclusion>
+      		<artifactId>stax-api</artifactId>
+      		<groupId>stax</groupId>
+      	</exclusion>
+      	<exclusion>
+      		<artifactId>geronimo-stax-api_1.0_spec</artifactId>
+      		<groupId>org.apache.geronimo.specs</groupId>
+      	</exclusion>
+      </exclusions>
+    </dependency>
     <dependency>
       <groupId>com.idega.block.platform</groupId>
       <artifactId>org.apache.axis</artifactId>
@@ -45,8 +55,12 @@
       <artifactId>xom</artifactId>
       <type>jar</type>
       <version>1.2.5</version>
-     </dependency>    
-         
+     </dependency>
+     <dependency>
+		<groupId>org.opensaml</groupId>
+		<artifactId>opensaml</artifactId>
+		<version>2.6.4</version>
+	</dependency>
   </dependencies>
   
 </project>

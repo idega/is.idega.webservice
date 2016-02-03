@@ -3,11 +3,29 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+	<servlet>
+		<display-name>IslandDotIsLoginServlet</display-name>
+		<servlet-name>IslandDotIsLoginServlet</servlet-name>
+		<servlet-class>is.idega.webservice.servlet.IslandDotIsLoginServlet</servlet-class>
+		<load-on-startup>10</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>IslandDotIsLoginServlet</servlet-name>
+		<url-pattern>/innskraningislanddotis/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>IslandDotIsLoginServlet</servlet-name>
+		<url-pattern>/innskraningislanddotis*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>IslandDotIsLoginServlet</servlet-name>
+		<url-pattern>/innskraningislanddotis/</url-pattern>
+	</servlet-mapping>
+
 	<filter>
 		<filter-name>IslandDotIsLoginFilter</filter-name>
 		<filter-class>is.idega.webservice.filter.IslandDotIsLoginFilter</filter-class>
 	</filter>
-
 	<filter-mapping>
 		<filter-name>IslandDotIsLoginFilter</filter-name>
 		<url-pattern>/*</url-pattern>
