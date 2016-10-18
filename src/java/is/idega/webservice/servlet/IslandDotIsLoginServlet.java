@@ -70,7 +70,7 @@ public class IslandDotIsLoginServlet extends HttpServlet {
 		try {
 			samlString = StringHandler.getContentFromReader(request.getReader());
 		} catch (Exception e) {
-			LOGGER.log(Level.WARNING, "Error getting SAML message from request", e);
+			LOGGER.log(Level.WARNING, "Error getting SAML message from request " + request.getRequestURI(), e);
 		}
 		String userIP = request.getHeader("X-FORWARDED-FOR");
 		if (StringUtil.isEmpty(userIP)) {
@@ -81,6 +81,7 @@ public class IslandDotIsLoginServlet extends HttpServlet {
 
 		String personalID = getPesonalIDFromValidatedSaml(samlString, userIP, userAgent, authId);
 		if (StringUtil.isEmpty(personalID)) {
+			LOGGER.warning("Unknown personal ID from SAML message: " + samlString + ", user IP: " + userIP);
 			response.sendRedirect(CoreConstants.PAGES_URI_PREFIX);
 			return;
 		}
@@ -228,6 +229,7 @@ public class IslandDotIsLoginServlet extends HttpServlet {
 					break;
 				} catch (Exception ex) {
 					//Do nothing - cert not trusted yet
+					LOGGER.warning("Certificate " + (certificate == null ? CoreConstants.EMPTY : ("with public key " + certificate.getPublicKey())) + " is not trusted.");
 				}
 			}
 			if (!trusted)
