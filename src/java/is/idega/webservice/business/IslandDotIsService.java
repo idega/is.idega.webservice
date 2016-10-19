@@ -1,26 +1,64 @@
 package is.idega.webservice.business;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.security.KeyStore;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateExpiredException;
+import java.security.cert.CertificateFactory;
+import java.security.cert.CertificateNotYetValidException;
+import java.security.cert.X509Certificate;
+import java.util.Base64;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 
 import javax.ejb.FinderException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.XMLConstants;
 import javax.xml.rpc.ServiceException;
 import javax.xml.rpc.holders.StringHolder;
 
+import org.joda.time.DateTime;
+import org.opensaml.DefaultBootstrap;
+import org.opensaml.common.SAMLObject;
+import org.opensaml.common.SignableSAMLObject;
+import org.opensaml.saml2.core.Assertion;
+import org.opensaml.saml2.core.Attribute;
+import org.opensaml.saml2.core.AttributeStatement;
+import org.opensaml.saml2.core.Response;
+import org.opensaml.saml2.core.SubjectConfirmation;
+import org.opensaml.security.SAMLSignatureProfileValidator;
+import org.opensaml.xml.Configuration;
+import org.opensaml.xml.XMLObject;
+import org.opensaml.xml.io.Unmarshaller;
+import org.opensaml.xml.io.UnmarshallerFactory;
+import org.opensaml.xml.io.UnmarshallingException;
+import org.opensaml.xml.parse.BasicParserPool;
+import org.opensaml.xml.parse.XMLParserException;
+import org.opensaml.xml.schema.impl.XSStringImpl;
+import org.opensaml.xml.security.x509.BasicX509Credential;
+import org.opensaml.xml.signature.KeyInfo;
+import org.opensaml.xml.signature.SignatureValidator;
+import org.opensaml.xml.validation.ValidationException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.idega.block.login.LoginConstants;
 import com.idega.business.IBOLookup;
@@ -35,7 +73,6 @@ import com.idega.core.accesscontrol.data.bean.UserLogin;
 import com.idega.core.builder.business.BuilderService;
 import com.idega.core.builder.business.BuilderServiceFactory;
 import com.idega.core.business.DefaultSpringBean;
-import com.idega.core.localisation.business.ICLocaleBusiness;
 import com.idega.core.localisation.business.LocaleSwitcher;
 import com.idega.data.IDOLookup;
 import com.idega.data.IDOLookupException;
@@ -45,8 +82,11 @@ import com.idega.presentation.IWContext;
 import com.idega.user.business.UserBusiness;
 import com.idega.user.data.Group;
 import com.idega.user.data.User;
+import com.idega.util.CoreConstants;
 import com.idega.util.IOUtil;
 import com.idega.util.IWTimestamp;
+import com.idega.util.LocaleUtil;
+import com.idega.util.RequestUtil;
 import com.idega.util.StringUtil;
 import com.idega.util.URIUtil;
 import com.idega.util.expression.ELUtil;
@@ -320,7 +360,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 						locale = iwac.getIWMainApplication().getDefaultLocale();
 					}
 					if ("is".equals(locale.toString())) {
-						locale = ICLocaleBusiness.getLocaleFromLocaleString("is_IS");
+						locale = LocaleUtil.getIcelandicLocale();
 					}
 					util.setParameter(LocaleSwitcher.languageParameterString, locale.toString());
 
@@ -343,4 +383,296 @@ public class IslandDotIsService extends DefaultSpringBean {
 		return BuilderServiceFactory.getBuilderService(iwac);
 	}
 
+	/* SAML 2.0 */
+	public String getPersonalIDFromSAMLMessage(HttpServletRequest request, HttpServletResponse response, String saml) {
+		String userIP = request.getHeader("X-FORWARDED-FOR");
+		if (StringUtil.isEmpty(userIP)) {
+			userIP = request.getRemoteAddr();
+		}
+		String userAgent = request.getHeader(RequestUtil.HEADER_USER_AGENT.toLowerCase());
+		String authId = request.getParameter("authid");
+
+		String personalID = getPesonalIDFromValidatedSaml(saml, userIP, userAgent, authId);
+		if (StringUtil.isEmpty(personalID)) {
+			getLogger().warning("Unknown personal ID from SAML message: '" + saml + "', user IP: " + userIP + ", user agent: " + userAgent + ", auth. ID: " + authId + ", request: " + request.getRequestURI());
+			return null;
+		}
+
+		return personalID;
+	}
+
+	private KeyStore getTrustStore() throws Exception {
+		KeyStore keyStore = KeyStore.getInstance("JKS");
+		keyStore.load(null, CoreConstants.EMPTY.toCharArray());
+		CertificateFactory certFactory = CertificateFactory.getInstance("X509");
+		keyStore.setCertificateEntry("Audkennisrot", getCertificate(certFactory, "Audkennisrot.cer"));
+		keyStore.setCertificateEntry("Traust_audkenni", getCertificate(certFactory, "Traust_audkenni.cer"));
+		keyStore.setCertificateEntry("Traustur_bunadur", getCertificate(certFactory, "Traustur_bunadur.cer"));
+		return keyStore;
+	}
+
+	private Certificate getCertificate(CertificateFactory certFactory, String certFile) throws Exception {
+		InputStream stream = null;
+		try {
+			stream = IOUtil.getStreamFromJar("is.idega.webservice", "resources/certificates/".concat(certFile));
+			Certificate certificate = certFactory.generateCertificate(stream);
+			return certificate;
+		} finally {
+			IOUtil.close(stream);
+		}
+	}
+
+	private String getPesonalIDFromValidatedSaml(final String samlString, final String userIP, final String userAgent, final String authId) {
+		boolean ok = false;
+		if (StringUtil.isEmpty(samlString)) {
+			getLogger().warning("SAML message not provided");
+			return null;
+		}
+
+		String personalID = null;
+		try {
+			SignableSAMLObject signedObject = (SignableSAMLObject) unmarshall(samlString);
+			if (signedObject == null) {
+				getLogger().warning("Signed object is unknown (" + signedObject + ") from SAML message: " + samlString);
+				return null;
+			}
+
+			SignableSAMLObject samlObject = (SignableSAMLObject) validateSignature(signedObject, getTrustStore());
+			if (samlObject == null) {
+				getLogger().warning("SAML object is unknown (" + samlObject + ") from signed object: " + signedObject);
+				return null;
+			}
+
+			Assertion assertion = this.getAssertion((Response) samlObject, userIP, false);
+			if (assertion == null) {
+				getLogger().warning("Assertion is unknown (" + assertion + ") from SAML object: " + samlObject);
+				return null;
+			}
+
+			final DateTime serverDate = new DateTime();
+			if (assertion.getConditions().getNotBefore().isAfter(serverDate)) {
+				throw new Exception("Token date valid yet (getNotBefore = " + assertion.getConditions().getNotBefore() + " ), server_date: " + serverDate);
+			}
+
+			if (assertion.getConditions().getNotOnOrAfter().isBefore(serverDate)) {
+				throw new Exception("Token date expired (getNotOnOrAfter = " + assertion.getConditions().getNotOnOrAfter() + " ), server_date: " + serverDate);
+			}
+
+			// Validate the assertions for IP, useragent and authId.
+			personalID = getPersonalIDFromValidatedAssertion(assertion, userIP, userAgent, authId);
+			ok = true;
+		} catch (Exception e) {
+			//SAML not verified
+			getLogger().log(Level.WARNING, "Error verifying SAML message '" + samlString + "'", e);
+		} finally {
+			if (!ok) {
+				getLogger().warning("Failed to validate SAML message. User IP: " + userIP + ", user agent: " + userAgent + ", auth. ID: " + authId + ", message:\n'" + samlString + "'");
+			}
+		}
+
+		return personalID;
+	}
+
+	//	Unmarshall SAML string
+	private final XMLObject unmarshall(final String samlString) throws Exception {
+		InputStream stream = null;
+		try {
+			byte[] samlToken = Base64.getDecoder().decode(samlString);
+
+			//	Initialize the library
+			DefaultBootstrap.bootstrap();
+
+			//	Get parser pool manager
+			final BasicParserPool ppMgr = new BasicParserPool();
+			final HashMap<String, Boolean> features = new HashMap<String, Boolean>();
+			features.put(XMLConstants.FEATURE_SECURE_PROCESSING, Boolean.TRUE);
+			ppMgr.setBuilderFeatures(features);
+			ppMgr.setNamespaceAware(true);
+
+			stream = new ByteArrayInputStream(samlToken);
+			org.w3c.dom.Document document = ppMgr.parse(stream);
+			if (document != null) {
+				final org.w3c.dom.Element root = document.getDocumentElement();
+				final UnmarshallerFactory unmarshallerFact = Configuration.getUnmarshallerFactory();
+				if (unmarshallerFact != null && root != null) {
+					final Unmarshaller unmarshaller = unmarshallerFact.getUnmarshaller(root);
+					try {
+						return unmarshaller.unmarshall(root);
+					} catch (NullPointerException e) {
+						getLogger().log(Level.WARNING, "Error while unmarshalling " + root + " with " + unmarshaller, e);
+						throw new Exception("NullPointerException", e);
+					}
+				} else {
+					throw new Exception("NullPointerException : unmarshallerFact or root is null");
+				}
+			} else {
+				throw new Exception("NullPointerException : document is null");
+			}
+		} catch (XMLParserException e) {
+			throw new Exception(e);
+		} catch (UnmarshallingException e) {
+			throw new Exception(e);
+		} catch (NullPointerException e) {
+			throw new Exception(e);
+		} finally {
+			IOUtil.close(stream);
+		}
+	}
+
+	private final SAMLObject validateSignature(final SignableSAMLObject tokenSaml, KeyStore keyStore) throws Exception {
+		ByteArrayInputStream bis = null;
+		try {
+			// Validate structure signature
+			final SAMLSignatureProfileValidator sigProfValidator = new SAMLSignatureProfileValidator();
+			try {
+				// Indicates signature id conform to SAML Signature profile
+				sigProfValidator.validate(tokenSaml.getSignature());
+			} catch (ValidationException e) {
+				//ValidationException: signature isn't conform to SAML Signature profile.
+				throw new Exception(e);
+			}
+
+			String aliasCert = null;
+			X509Certificate certificate;
+			final KeyInfo keyInfo = tokenSaml.getSignature().getKeyInfo();
+			final org.opensaml.xml.signature.X509Certificate xmlCert = keyInfo.getX509Datas().get(0).getX509Certificates().get(0);
+			final CertificateFactory certFact = CertificateFactory.getInstance("X.509");
+			bis = new ByteArrayInputStream(Base64.getDecoder().decode(xmlCert.getValue()));
+			final X509Certificate cert = (X509Certificate) certFact.generateCertificate(bis);
+
+			// Exist only one certificate
+			final BasicX509Credential entityX509Cred = new BasicX509Credential();
+			entityX509Cred.setEntityCertificate(cert);
+			try {
+				cert.checkValidity();
+			} catch (CertificateExpiredException exp) {
+				throw new Exception("Certificate expired.");
+			} catch (CertificateNotYetValidException exp) {
+				throw new Exception("Certificate not yet valid.");
+			}
+
+			boolean trusted = false;
+			for (final Enumeration<String> e = keyStore.aliases(); e.hasMoreElements();) {
+				aliasCert = e.nextElement();
+				certificate = (X509Certificate) keyStore.getCertificate(aliasCert);
+				try {
+					cert.verify(certificate.getPublicKey());
+					trusted = true;
+					break;
+				} catch (Exception ex) {
+					//Do nothing - cert not trusted yet
+					getLogger().warning("Certificate " + (certificate == null ? CoreConstants.EMPTY : ("with public key " + certificate.getPublicKey())) + " is not trusted.");
+				}
+			}
+			if (!trusted)
+				throw new Exception("Certificate is not trusted.");
+			else {
+				if (cert.getSubjectDN().toString().contains("SERIALNUMBER=6503760649") && cert.getIssuerDN().toString().startsWith("CN=Traustur	bunadur"))
+					trusted = true;
+				else {
+					throw new Exception("Certificate is not trusted, does not contain serial number.");
+				}
+			}
+
+			// Validate signature
+			final SignatureValidator sigValidator = new SignatureValidator(entityX509Cred);
+			sigValidator.validate(tokenSaml.getSignature());
+		} catch (Exception e) {
+			getLogger().log(Level.WARNING, "Error validating signature", e);
+		} finally {
+			IOUtil.close(bis);
+		}
+		return tokenSaml;
+	}
+
+	private Assertion getAssertion(final Response samlResponse, final String userIP, final boolean ipValidate) throws Exception {
+		if (samlResponse.getAssertions() == null || samlResponse.getAssertions().isEmpty()) {
+			//Assertion is null or empty
+			return null;
+		}
+
+		final Assertion assertion = samlResponse.getAssertions().get(0);
+		for (final Iterator<SubjectConfirmation> iter = assertion.getSubject().getSubjectConfirmations().iterator(); iter.hasNext();) {
+			final SubjectConfirmation element = iter.next();
+			final boolean isBearer = SubjectConfirmation.METHOD_BEARER.equals(element.getMethod());
+			if (ipValidate) {
+				if (isBearer) {
+					if (StringUtils.isEmpty(userIP)) {
+						throw new Exception("browser_ip is null or empty.");
+					} else if (StringUtils.isEmpty(element.getSubjectConfirmationData().getAddress())) {
+						throw new Exception("token_ip attribute is null or empty.");
+					}
+				}
+
+				final boolean ipEqual = element.getSubjectConfirmationData().getAddress().equals(userIP);
+				// Validation ipUser
+				if (!ipEqual && ipValidate) {
+					throw new Exception("IPs doesn't match : token_ip (" + element.getSubjectConfirmationData().getAddress() + ") browser_ip ("+ userIP + ")");
+				}
+			}
+		}
+		return assertion;
+	}
+
+	/**
+	* Validate assertions for IP, user agent and auth ID
+	* @param assertion The assertion to validate
+	* @param ip The user IP
+	* @param ua The users user agent
+	* @param authId The auth ID
+	* @throws Exception
+	*/
+	private String getPersonalIDFromValidatedAssertion(final Assertion assertion, String ip, String ua, String authId) throws Exception {
+		final List<XMLObject> listExtensions = assertion.getOrderedChildren();
+		boolean find = false;
+		AttributeStatement requestedAttr = null;
+		// Search the attribute statement.
+		for (int i = 0; i < listExtensions.size() && !find; i++) {
+			final XMLObject xml = listExtensions.get(i);
+			if (xml instanceof AttributeStatement) {
+				requestedAttr = (AttributeStatement) xml;
+				find = true;
+			}
+		}
+
+		if (!find) {
+			throw new Exception("AttributeStatement it's not present.");
+		}
+
+		final List<Attribute> reqAttrs = requestedAttr.getAttributes();
+		String attributeName, tempValue;
+		XMLObject xmlObj;
+		boolean ipOk = false, uaOk = false, authIdOk = false;
+		// Process the attributes.
+		String personalID = null;
+		for (int nextAttribute = 0; nextAttribute < reqAttrs.size(); nextAttribute++) {
+			final Attribute attribute = reqAttrs.get(nextAttribute);
+			attributeName = attribute.getName();
+			if (attributeName.equals("IPAddress")) {
+				xmlObj = attribute.getOrderedChildren().get(0);
+				tempValue = ((XSStringImpl) xmlObj).getValue();
+				ipOk = tempValue.equals(ip);
+			}
+			if (attributeName.equals("UserAgent")) {
+				xmlObj = attribute.getOrderedChildren().get(0);
+				tempValue = ((XSStringImpl) xmlObj).getValue();
+				uaOk = tempValue.equals(ua);
+			}
+			if (attributeName.equals("AuthID")) {
+				xmlObj = attribute.getOrderedChildren().get(0);
+				tempValue = ((XSStringImpl) xmlObj).getValue();
+				authIdOk = tempValue.equals(authId);
+			}
+			if (attributeName.equals("UserSSN")) {
+				xmlObj = attribute.getOrderedChildren().get(0);
+				personalID = ((XSStringImpl) xmlObj).getValue();
+			}
+		}
+		if (ipOk || authIdOk || uaOk) {
+			getLogger().info("Assertion valid.");
+			return personalID;
+		}
+
+		throw new Exception(String.format("Assertions not valid. IP valid: %b, user agent valid: %b, auth ID valid: %b", ipOk, uaOk, authIdOk));
+	}
 }

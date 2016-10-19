@@ -17,6 +17,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import com.idega.presentation.IWContext;
 import com.idega.servlet.filter.BaseFilter;
 import com.idega.util.CoreConstants;
+import com.idega.util.CoreUtil;
 import com.idega.util.StringUtil;
 
 import is.idega.webservice.business.IslandDotIsService;
@@ -34,7 +35,8 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 		HttpServletRequest request = (HttpServletRequest) srequest;
 		HttpServletResponse response = (HttpServletResponse) sresponse;
 
-		IWContext iwc = new IWContext(request, response, request.getSession().getServletContext());
+		IWContext iwc = CoreUtil.getIWContext();
+		iwc = iwc == null ? new IWContext(request, response, request.getSession().getServletContext()) : iwc;
 		WebApplicationContext springContext = WebApplicationContextUtils.getWebApplicationContext(iwc.getServletContext());
 		IslandDotIsService service = (IslandDotIsService) springContext.getBean(IslandDotIsService.BEAN_NAME);
 
@@ -42,10 +44,15 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 		String token = iwc.getParameter("token");
 		if (uri.indexOf("innskraningislanddotis") != -1) {
 			if (token != null && !"".equals(token.trim())) {
-				String personalID = service.getPersonalIDFromToken(token, iwc.getRemoteIpAddress());
+				String personalID = service.getPersonalIDFromSAMLMessage(request, response, token);
+				if (StringUtil.isEmpty(personalID)) {
+					personalID = service.getPersonalIDFromToken(token, iwc.getRemoteIpAddress());
+				}
+
 				if (personalID != null && !"".equals(personalID.trim())) {
 					String responsePage = service.getHomePageForCitizen(personalID, iwc);
 					response.sendRedirect(StringUtil.isEmpty(responsePage) ? CoreConstants.PAGES_URI_PREFIX : responsePage);
+					return;
 				} else {
 					LOGGER.warning("Unable to get personal ID from token: " + token + ". URI: " + uri);
 				}
