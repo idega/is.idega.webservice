@@ -669,7 +669,6 @@ public class IslandDotIsService extends DefaultSpringBean {
 			}
 		}
 		if (ipOk || authIdOk || uaOk) {
-			getLogger().info("Assertion valid.");
 			return personalID;
 		}
 
