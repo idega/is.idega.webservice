@@ -561,12 +561,11 @@ public class IslandDotIsService extends DefaultSpringBean {
 					break;
 				} catch (Exception ex) {
 					//Do nothing - cert not trusted yet
-					getLogger().warning("Certificate " + (certificate == null ? CoreConstants.EMPTY : ("with public key " + certificate.getPublicKey())) + " is not trusted.");
 				}
 			}
 			if (!trusted)
 				throw new Exception("Certificate is not trusted.");
-			else {
+			else if (getSettings().getBoolean("island.is_check_serial_on_validate", false)) {
 				if (cert.getSubjectDN().toString().contains("SERIALNUMBER=6503760649") && cert.getIssuerDN().toString().startsWith("CN=Traustur	bunadur"))
 					trusted = true;
 				else {
