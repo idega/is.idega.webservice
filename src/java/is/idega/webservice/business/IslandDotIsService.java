@@ -63,6 +63,7 @@ import org.springframework.util.StringUtils;
 import com.idega.block.login.LoginConstants;
 import com.idega.business.IBOLookup;
 import com.idega.business.IBORuntimeException;
+import com.idega.core.accesscontrol.business.LoggedOnInfo;
 import com.idega.core.accesscontrol.business.LoginBusinessBean;
 import com.idega.core.accesscontrol.business.LoginDBHandler;
 import com.idega.core.accesscontrol.dao.UserLoginDAO;
@@ -70,6 +71,8 @@ import com.idega.core.accesscontrol.data.LoginInfo;
 import com.idega.core.accesscontrol.data.LoginTable;
 import com.idega.core.accesscontrol.data.LoginTableHome;
 import com.idega.core.accesscontrol.data.bean.UserLogin;
+import com.idega.core.accesscontrol.event.LoggedInUserCredentials;
+import com.idega.core.accesscontrol.event.LoggedInUserCredentials.LoginType;
 import com.idega.core.builder.business.BuilderService;
 import com.idega.core.builder.business.BuilderServiceFactory;
 import com.idega.core.business.DefaultSpringBean;
@@ -348,6 +351,11 @@ public class IslandDotIsService extends DefaultSpringBean {
 				HttpSession session = iwc.getSession();
 				session.setAttribute(LoginConstants.LOGIN_TYPE, LoginConstants.LoginType.ISLAND_DOT_IS.toString());
 
+				String homePageForOAuth = getCustomHomePage(iwc, loginBusiness, session);
+				if (!StringUtil.isEmpty(homePageForOAuth)) {
+					return homePageForOAuth;
+				}
+
 				User user = loginBusiness.getCurrentUserLegacy(session);
 
 				int redirectPageId = userBusiness.getHomePageIDForUser(user);
@@ -377,6 +385,38 @@ public class IslandDotIsService extends DefaultSpringBean {
 			getLogger().log(Level.WARNING, "Error getting home page for citizen with personal ID: " + personalID, e);
 		}
 		return null;
+	}
+
+	private String getCustomHomePage(IWContext iwc, LoginBusinessBean loginBusiness, HttpSession session) {
+		String homePage = iwc.getApplicationSettings().getProperty("login_via_island.is_homepage");
+		if (StringUtil.isEmpty(homePage)) {
+			return null;
+		}
+
+		try {
+			LoggedOnInfo loggedOnInfo = loginBusiness.getLoggedOnInfo(session);
+			UserLogin userLogin = loggedOnInfo.getUserLogin();
+
+			ELUtil.getInstance().publishEvent(
+					new LoggedInUserCredentials(
+							iwc.getRequest(),
+							RequestUtil.getServerURL(iwc.getRequest()),
+							userLogin.getUserLogin(),
+							userLogin.getUserPassword(),
+							LoginType.AUTHENTICATION_GATEWAY,
+							userLogin.getId()
+					)
+			);
+		} catch (Exception e) {
+			getLogger().log(Level.WARNING, "Error publishing event about logged in user", e);
+			return null;
+		}
+
+		if (!StringUtil.isEmpty(homePage)) {
+			getLogger().info("Found homepage from app. settings: " + homePage);
+		}
+
+		return homePage;
 	}
 
 	private BuilderService getBuilderService(IWApplicationContext iwac) throws RemoteException {

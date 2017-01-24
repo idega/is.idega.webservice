@@ -40,6 +40,8 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 		WebApplicationContext springContext = WebApplicationContextUtils.getWebApplicationContext(iwc.getServletContext());
 		IslandDotIsService service = (IslandDotIsService) springContext.getBean(IslandDotIsService.BEAN_NAME);
 
+		String errorPage = iwc.getApplicationSettings().getProperty("login_via_island.errorpage");
+
 		String uri = request.getRequestURI();
 		String token = iwc.getParameter("token");
 		if (uri.indexOf("innskraningislanddotis") != -1) {
@@ -58,6 +60,11 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 				}
 			} else {
 				LOGGER.warning("Token is not provided as parameter with name 'token'");
+			}
+
+			if (!StringUtil.isEmpty(errorPage)) {
+				response.sendRedirect(errorPage);
+				return;
 			}
 		}
 
