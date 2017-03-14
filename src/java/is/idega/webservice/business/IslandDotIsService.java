@@ -393,15 +393,17 @@ public class IslandDotIsService extends DefaultSpringBean {
 			return null;
 		}
 
+		String userName = null;
 		try {
 			LoggedOnInfo loggedOnInfo = loginBusiness.getLoggedOnInfo(session);
 			UserLogin userLogin = loggedOnInfo.getUserLogin();
+			userName = userLogin.getUserLogin();
 
 			ELUtil.getInstance().publishEvent(
 					new LoggedInUserCredentials(
 							iwc.getRequest(),
 							RequestUtil.getServerURL(iwc.getRequest()),
-							userLogin.getUserLogin(),
+							userName,
 							userLogin.getUserPassword(),
 							LoginType.AUTHENTICATION_GATEWAY,
 							userLogin.getId()
@@ -414,6 +416,10 @@ public class IslandDotIsService extends DefaultSpringBean {
 
 		if (!StringUtil.isEmpty(homePage)) {
 			getLogger().info("Found homepage from app. settings: " + homePage);
+		}
+
+		if (!StringUtil.isEmpty(userName)) {
+			homePage = homePage += "?userName=" + userName;
 		}
 
 		return homePage;
