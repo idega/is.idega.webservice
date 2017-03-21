@@ -76,6 +76,7 @@ import com.idega.core.accesscontrol.event.LoggedInUserCredentials.LoginType;
 import com.idega.core.builder.business.BuilderService;
 import com.idega.core.builder.business.BuilderServiceFactory;
 import com.idega.core.business.DefaultSpringBean;
+import com.idega.core.idgenerator.business.UUIDBusiness;
 import com.idega.core.localisation.business.LocaleSwitcher;
 import com.idega.data.IDOLookup;
 import com.idega.data.IDOLookupException;
@@ -393,17 +394,31 @@ public class IslandDotIsService extends DefaultSpringBean {
 			return null;
 		}
 
-		String userName = null;
+		String uuid = null;
 		try {
 			LoggedOnInfo loggedOnInfo = loginBusiness.getLoggedOnInfo(session);
 			UserLogin userLogin = loggedOnInfo.getUserLogin();
-			userName = userLogin.getUserLogin();
+
+			com.idega.user.data.bean.User user = userLogin.getUser();
+			if (user != null) {
+				uuid = user.getUniqueId();
+				if (StringUtil.isEmpty(uuid)) {
+					UUIDBusiness uuidBean;
+					try {
+						uuidBean = IBOLookup.getServiceInstance(iwc, UUIDBusiness.class);
+						uuidBean.addUniqueKeyIfNeeded(user, null);
+						uuid = user.getUniqueId();
+					} catch (Exception e) {
+						getLogger().log(Level.WARNING, "Error generationg UUID for " + user + " (ID: " + user.getId() + ")", e);
+					}
+				}
+			}
 
 			ELUtil.getInstance().publishEvent(
 					new LoggedInUserCredentials(
 							iwc.getRequest(),
 							RequestUtil.getServerURL(iwc.getRequest()),
-							userName,
+							userLogin.getUserLogin(),
 							userLogin.getUserPassword(),
 							LoginType.AUTHENTICATION_GATEWAY,
 							userLogin.getId()
@@ -418,8 +433,8 @@ public class IslandDotIsService extends DefaultSpringBean {
 			getLogger().info("Found homepage from app. settings: " + homePage);
 		}
 
-		if (!StringUtil.isEmpty(userName)) {
-			homePage = homePage += "?userName=" + userName;
+		if (!StringUtil.isEmpty(uuid)) {
+			homePage = homePage += "?uuid=" + uuid;
 		}
 
 		return homePage;
