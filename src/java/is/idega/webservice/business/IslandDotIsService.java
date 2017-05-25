@@ -26,6 +26,7 @@ import java.util.Set;
 import java.util.logging.Level;
 
 import javax.ejb.FinderException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -395,6 +396,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 		}
 
 		String uuid = null;
+		String username = null;
 		try {
 			LoggedOnInfo loggedOnInfo = loginBusiness.getLoggedOnInfo(session);
 			UserLogin userLogin = loggedOnInfo.getUserLogin();
@@ -414,11 +416,12 @@ public class IslandDotIsService extends DefaultSpringBean {
 				}
 			}
 
+			username = userLogin.getUserLogin();
 			ELUtil.getInstance().publishEvent(
 					new LoggedInUserCredentials(
 							iwc.getRequest(),
 							RequestUtil.getServerURL(iwc.getRequest()),
-							userLogin.getUserLogin(),
+							username,
 							userLogin.getUserPassword(),
 							LoginType.AUTHENTICATION_GATEWAY,
 							userLogin.getId()
@@ -433,10 +436,17 @@ public class IslandDotIsService extends DefaultSpringBean {
 			getLogger().info("Found homepage from app. settings: " + homePage);
 		}
 
+		boolean paramSet = false;
 		if (!StringUtil.isEmpty(uuid)) {
-			homePage = homePage += "?uuid=" + uuid;
+			homePage = homePage.concat("?uuid=").concat(uuid);
+			paramSet = true;
+		}
+		Cookie client = iwc.getCookie("felix_auth_gateway_client");
+		if (client != null && !StringUtil.isEmpty(client.getValue())) {
+			homePage = homePage.concat(paramSet ? CoreConstants.AMP : CoreConstants.QOUTE_MARK).concat("clientId=").concat(client.getValue());
 		}
 
+		getLogger().info("Home page after authentication: " + homePage + " for user name: " + username);
 		return homePage;
 	}
 
