@@ -20,16 +20,13 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 
 import javax.ejb.FinderException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.xml.XMLConstants;
 import javax.xml.rpc.ServiceException;
 import javax.xml.rpc.holders.StringHolder;
@@ -61,39 +58,24 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import com.idega.block.login.LoginConstants;
 import com.idega.business.IBOLookup;
 import com.idega.business.IBORuntimeException;
-import com.idega.core.accesscontrol.business.LoggedOnInfo;
 import com.idega.core.accesscontrol.business.LoginBusinessBean;
-import com.idega.core.accesscontrol.business.LoginDBHandler;
 import com.idega.core.accesscontrol.dao.UserLoginDAO;
-import com.idega.core.accesscontrol.data.LoginInfo;
 import com.idega.core.accesscontrol.data.LoginTable;
 import com.idega.core.accesscontrol.data.LoginTableHome;
 import com.idega.core.accesscontrol.data.bean.UserLogin;
-import com.idega.core.accesscontrol.event.LoggedInUserCredentials;
-import com.idega.core.accesscontrol.event.LoggedInUserCredentials.LoginType;
-import com.idega.core.builder.business.BuilderService;
-import com.idega.core.builder.business.BuilderServiceFactory;
 import com.idega.core.business.DefaultSpringBean;
-import com.idega.core.idgenerator.business.UUIDBusiness;
-import com.idega.core.localisation.business.LocaleSwitcher;
 import com.idega.data.IDOLookup;
 import com.idega.data.IDOLookupException;
 import com.idega.idegaweb.IWApplicationContext;
 import com.idega.idegaweb.IWMainApplication;
 import com.idega.presentation.IWContext;
-import com.idega.user.business.UserBusiness;
-import com.idega.user.data.Group;
 import com.idega.user.data.User;
 import com.idega.util.CoreConstants;
 import com.idega.util.IOUtil;
-import com.idega.util.IWTimestamp;
-import com.idega.util.LocaleUtil;
 import com.idega.util.RequestUtil;
 import com.idega.util.StringUtil;
-import com.idega.util.URIUtil;
 import com.idega.util.expression.ELUtil;
 
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerAccessPointLocator;
@@ -310,148 +292,20 @@ public class IslandDotIsService extends DefaultSpringBean {
 	}
 
 	public String getHomePageForCitizen(String personalID, IWContext iwc) {
-		if (StringUtil.isEmpty(personalID)) {
-			return null;
-		}
+		return getHomePageForCitizen(iwc, personalID, null, "login_via_island.is_homepage", getApplicationProperty("island_is.oauth_client", "felix_auth_gateway_client"));
+	}
 
-		LoginBusinessBean loginBusiness = LoginBusinessBean.getLoginBusinessBean(iwc.getRequest());
-		boolean isLoggedOn = loginBusiness.isLoggedOn(iwc.getRequest());
+	public String getHomePageForCitizen(IWContext iwc, String personalID, String fullName, String appProperty, String cookie) {
 		try {
-			if (isLoggedOn) {
-				loginBusiness.logOutUser(iwc);
-			}
-
-			IWMainApplication iwMainApplication = iwc.getIWMainApplication();
-			IWApplicationContext iwac = iwMainApplication.getIWApplicationContext();
-			UserBusiness userBusiness = IBOLookup.getServiceInstance(iwac, UserBusiness.class);
+			IWApplicationContext iwac = iwc == null ?
+					IWMainApplication.getDefaultIWApplicationContext() :
+					iwc;
 			CitizenBusiness citizenBusiness = IBOLookup.getServiceInstance(iwac, CitizenBusiness.class);
-
-			// check if user has login, otherwise create a login and put in default group
-			if (!loginBusiness.hasUserLogin(iwc.getRequest(), personalID)) {
-				User user = userBusiness.getUser(personalID);
-				LoginTable loginTable = userBusiness.generateUserLogin(user);
-				LoginInfo loginInfo = LoginDBHandler.getLoginInfo(loginTable);
-				if (loginInfo != null) {
-					loginInfo.setChangeNextTime(Boolean.FALSE);
-					loginInfo.store();
-				}
-
-				Group acceptedCitizens;
-				try {
-					acceptedCitizens = citizenBusiness.getRootAcceptedCitizenGroup();
-					acceptedCitizens.addGroup(user,	IWTimestamp.getTimestampRightNow());
-					if (user.getPrimaryGroup() == null) {
-						user.setPrimaryGroup(acceptedCitizens);
-						user.store();
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (loginBusiness.logInByPersonalID(iwc, personalID)) {
-				HttpSession session = iwc.getSession();
-				session.setAttribute(LoginConstants.LOGIN_TYPE, LoginConstants.LoginType.ISLAND_DOT_IS.toString());
-
-				String homePageForOAuth = getCustomHomePage(iwc, loginBusiness, session);
-				if (!StringUtil.isEmpty(homePageForOAuth)) {
-					return homePageForOAuth;
-				}
-
-				User user = loginBusiness.getCurrentUserLegacy(session);
-
-				int redirectPageId = userBusiness.getHomePageIDForUser(user);
-
-				if (redirectPageId > 0) {
-					URIUtil util = new URIUtil(getBuilderService(iwac).getPageURI(redirectPageId));
-
-					Locale locale = userBusiness.getUsersPreferredLocale(user);
-					if (locale == null) {
-						locale = iwac.getIWMainApplication().getDefaultLocale();
-					}
-					if ("is".equals(locale.toString())) {
-						locale = LocaleUtil.getIcelandicLocale();
-					}
-					util.setParameter(LocaleSwitcher.languageParameterString, locale.toString());
-
-					String responseUri = util.getUri();
-					return responseUri;
-				} else {
-					getLogger().warning(user + " (personal ID: " + personalID + ") does not have home page!");
-					return null;
-				}
-			} else {
-				getLogger().info("Failed to login via Island.is. Personal ID: " + personalID);
-			}
+			return citizenBusiness.getHomePageForCitizen(iwc, personalID, fullName, appProperty, cookie);
 		} catch (Exception e) {
 			getLogger().log(Level.WARNING, "Error getting home page for citizen with personal ID: " + personalID, e);
 		}
 		return null;
-	}
-
-	private String getCustomHomePage(IWContext iwc, LoginBusinessBean loginBusiness, HttpSession session) {
-		String homePage = iwc.getApplicationSettings().getProperty("login_via_island.is_homepage");
-		if (StringUtil.isEmpty(homePage)) {
-			return null;
-		}
-
-		String uuid = null;
-		String username = null;
-		try {
-			LoggedOnInfo loggedOnInfo = loginBusiness.getLoggedOnInfo(session);
-			UserLogin userLogin = loggedOnInfo.getUserLogin();
-
-			com.idega.user.data.bean.User user = userLogin.getUser();
-			if (user != null) {
-				uuid = user.getUniqueId();
-				if (StringUtil.isEmpty(uuid)) {
-					UUIDBusiness uuidBean;
-					try {
-						uuidBean = IBOLookup.getServiceInstance(iwc, UUIDBusiness.class);
-						uuidBean.addUniqueKeyIfNeeded(user, null);
-						uuid = user.getUniqueId();
-					} catch (Exception e) {
-						getLogger().log(Level.WARNING, "Error generationg UUID for " + user + " (ID: " + user.getId() + ")", e);
-					}
-				}
-			}
-
-			username = userLogin.getUserLogin();
-			ELUtil.getInstance().publishEvent(
-					new LoggedInUserCredentials(
-							iwc.getRequest(),
-							RequestUtil.getServerURL(iwc.getRequest()),
-							username,
-							userLogin.getUserPassword(),
-							LoginType.AUTHENTICATION_GATEWAY,
-							userLogin.getId()
-					)
-			);
-		} catch (Exception e) {
-			getLogger().log(Level.WARNING, "Error publishing event about logged in user", e);
-			return null;
-		}
-
-		if (!StringUtil.isEmpty(homePage)) {
-			getLogger().info("Found homepage from app. settings: " + homePage);
-		}
-
-		boolean paramSet = false;
-		if (!StringUtil.isEmpty(uuid)) {
-			homePage = homePage.concat("?uuid=").concat(uuid);
-			paramSet = true;
-		}
-		Cookie client = iwc.getCookie("felix_auth_gateway_client");
-		if (client != null && !StringUtil.isEmpty(client.getValue())) {
-			homePage = homePage.concat(paramSet ? CoreConstants.AMP : CoreConstants.QOUTE_MARK).concat("clientId=").concat(client.getValue());
-		}
-
-		getLogger().info("Home page after authentication: " + homePage + " for user name: " + username);
-		return homePage;
-	}
-
-	private BuilderService getBuilderService(IWApplicationContext iwac) throws RemoteException {
-		return BuilderServiceFactory.getBuilderService(iwac);
 	}
 
 	/* SAML 2.0 */
