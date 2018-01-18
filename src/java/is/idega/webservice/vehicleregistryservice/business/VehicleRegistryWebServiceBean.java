@@ -1,9 +1,5 @@
 package is.idega.webservice.vehicleregistryservice.business;
 
-import is.idega.webservice.vehicleregistryservice.client.Vehicle;
-import is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceLocator;
-import is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_PortType;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
@@ -25,6 +21,9 @@ import com.idega.idegaweb.IWMainApplicationSettings;
 import com.idega.util.ArrayUtil;
 import com.idega.util.CoreConstants;
 import com.idega.util.IWTimestamp;
+
+import is.lt.ws.VehicleRegistryService.Vehicle;
+import is.lt.ws.VehicleRegistryService.VehicleRegistryServiceLocator;
 
 @Scope(BeanDefinition.SCOPE_SINGLETON)
 @Service("vehicleRegistryWebService")
@@ -71,7 +70,7 @@ public class VehicleRegistryWebServiceBean extends DefaultSpringBean implements 
 
 			try {
 				VehicleRegistryServiceLocator locator = new VehicleRegistryServiceLocator();
-				VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
+				is.lt.ws.VehicleRegistryService.VehicleRegistryServiceSoap port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
 				((org.apache.axis.client.Stub) port).setTimeout(timeout); //Setting timeout to stop the load if the service is not answering
 
 				if (IWMainApplication.isDebugActive()) {

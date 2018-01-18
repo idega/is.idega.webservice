@@ -1,10 +1,5 @@
 package is.idega.webservice.parkingservice.business;
 
-import is.idega.webservice.parkingservice.client.ParkedInReply;
-import is.idega.webservice.parkingservice.client.ParkedInRequest;
-import is.idega.webservice.parkingservice.client.ParkedInService_PortType;
-import is.idega.webservice.parkingservice.client.ParkedInService_ServiceLocator;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
@@ -22,8 +17,13 @@ import com.idega.idegaweb.IWMainApplicationSettings;
 import com.idega.util.CoreConstants;
 import com.idega.util.IWTimestamp;
 
-@Scope(BeanDefinition.SCOPE_SINGLETON)
+import stokkur.mpark.service.client.ParkedInService_PortType;
+import stokkur.mpark.service.client.ParkedInService_ServiceLocator;
+import stokkur.mpark.services.types.ParkedInReply;
+import stokkur.mpark.services.types.ParkedInRequest;
+
 @Service("parkingWebService")
+@Scope(BeanDefinition.SCOPE_SINGLETON)
 public class ParkingWebServiceBean extends DefaultSpringBean implements ParkingWebService {
 
 	private static final Logger LOGGER = Logger.getLogger(ParkingWebServiceBean.class.getName());
@@ -83,4 +83,5 @@ public class ParkingWebServiceBean extends DefaultSpringBean implements ParkingW
 			IWMainApplication.setDebugMode(globalDebug);
 		}
 	}
+
 }

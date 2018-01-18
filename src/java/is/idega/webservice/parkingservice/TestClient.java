@@ -1,14 +1,14 @@
 package is.idega.webservice.parkingservice;
 
-
-import is.idega.webservice.parkingservice.client.ParkedInReply;
-import is.idega.webservice.parkingservice.client.ParkedInRequest;
-import is.idega.webservice.parkingservice.client.ParkedInService_PortType;
-import is.idega.webservice.parkingservice.client.ParkedInService_ServiceLocator;
-
 import java.net.URL;
 
+import stokkur.mpark.service.client.ParkedInService_PortType;
+import stokkur.mpark.service.client.ParkedInService_ServiceLocator;
+import stokkur.mpark.services.types.ParkedInReply;
+import stokkur.mpark.services.types.ParkedInRequest;
+
 public class TestClient {
+
 	public static void main(String[] args) {
 		TestClient client = new TestClient();
 		client.doStuff();
@@ -21,10 +21,10 @@ public class TestClient {
 
 			ParkedInService_ServiceLocator locator = new ParkedInService_ServiceLocator();
 			ParkedInService_PortType port = locator.getParkedInServiceHttpPort(new URL(endpoint));
-			
-			ParkedInRequest request = new ParkedInRequest("UD438", "bilastaedi6");
+
+			ParkedInRequest request = new ParkedInRequest("UD438", "ws_bilastaedi");
 			ParkedInReply reply = port.parkedIn(request);
-			
+
 			if (reply != null) {
 				System.out.println("carInfo = " + reply.getCarInfo().toString());
 				System.out.println("car number = " + reply.getCarNumber());
@@ -34,7 +34,7 @@ public class TestClient {
 				System.out.println("msisdn = " + reply.getMsisdn());
 				System.out.println("parkedIn = " + reply.getParkedIn());
 				System.out.println("zoneNumber = " + reply.getZoneNumber());
-				
+
 			}
 		}
 		catch(Exception e) {

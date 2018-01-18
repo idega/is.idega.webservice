@@ -1,17 +1,16 @@
 package is.idega.webservice.vehicleregistryservice;
 
-import is.idega.webservice.vehicleregistryservice.client.CoOwner;
-import is.idega.webservice.vehicleregistryservice.client.Operator;
-import is.idega.webservice.vehicleregistryservice.client.Owner;
-import is.idega.webservice.vehicleregistryservice.client.Vehicle;
-import is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceLocator;
-import is.idega.webservice.vehicleregistryservice.client.VehicleRegistryServiceSoap_PortType;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import com.idega.util.IWTimestamp;
+
+import is.lt.ws.VehicleRegistryService.CoOwner;
+import is.lt.ws.VehicleRegistryService.Operator;
+import is.lt.ws.VehicleRegistryService.Owner;
+import is.lt.ws.VehicleRegistryService.Vehicle;
+import is.lt.ws.VehicleRegistryService.VehicleRegistryServiceLocator;
 
 public class TestClient {
 	public static void main(String[] args) {
@@ -24,7 +23,7 @@ public class TestClient {
 			String endpoint = "https://ws.lt.is/vehicleregistry/vehicleregistryservice.asmx";
 
 			VehicleRegistryServiceLocator locator = new VehicleRegistryServiceLocator();
-			VehicleRegistryServiceSoap_PortType port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
+			is.lt.ws.VehicleRegistryService.VehicleRegistryServiceSoap port = locator.getVehicleRegistryServiceSoap(new URL(endpoint));
 
 			//MD998, SD816
 			String vehicleNumber = "SV339";
@@ -39,7 +38,7 @@ public class TestClient {
 				else {
 					System.out.println("Found more than one vehicle...");
 					String permNo = null;
-					
+
 					Collection<Vehicle> registered = new ArrayList<Vehicle>();
 					for (Vehicle vehicle1 : vehicles) {
 						System.out.println("Vehicle: " + vehicle1.getPermNo() + " / " + vehicle1.getLatestRegistration());
@@ -47,7 +46,7 @@ public class TestClient {
 							registered.add(vehicle1);
 						}
 					}
-					
+
 					if (!registered.isEmpty()) {
 						if (registered.size() == 1) {
 							permNo = registered.iterator().next().getPermNo();
@@ -59,7 +58,7 @@ public class TestClient {
 									break;
 								}
 							}
-							
+
 							if (permNo == null) {
 								IWTimestamp lastRegistration = null;
 								for (Vehicle vehicle2 : registered) {
@@ -73,7 +72,7 @@ public class TestClient {
 							}
 						}
 					}
-					
+
 					if (permNo != null) {
 						System.out.println("Using permNo: " + permNo);
 						Vehicle permVehicles[] = port.basicVehicleInformation("bilastaedi6", "hS6.dbYK", permNo, "", "", "");

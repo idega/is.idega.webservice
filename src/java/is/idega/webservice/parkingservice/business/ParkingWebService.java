@@ -1,6 +1,6 @@
 package is.idega.webservice.parkingservice.business;
 
-import is.idega.webservice.parkingservice.client.ParkedInReply;
+import stokkur.mpark.services.types.ParkedInReply;
 
 public interface ParkingWebService {
 	public ParkedInReply getParkingInfo(String registrationNumber);
