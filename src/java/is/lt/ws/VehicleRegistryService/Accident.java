@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Accident  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -69,7 +72,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Accident.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -79,7 +82,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Accident.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -89,7 +92,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the nextInspectionDate value for this Accident.
-     * 
+     *
      * @return nextInspectionDate
      */
     public java.lang.String getNextInspectionDate() {
@@ -99,7 +102,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the nextInspectionDate value for this Accident.
-     * 
+     *
      * @param nextInspectionDate
      */
     public void setNextInspectionDate(java.lang.String nextInspectionDate) {
@@ -109,7 +112,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the airbag value for this Accident.
-     * 
+     *
      * @return airbag
      */
     public boolean isAirbag() {
@@ -119,7 +122,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the airbag value for this Accident.
-     * 
+     *
      * @param airbag
      */
     public void setAirbag(boolean airbag) {
@@ -129,7 +132,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the damage value for this Accident.
-     * 
+     *
      * @return damage
      */
     public java.lang.String getDamage() {
@@ -139,7 +142,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the damage value for this Accident.
-     * 
+     *
      * @param damage
      */
     public void setDamage(java.lang.String damage) {
@@ -149,7 +152,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the direction value for this Accident.
-     * 
+     *
      * @return direction
      */
     public java.lang.String getDirection() {
@@ -159,7 +162,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the direction value for this Accident.
-     * 
+     *
      * @param direction
      */
     public void setDirection(java.lang.String direction) {
@@ -169,7 +172,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the maxspeed value for this Accident.
-     * 
+     *
      * @return maxspeed
      */
     public java.lang.String getMaxspeed() {
@@ -179,7 +182,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the maxspeed value for this Accident.
-     * 
+     *
      * @param maxspeed
      */
     public void setMaxspeed(java.lang.String maxspeed) {
@@ -189,7 +192,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the comments value for this Accident.
-     * 
+     *
      * @return comments
      */
     public java.lang.String getComments() {
@@ -199,7 +202,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the comments value for this Accident.
-     * 
+     *
      * @param comments
      */
     public void setComments(java.lang.String comments) {
@@ -209,7 +212,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the location value for this Accident.
-     * 
+     *
      * @return location
      */
     public java.lang.String getLocation() {
@@ -219,7 +222,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the location value for this Accident.
-     * 
+     *
      * @param location
      */
     public void setLocation(java.lang.String location) {
@@ -229,7 +232,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the region value for this Accident.
-     * 
+     *
      * @return region
      */
     public java.lang.String getRegion() {
@@ -239,7 +242,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the region value for this Accident.
-     * 
+     *
      * @param region
      */
     public void setRegion(java.lang.String region) {
@@ -249,7 +252,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the speed value for this Accident.
-     * 
+     *
      * @return speed
      */
     public java.lang.String getSpeed() {
@@ -259,7 +262,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the speed value for this Accident.
-     * 
+     *
      * @param speed
      */
     public void setSpeed(java.lang.String speed) {
@@ -269,7 +272,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the accidentType value for this Accident.
-     * 
+     *
      * @return accidentType
      */
     public java.lang.String getAccidentType() {
@@ -279,7 +282,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the accidentType value for this Accident.
-     * 
+     *
      * @param accidentType
      */
     public void setAccidentType(java.lang.String accidentType) {
@@ -289,7 +292,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the impacts value for this Accident.
-     * 
+     *
      * @return impacts
      */
     public is.lt.ws.VehicleRegistryService.Impacts[] getImpacts() {
@@ -299,7 +302,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the impacts value for this Accident.
-     * 
+     *
      * @param impacts
      */
     public void setImpacts(is.lt.ws.VehicleRegistryService.Impacts[] impacts) {
@@ -309,7 +312,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Gets the otherVehiclesInAccident value for this Accident.
-     * 
+     *
      * @return otherVehiclesInAccident
      */
     public is.lt.ws.VehicleRegistryService.AccidentVehicle[] getOtherVehiclesInAccident() {
@@ -319,7 +322,7 @@ public class Accident  implements java.io.Serializable {
 
     /**
      * Sets the otherVehiclesInAccident value for this Accident.
-     * 
+     *
      * @param otherVehiclesInAccident
      */
     public void setOtherVehiclesInAccident(is.lt.ws.VehicleRegistryService.AccidentVehicle[] otherVehiclesInAccident) {
@@ -327,52 +330,59 @@ public class Accident  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Accident)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Accident)) {
+			return false;
+		}
         Accident other = (Accident) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.nextInspectionDate==null && other.getNextInspectionDate()==null) || 
+            ((this.nextInspectionDate==null && other.getNextInspectionDate()==null) ||
              (this.nextInspectionDate!=null &&
               this.nextInspectionDate.equals(other.getNextInspectionDate()))) &&
             this.airbag == other.isAirbag() &&
-            ((this.damage==null && other.getDamage()==null) || 
+            ((this.damage==null && other.getDamage()==null) ||
              (this.damage!=null &&
               this.damage.equals(other.getDamage()))) &&
-            ((this.direction==null && other.getDirection()==null) || 
+            ((this.direction==null && other.getDirection()==null) ||
              (this.direction!=null &&
               this.direction.equals(other.getDirection()))) &&
-            ((this.maxspeed==null && other.getMaxspeed()==null) || 
+            ((this.maxspeed==null && other.getMaxspeed()==null) ||
              (this.maxspeed!=null &&
               this.maxspeed.equals(other.getMaxspeed()))) &&
-            ((this.comments==null && other.getComments()==null) || 
+            ((this.comments==null && other.getComments()==null) ||
              (this.comments!=null &&
               this.comments.equals(other.getComments()))) &&
-            ((this.location==null && other.getLocation()==null) || 
+            ((this.location==null && other.getLocation()==null) ||
              (this.location!=null &&
               this.location.equals(other.getLocation()))) &&
-            ((this.region==null && other.getRegion()==null) || 
+            ((this.region==null && other.getRegion()==null) ||
              (this.region!=null &&
               this.region.equals(other.getRegion()))) &&
-            ((this.speed==null && other.getSpeed()==null) || 
+            ((this.speed==null && other.getSpeed()==null) ||
              (this.speed!=null &&
               this.speed.equals(other.getSpeed()))) &&
-            ((this.accidentType==null && other.getAccidentType()==null) || 
+            ((this.accidentType==null && other.getAccidentType()==null) ||
              (this.accidentType!=null &&
               this.accidentType.equals(other.getAccidentType()))) &&
-            ((this.impacts==null && other.getImpacts()==null) || 
+            ((this.impacts==null && other.getImpacts()==null) ||
              (this.impacts!=null &&
               java.util.Arrays.equals(this.impacts, other.getImpacts()))) &&
-            ((this.otherVehiclesInAccident==null && other.getOtherVehiclesInAccident()==null) || 
+            ((this.otherVehiclesInAccident==null && other.getOtherVehiclesInAccident()==null) ||
              (this.otherVehiclesInAccident!=null &&
               java.util.Arrays.equals(this.otherVehiclesInAccident, other.getOtherVehiclesInAccident())));
         __equalsCalc = null;
@@ -380,7 +390,8 @@ public class Accident  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -554,10 +565,10 @@ public class Accident  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -566,10 +577,10 @@ public class Accident  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

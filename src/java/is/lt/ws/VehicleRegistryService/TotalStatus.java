@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class TotalStatus  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -25,7 +28,7 @@ public class TotalStatus  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this TotalStatus.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -35,7 +38,7 @@ public class TotalStatus  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this TotalStatus.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -45,7 +48,7 @@ public class TotalStatus  implements java.io.Serializable {
 
     /**
      * Gets the automobileTaxes value for this TotalStatus.
-     * 
+     *
      * @return automobileTaxes
      */
     public is.lt.ws.VehicleRegistryService.AutomobileTaxClass getAutomobileTaxes() {
@@ -55,7 +58,7 @@ public class TotalStatus  implements java.io.Serializable {
 
     /**
      * Sets the automobileTaxes value for this TotalStatus.
-     * 
+     *
      * @param automobileTaxes
      */
     public void setAutomobileTaxes(is.lt.ws.VehicleRegistryService.AutomobileTaxClass automobileTaxes) {
@@ -63,21 +66,28 @@ public class TotalStatus  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof TotalStatus)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof TotalStatus)) {
+			return false;
+		}
         TotalStatus other = (TotalStatus) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.automobileTaxes==null && other.getAutomobileTaxes()==null) || 
+            ((this.automobileTaxes==null && other.getAutomobileTaxes()==null) ||
              (this.automobileTaxes!=null &&
               this.automobileTaxes.equals(other.getAutomobileTaxes())));
         __equalsCalc = null;
@@ -85,7 +95,8 @@ public class TotalStatus  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -134,10 +145,10 @@ public class TotalStatus  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -146,10 +157,10 @@ public class TotalStatus  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

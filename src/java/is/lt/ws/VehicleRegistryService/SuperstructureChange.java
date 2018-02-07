@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class SuperstructureChange  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -45,7 +48,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this SuperstructureChange.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -55,7 +58,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this SuperstructureChange.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -65,7 +68,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Gets the date value for this SuperstructureChange.
-     * 
+     *
      * @return date
      */
     public java.lang.String getDate() {
@@ -75,7 +78,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Sets the date value for this SuperstructureChange.
-     * 
+     *
      * @param date
      */
     public void setDate(java.lang.String date) {
@@ -85,7 +88,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Gets the type value for this SuperstructureChange.
-     * 
+     *
      * @return type
      */
     public java.lang.String getType() {
@@ -95,7 +98,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Sets the type value for this SuperstructureChange.
-     * 
+     *
      * @param type
      */
     public void setType(java.lang.String type) {
@@ -105,7 +108,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Gets the length value for this SuperstructureChange.
-     * 
+     *
      * @return length
      */
     public java.lang.String getLength() {
@@ -115,7 +118,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Sets the length value for this SuperstructureChange.
-     * 
+     *
      * @param length
      */
     public void setLength(java.lang.String length) {
@@ -125,7 +128,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Gets the width value for this SuperstructureChange.
-     * 
+     *
      * @return width
      */
     public java.lang.String getWidth() {
@@ -135,7 +138,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Sets the width value for this SuperstructureChange.
-     * 
+     *
      * @param width
      */
     public void setWidth(java.lang.String width) {
@@ -145,7 +148,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Gets the mass value for this SuperstructureChange.
-     * 
+     *
      * @return mass
      */
     public java.lang.String getMass() {
@@ -155,7 +158,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Sets the mass value for this SuperstructureChange.
-     * 
+     *
      * @param mass
      */
     public void setMass(java.lang.String mass) {
@@ -165,7 +168,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Gets the invalidDate value for this SuperstructureChange.
-     * 
+     *
      * @return invalidDate
      */
     public java.lang.String getInvalidDate() {
@@ -175,7 +178,7 @@ public class SuperstructureChange  implements java.io.Serializable {
 
     /**
      * Sets the invalidDate value for this SuperstructureChange.
-     * 
+     *
      * @param invalidDate
      */
     public void setInvalidDate(java.lang.String invalidDate) {
@@ -183,36 +186,43 @@ public class SuperstructureChange  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof SuperstructureChange)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof SuperstructureChange)) {
+			return false;
+		}
         SuperstructureChange other = (SuperstructureChange) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.date==null && other.getDate()==null) || 
+            ((this.date==null && other.getDate()==null) ||
              (this.date!=null &&
               this.date.equals(other.getDate()))) &&
-            ((this.type==null && other.getType()==null) || 
+            ((this.type==null && other.getType()==null) ||
              (this.type!=null &&
               this.type.equals(other.getType()))) &&
-            ((this.length==null && other.getLength()==null) || 
+            ((this.length==null && other.getLength()==null) ||
              (this.length!=null &&
               this.length.equals(other.getLength()))) &&
-            ((this.width==null && other.getWidth()==null) || 
+            ((this.width==null && other.getWidth()==null) ||
              (this.width!=null &&
               this.width.equals(other.getWidth()))) &&
-            ((this.mass==null && other.getMass()==null) || 
+            ((this.mass==null && other.getMass()==null) ||
              (this.mass!=null &&
               this.mass.equals(other.getMass()))) &&
-            ((this.invalidDate==null && other.getInvalidDate()==null) || 
+            ((this.invalidDate==null && other.getInvalidDate()==null) ||
              (this.invalidDate!=null &&
               this.invalidDate.equals(other.getInvalidDate())));
         __equalsCalc = null;
@@ -220,7 +230,8 @@ public class SuperstructureChange  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -319,10 +330,10 @@ public class SuperstructureChange  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -331,10 +342,10 @@ public class SuperstructureChange  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Impacts  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -25,7 +28,7 @@ public class Impacts  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Impacts.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -35,7 +38,7 @@ public class Impacts  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Impacts.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -45,7 +48,7 @@ public class Impacts  implements java.io.Serializable {
 
     /**
      * Gets the impact value for this Impacts.
-     * 
+     *
      * @return impact
      */
     public java.lang.String getImpact() {
@@ -55,7 +58,7 @@ public class Impacts  implements java.io.Serializable {
 
     /**
      * Sets the impact value for this Impacts.
-     * 
+     *
      * @param impact
      */
     public void setImpact(java.lang.String impact) {
@@ -63,21 +66,28 @@ public class Impacts  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Impacts)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Impacts)) {
+			return false;
+		}
         Impacts other = (Impacts) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.impact==null && other.getImpact()==null) || 
+            ((this.impact==null && other.getImpact()==null) ||
              (this.impact!=null &&
               this.impact.equals(other.getImpact())));
         __equalsCalc = null;
@@ -85,7 +95,8 @@ public class Impacts  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -134,10 +145,10 @@ public class Impacts  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -146,10 +157,10 @@ public class Impacts  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

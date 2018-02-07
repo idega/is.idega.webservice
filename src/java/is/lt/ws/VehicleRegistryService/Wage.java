@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Wage  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -73,7 +76,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Wage.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -83,7 +86,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Wage.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -93,7 +96,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the weightTaxNotOverDuePayments value for this Wage.
-     * 
+     *
      * @return weightTaxNotOverDuePayments
      */
     public java.lang.String getWeightTaxNotOverDuePayments() {
@@ -103,7 +106,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the weightTaxNotOverDuePayments value for this Wage.
-     * 
+     *
      * @param weightTaxNotOverDuePayments
      */
     public void setWeightTaxNotOverDuePayments(java.lang.String weightTaxNotOverDuePayments) {
@@ -113,7 +116,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the weightTaxInterestOnOverduePayments value for this Wage.
-     * 
+     *
      * @return weightTaxInterestOnOverduePayments
      */
     public java.lang.String getWeightTaxInterestOnOverduePayments() {
@@ -123,7 +126,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the weightTaxInterestOnOverduePayments value for this Wage.
-     * 
+     *
      * @param weightTaxInterestOnOverduePayments
      */
     public void setWeightTaxInterestOnOverduePayments(java.lang.String weightTaxInterestOnOverduePayments) {
@@ -133,7 +136,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the weightTaxCosts value for this Wage.
-     * 
+     *
      * @return weightTaxCosts
      */
     public java.lang.String getWeightTaxCosts() {
@@ -143,7 +146,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the weightTaxCosts value for this Wage.
-     * 
+     *
      * @param weightTaxCosts
      */
     public void setWeightTaxCosts(java.lang.String weightTaxCosts) {
@@ -153,7 +156,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the automobileTax value for this Wage.
-     * 
+     *
      * @return automobileTax
      */
     public java.lang.String getAutomobileTax() {
@@ -163,7 +166,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the automobileTax value for this Wage.
-     * 
+     *
      * @param automobileTax
      */
     public void setAutomobileTax(java.lang.String automobileTax) {
@@ -173,7 +176,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the automobileTaxNotOverDuePayments value for this Wage.
-     * 
+     *
      * @return automobileTaxNotOverDuePayments
      */
     public java.lang.String getAutomobileTaxNotOverDuePayments() {
@@ -183,7 +186,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the automobileTaxNotOverDuePayments value for this Wage.
-     * 
+     *
      * @param automobileTaxNotOverDuePayments
      */
     public void setAutomobileTaxNotOverDuePayments(java.lang.String automobileTaxNotOverDuePayments) {
@@ -193,7 +196,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the automobileTaxInterestOnOverduePayments value for this Wage.
-     * 
+     *
      * @return automobileTaxInterestOnOverduePayments
      */
     public java.lang.String getAutomobileTaxInterestOnOverduePayments() {
@@ -203,7 +206,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the automobileTaxInterestOnOverduePayments value for this Wage.
-     * 
+     *
      * @param automobileTaxInterestOnOverduePayments
      */
     public void setAutomobileTaxInterestOnOverduePayments(java.lang.String automobileTaxInterestOnOverduePayments) {
@@ -213,7 +216,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the automobileTaxCosts value for this Wage.
-     * 
+     *
      * @return automobileTaxCosts
      */
     public java.lang.String getAutomobileTaxCosts() {
@@ -223,7 +226,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the automobileTaxCosts value for this Wage.
-     * 
+     *
      * @param automobileTaxCosts
      */
     public void setAutomobileTaxCosts(java.lang.String automobileTaxCosts) {
@@ -233,7 +236,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the insurance value for this Wage.
-     * 
+     *
      * @return insurance
      */
     public java.lang.String getInsurance() {
@@ -243,7 +246,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the insurance value for this Wage.
-     * 
+     *
      * @param insurance
      */
     public void setInsurance(java.lang.String insurance) {
@@ -253,7 +256,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the weightTax value for this Wage.
-     * 
+     *
      * @return weightTax
      */
     public java.lang.String getWeightTax() {
@@ -263,7 +266,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the weightTax value for this Wage.
-     * 
+     *
      * @param weightTax
      */
     public void setWeightTax(java.lang.String weightTax) {
@@ -273,7 +276,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the interestRate value for this Wage.
-     * 
+     *
      * @return interestRate
      */
     public java.lang.String getInterestRate() {
@@ -283,7 +286,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the interestRate value for this Wage.
-     * 
+     *
      * @param interestRate
      */
     public void setInterestRate(java.lang.String interestRate) {
@@ -293,7 +296,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the expenses value for this Wage.
-     * 
+     *
      * @return expenses
      */
     public java.lang.String getExpenses() {
@@ -303,7 +306,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the expenses value for this Wage.
-     * 
+     *
      * @param expenses
      */
     public void setExpenses(java.lang.String expenses) {
@@ -313,7 +316,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the notOverdue value for this Wage.
-     * 
+     *
      * @return notOverdue
      */
     public java.lang.String getNotOverdue() {
@@ -323,7 +326,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the notOverdue value for this Wage.
-     * 
+     *
      * @param notOverdue
      */
     public void setNotOverdue(java.lang.String notOverdue) {
@@ -333,7 +336,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Gets the total value for this Wage.
-     * 
+     *
      * @return total
      */
     public java.lang.String getTotal() {
@@ -343,7 +346,7 @@ public class Wage  implements java.io.Serializable {
 
     /**
      * Sets the total value for this Wage.
-     * 
+     *
      * @param total
      */
     public void setTotal(java.lang.String total) {
@@ -351,57 +354,64 @@ public class Wage  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Wage)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Wage)) {
+			return false;
+		}
         Wage other = (Wage) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.weightTaxNotOverDuePayments==null && other.getWeightTaxNotOverDuePayments()==null) || 
+            ((this.weightTaxNotOverDuePayments==null && other.getWeightTaxNotOverDuePayments()==null) ||
              (this.weightTaxNotOverDuePayments!=null &&
               this.weightTaxNotOverDuePayments.equals(other.getWeightTaxNotOverDuePayments()))) &&
-            ((this.weightTaxInterestOnOverduePayments==null && other.getWeightTaxInterestOnOverduePayments()==null) || 
+            ((this.weightTaxInterestOnOverduePayments==null && other.getWeightTaxInterestOnOverduePayments()==null) ||
              (this.weightTaxInterestOnOverduePayments!=null &&
               this.weightTaxInterestOnOverduePayments.equals(other.getWeightTaxInterestOnOverduePayments()))) &&
-            ((this.weightTaxCosts==null && other.getWeightTaxCosts()==null) || 
+            ((this.weightTaxCosts==null && other.getWeightTaxCosts()==null) ||
              (this.weightTaxCosts!=null &&
               this.weightTaxCosts.equals(other.getWeightTaxCosts()))) &&
-            ((this.automobileTax==null && other.getAutomobileTax()==null) || 
+            ((this.automobileTax==null && other.getAutomobileTax()==null) ||
              (this.automobileTax!=null &&
               this.automobileTax.equals(other.getAutomobileTax()))) &&
-            ((this.automobileTaxNotOverDuePayments==null && other.getAutomobileTaxNotOverDuePayments()==null) || 
+            ((this.automobileTaxNotOverDuePayments==null && other.getAutomobileTaxNotOverDuePayments()==null) ||
              (this.automobileTaxNotOverDuePayments!=null &&
               this.automobileTaxNotOverDuePayments.equals(other.getAutomobileTaxNotOverDuePayments()))) &&
-            ((this.automobileTaxInterestOnOverduePayments==null && other.getAutomobileTaxInterestOnOverduePayments()==null) || 
+            ((this.automobileTaxInterestOnOverduePayments==null && other.getAutomobileTaxInterestOnOverduePayments()==null) ||
              (this.automobileTaxInterestOnOverduePayments!=null &&
               this.automobileTaxInterestOnOverduePayments.equals(other.getAutomobileTaxInterestOnOverduePayments()))) &&
-            ((this.automobileTaxCosts==null && other.getAutomobileTaxCosts()==null) || 
+            ((this.automobileTaxCosts==null && other.getAutomobileTaxCosts()==null) ||
              (this.automobileTaxCosts!=null &&
               this.automobileTaxCosts.equals(other.getAutomobileTaxCosts()))) &&
-            ((this.insurance==null && other.getInsurance()==null) || 
+            ((this.insurance==null && other.getInsurance()==null) ||
              (this.insurance!=null &&
               this.insurance.equals(other.getInsurance()))) &&
-            ((this.weightTax==null && other.getWeightTax()==null) || 
+            ((this.weightTax==null && other.getWeightTax()==null) ||
              (this.weightTax!=null &&
               this.weightTax.equals(other.getWeightTax()))) &&
-            ((this.interestRate==null && other.getInterestRate()==null) || 
+            ((this.interestRate==null && other.getInterestRate()==null) ||
              (this.interestRate!=null &&
               this.interestRate.equals(other.getInterestRate()))) &&
-            ((this.expenses==null && other.getExpenses()==null) || 
+            ((this.expenses==null && other.getExpenses()==null) ||
              (this.expenses!=null &&
               this.expenses.equals(other.getExpenses()))) &&
-            ((this.notOverdue==null && other.getNotOverdue()==null) || 
+            ((this.notOverdue==null && other.getNotOverdue()==null) ||
              (this.notOverdue!=null &&
               this.notOverdue.equals(other.getNotOverdue()))) &&
-            ((this.total==null && other.getTotal()==null) || 
+            ((this.total==null && other.getTotal()==null) ||
              (this.total!=null &&
               this.total.equals(other.getTotal())));
         __equalsCalc = null;
@@ -409,7 +419,8 @@ public class Wage  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -578,10 +589,10 @@ public class Wage  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -590,10 +601,10 @@ public class Wage  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

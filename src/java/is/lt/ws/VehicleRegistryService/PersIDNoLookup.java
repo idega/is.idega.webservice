@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class PersIDNoLookup  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -41,7 +44,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this PersIDNoLookup.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -51,7 +54,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this PersIDNoLookup.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -61,7 +64,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Gets the persidno value for this PersIDNoLookup.
-     * 
+     *
      * @return persidno
      */
     public java.lang.String getPersidno() {
@@ -71,7 +74,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Sets the persidno value for this PersIDNoLookup.
-     * 
+     *
      * @param persidno
      */
     public void setPersidno(java.lang.String persidno) {
@@ -81,7 +84,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Gets the name value for this PersIDNoLookup.
-     * 
+     *
      * @return name
      */
     public java.lang.String getName() {
@@ -91,7 +94,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Sets the name value for this PersIDNoLookup.
-     * 
+     *
      * @param name
      */
     public void setName(java.lang.String name) {
@@ -101,7 +104,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Gets the address value for this PersIDNoLookup.
-     * 
+     *
      * @return address
      */
     public java.lang.String getAddress() {
@@ -111,7 +114,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Sets the address value for this PersIDNoLookup.
-     * 
+     *
      * @param address
      */
     public void setAddress(java.lang.String address) {
@@ -121,7 +124,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Gets the poststation value for this PersIDNoLookup.
-     * 
+     *
      * @return poststation
      */
     public java.lang.String getPoststation() {
@@ -131,7 +134,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Sets the poststation value for this PersIDNoLookup.
-     * 
+     *
      * @param poststation
      */
     public void setPoststation(java.lang.String poststation) {
@@ -141,7 +144,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Gets the vehicleList value for this PersIDNoLookup.
-     * 
+     *
      * @return vehicleList
      */
     public is.lt.ws.VehicleRegistryService.VehiclePersidno[] getVehicleList() {
@@ -151,7 +154,7 @@ public class PersIDNoLookup  implements java.io.Serializable {
 
     /**
      * Sets the vehicleList value for this PersIDNoLookup.
-     * 
+     *
      * @param vehicleList
      */
     public void setVehicleList(is.lt.ws.VehicleRegistryService.VehiclePersidno[] vehicleList) {
@@ -159,33 +162,40 @@ public class PersIDNoLookup  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof PersIDNoLookup)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof PersIDNoLookup)) {
+			return false;
+		}
         PersIDNoLookup other = (PersIDNoLookup) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.persidno==null && other.getPersidno()==null) || 
+            ((this.persidno==null && other.getPersidno()==null) ||
              (this.persidno!=null &&
               this.persidno.equals(other.getPersidno()))) &&
-            ((this.name==null && other.getName()==null) || 
+            ((this.name==null && other.getName()==null) ||
              (this.name!=null &&
               this.name.equals(other.getName()))) &&
-            ((this.address==null && other.getAddress()==null) || 
+            ((this.address==null && other.getAddress()==null) ||
              (this.address!=null &&
               this.address.equals(other.getAddress()))) &&
-            ((this.poststation==null && other.getPoststation()==null) || 
+            ((this.poststation==null && other.getPoststation()==null) ||
              (this.poststation!=null &&
               this.poststation.equals(other.getPoststation()))) &&
-            ((this.vehicleList==null && other.getVehicleList()==null) || 
+            ((this.vehicleList==null && other.getVehicleList()==null) ||
              (this.vehicleList!=null &&
               java.util.Arrays.equals(this.vehicleList, other.getVehicleList())));
         __equalsCalc = null;
@@ -193,7 +203,8 @@ public class PersIDNoLookup  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -291,10 +302,10 @@ public class PersIDNoLookup  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -303,10 +314,10 @@ public class PersIDNoLookup  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

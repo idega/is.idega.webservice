@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class VehiclePersidno  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -109,7 +112,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this VehiclePersidno.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -119,7 +122,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this VehiclePersidno.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -129,7 +132,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the isCurrent value for this VehiclePersidno.
-     * 
+     *
      * @return isCurrent
      */
     public boolean isIsCurrent() {
@@ -139,7 +142,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the isCurrent value for this VehiclePersidno.
-     * 
+     *
      * @param isCurrent
      */
     public void setIsCurrent(boolean isCurrent) {
@@ -149,7 +152,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the permno value for this VehiclePersidno.
-     * 
+     *
      * @return permno
      */
     public java.lang.String getPermno() {
@@ -159,7 +162,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the permno value for this VehiclePersidno.
-     * 
+     *
      * @param permno
      */
     public void setPermno(java.lang.String permno) {
@@ -169,7 +172,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the regno value for this VehiclePersidno.
-     * 
+     *
      * @return regno
      */
     public java.lang.String getRegno() {
@@ -179,7 +182,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the regno value for this VehiclePersidno.
-     * 
+     *
      * @param regno
      */
     public void setRegno(java.lang.String regno) {
@@ -189,7 +192,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the vin value for this VehiclePersidno.
-     * 
+     *
      * @return vin
      */
     public java.lang.String getVin() {
@@ -199,7 +202,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the vin value for this VehiclePersidno.
-     * 
+     *
      * @param vin
      */
     public void setVin(java.lang.String vin) {
@@ -209,7 +212,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the type value for this VehiclePersidno.
-     * 
+     *
      * @return type
      */
     public java.lang.String getType() {
@@ -219,7 +222,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the type value for this VehiclePersidno.
-     * 
+     *
      * @param type
      */
     public void setType(java.lang.String type) {
@@ -229,7 +232,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the color value for this VehiclePersidno.
-     * 
+     *
      * @return color
      */
     public java.lang.String getColor() {
@@ -239,7 +242,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the color value for this VehiclePersidno.
-     * 
+     *
      * @param color
      */
     public void setColor(java.lang.String color) {
@@ -249,7 +252,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the firstregdate value for this VehiclePersidno.
-     * 
+     *
      * @return firstregdate
      */
     public java.lang.String getFirstregdate() {
@@ -259,7 +262,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the firstregdate value for this VehiclePersidno.
-     * 
+     *
      * @param firstregdate
      */
     public void setFirstregdate(java.lang.String firstregdate) {
@@ -269,7 +272,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the modelyear value for this VehiclePersidno.
-     * 
+     *
      * @return modelyear
      */
     public java.lang.String getModelyear() {
@@ -279,7 +282,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the modelyear value for this VehiclePersidno.
-     * 
+     *
      * @param modelyear
      */
     public void setModelyear(java.lang.String modelyear) {
@@ -289,7 +292,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the productyear value for this VehiclePersidno.
-     * 
+     *
      * @return productyear
      */
     public java.lang.String getProductyear() {
@@ -299,7 +302,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the productyear value for this VehiclePersidno.
-     * 
+     *
      * @param productyear
      */
     public void setProductyear(java.lang.String productyear) {
@@ -309,7 +312,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the registrationtype value for this VehiclePersidno.
-     * 
+     *
      * @return registrationtype
      */
     public java.lang.String getRegistrationtype() {
@@ -319,7 +322,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the registrationtype value for this VehiclePersidno.
-     * 
+     *
      * @param registrationtype
      */
     public void setRegistrationtype(java.lang.String registrationtype) {
@@ -329,7 +332,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the role value for this VehiclePersidno.
-     * 
+     *
      * @return role
      */
     public java.lang.String getRole() {
@@ -339,7 +342,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the role value for this VehiclePersidno.
-     * 
+     *
      * @param role
      */
     public void setRole(java.lang.String role) {
@@ -349,7 +352,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the startdate value for this VehiclePersidno.
-     * 
+     *
      * @return startdate
      */
     public java.lang.String getStartdate() {
@@ -359,7 +362,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the startdate value for this VehiclePersidno.
-     * 
+     *
      * @param startdate
      */
     public void setStartdate(java.lang.String startdate) {
@@ -369,7 +372,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the enddate value for this VehiclePersidno.
-     * 
+     *
      * @return enddate
      */
     public java.lang.String getEnddate() {
@@ -379,7 +382,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the enddate value for this VehiclePersidno.
-     * 
+     *
      * @param enddate
      */
     public void setEnddate(java.lang.String enddate) {
@@ -389,7 +392,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the outofuse value for this VehiclePersidno.
-     * 
+     *
      * @return outofuse
      */
     public boolean isOutofuse() {
@@ -399,7 +402,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the outofuse value for this VehiclePersidno.
-     * 
+     *
      * @param outofuse
      */
     public void setOutofuse(boolean outofuse) {
@@ -409,7 +412,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the otherowners value for this VehiclePersidno.
-     * 
+     *
      * @return otherowners
      */
     public java.lang.String getOtherowners() {
@@ -419,7 +422,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the otherowners value for this VehiclePersidno.
-     * 
+     *
      * @param otherowners
      */
     public void setOtherowners(java.lang.String otherowners) {
@@ -429,7 +432,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the termination value for this VehiclePersidno.
-     * 
+     *
      * @return termination
      */
     public java.lang.String getTermination() {
@@ -439,7 +442,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the termination value for this VehiclePersidno.
-     * 
+     *
      * @param termination
      */
     public void setTermination(java.lang.String termination) {
@@ -449,7 +452,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the buyerpersidno value for this VehiclePersidno.
-     * 
+     *
      * @return buyerpersidno
      */
     public java.lang.String getBuyerpersidno() {
@@ -459,7 +462,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the buyerpersidno value for this VehiclePersidno.
-     * 
+     *
      * @param buyerpersidno
      */
     public void setBuyerpersidno(java.lang.String buyerpersidno) {
@@ -469,7 +472,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the ownerpersidno value for this VehiclePersidno.
-     * 
+     *
      * @return ownerpersidno
      */
     public java.lang.String getOwnerpersidno() {
@@ -479,7 +482,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the ownerpersidno value for this VehiclePersidno.
-     * 
+     *
      * @param ownerpersidno
      */
     public void setOwnerpersidno(java.lang.String ownerpersidno) {
@@ -489,7 +492,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the vehiclestatus value for this VehiclePersidno.
-     * 
+     *
      * @return vehiclestatus
      */
     public java.lang.String getVehiclestatus() {
@@ -499,7 +502,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the vehiclestatus value for this VehiclePersidno.
-     * 
+     *
      * @param vehiclestatus
      */
     public void setVehiclestatus(java.lang.String vehiclestatus) {
@@ -509,7 +512,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the usegroup value for this VehiclePersidno.
-     * 
+     *
      * @return usegroup
      */
     public java.lang.String getUsegroup() {
@@ -519,7 +522,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the usegroup value for this VehiclePersidno.
-     * 
+     *
      * @param usegroup
      */
     public void setUsegroup(java.lang.String usegroup) {
@@ -529,7 +532,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the vehgroup value for this VehiclePersidno.
-     * 
+     *
      * @return vehgroup
      */
     public java.lang.String getVehgroup() {
@@ -539,7 +542,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the vehgroup value for this VehiclePersidno.
-     * 
+     *
      * @param vehgroup
      */
     public void setVehgroup(java.lang.String vehgroup) {
@@ -549,7 +552,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Gets the platestatus value for this VehiclePersidno.
-     * 
+     *
      * @return platestatus
      */
     public java.lang.String getPlatestatus() {
@@ -559,7 +562,7 @@ public class VehiclePersidno  implements java.io.Serializable {
 
     /**
      * Sets the platestatus value for this VehiclePersidno.
-     * 
+     *
      * @param platestatus
      */
     public void setPlatestatus(java.lang.String platestatus) {
@@ -567,80 +570,87 @@ public class VehiclePersidno  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof VehiclePersidno)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof VehiclePersidno)) {
+			return false;
+		}
         VehiclePersidno other = (VehiclePersidno) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
             this.isCurrent == other.isIsCurrent() &&
-            ((this.permno==null && other.getPermno()==null) || 
+            ((this.permno==null && other.getPermno()==null) ||
              (this.permno!=null &&
               this.permno.equals(other.getPermno()))) &&
-            ((this.regno==null && other.getRegno()==null) || 
+            ((this.regno==null && other.getRegno()==null) ||
              (this.regno!=null &&
               this.regno.equals(other.getRegno()))) &&
-            ((this.vin==null && other.getVin()==null) || 
+            ((this.vin==null && other.getVin()==null) ||
              (this.vin!=null &&
               this.vin.equals(other.getVin()))) &&
-            ((this.type==null && other.getType()==null) || 
+            ((this.type==null && other.getType()==null) ||
              (this.type!=null &&
               this.type.equals(other.getType()))) &&
-            ((this.color==null && other.getColor()==null) || 
+            ((this.color==null && other.getColor()==null) ||
              (this.color!=null &&
               this.color.equals(other.getColor()))) &&
-            ((this.firstregdate==null && other.getFirstregdate()==null) || 
+            ((this.firstregdate==null && other.getFirstregdate()==null) ||
              (this.firstregdate!=null &&
               this.firstregdate.equals(other.getFirstregdate()))) &&
-            ((this.modelyear==null && other.getModelyear()==null) || 
+            ((this.modelyear==null && other.getModelyear()==null) ||
              (this.modelyear!=null &&
               this.modelyear.equals(other.getModelyear()))) &&
-            ((this.productyear==null && other.getProductyear()==null) || 
+            ((this.productyear==null && other.getProductyear()==null) ||
              (this.productyear!=null &&
               this.productyear.equals(other.getProductyear()))) &&
-            ((this.registrationtype==null && other.getRegistrationtype()==null) || 
+            ((this.registrationtype==null && other.getRegistrationtype()==null) ||
              (this.registrationtype!=null &&
               this.registrationtype.equals(other.getRegistrationtype()))) &&
-            ((this.role==null && other.getRole()==null) || 
+            ((this.role==null && other.getRole()==null) ||
              (this.role!=null &&
               this.role.equals(other.getRole()))) &&
-            ((this.startdate==null && other.getStartdate()==null) || 
+            ((this.startdate==null && other.getStartdate()==null) ||
              (this.startdate!=null &&
               this.startdate.equals(other.getStartdate()))) &&
-            ((this.enddate==null && other.getEnddate()==null) || 
+            ((this.enddate==null && other.getEnddate()==null) ||
              (this.enddate!=null &&
               this.enddate.equals(other.getEnddate()))) &&
             this.outofuse == other.isOutofuse() &&
-            ((this.otherowners==null && other.getOtherowners()==null) || 
+            ((this.otherowners==null && other.getOtherowners()==null) ||
              (this.otherowners!=null &&
               this.otherowners.equals(other.getOtherowners()))) &&
-            ((this.termination==null && other.getTermination()==null) || 
+            ((this.termination==null && other.getTermination()==null) ||
              (this.termination!=null &&
               this.termination.equals(other.getTermination()))) &&
-            ((this.buyerpersidno==null && other.getBuyerpersidno()==null) || 
+            ((this.buyerpersidno==null && other.getBuyerpersidno()==null) ||
              (this.buyerpersidno!=null &&
               this.buyerpersidno.equals(other.getBuyerpersidno()))) &&
-            ((this.ownerpersidno==null && other.getOwnerpersidno()==null) || 
+            ((this.ownerpersidno==null && other.getOwnerpersidno()==null) ||
              (this.ownerpersidno!=null &&
               this.ownerpersidno.equals(other.getOwnerpersidno()))) &&
-            ((this.vehiclestatus==null && other.getVehiclestatus()==null) || 
+            ((this.vehiclestatus==null && other.getVehiclestatus()==null) ||
              (this.vehiclestatus!=null &&
               this.vehiclestatus.equals(other.getVehiclestatus()))) &&
-            ((this.usegroup==null && other.getUsegroup()==null) || 
+            ((this.usegroup==null && other.getUsegroup()==null) ||
              (this.usegroup!=null &&
               this.usegroup.equals(other.getUsegroup()))) &&
-            ((this.vehgroup==null && other.getVehgroup()==null) || 
+            ((this.vehgroup==null && other.getVehgroup()==null) ||
              (this.vehgroup!=null &&
               this.vehgroup.equals(other.getVehgroup()))) &&
-            ((this.platestatus==null && other.getPlatestatus()==null) || 
+            ((this.platestatus==null && other.getPlatestatus()==null) ||
              (this.platestatus!=null &&
               this.platestatus.equals(other.getPlatestatus())));
         __equalsCalc = null;
@@ -648,7 +658,8 @@ public class VehiclePersidno  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -901,10 +912,10 @@ public class VehiclePersidno  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -913,10 +924,10 @@ public class VehiclePersidno  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class CoOwner  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -41,7 +44,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this CoOwner.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -51,7 +54,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this CoOwner.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -61,7 +64,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Gets the persidno value for this CoOwner.
-     * 
+     *
      * @return persidno
      */
     public java.lang.String getPersidno() {
@@ -71,7 +74,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Sets the persidno value for this CoOwner.
-     * 
+     *
      * @param persidno
      */
     public void setPersidno(java.lang.String persidno) {
@@ -81,7 +84,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Gets the fullname value for this CoOwner.
-     * 
+     *
      * @return fullname
      */
     public java.lang.String getFullname() {
@@ -91,7 +94,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Sets the fullname value for this CoOwner.
-     * 
+     *
      * @param fullname
      */
     public void setFullname(java.lang.String fullname) {
@@ -101,7 +104,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Gets the address value for this CoOwner.
-     * 
+     *
      * @return address
      */
     public java.lang.String getAddress() {
@@ -111,7 +114,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Sets the address value for this CoOwner.
-     * 
+     *
      * @param address
      */
     public void setAddress(java.lang.String address) {
@@ -121,7 +124,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Gets the postalcode value for this CoOwner.
-     * 
+     *
      * @return postalcode
      */
     public java.lang.String getPostalcode() {
@@ -131,7 +134,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Sets the postalcode value for this CoOwner.
-     * 
+     *
      * @param postalcode
      */
     public void setPostalcode(java.lang.String postalcode) {
@@ -141,7 +144,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Gets the city value for this CoOwner.
-     * 
+     *
      * @return city
      */
     public java.lang.String getCity() {
@@ -151,7 +154,7 @@ public class CoOwner  implements java.io.Serializable {
 
     /**
      * Sets the city value for this CoOwner.
-     * 
+     *
      * @param city
      */
     public void setCity(java.lang.String city) {
@@ -159,33 +162,40 @@ public class CoOwner  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof CoOwner)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof CoOwner)) {
+			return false;
+		}
         CoOwner other = (CoOwner) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.persidno==null && other.getPersidno()==null) || 
+            ((this.persidno==null && other.getPersidno()==null) ||
              (this.persidno!=null &&
               this.persidno.equals(other.getPersidno()))) &&
-            ((this.fullname==null && other.getFullname()==null) || 
+            ((this.fullname==null && other.getFullname()==null) ||
              (this.fullname!=null &&
               this.fullname.equals(other.getFullname()))) &&
-            ((this.address==null && other.getAddress()==null) || 
+            ((this.address==null && other.getAddress()==null) ||
              (this.address!=null &&
               this.address.equals(other.getAddress()))) &&
-            ((this.postalcode==null && other.getPostalcode()==null) || 
+            ((this.postalcode==null && other.getPostalcode()==null) ||
              (this.postalcode!=null &&
               this.postalcode.equals(other.getPostalcode()))) &&
-            ((this.city==null && other.getCity()==null) || 
+            ((this.city==null && other.getCity()==null) ||
              (this.city!=null &&
               this.city.equals(other.getCity())));
         __equalsCalc = null;
@@ -193,7 +203,8 @@ public class CoOwner  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -282,10 +293,10 @@ public class CoOwner  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -294,10 +305,10 @@ public class CoOwner  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

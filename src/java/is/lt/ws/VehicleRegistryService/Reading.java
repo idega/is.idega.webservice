@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Reading  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -65,7 +68,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Reading.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -75,7 +78,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Reading.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -85,7 +88,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the readingDate value for this Reading.
-     * 
+     *
      * @return readingDate
      */
     public java.lang.String getReadingDate() {
@@ -95,7 +98,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the readingDate value for this Reading.
-     * 
+     *
      * @param readingDate
      */
     public void setReadingDate(java.lang.String readingDate) {
@@ -105,7 +108,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the gaugeStatus value for this Reading.
-     * 
+     *
      * @return gaugeStatus
      */
     public java.lang.String getGaugeStatus() {
@@ -115,7 +118,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the gaugeStatus value for this Reading.
-     * 
+     *
      * @param gaugeStatus
      */
     public void setGaugeStatus(java.lang.String gaugeStatus) {
@@ -125,7 +128,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the rateClass value for this Reading.
-     * 
+     *
      * @return rateClass
      */
     public java.lang.String getRateClass() {
@@ -135,7 +138,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the rateClass value for this Reading.
-     * 
+     *
      * @param rateClass
      */
     public void setRateClass(java.lang.String rateClass) {
@@ -145,7 +148,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the carriageWeight value for this Reading.
-     * 
+     *
      * @return carriageWeight
      */
     public java.lang.String getCarriageWeight() {
@@ -155,7 +158,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the carriageWeight value for this Reading.
-     * 
+     *
      * @param carriageWeight
      */
     public void setCarriageWeight(java.lang.String carriageWeight) {
@@ -165,7 +168,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the multipleCarriageWeight value for this Reading.
-     * 
+     *
      * @return multipleCarriageWeight
      */
     public java.lang.String getMultipleCarriageWeight() {
@@ -175,7 +178,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the multipleCarriageWeight value for this Reading.
-     * 
+     *
      * @param multipleCarriageWeight
      */
     public void setMultipleCarriageWeight(java.lang.String multipleCarriageWeight) {
@@ -185,7 +188,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the origin value for this Reading.
-     * 
+     *
      * @return origin
      */
     public java.lang.String getOrigin() {
@@ -195,7 +198,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the origin value for this Reading.
-     * 
+     *
      * @param origin
      */
     public void setOrigin(java.lang.String origin) {
@@ -205,7 +208,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the readingType value for this Reading.
-     * 
+     *
      * @return readingType
      */
     public java.lang.String getReadingType() {
@@ -215,7 +218,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the readingType value for this Reading.
-     * 
+     *
      * @param readingType
      */
     public void setReadingType(java.lang.String readingType) {
@@ -225,7 +228,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the brst value for this Reading.
-     * 
+     *
      * @return brst
      */
     public java.lang.String getBrst() {
@@ -235,7 +238,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the brst value for this Reading.
-     * 
+     *
      * @param brst
      */
     public void setBrst(java.lang.String brst) {
@@ -245,7 +248,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the gaugeNumber value for this Reading.
-     * 
+     *
      * @return gaugeNumber
      */
     public java.lang.String getGaugeNumber() {
@@ -255,7 +258,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the gaugeNumber value for this Reading.
-     * 
+     *
      * @param gaugeNumber
      */
     public void setGaugeNumber(java.lang.String gaugeNumber) {
@@ -265,7 +268,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the usageGroup value for this Reading.
-     * 
+     *
      * @return usageGroup
      */
     public java.lang.String getUsageGroup() {
@@ -275,7 +278,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the usageGroup value for this Reading.
-     * 
+     *
      * @param usageGroup
      */
     public void setUsageGroup(java.lang.String usageGroup) {
@@ -285,7 +288,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Gets the taxGroup value for this Reading.
-     * 
+     *
      * @return taxGroup
      */
     public java.lang.String getTaxGroup() {
@@ -295,7 +298,7 @@ public class Reading  implements java.io.Serializable {
 
     /**
      * Sets the taxGroup value for this Reading.
-     * 
+     *
      * @param taxGroup
      */
     public void setTaxGroup(java.lang.String taxGroup) {
@@ -303,51 +306,58 @@ public class Reading  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Reading)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Reading)) {
+			return false;
+		}
         Reading other = (Reading) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.readingDate==null && other.getReadingDate()==null) || 
+            ((this.readingDate==null && other.getReadingDate()==null) ||
              (this.readingDate!=null &&
               this.readingDate.equals(other.getReadingDate()))) &&
-            ((this.gaugeStatus==null && other.getGaugeStatus()==null) || 
+            ((this.gaugeStatus==null && other.getGaugeStatus()==null) ||
              (this.gaugeStatus!=null &&
               this.gaugeStatus.equals(other.getGaugeStatus()))) &&
-            ((this.rateClass==null && other.getRateClass()==null) || 
+            ((this.rateClass==null && other.getRateClass()==null) ||
              (this.rateClass!=null &&
               this.rateClass.equals(other.getRateClass()))) &&
-            ((this.carriageWeight==null && other.getCarriageWeight()==null) || 
+            ((this.carriageWeight==null && other.getCarriageWeight()==null) ||
              (this.carriageWeight!=null &&
               this.carriageWeight.equals(other.getCarriageWeight()))) &&
-            ((this.multipleCarriageWeight==null && other.getMultipleCarriageWeight()==null) || 
+            ((this.multipleCarriageWeight==null && other.getMultipleCarriageWeight()==null) ||
              (this.multipleCarriageWeight!=null &&
               this.multipleCarriageWeight.equals(other.getMultipleCarriageWeight()))) &&
-            ((this.origin==null && other.getOrigin()==null) || 
+            ((this.origin==null && other.getOrigin()==null) ||
              (this.origin!=null &&
               this.origin.equals(other.getOrigin()))) &&
-            ((this.readingType==null && other.getReadingType()==null) || 
+            ((this.readingType==null && other.getReadingType()==null) ||
              (this.readingType!=null &&
               this.readingType.equals(other.getReadingType()))) &&
-            ((this.brst==null && other.getBrst()==null) || 
+            ((this.brst==null && other.getBrst()==null) ||
              (this.brst!=null &&
               this.brst.equals(other.getBrst()))) &&
-            ((this.gaugeNumber==null && other.getGaugeNumber()==null) || 
+            ((this.gaugeNumber==null && other.getGaugeNumber()==null) ||
              (this.gaugeNumber!=null &&
               this.gaugeNumber.equals(other.getGaugeNumber()))) &&
-            ((this.usageGroup==null && other.getUsageGroup()==null) || 
+            ((this.usageGroup==null && other.getUsageGroup()==null) ||
              (this.usageGroup!=null &&
               this.usageGroup.equals(other.getUsageGroup()))) &&
-            ((this.taxGroup==null && other.getTaxGroup()==null) || 
+            ((this.taxGroup==null && other.getTaxGroup()==null) ||
              (this.taxGroup!=null &&
               this.taxGroup.equals(other.getTaxGroup())));
         __equalsCalc = null;
@@ -355,7 +365,8 @@ public class Reading  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -504,10 +515,10 @@ public class Reading  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -516,10 +527,10 @@ public class Reading  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

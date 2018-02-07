@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Size  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -33,7 +36,7 @@ public class Size  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Size.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -43,7 +46,7 @@ public class Size  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Size.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -53,7 +56,7 @@ public class Size  implements java.io.Serializable {
 
     /**
      * Gets the length value for this Size.
-     * 
+     *
      * @return length
      */
     public java.lang.String getLength() {
@@ -63,7 +66,7 @@ public class Size  implements java.io.Serializable {
 
     /**
      * Sets the length value for this Size.
-     * 
+     *
      * @param length
      */
     public void setLength(java.lang.String length) {
@@ -73,7 +76,7 @@ public class Size  implements java.io.Serializable {
 
     /**
      * Gets the width value for this Size.
-     * 
+     *
      * @return width
      */
     public java.lang.String getWidth() {
@@ -83,7 +86,7 @@ public class Size  implements java.io.Serializable {
 
     /**
      * Sets the width value for this Size.
-     * 
+     *
      * @param width
      */
     public void setWidth(java.lang.String width) {
@@ -93,7 +96,7 @@ public class Size  implements java.io.Serializable {
 
     /**
      * Gets the height value for this Size.
-     * 
+     *
      * @return height
      */
     public java.lang.String getHeight() {
@@ -103,7 +106,7 @@ public class Size  implements java.io.Serializable {
 
     /**
      * Sets the height value for this Size.
-     * 
+     *
      * @param height
      */
     public void setHeight(java.lang.String height) {
@@ -111,27 +114,34 @@ public class Size  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Size)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Size)) {
+			return false;
+		}
         Size other = (Size) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.length==null && other.getLength()==null) || 
+            ((this.length==null && other.getLength()==null) ||
              (this.length!=null &&
               this.length.equals(other.getLength()))) &&
-            ((this.width==null && other.getWidth()==null) || 
+            ((this.width==null && other.getWidth()==null) ||
              (this.width!=null &&
               this.width.equals(other.getWidth()))) &&
-            ((this.height==null && other.getHeight()==null) || 
+            ((this.height==null && other.getHeight()==null) ||
              (this.height!=null &&
               this.height.equals(other.getHeight())));
         __equalsCalc = null;
@@ -139,7 +149,8 @@ public class Size  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -208,10 +219,10 @@ public class Size  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -220,10 +231,10 @@ public class Size  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

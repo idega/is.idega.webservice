@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class AccidentVehicle  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -37,7 +40,7 @@ public class AccidentVehicle  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this AccidentVehicle.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -47,7 +50,7 @@ public class AccidentVehicle  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this AccidentVehicle.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -57,7 +60,7 @@ public class AccidentVehicle  implements java.io.Serializable {
 
     /**
      * Gets the make value for this AccidentVehicle.
-     * 
+     *
      * @return make
      */
     public java.lang.String getMake() {
@@ -67,7 +70,7 @@ public class AccidentVehicle  implements java.io.Serializable {
 
     /**
      * Sets the make value for this AccidentVehicle.
-     * 
+     *
      * @param make
      */
     public void setMake(java.lang.String make) {
@@ -77,7 +80,7 @@ public class AccidentVehicle  implements java.io.Serializable {
 
     /**
      * Gets the vehcom value for this AccidentVehicle.
-     * 
+     *
      * @return vehcom
      */
     public java.lang.String getVehcom() {
@@ -87,7 +90,7 @@ public class AccidentVehicle  implements java.io.Serializable {
 
     /**
      * Sets the vehcom value for this AccidentVehicle.
-     * 
+     *
      * @param vehcom
      */
     public void setVehcom(java.lang.String vehcom) {
@@ -97,7 +100,7 @@ public class AccidentVehicle  implements java.io.Serializable {
 
     /**
      * Gets the vehgroup value for this AccidentVehicle.
-     * 
+     *
      * @return vehgroup
      */
     public java.lang.String getVehgroup() {
@@ -107,7 +110,7 @@ public class AccidentVehicle  implements java.io.Serializable {
 
     /**
      * Sets the vehgroup value for this AccidentVehicle.
-     * 
+     *
      * @param vehgroup
      */
     public void setVehgroup(java.lang.String vehgroup) {
@@ -117,7 +120,7 @@ public class AccidentVehicle  implements java.io.Serializable {
 
     /**
      * Gets the damage value for this AccidentVehicle.
-     * 
+     *
      * @return damage
      */
     public java.lang.String getDamage() {
@@ -127,7 +130,7 @@ public class AccidentVehicle  implements java.io.Serializable {
 
     /**
      * Sets the damage value for this AccidentVehicle.
-     * 
+     *
      * @param damage
      */
     public void setDamage(java.lang.String damage) {
@@ -135,30 +138,37 @@ public class AccidentVehicle  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof AccidentVehicle)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof AccidentVehicle)) {
+			return false;
+		}
         AccidentVehicle other = (AccidentVehicle) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.make==null && other.getMake()==null) || 
+            ((this.make==null && other.getMake()==null) ||
              (this.make!=null &&
               this.make.equals(other.getMake()))) &&
-            ((this.vehcom==null && other.getVehcom()==null) || 
+            ((this.vehcom==null && other.getVehcom()==null) ||
              (this.vehcom!=null &&
               this.vehcom.equals(other.getVehcom()))) &&
-            ((this.vehgroup==null && other.getVehgroup()==null) || 
+            ((this.vehgroup==null && other.getVehgroup()==null) ||
              (this.vehgroup!=null &&
               this.vehgroup.equals(other.getVehgroup()))) &&
-            ((this.damage==null && other.getDamage()==null) || 
+            ((this.damage==null && other.getDamage()==null) ||
              (this.damage!=null &&
               this.damage.equals(other.getDamage())));
         __equalsCalc = null;
@@ -166,7 +176,8 @@ public class AccidentVehicle  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -245,10 +256,10 @@ public class AccidentVehicle  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -257,10 +268,10 @@ public class AccidentVehicle  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

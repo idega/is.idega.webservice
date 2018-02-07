@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Technical  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -217,7 +220,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Technical.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -227,7 +230,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Technical.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -237,7 +240,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the vehgroup value for this Technical.
-     * 
+     *
      * @return vehgroup
      */
     public java.lang.String getVehgroup() {
@@ -247,7 +250,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the vehgroup value for this Technical.
-     * 
+     *
      * @param vehgroup
      */
     public void setVehgroup(java.lang.String vehgroup) {
@@ -257,7 +260,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the engine value for this Technical.
-     * 
+     *
      * @return engine
      */
     public java.lang.String getEngine() {
@@ -267,7 +270,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the engine value for this Technical.
-     * 
+     *
      * @param engine
      */
     public void setEngine(java.lang.String engine) {
@@ -277,7 +280,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the pass value for this Technical.
-     * 
+     *
      * @return pass
      */
     public java.lang.String getPass() {
@@ -287,7 +290,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the pass value for this Technical.
-     * 
+     *
      * @param pass
      */
     public void setPass(java.lang.String pass) {
@@ -297,7 +300,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the passbydr value for this Technical.
-     * 
+     *
      * @return passbydr
      */
     public java.lang.String getPassbydr() {
@@ -307,7 +310,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the passbydr value for this Technical.
-     * 
+     *
      * @param passbydr
      */
     public void setPassbydr(java.lang.String passbydr) {
@@ -317,7 +320,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the engingemanuf value for this Technical.
-     * 
+     *
      * @return engingemanuf
      */
     public java.lang.String getEngingemanuf() {
@@ -327,7 +330,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the engingemanuf value for this Technical.
-     * 
+     *
      * @param engingemanuf
      */
     public void setEngingemanuf(java.lang.String engingemanuf) {
@@ -337,7 +340,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the enginecode value for this Technical.
-     * 
+     *
      * @return enginecode
      */
     public java.lang.String getEnginecode() {
@@ -347,7 +350,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the enginecode value for this Technical.
-     * 
+     *
      * @param enginecode
      */
     public void setEnginecode(java.lang.String enginecode) {
@@ -357,7 +360,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the workingpr value for this Technical.
-     * 
+     *
      * @return workingpr
      */
     public java.lang.String getWorkingpr() {
@@ -367,7 +370,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the workingpr value for this Technical.
-     * 
+     *
      * @param workingpr
      */
     public void setWorkingpr(java.lang.String workingpr) {
@@ -377,7 +380,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the directinj value for this Technical.
-     * 
+     *
      * @return directinj
      */
     public java.lang.String getDirectinj() {
@@ -387,7 +390,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the directinj value for this Technical.
-     * 
+     *
      * @param directinj
      */
     public void setDirectinj(java.lang.String directinj) {
@@ -397,7 +400,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the nocylinders value for this Technical.
-     * 
+     *
      * @return nocylinders
      */
     public java.lang.String getNocylinders() {
@@ -407,7 +410,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the nocylinders value for this Technical.
-     * 
+     *
      * @param nocylinders
      */
     public void setNocylinders(java.lang.String nocylinders) {
@@ -417,7 +420,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the arrcylinders value for this Technical.
-     * 
+     *
      * @return arrcylinders
      */
     public java.lang.String getArrcylinders() {
@@ -427,7 +430,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the arrcylinders value for this Technical.
-     * 
+     *
      * @param arrcylinders
      */
     public void setArrcylinders(java.lang.String arrcylinders) {
@@ -437,7 +440,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the capacity value for this Technical.
-     * 
+     *
      * @return capacity
      */
     public java.lang.String getCapacity() {
@@ -447,7 +450,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the capacity value for this Technical.
-     * 
+     *
      * @param capacity
      */
     public void setCapacity(java.lang.String capacity) {
@@ -457,7 +460,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the maxnetpow value for this Technical.
-     * 
+     *
      * @return maxnetpow
      */
     public java.lang.String getMaxnetpow() {
@@ -467,7 +470,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the maxnetpow value for this Technical.
-     * 
+     *
      * @param maxnetpow
      */
     public void setMaxnetpow(java.lang.String maxnetpow) {
@@ -477,7 +480,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the atmin value for this Technical.
-     * 
+     *
      * @return atmin
      */
     public java.lang.String getAtmin() {
@@ -487,7 +490,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the atmin value for this Technical.
-     * 
+     *
      * @param atmin
      */
     public void setAtmin(java.lang.String atmin) {
@@ -497,7 +500,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the clutchtype value for this Technical.
-     * 
+     *
      * @return clutchtype
      */
     public java.lang.String getClutchtype() {
@@ -507,7 +510,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the clutchtype value for this Technical.
-     * 
+     *
      * @param clutchtype
      */
     public void setClutchtype(java.lang.String clutchtype) {
@@ -517,7 +520,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the gearbox value for this Technical.
-     * 
+     *
      * @return gearbox
      */
     public java.lang.String getGearbox() {
@@ -527,7 +530,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the gearbox value for this Technical.
-     * 
+     *
      * @param gearbox
      */
     public void setGearbox(java.lang.String gearbox) {
@@ -537,7 +540,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the gearratio value for this Technical.
-     * 
+     *
      * @return gearratio
      */
     public java.lang.String[] getGearratio() {
@@ -547,7 +550,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the gearratio value for this Technical.
-     * 
+     *
      * @param gearratio
      */
     public void setGearratio(java.lang.String[] gearratio) {
@@ -557,7 +560,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the findrivratio value for this Technical.
-     * 
+     *
      * @return findrivratio
      */
     public java.lang.String getFindrivratio() {
@@ -567,7 +570,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the findrivratio value for this Technical.
-     * 
+     *
      * @param findrivratio
      */
     public void setFindrivratio(java.lang.String findrivratio) {
@@ -577,7 +580,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the steermeth value for this Technical.
-     * 
+     *
      * @return steermeth
      */
     public boolean isSteermeth() {
@@ -587,7 +590,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the steermeth value for this Technical.
-     * 
+     *
      * @param steermeth
      */
     public void setSteermeth(boolean steermeth) {
@@ -597,7 +600,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the typeofbody value for this Technical.
-     * 
+     *
      * @return typeofbody
      */
     public java.lang.String getTypeofbody() {
@@ -607,7 +610,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the typeofbody value for this Technical.
-     * 
+     *
      * @param typeofbody
      */
     public void setTypeofbody(java.lang.String typeofbody) {
@@ -617,7 +620,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the doorsno value for this Technical.
-     * 
+     *
      * @return doorsno
      */
     public java.lang.String getDoorsno() {
@@ -627,7 +630,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the doorsno value for this Technical.
-     * 
+     *
      * @param doorsno
      */
     public void setDoorsno(java.lang.String doorsno) {
@@ -637,7 +640,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the seatno value for this Technical.
-     * 
+     *
      * @return seatno
      */
     public java.lang.String getSeatno() {
@@ -647,7 +650,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the seatno value for this Technical.
-     * 
+     *
      * @param seatno
      */
     public void setSeatno(java.lang.String seatno) {
@@ -657,7 +660,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the maxspeed value for this Technical.
-     * 
+     *
      * @return maxspeed
      */
     public java.lang.String getMaxspeed() {
@@ -667,7 +670,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the maxspeed value for this Technical.
-     * 
+     *
      * @param maxspeed
      */
     public void setMaxspeed(java.lang.String maxspeed) {
@@ -677,7 +680,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the soundstat value for this Technical.
-     * 
+     *
      * @return soundstat
      */
     public java.lang.String getSoundstat() {
@@ -687,7 +690,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the soundstat value for this Technical.
-     * 
+     *
      * @param soundstat
      */
     public void setSoundstat(java.lang.String soundstat) {
@@ -697,7 +700,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the sounddrive value for this Technical.
-     * 
+     *
      * @return sounddrive
      */
     public java.lang.String getSounddrive() {
@@ -707,7 +710,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the sounddrive value for this Technical.
-     * 
+     *
      * @param sounddrive
      */
     public void setSounddrive(java.lang.String sounddrive) {
@@ -717,7 +720,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the co value for this Technical.
-     * 
+     *
      * @return co
      */
     public java.lang.String getCo() {
@@ -727,7 +730,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the co value for this Technical.
-     * 
+     *
      * @param co
      */
     public void setCo(java.lang.String co) {
@@ -737,7 +740,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the hc value for this Technical.
-     * 
+     *
      * @return hc
      */
     public java.lang.String getHc() {
@@ -747,7 +750,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the hc value for this Technical.
-     * 
+     *
      * @param hc
      */
     public void setHc(java.lang.String hc) {
@@ -757,7 +760,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the nox value for this Technical.
-     * 
+     *
      * @return nox
      */
     public java.lang.String getNox() {
@@ -767,7 +770,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the nox value for this Technical.
-     * 
+     *
      * @param nox
      */
     public void setNox(java.lang.String nox) {
@@ -777,7 +780,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the hcnox value for this Technical.
-     * 
+     *
      * @return hcnox
      */
     public java.lang.String getHcnox() {
@@ -787,7 +790,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the hcnox value for this Technical.
-     * 
+     *
      * @param hcnox
      */
     public void setHcnox(java.lang.String hcnox) {
@@ -797,7 +800,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the remark value for this Technical.
-     * 
+     *
      * @return remark
      */
     public java.lang.String getRemark() {
@@ -807,7 +810,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the remark value for this Technical.
-     * 
+     *
      * @param remark
      */
     public void setRemark(java.lang.String remark) {
@@ -817,7 +820,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the roofload value for this Technical.
-     * 
+     *
      * @return roofload
      */
     public java.lang.String getRoofload() {
@@ -827,7 +830,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the roofload value for this Technical.
-     * 
+     *
      * @param roofload
      */
     public void setRoofload(java.lang.String roofload) {
@@ -837,7 +840,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the noofgears value for this Technical.
-     * 
+     *
      * @return noofgears
      */
     public java.lang.String getNoofgears() {
@@ -847,7 +850,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the noofgears value for this Technical.
-     * 
+     *
      * @param noofgears
      */
     public void setNoofgears(java.lang.String noofgears) {
@@ -857,7 +860,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the soundatmin value for this Technical.
-     * 
+     *
      * @return soundatmin
      */
     public java.lang.String getSoundatmin() {
@@ -867,7 +870,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the soundatmin value for this Technical.
-     * 
+     *
      * @param soundatmin
      */
     public void setSoundatmin(java.lang.String soundatmin) {
@@ -877,7 +880,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the particulates value for this Technical.
-     * 
+     *
      * @return particulates
      */
     public java.lang.String getParticulates() {
@@ -887,7 +890,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the particulates value for this Technical.
-     * 
+     *
      * @param particulates
      */
     public void setParticulates(java.lang.String particulates) {
@@ -897,7 +900,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the urban value for this Technical.
-     * 
+     *
      * @return urban
      */
     public java.lang.String getUrban() {
@@ -907,7 +910,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the urban value for this Technical.
-     * 
+     *
      * @param urban
      */
     public void setUrban(java.lang.String urban) {
@@ -917,7 +920,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the extraurban value for this Technical.
-     * 
+     *
      * @return extraurban
      */
     public java.lang.String getExtraurban() {
@@ -927,7 +930,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the extraurban value for this Technical.
-     * 
+     *
      * @param extraurban
      */
     public void setExtraurban(java.lang.String extraurban) {
@@ -937,7 +940,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the combined value for this Technical.
-     * 
+     *
      * @return combined
      */
     public java.lang.String getCombined() {
@@ -947,7 +950,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the combined value for this Technical.
-     * 
+     *
      * @param combined
      */
     public void setCombined(java.lang.String combined) {
@@ -957,7 +960,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the co2 value for this Technical.
-     * 
+     *
      * @return co2
      */
     public java.lang.String getCo2() {
@@ -967,7 +970,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the co2 value for this Technical.
-     * 
+     *
      * @param co2
      */
     public void setCo2(java.lang.String co2) {
@@ -977,7 +980,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the weightedCo2 value for this Technical.
-     * 
+     *
      * @return weightedCo2
      */
     public java.lang.String getWeightedCo2() {
@@ -987,7 +990,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the weightedCo2 value for this Technical.
-     * 
+     *
      * @param weightedCo2
      */
     public void setWeightedCo2(java.lang.String weightedCo2) {
@@ -997,7 +1000,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the brakedevice value for this Technical.
-     * 
+     *
      * @return brakedevice
      */
     public java.lang.String getBrakedevice() {
@@ -1007,7 +1010,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the brakedevice value for this Technical.
-     * 
+     *
      * @param brakedevice
      */
     public void setBrakedevice(java.lang.String brakedevice) {
@@ -1017,7 +1020,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the snumber value for this Technical.
-     * 
+     *
      * @return snumber
      */
     public java.lang.String getSnumber() {
@@ -1027,7 +1030,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the snumber value for this Technical.
-     * 
+     *
      * @param snumber
      */
     public void setSnumber(java.lang.String snumber) {
@@ -1037,7 +1040,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the t_massoftrbr value for this Technical.
-     * 
+     *
      * @return t_massoftrbr
      */
     public java.lang.String getT_massoftrbr() {
@@ -1047,7 +1050,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the t_massoftrbr value for this Technical.
-     * 
+     *
      * @param t_massoftrbr
      */
     public void setT_massoftrbr(java.lang.String t_massoftrbr) {
@@ -1057,7 +1060,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the t_massoftrunbr value for this Technical.
-     * 
+     *
      * @return t_massoftrunbr
      */
     public java.lang.String getT_massoftrunbr() {
@@ -1067,7 +1070,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the t_massoftrunbr value for this Technical.
-     * 
+     *
      * @param t_massoftrunbr
      */
     public void setT_massoftrunbr(java.lang.String t_massoftrunbr) {
@@ -1077,7 +1080,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the tyre value for this Technical.
-     * 
+     *
      * @return tyre
      */
     public is.lt.ws.VehicleRegistryService.Tyre getTyre() {
@@ -1087,7 +1090,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the tyre value for this Technical.
-     * 
+     *
      * @param tyre
      */
     public void setTyre(is.lt.ws.VehicleRegistryService.Tyre tyre) {
@@ -1097,7 +1100,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the size value for this Technical.
-     * 
+     *
      * @return size
      */
     public is.lt.ws.VehicleRegistryService.Size getSize() {
@@ -1107,7 +1110,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the size value for this Technical.
-     * 
+     *
      * @param size
      */
     public void setSize(is.lt.ws.VehicleRegistryService.Size size) {
@@ -1117,7 +1120,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the axle value for this Technical.
-     * 
+     *
      * @return axle
      */
     public is.lt.ws.VehicleRegistryService.Axle getAxle() {
@@ -1127,7 +1130,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the axle value for this Technical.
-     * 
+     *
      * @param axle
      */
     public void setAxle(is.lt.ws.VehicleRegistryService.Axle axle) {
@@ -1137,7 +1140,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the mass value for this Technical.
-     * 
+     *
      * @return mass
      */
     public is.lt.ws.VehicleRegistryService.Mass getMass() {
@@ -1147,7 +1150,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the mass value for this Technical.
-     * 
+     *
      * @param mass
      */
     public void setMass(is.lt.ws.VehicleRegistryService.Mass mass) {
@@ -1157,7 +1160,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the priceRange value for this Technical.
-     * 
+     *
      * @return priceRange
      */
     public java.lang.String getPriceRange() {
@@ -1167,7 +1170,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the priceRange value for this Technical.
-     * 
+     *
      * @param priceRange
      */
     public void setPriceRange(java.lang.String priceRange) {
@@ -1177,7 +1180,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the mainCategory value for this Technical.
-     * 
+     *
      * @return mainCategory
      */
     public java.lang.String getMainCategory() {
@@ -1187,7 +1190,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the mainCategory value for this Technical.
-     * 
+     *
      * @param mainCategory
      */
     public void setMainCategory(java.lang.String mainCategory) {
@@ -1197,7 +1200,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Gets the excemptionCategory value for this Technical.
-     * 
+     *
      * @return excemptionCategory
      */
     public java.lang.String getExcemptionCategory() {
@@ -1207,7 +1210,7 @@ public class Technical  implements java.io.Serializable {
 
     /**
      * Sets the excemptionCategory value for this Technical.
-     * 
+     *
      * @param excemptionCategory
      */
     public void setExcemptionCategory(java.lang.String excemptionCategory) {
@@ -1215,163 +1218,170 @@ public class Technical  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Technical)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Technical)) {
+			return false;
+		}
         Technical other = (Technical) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.vehgroup==null && other.getVehgroup()==null) || 
+            ((this.vehgroup==null && other.getVehgroup()==null) ||
              (this.vehgroup!=null &&
               this.vehgroup.equals(other.getVehgroup()))) &&
-            ((this.engine==null && other.getEngine()==null) || 
+            ((this.engine==null && other.getEngine()==null) ||
              (this.engine!=null &&
               this.engine.equals(other.getEngine()))) &&
-            ((this.pass==null && other.getPass()==null) || 
+            ((this.pass==null && other.getPass()==null) ||
              (this.pass!=null &&
               this.pass.equals(other.getPass()))) &&
-            ((this.passbydr==null && other.getPassbydr()==null) || 
+            ((this.passbydr==null && other.getPassbydr()==null) ||
              (this.passbydr!=null &&
               this.passbydr.equals(other.getPassbydr()))) &&
-            ((this.engingemanuf==null && other.getEngingemanuf()==null) || 
+            ((this.engingemanuf==null && other.getEngingemanuf()==null) ||
              (this.engingemanuf!=null &&
               this.engingemanuf.equals(other.getEngingemanuf()))) &&
-            ((this.enginecode==null && other.getEnginecode()==null) || 
+            ((this.enginecode==null && other.getEnginecode()==null) ||
              (this.enginecode!=null &&
               this.enginecode.equals(other.getEnginecode()))) &&
-            ((this.workingpr==null && other.getWorkingpr()==null) || 
+            ((this.workingpr==null && other.getWorkingpr()==null) ||
              (this.workingpr!=null &&
               this.workingpr.equals(other.getWorkingpr()))) &&
-            ((this.directinj==null && other.getDirectinj()==null) || 
+            ((this.directinj==null && other.getDirectinj()==null) ||
              (this.directinj!=null &&
               this.directinj.equals(other.getDirectinj()))) &&
-            ((this.nocylinders==null && other.getNocylinders()==null) || 
+            ((this.nocylinders==null && other.getNocylinders()==null) ||
              (this.nocylinders!=null &&
               this.nocylinders.equals(other.getNocylinders()))) &&
-            ((this.arrcylinders==null && other.getArrcylinders()==null) || 
+            ((this.arrcylinders==null && other.getArrcylinders()==null) ||
              (this.arrcylinders!=null &&
               this.arrcylinders.equals(other.getArrcylinders()))) &&
-            ((this.capacity==null && other.getCapacity()==null) || 
+            ((this.capacity==null && other.getCapacity()==null) ||
              (this.capacity!=null &&
               this.capacity.equals(other.getCapacity()))) &&
-            ((this.maxnetpow==null && other.getMaxnetpow()==null) || 
+            ((this.maxnetpow==null && other.getMaxnetpow()==null) ||
              (this.maxnetpow!=null &&
               this.maxnetpow.equals(other.getMaxnetpow()))) &&
-            ((this.atmin==null && other.getAtmin()==null) || 
+            ((this.atmin==null && other.getAtmin()==null) ||
              (this.atmin!=null &&
               this.atmin.equals(other.getAtmin()))) &&
-            ((this.clutchtype==null && other.getClutchtype()==null) || 
+            ((this.clutchtype==null && other.getClutchtype()==null) ||
              (this.clutchtype!=null &&
               this.clutchtype.equals(other.getClutchtype()))) &&
-            ((this.gearbox==null && other.getGearbox()==null) || 
+            ((this.gearbox==null && other.getGearbox()==null) ||
              (this.gearbox!=null &&
               this.gearbox.equals(other.getGearbox()))) &&
-            ((this.gearratio==null && other.getGearratio()==null) || 
+            ((this.gearratio==null && other.getGearratio()==null) ||
              (this.gearratio!=null &&
               java.util.Arrays.equals(this.gearratio, other.getGearratio()))) &&
-            ((this.findrivratio==null && other.getFindrivratio()==null) || 
+            ((this.findrivratio==null && other.getFindrivratio()==null) ||
              (this.findrivratio!=null &&
               this.findrivratio.equals(other.getFindrivratio()))) &&
             this.steermeth == other.isSteermeth() &&
-            ((this.typeofbody==null && other.getTypeofbody()==null) || 
+            ((this.typeofbody==null && other.getTypeofbody()==null) ||
              (this.typeofbody!=null &&
               this.typeofbody.equals(other.getTypeofbody()))) &&
-            ((this.doorsno==null && other.getDoorsno()==null) || 
+            ((this.doorsno==null && other.getDoorsno()==null) ||
              (this.doorsno!=null &&
               this.doorsno.equals(other.getDoorsno()))) &&
-            ((this.seatno==null && other.getSeatno()==null) || 
+            ((this.seatno==null && other.getSeatno()==null) ||
              (this.seatno!=null &&
               this.seatno.equals(other.getSeatno()))) &&
-            ((this.maxspeed==null && other.getMaxspeed()==null) || 
+            ((this.maxspeed==null && other.getMaxspeed()==null) ||
              (this.maxspeed!=null &&
               this.maxspeed.equals(other.getMaxspeed()))) &&
-            ((this.soundstat==null && other.getSoundstat()==null) || 
+            ((this.soundstat==null && other.getSoundstat()==null) ||
              (this.soundstat!=null &&
               this.soundstat.equals(other.getSoundstat()))) &&
-            ((this.sounddrive==null && other.getSounddrive()==null) || 
+            ((this.sounddrive==null && other.getSounddrive()==null) ||
              (this.sounddrive!=null &&
               this.sounddrive.equals(other.getSounddrive()))) &&
-            ((this.co==null && other.getCo()==null) || 
+            ((this.co==null && other.getCo()==null) ||
              (this.co!=null &&
               this.co.equals(other.getCo()))) &&
-            ((this.hc==null && other.getHc()==null) || 
+            ((this.hc==null && other.getHc()==null) ||
              (this.hc!=null &&
               this.hc.equals(other.getHc()))) &&
-            ((this.nox==null && other.getNox()==null) || 
+            ((this.nox==null && other.getNox()==null) ||
              (this.nox!=null &&
               this.nox.equals(other.getNox()))) &&
-            ((this.hcnox==null && other.getHcnox()==null) || 
+            ((this.hcnox==null && other.getHcnox()==null) ||
              (this.hcnox!=null &&
               this.hcnox.equals(other.getHcnox()))) &&
-            ((this.remark==null && other.getRemark()==null) || 
+            ((this.remark==null && other.getRemark()==null) ||
              (this.remark!=null &&
               this.remark.equals(other.getRemark()))) &&
-            ((this.roofload==null && other.getRoofload()==null) || 
+            ((this.roofload==null && other.getRoofload()==null) ||
              (this.roofload!=null &&
               this.roofload.equals(other.getRoofload()))) &&
-            ((this.noofgears==null && other.getNoofgears()==null) || 
+            ((this.noofgears==null && other.getNoofgears()==null) ||
              (this.noofgears!=null &&
               this.noofgears.equals(other.getNoofgears()))) &&
-            ((this.soundatmin==null && other.getSoundatmin()==null) || 
+            ((this.soundatmin==null && other.getSoundatmin()==null) ||
              (this.soundatmin!=null &&
               this.soundatmin.equals(other.getSoundatmin()))) &&
-            ((this.particulates==null && other.getParticulates()==null) || 
+            ((this.particulates==null && other.getParticulates()==null) ||
              (this.particulates!=null &&
               this.particulates.equals(other.getParticulates()))) &&
-            ((this.urban==null && other.getUrban()==null) || 
+            ((this.urban==null && other.getUrban()==null) ||
              (this.urban!=null &&
               this.urban.equals(other.getUrban()))) &&
-            ((this.extraurban==null && other.getExtraurban()==null) || 
+            ((this.extraurban==null && other.getExtraurban()==null) ||
              (this.extraurban!=null &&
               this.extraurban.equals(other.getExtraurban()))) &&
-            ((this.combined==null && other.getCombined()==null) || 
+            ((this.combined==null && other.getCombined()==null) ||
              (this.combined!=null &&
               this.combined.equals(other.getCombined()))) &&
-            ((this.co2==null && other.getCo2()==null) || 
+            ((this.co2==null && other.getCo2()==null) ||
              (this.co2!=null &&
               this.co2.equals(other.getCo2()))) &&
-            ((this.weightedCo2==null && other.getWeightedCo2()==null) || 
+            ((this.weightedCo2==null && other.getWeightedCo2()==null) ||
              (this.weightedCo2!=null &&
               this.weightedCo2.equals(other.getWeightedCo2()))) &&
-            ((this.brakedevice==null && other.getBrakedevice()==null) || 
+            ((this.brakedevice==null && other.getBrakedevice()==null) ||
              (this.brakedevice!=null &&
               this.brakedevice.equals(other.getBrakedevice()))) &&
-            ((this.snumber==null && other.getSnumber()==null) || 
+            ((this.snumber==null && other.getSnumber()==null) ||
              (this.snumber!=null &&
               this.snumber.equals(other.getSnumber()))) &&
-            ((this.t_massoftrbr==null && other.getT_massoftrbr()==null) || 
+            ((this.t_massoftrbr==null && other.getT_massoftrbr()==null) ||
              (this.t_massoftrbr!=null &&
               this.t_massoftrbr.equals(other.getT_massoftrbr()))) &&
-            ((this.t_massoftrunbr==null && other.getT_massoftrunbr()==null) || 
+            ((this.t_massoftrunbr==null && other.getT_massoftrunbr()==null) ||
              (this.t_massoftrunbr!=null &&
               this.t_massoftrunbr.equals(other.getT_massoftrunbr()))) &&
-            ((this.tyre==null && other.getTyre()==null) || 
+            ((this.tyre==null && other.getTyre()==null) ||
              (this.tyre!=null &&
               this.tyre.equals(other.getTyre()))) &&
-            ((this.size==null && other.getSize()==null) || 
+            ((this.size==null && other.getSize()==null) ||
              (this.size!=null &&
               this.size.equals(other.getSize()))) &&
-            ((this.axle==null && other.getAxle()==null) || 
+            ((this.axle==null && other.getAxle()==null) ||
              (this.axle!=null &&
               this.axle.equals(other.getAxle()))) &&
-            ((this.mass==null && other.getMass()==null) || 
+            ((this.mass==null && other.getMass()==null) ||
              (this.mass!=null &&
               this.mass.equals(other.getMass()))) &&
-            ((this.priceRange==null && other.getPriceRange()==null) || 
+            ((this.priceRange==null && other.getPriceRange()==null) ||
              (this.priceRange!=null &&
               this.priceRange.equals(other.getPriceRange()))) &&
-            ((this.mainCategory==null && other.getMainCategory()==null) || 
+            ((this.mainCategory==null && other.getMainCategory()==null) ||
              (this.mainCategory!=null &&
               this.mainCategory.equals(other.getMainCategory()))) &&
-            ((this.excemptionCategory==null && other.getExcemptionCategory()==null) || 
+            ((this.excemptionCategory==null && other.getExcemptionCategory()==null) ||
              (this.excemptionCategory!=null &&
               this.excemptionCategory.equals(other.getExcemptionCategory())));
         __equalsCalc = null;
@@ -1379,7 +1389,8 @@ public class Technical  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -1914,10 +1925,10 @@ public class Technical  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -1926,10 +1937,10 @@ public class Technical  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

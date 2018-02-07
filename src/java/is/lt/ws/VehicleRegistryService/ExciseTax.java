@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class ExciseTax  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -53,7 +56,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this ExciseTax.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -63,7 +66,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this ExciseTax.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -73,7 +76,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Gets the importFee value for this ExciseTax.
-     * 
+     *
      * @return importFee
      */
     public java.lang.String getImportFee() {
@@ -83,7 +86,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Sets the importFee value for this ExciseTax.
-     * 
+     *
      * @param importFee
      */
     public void setImportFee(java.lang.String importFee) {
@@ -93,7 +96,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Gets the processCost value for this ExciseTax.
-     * 
+     *
      * @return processCost
      */
     public java.lang.String getProcessCost() {
@@ -103,7 +106,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Sets the processCost value for this ExciseTax.
-     * 
+     *
      * @param processCost
      */
     public void setProcessCost(java.lang.String processCost) {
@@ -113,7 +116,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Gets the interest value for this ExciseTax.
-     * 
+     *
      * @return interest
      */
     public java.lang.String getInterest() {
@@ -123,7 +126,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Sets the interest value for this ExciseTax.
-     * 
+     *
      * @param interest
      */
     public void setInterest(java.lang.String interest) {
@@ -133,7 +136,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Gets the expenses value for this ExciseTax.
-     * 
+     *
      * @return expenses
      */
     public java.lang.String getExpenses() {
@@ -143,7 +146,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Sets the expenses value for this ExciseTax.
-     * 
+     *
      * @param expenses
      */
     public void setExpenses(java.lang.String expenses) {
@@ -153,7 +156,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Gets the notOverdue value for this ExciseTax.
-     * 
+     *
      * @return notOverdue
      */
     public java.lang.String getNotOverdue() {
@@ -163,7 +166,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Sets the notOverdue value for this ExciseTax.
-     * 
+     *
      * @param notOverdue
      */
     public void setNotOverdue(java.lang.String notOverdue) {
@@ -173,7 +176,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Gets the lastMovementDate value for this ExciseTax.
-     * 
+     *
      * @return lastMovementDate
      */
     public java.lang.String getLastMovementDate() {
@@ -183,7 +186,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Sets the lastMovementDate value for this ExciseTax.
-     * 
+     *
      * @param lastMovementDate
      */
     public void setLastMovementDate(java.lang.String lastMovementDate) {
@@ -193,7 +196,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Gets the comment value for this ExciseTax.
-     * 
+     *
      * @return comment
      */
     public java.lang.String getComment() {
@@ -203,7 +206,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Sets the comment value for this ExciseTax.
-     * 
+     *
      * @param comment
      */
     public void setComment(java.lang.String comment) {
@@ -213,7 +216,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Gets the SSN value for this ExciseTax.
-     * 
+     *
      * @return SSN
      */
     public java.lang.String getSSN() {
@@ -223,7 +226,7 @@ public class ExciseTax  implements java.io.Serializable {
 
     /**
      * Sets the SSN value for this ExciseTax.
-     * 
+     *
      * @param SSN
      */
     public void setSSN(java.lang.String SSN) {
@@ -231,42 +234,49 @@ public class ExciseTax  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ExciseTax)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof ExciseTax)) {
+			return false;
+		}
         ExciseTax other = (ExciseTax) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.importFee==null && other.getImportFee()==null) || 
+            ((this.importFee==null && other.getImportFee()==null) ||
              (this.importFee!=null &&
               this.importFee.equals(other.getImportFee()))) &&
-            ((this.processCost==null && other.getProcessCost()==null) || 
+            ((this.processCost==null && other.getProcessCost()==null) ||
              (this.processCost!=null &&
               this.processCost.equals(other.getProcessCost()))) &&
-            ((this.interest==null && other.getInterest()==null) || 
+            ((this.interest==null && other.getInterest()==null) ||
              (this.interest!=null &&
               this.interest.equals(other.getInterest()))) &&
-            ((this.expenses==null && other.getExpenses()==null) || 
+            ((this.expenses==null && other.getExpenses()==null) ||
              (this.expenses!=null &&
               this.expenses.equals(other.getExpenses()))) &&
-            ((this.notOverdue==null && other.getNotOverdue()==null) || 
+            ((this.notOverdue==null && other.getNotOverdue()==null) ||
              (this.notOverdue!=null &&
               this.notOverdue.equals(other.getNotOverdue()))) &&
-            ((this.lastMovementDate==null && other.getLastMovementDate()==null) || 
+            ((this.lastMovementDate==null && other.getLastMovementDate()==null) ||
              (this.lastMovementDate!=null &&
               this.lastMovementDate.equals(other.getLastMovementDate()))) &&
-            ((this.comment==null && other.getComment()==null) || 
+            ((this.comment==null && other.getComment()==null) ||
              (this.comment!=null &&
               this.comment.equals(other.getComment()))) &&
-            ((this.SSN==null && other.getSSN()==null) || 
+            ((this.SSN==null && other.getSSN()==null) ||
              (this.SSN!=null &&
               this.SSN.equals(other.getSSN())));
         __equalsCalc = null;
@@ -274,7 +284,8 @@ public class ExciseTax  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -393,10 +404,10 @@ public class ExciseTax  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -405,10 +416,10 @@ public class ExciseTax  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

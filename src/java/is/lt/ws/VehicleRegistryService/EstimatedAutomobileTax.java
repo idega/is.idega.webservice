@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class EstimatedAutomobileTax  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -45,7 +48,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this EstimatedAutomobileTax.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -55,7 +58,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this EstimatedAutomobileTax.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -65,7 +68,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Gets the term_1 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @return term_1
      */
     public java.lang.String getTerm_1() {
@@ -75,7 +78,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Sets the term_1 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @param term_1
      */
     public void setTerm_1(java.lang.String term_1) {
@@ -85,7 +88,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Gets the automobileTax_1 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @return automobileTax_1
      */
     public java.lang.String getAutomobileTax_1() {
@@ -95,7 +98,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Sets the automobileTax_1 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @param automobileTax_1
      */
     public void setAutomobileTax_1(java.lang.String automobileTax_1) {
@@ -105,7 +108,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Gets the weightTax_1 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @return weightTax_1
      */
     public java.lang.String getWeightTax_1() {
@@ -115,7 +118,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Sets the weightTax_1 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @param weightTax_1
      */
     public void setWeightTax_1(java.lang.String weightTax_1) {
@@ -125,7 +128,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Gets the term_2 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @return term_2
      */
     public java.lang.String getTerm_2() {
@@ -135,7 +138,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Sets the term_2 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @param term_2
      */
     public void setTerm_2(java.lang.String term_2) {
@@ -145,7 +148,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Gets the automobileTax_2 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @return automobileTax_2
      */
     public java.lang.String getAutomobileTax_2() {
@@ -155,7 +158,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Sets the automobileTax_2 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @param automobileTax_2
      */
     public void setAutomobileTax_2(java.lang.String automobileTax_2) {
@@ -165,7 +168,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Gets the weightTax_2 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @return weightTax_2
      */
     public java.lang.String getWeightTax_2() {
@@ -175,7 +178,7 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
 
     /**
      * Sets the weightTax_2 value for this EstimatedAutomobileTax.
-     * 
+     *
      * @param weightTax_2
      */
     public void setWeightTax_2(java.lang.String weightTax_2) {
@@ -183,36 +186,43 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof EstimatedAutomobileTax)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof EstimatedAutomobileTax)) {
+			return false;
+		}
         EstimatedAutomobileTax other = (EstimatedAutomobileTax) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.term_1==null && other.getTerm_1()==null) || 
+            ((this.term_1==null && other.getTerm_1()==null) ||
              (this.term_1!=null &&
               this.term_1.equals(other.getTerm_1()))) &&
-            ((this.automobileTax_1==null && other.getAutomobileTax_1()==null) || 
+            ((this.automobileTax_1==null && other.getAutomobileTax_1()==null) ||
              (this.automobileTax_1!=null &&
               this.automobileTax_1.equals(other.getAutomobileTax_1()))) &&
-            ((this.weightTax_1==null && other.getWeightTax_1()==null) || 
+            ((this.weightTax_1==null && other.getWeightTax_1()==null) ||
              (this.weightTax_1!=null &&
               this.weightTax_1.equals(other.getWeightTax_1()))) &&
-            ((this.term_2==null && other.getTerm_2()==null) || 
+            ((this.term_2==null && other.getTerm_2()==null) ||
              (this.term_2!=null &&
               this.term_2.equals(other.getTerm_2()))) &&
-            ((this.automobileTax_2==null && other.getAutomobileTax_2()==null) || 
+            ((this.automobileTax_2==null && other.getAutomobileTax_2()==null) ||
              (this.automobileTax_2!=null &&
               this.automobileTax_2.equals(other.getAutomobileTax_2()))) &&
-            ((this.weightTax_2==null && other.getWeightTax_2()==null) || 
+            ((this.weightTax_2==null && other.getWeightTax_2()==null) ||
              (this.weightTax_2!=null &&
               this.weightTax_2.equals(other.getWeightTax_2())));
         __equalsCalc = null;
@@ -220,7 +230,8 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -319,10 +330,10 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -331,10 +342,10 @@ public class EstimatedAutomobileTax  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

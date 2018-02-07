@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class OwnerRegistrationError  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -33,7 +36,7 @@ public class OwnerRegistrationError  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this OwnerRegistrationError.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -43,7 +46,7 @@ public class OwnerRegistrationError  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this OwnerRegistrationError.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -53,7 +56,7 @@ public class OwnerRegistrationError  implements java.io.Serializable {
 
     /**
      * Gets the purchaseDate value for this OwnerRegistrationError.
-     * 
+     *
      * @return purchaseDate
      */
     public java.lang.String getPurchaseDate() {
@@ -63,7 +66,7 @@ public class OwnerRegistrationError  implements java.io.Serializable {
 
     /**
      * Sets the purchaseDate value for this OwnerRegistrationError.
-     * 
+     *
      * @param purchaseDate
      */
     public void setPurchaseDate(java.lang.String purchaseDate) {
@@ -73,7 +76,7 @@ public class OwnerRegistrationError  implements java.io.Serializable {
 
     /**
      * Gets the persidno value for this OwnerRegistrationError.
-     * 
+     *
      * @return persidno
      */
     public java.lang.String getPersidno() {
@@ -83,7 +86,7 @@ public class OwnerRegistrationError  implements java.io.Serializable {
 
     /**
      * Sets the persidno value for this OwnerRegistrationError.
-     * 
+     *
      * @param persidno
      */
     public void setPersidno(java.lang.String persidno) {
@@ -93,7 +96,7 @@ public class OwnerRegistrationError  implements java.io.Serializable {
 
     /**
      * Gets the ownerinsurancecode value for this OwnerRegistrationError.
-     * 
+     *
      * @return ownerinsurancecode
      */
     public java.lang.String getOwnerinsurancecode() {
@@ -103,7 +106,7 @@ public class OwnerRegistrationError  implements java.io.Serializable {
 
     /**
      * Sets the ownerinsurancecode value for this OwnerRegistrationError.
-     * 
+     *
      * @param ownerinsurancecode
      */
     public void setOwnerinsurancecode(java.lang.String ownerinsurancecode) {
@@ -111,27 +114,34 @@ public class OwnerRegistrationError  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof OwnerRegistrationError)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof OwnerRegistrationError)) {
+			return false;
+		}
         OwnerRegistrationError other = (OwnerRegistrationError) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.purchaseDate==null && other.getPurchaseDate()==null) || 
+            ((this.purchaseDate==null && other.getPurchaseDate()==null) ||
              (this.purchaseDate!=null &&
               this.purchaseDate.equals(other.getPurchaseDate()))) &&
-            ((this.persidno==null && other.getPersidno()==null) || 
+            ((this.persidno==null && other.getPersidno()==null) ||
              (this.persidno!=null &&
               this.persidno.equals(other.getPersidno()))) &&
-            ((this.ownerinsurancecode==null && other.getOwnerinsurancecode()==null) || 
+            ((this.ownerinsurancecode==null && other.getOwnerinsurancecode()==null) ||
              (this.ownerinsurancecode!=null &&
               this.ownerinsurancecode.equals(other.getOwnerinsurancecode())));
         __equalsCalc = null;
@@ -139,7 +149,8 @@ public class OwnerRegistrationError  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -208,10 +219,10 @@ public class OwnerRegistrationError  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -220,10 +231,10 @@ public class OwnerRegistrationError  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

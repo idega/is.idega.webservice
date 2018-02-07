@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Mass  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -61,7 +64,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Mass.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -71,7 +74,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Mass.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -81,7 +84,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the massinro value for this Mass.
-     * 
+     *
      * @return massinro
      */
     public java.lang.String getMassinro() {
@@ -91,7 +94,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the massinro value for this Mass.
-     * 
+     *
      * @param massinro
      */
     public void setMassinro(java.lang.String massinro) {
@@ -101,7 +104,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the massofveh value for this Mass.
-     * 
+     *
      * @return massofveh
      */
     public java.lang.String getMassofveh() {
@@ -111,7 +114,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the massofveh value for this Mass.
-     * 
+     *
      * @param massofveh
      */
     public void setMassofveh(java.lang.String massofveh) {
@@ -121,7 +124,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the massdaxle value for this Mass.
-     * 
+     *
      * @return massdaxle
      */
     public java.lang.String[] getMassdaxle() {
@@ -131,7 +134,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the massdaxle value for this Mass.
-     * 
+     *
      * @param massdaxle
      */
     public void setMassdaxle(java.lang.String[] massdaxle) {
@@ -141,7 +144,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the massmaxle value for this Mass.
-     * 
+     *
      * @return massmaxle
      */
     public java.lang.String[] getMassmaxle() {
@@ -151,7 +154,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the massmaxle value for this Mass.
-     * 
+     *
      * @param massmaxle
      */
     public void setMassmaxle(java.lang.String[] massmaxle) {
@@ -161,7 +164,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the massladen value for this Mass.
-     * 
+     *
      * @return massladen
      */
     public java.lang.String getMassladen() {
@@ -171,7 +174,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the massladen value for this Mass.
-     * 
+     *
      * @param massladen
      */
     public void setMassladen(java.lang.String massladen) {
@@ -181,7 +184,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the massoftrbr value for this Mass.
-     * 
+     *
      * @return massoftrbr
      */
     public java.lang.String getMassoftrbr() {
@@ -191,7 +194,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the massoftrbr value for this Mass.
-     * 
+     *
      * @param massoftrbr
      */
     public void setMassoftrbr(java.lang.String massoftrbr) {
@@ -201,7 +204,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the massoftrunbr value for this Mass.
-     * 
+     *
      * @return massoftrunbr
      */
     public java.lang.String getMassoftrunbr() {
@@ -211,7 +214,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the massoftrunbr value for this Mass.
-     * 
+     *
      * @param massoftrunbr
      */
     public void setMassoftrunbr(java.lang.String massoftrunbr) {
@@ -221,7 +224,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the massofcomb value for this Mass.
-     * 
+     *
      * @return massofcomb
      */
     public java.lang.String getMassofcomb() {
@@ -231,7 +234,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the massofcomb value for this Mass.
-     * 
+     *
      * @param massofcomb
      */
     public void setMassofcomb(java.lang.String massofcomb) {
@@ -241,7 +244,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the massatcoup value for this Mass.
-     * 
+     *
      * @return massatcoup
      */
     public java.lang.String getMassatcoup() {
@@ -251,7 +254,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the massatcoup value for this Mass.
-     * 
+     *
      * @param massatcoup
      */
     public void setMassatcoup(java.lang.String massatcoup) {
@@ -261,7 +264,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Gets the masscapacity value for this Mass.
-     * 
+     *
      * @return masscapacity
      */
     public java.lang.String getMasscapacity() {
@@ -271,7 +274,7 @@ public class Mass  implements java.io.Serializable {
 
     /**
      * Sets the masscapacity value for this Mass.
-     * 
+     *
      * @param masscapacity
      */
     public void setMasscapacity(java.lang.String masscapacity) {
@@ -279,48 +282,55 @@ public class Mass  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Mass)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Mass)) {
+			return false;
+		}
         Mass other = (Mass) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.massinro==null && other.getMassinro()==null) || 
+            ((this.massinro==null && other.getMassinro()==null) ||
              (this.massinro!=null &&
               this.massinro.equals(other.getMassinro()))) &&
-            ((this.massofveh==null && other.getMassofveh()==null) || 
+            ((this.massofveh==null && other.getMassofveh()==null) ||
              (this.massofveh!=null &&
               this.massofveh.equals(other.getMassofveh()))) &&
-            ((this.massdaxle==null && other.getMassdaxle()==null) || 
+            ((this.massdaxle==null && other.getMassdaxle()==null) ||
              (this.massdaxle!=null &&
               java.util.Arrays.equals(this.massdaxle, other.getMassdaxle()))) &&
-            ((this.massmaxle==null && other.getMassmaxle()==null) || 
+            ((this.massmaxle==null && other.getMassmaxle()==null) ||
              (this.massmaxle!=null &&
               java.util.Arrays.equals(this.massmaxle, other.getMassmaxle()))) &&
-            ((this.massladen==null && other.getMassladen()==null) || 
+            ((this.massladen==null && other.getMassladen()==null) ||
              (this.massladen!=null &&
               this.massladen.equals(other.getMassladen()))) &&
-            ((this.massoftrbr==null && other.getMassoftrbr()==null) || 
+            ((this.massoftrbr==null && other.getMassoftrbr()==null) ||
              (this.massoftrbr!=null &&
               this.massoftrbr.equals(other.getMassoftrbr()))) &&
-            ((this.massoftrunbr==null && other.getMassoftrunbr()==null) || 
+            ((this.massoftrunbr==null && other.getMassoftrunbr()==null) ||
              (this.massoftrunbr!=null &&
               this.massoftrunbr.equals(other.getMassoftrunbr()))) &&
-            ((this.massofcomb==null && other.getMassofcomb()==null) || 
+            ((this.massofcomb==null && other.getMassofcomb()==null) ||
              (this.massofcomb!=null &&
               this.massofcomb.equals(other.getMassofcomb()))) &&
-            ((this.massatcoup==null && other.getMassatcoup()==null) || 
+            ((this.massatcoup==null && other.getMassatcoup()==null) ||
              (this.massatcoup!=null &&
               this.massatcoup.equals(other.getMassatcoup()))) &&
-            ((this.masscapacity==null && other.getMasscapacity()==null) || 
+            ((this.masscapacity==null && other.getMasscapacity()==null) ||
              (this.masscapacity!=null &&
               this.masscapacity.equals(other.getMasscapacity())));
         __equalsCalc = null;
@@ -328,7 +338,8 @@ public class Mass  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -485,10 +496,10 @@ public class Mass  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -497,10 +508,10 @@ public class Mass  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

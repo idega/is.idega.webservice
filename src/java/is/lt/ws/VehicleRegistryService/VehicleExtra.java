@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class VehicleExtra  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -73,7 +76,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this VehicleExtra.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -83,7 +86,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this VehicleExtra.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -93,7 +96,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the permNo value for this VehicleExtra.
-     * 
+     *
      * @return permNo
      */
     public java.lang.String getPermNo() {
@@ -103,7 +106,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the permNo value for this VehicleExtra.
-     * 
+     *
      * @param permNo
      */
     public void setPermNo(java.lang.String permNo) {
@@ -113,7 +116,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the regNo value for this VehicleExtra.
-     * 
+     *
      * @return regNo
      */
     public java.lang.String getRegNo() {
@@ -123,7 +126,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the regNo value for this VehicleExtra.
-     * 
+     *
      * @param regNo
      */
     public void setRegNo(java.lang.String regNo) {
@@ -133,7 +136,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the vin value for this VehicleExtra.
-     * 
+     *
      * @return vin
      */
     public java.lang.String getVin() {
@@ -143,7 +146,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the vin value for this VehicleExtra.
-     * 
+     *
      * @param vin
      */
     public void setVin(java.lang.String vin) {
@@ -153,7 +156,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the wage value for this VehicleExtra.
-     * 
+     *
      * @return wage
      */
     public is.lt.ws.VehicleRegistryService.Wage getWage() {
@@ -163,7 +166,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the wage value for this VehicleExtra.
-     * 
+     *
      * @param wage
      */
     public void setWage(is.lt.ws.VehicleRegistryService.Wage wage) {
@@ -173,7 +176,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the exciseTax value for this VehicleExtra.
-     * 
+     *
      * @return exciseTax
      */
     public is.lt.ws.VehicleRegistryService.ExciseTax[] getExciseTax() {
@@ -183,7 +186,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the exciseTax value for this VehicleExtra.
-     * 
+     *
      * @param exciseTax
      */
     public void setExciseTax(is.lt.ws.VehicleRegistryService.ExciseTax[] exciseTax) {
@@ -193,7 +196,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the exciseTaxes value for this VehicleExtra.
-     * 
+     *
      * @return exciseTaxes
      */
     public java.lang.String getExciseTaxes() {
@@ -203,7 +206,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the exciseTaxes value for this VehicleExtra.
-     * 
+     *
      * @param exciseTaxes
      */
     public void setExciseTaxes(java.lang.String exciseTaxes) {
@@ -213,7 +216,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the totalStatus value for this VehicleExtra.
-     * 
+     *
      * @return totalStatus
      */
     public is.lt.ws.VehicleRegistryService.TotalStatus getTotalStatus() {
@@ -223,7 +226,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the totalStatus value for this VehicleExtra.
-     * 
+     *
      * @param totalStatus
      */
     public void setTotalStatus(is.lt.ws.VehicleRegistryService.TotalStatus totalStatus) {
@@ -233,7 +236,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the alestrar value for this VehicleExtra.
-     * 
+     *
      * @return alestrar
      */
     public is.lt.ws.VehicleRegistryService.Reading[] getAlestrar() {
@@ -243,7 +246,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the alestrar value for this VehicleExtra.
-     * 
+     *
      * @param alestrar
      */
     public void setAlestrar(is.lt.ws.VehicleRegistryService.Reading[] alestrar) {
@@ -253,7 +256,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the estimatedAutomobileTaxes value for this VehicleExtra.
-     * 
+     *
      * @return estimatedAutomobileTaxes
      */
     public is.lt.ws.VehicleRegistryService.EstimatedAutomobileTax getEstimatedAutomobileTaxes() {
@@ -263,7 +266,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the estimatedAutomobileTaxes value for this VehicleExtra.
-     * 
+     *
      * @param estimatedAutomobileTaxes
      */
     public void setEstimatedAutomobileTaxes(is.lt.ws.VehicleRegistryService.EstimatedAutomobileTax estimatedAutomobileTaxes) {
@@ -273,7 +276,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the hasEncumbrances value for this VehicleExtra.
-     * 
+     *
      * @return hasEncumbrances
      */
     public boolean isHasEncumbrances() {
@@ -283,7 +286,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the hasEncumbrances value for this VehicleExtra.
-     * 
+     *
      * @param hasEncumbrances
      */
     public void setHasEncumbrances(boolean hasEncumbrances) {
@@ -293,7 +296,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the encumbrancesStatus value for this VehicleExtra.
-     * 
+     *
      * @return encumbrancesStatus
      */
     public int getEncumbrancesStatus() {
@@ -303,7 +306,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the encumbrancesStatus value for this VehicleExtra.
-     * 
+     *
      * @param encumbrancesStatus
      */
     public void setEncumbrancesStatus(int encumbrancesStatus) {
@@ -313,7 +316,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the inspectionFine value for this VehicleExtra.
-     * 
+     *
      * @return inspectionFine
      */
     public java.lang.String getInspectionFine() {
@@ -323,7 +326,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the inspectionFine value for this VehicleExtra.
-     * 
+     *
      * @param inspectionFine
      */
     public void setInspectionFine(java.lang.String inspectionFine) {
@@ -333,7 +336,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Gets the queryTimeStamp value for this VehicleExtra.
-     * 
+     *
      * @return queryTimeStamp
      */
     public java.util.Calendar getQueryTimeStamp() {
@@ -343,7 +346,7 @@ public class VehicleExtra  implements java.io.Serializable {
 
     /**
      * Sets the queryTimeStamp value for this VehicleExtra.
-     * 
+     *
      * @param queryTimeStamp
      */
     public void setQueryTimeStamp(java.util.Calendar queryTimeStamp) {
@@ -351,53 +354,60 @@ public class VehicleExtra  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof VehicleExtra)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof VehicleExtra)) {
+			return false;
+		}
         VehicleExtra other = (VehicleExtra) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.permNo==null && other.getPermNo()==null) || 
+            ((this.permNo==null && other.getPermNo()==null) ||
              (this.permNo!=null &&
               this.permNo.equals(other.getPermNo()))) &&
-            ((this.regNo==null && other.getRegNo()==null) || 
+            ((this.regNo==null && other.getRegNo()==null) ||
              (this.regNo!=null &&
               this.regNo.equals(other.getRegNo()))) &&
-            ((this.vin==null && other.getVin()==null) || 
+            ((this.vin==null && other.getVin()==null) ||
              (this.vin!=null &&
               this.vin.equals(other.getVin()))) &&
-            ((this.wage==null && other.getWage()==null) || 
+            ((this.wage==null && other.getWage()==null) ||
              (this.wage!=null &&
               this.wage.equals(other.getWage()))) &&
-            ((this.exciseTax==null && other.getExciseTax()==null) || 
+            ((this.exciseTax==null && other.getExciseTax()==null) ||
              (this.exciseTax!=null &&
               java.util.Arrays.equals(this.exciseTax, other.getExciseTax()))) &&
-            ((this.exciseTaxes==null && other.getExciseTaxes()==null) || 
+            ((this.exciseTaxes==null && other.getExciseTaxes()==null) ||
              (this.exciseTaxes!=null &&
               this.exciseTaxes.equals(other.getExciseTaxes()))) &&
-            ((this.totalStatus==null && other.getTotalStatus()==null) || 
+            ((this.totalStatus==null && other.getTotalStatus()==null) ||
              (this.totalStatus!=null &&
               this.totalStatus.equals(other.getTotalStatus()))) &&
-            ((this.alestrar==null && other.getAlestrar()==null) || 
+            ((this.alestrar==null && other.getAlestrar()==null) ||
              (this.alestrar!=null &&
               java.util.Arrays.equals(this.alestrar, other.getAlestrar()))) &&
-            ((this.estimatedAutomobileTaxes==null && other.getEstimatedAutomobileTaxes()==null) || 
+            ((this.estimatedAutomobileTaxes==null && other.getEstimatedAutomobileTaxes()==null) ||
              (this.estimatedAutomobileTaxes!=null &&
               this.estimatedAutomobileTaxes.equals(other.getEstimatedAutomobileTaxes()))) &&
             this.hasEncumbrances == other.isHasEncumbrances() &&
             this.encumbrancesStatus == other.getEncumbrancesStatus() &&
-            ((this.inspectionFine==null && other.getInspectionFine()==null) || 
+            ((this.inspectionFine==null && other.getInspectionFine()==null) ||
              (this.inspectionFine!=null &&
               this.inspectionFine.equals(other.getInspectionFine()))) &&
-            ((this.queryTimeStamp==null && other.getQueryTimeStamp()==null) || 
+            ((this.queryTimeStamp==null && other.getQueryTimeStamp()==null) ||
              (this.queryTimeStamp!=null &&
               this.queryTimeStamp.equals(other.getQueryTimeStamp())));
         __equalsCalc = null;
@@ -405,7 +415,8 @@ public class VehicleExtra  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -585,10 +596,10 @@ public class VehicleExtra  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -597,10 +608,10 @@ public class VehicleExtra  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

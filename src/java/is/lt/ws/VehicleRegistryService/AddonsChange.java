@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class AddonsChange  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -37,7 +40,7 @@ public class AddonsChange  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this AddonsChange.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -47,7 +50,7 @@ public class AddonsChange  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this AddonsChange.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -57,7 +60,7 @@ public class AddonsChange  implements java.io.Serializable {
 
     /**
      * Gets the date value for this AddonsChange.
-     * 
+     *
      * @return date
      */
     public java.lang.String getDate() {
@@ -67,7 +70,7 @@ public class AddonsChange  implements java.io.Serializable {
 
     /**
      * Sets the date value for this AddonsChange.
-     * 
+     *
      * @param date
      */
     public void setDate(java.lang.String date) {
@@ -77,7 +80,7 @@ public class AddonsChange  implements java.io.Serializable {
 
     /**
      * Gets the type value for this AddonsChange.
-     * 
+     *
      * @return type
      */
     public java.lang.String getType() {
@@ -87,7 +90,7 @@ public class AddonsChange  implements java.io.Serializable {
 
     /**
      * Sets the type value for this AddonsChange.
-     * 
+     *
      * @param type
      */
     public void setType(java.lang.String type) {
@@ -97,7 +100,7 @@ public class AddonsChange  implements java.io.Serializable {
 
     /**
      * Gets the description value for this AddonsChange.
-     * 
+     *
      * @return description
      */
     public java.lang.String getDescription() {
@@ -107,7 +110,7 @@ public class AddonsChange  implements java.io.Serializable {
 
     /**
      * Sets the description value for this AddonsChange.
-     * 
+     *
      * @param description
      */
     public void setDescription(java.lang.String description) {
@@ -117,7 +120,7 @@ public class AddonsChange  implements java.io.Serializable {
 
     /**
      * Gets the invalidDate value for this AddonsChange.
-     * 
+     *
      * @return invalidDate
      */
     public java.lang.String getInvalidDate() {
@@ -127,7 +130,7 @@ public class AddonsChange  implements java.io.Serializable {
 
     /**
      * Sets the invalidDate value for this AddonsChange.
-     * 
+     *
      * @param invalidDate
      */
     public void setInvalidDate(java.lang.String invalidDate) {
@@ -135,30 +138,37 @@ public class AddonsChange  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof AddonsChange)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof AddonsChange)) {
+			return false;
+		}
         AddonsChange other = (AddonsChange) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.date==null && other.getDate()==null) || 
+            ((this.date==null && other.getDate()==null) ||
              (this.date!=null &&
               this.date.equals(other.getDate()))) &&
-            ((this.type==null && other.getType()==null) || 
+            ((this.type==null && other.getType()==null) ||
              (this.type!=null &&
               this.type.equals(other.getType()))) &&
-            ((this.description==null && other.getDescription()==null) || 
+            ((this.description==null && other.getDescription()==null) ||
              (this.description!=null &&
               this.description.equals(other.getDescription()))) &&
-            ((this.invalidDate==null && other.getInvalidDate()==null) || 
+            ((this.invalidDate==null && other.getInvalidDate()==null) ||
              (this.invalidDate!=null &&
               this.invalidDate.equals(other.getInvalidDate())));
         __equalsCalc = null;
@@ -166,7 +176,8 @@ public class AddonsChange  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -245,10 +256,10 @@ public class AddonsChange  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -257,10 +268,10 @@ public class AddonsChange  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

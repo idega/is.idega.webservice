@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class SpecialEquipmentChange  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -33,7 +36,7 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this SpecialEquipmentChange.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -43,7 +46,7 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this SpecialEquipmentChange.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -53,7 +56,7 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
 
     /**
      * Gets the date value for this SpecialEquipmentChange.
-     * 
+     *
      * @return date
      */
     public java.lang.String getDate() {
@@ -63,7 +66,7 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
 
     /**
      * Sets the date value for this SpecialEquipmentChange.
-     * 
+     *
      * @param date
      */
     public void setDate(java.lang.String date) {
@@ -73,7 +76,7 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
 
     /**
      * Gets the description value for this SpecialEquipmentChange.
-     * 
+     *
      * @return description
      */
     public java.lang.String getDescription() {
@@ -83,7 +86,7 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
 
     /**
      * Sets the description value for this SpecialEquipmentChange.
-     * 
+     *
      * @param description
      */
     public void setDescription(java.lang.String description) {
@@ -93,7 +96,7 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
 
     /**
      * Gets the invalidDate value for this SpecialEquipmentChange.
-     * 
+     *
      * @return invalidDate
      */
     public java.lang.String getInvalidDate() {
@@ -103,7 +106,7 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
 
     /**
      * Sets the invalidDate value for this SpecialEquipmentChange.
-     * 
+     *
      * @param invalidDate
      */
     public void setInvalidDate(java.lang.String invalidDate) {
@@ -111,27 +114,34 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof SpecialEquipmentChange)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof SpecialEquipmentChange)) {
+			return false;
+		}
         SpecialEquipmentChange other = (SpecialEquipmentChange) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.date==null && other.getDate()==null) || 
+            ((this.date==null && other.getDate()==null) ||
              (this.date!=null &&
               this.date.equals(other.getDate()))) &&
-            ((this.description==null && other.getDescription()==null) || 
+            ((this.description==null && other.getDescription()==null) ||
              (this.description!=null &&
               this.description.equals(other.getDescription()))) &&
-            ((this.invalidDate==null && other.getInvalidDate()==null) || 
+            ((this.invalidDate==null && other.getInvalidDate()==null) ||
              (this.invalidDate!=null &&
               this.invalidDate.equals(other.getInvalidDate())));
         __equalsCalc = null;
@@ -139,7 +149,8 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -208,10 +219,10 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -220,10 +231,10 @@ public class SpecialEquipmentChange  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

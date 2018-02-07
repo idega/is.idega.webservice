@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Owner  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -69,7 +72,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Owner.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -79,7 +82,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Owner.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -89,7 +92,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the current value for this Owner.
-     * 
+     *
      * @return current
      */
     public boolean isCurrent() {
@@ -99,7 +102,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the current value for this Owner.
-     * 
+     *
      * @param current
      */
     public void setCurrent(boolean current) {
@@ -109,7 +112,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the anonymous value for this Owner.
-     * 
+     *
      * @return anonymous
      */
     public boolean isAnonymous() {
@@ -119,7 +122,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the anonymous value for this Owner.
-     * 
+     *
      * @param anonymous
      */
     public void setAnonymous(boolean anonymous) {
@@ -129,7 +132,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the purchaseDate value for this Owner.
-     * 
+     *
      * @return purchaseDate
      */
     public java.lang.String getPurchaseDate() {
@@ -139,7 +142,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the purchaseDate value for this Owner.
-     * 
+     *
      * @param purchaseDate
      */
     public void setPurchaseDate(java.lang.String purchaseDate) {
@@ -149,7 +152,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the ownregDate value for this Owner.
-     * 
+     *
      * @return ownregDate
      */
     public java.lang.String getOwnregDate() {
@@ -159,7 +162,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the ownregDate value for this Owner.
-     * 
+     *
      * @param ownregDate
      */
     public void setOwnregDate(java.lang.String ownregDate) {
@@ -169,7 +172,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the receptionDate value for this Owner.
-     * 
+     *
      * @return receptionDate
      */
     public java.lang.String getReceptionDate() {
@@ -179,7 +182,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the receptionDate value for this Owner.
-     * 
+     *
      * @param receptionDate
      */
     public void setReceptionDate(java.lang.String receptionDate) {
@@ -189,7 +192,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the persidno value for this Owner.
-     * 
+     *
      * @return persidno
      */
     public java.lang.String getPersidno() {
@@ -199,7 +202,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the persidno value for this Owner.
-     * 
+     *
      * @param persidno
      */
     public void setPersidno(java.lang.String persidno) {
@@ -209,7 +212,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the fullname value for this Owner.
-     * 
+     *
      * @return fullname
      */
     public java.lang.String getFullname() {
@@ -219,7 +222,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the fullname value for this Owner.
-     * 
+     *
      * @param fullname
      */
     public void setFullname(java.lang.String fullname) {
@@ -229,7 +232,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the address value for this Owner.
-     * 
+     *
      * @return address
      */
     public java.lang.String getAddress() {
@@ -239,7 +242,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the address value for this Owner.
-     * 
+     *
      * @param address
      */
     public void setAddress(java.lang.String address) {
@@ -249,7 +252,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the postalcode value for this Owner.
-     * 
+     *
      * @return postalcode
      */
     public java.lang.String getPostalcode() {
@@ -259,7 +262,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the postalcode value for this Owner.
-     * 
+     *
      * @param postalcode
      */
     public void setPostalcode(java.lang.String postalcode) {
@@ -269,7 +272,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the city value for this Owner.
-     * 
+     *
      * @return city
      */
     public java.lang.String getCity() {
@@ -279,7 +282,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the city value for this Owner.
-     * 
+     *
      * @param city
      */
     public void setCity(java.lang.String city) {
@@ -289,7 +292,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the ownerinsurancecode value for this Owner.
-     * 
+     *
      * @return ownerinsurancecode
      */
     public java.lang.String getOwnerinsurancecode() {
@@ -299,7 +302,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the ownerinsurancecode value for this Owner.
-     * 
+     *
      * @param ownerinsurancecode
      */
     public void setOwnerinsurancecode(java.lang.String ownerinsurancecode) {
@@ -309,7 +312,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Gets the coOwners value for this Owner.
-     * 
+     *
      * @return coOwners
      */
     public is.lt.ws.VehicleRegistryService.CoOwner[] getCoOwners() {
@@ -319,7 +322,7 @@ public class Owner  implements java.io.Serializable {
 
     /**
      * Sets the coOwners value for this Owner.
-     * 
+     *
      * @param coOwners
      */
     public void setCoOwners(is.lt.ws.VehicleRegistryService.CoOwner[] coOwners) {
@@ -327,50 +330,57 @@ public class Owner  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Owner)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Owner)) {
+			return false;
+		}
         Owner other = (Owner) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
             this.current == other.isCurrent() &&
             this.anonymous == other.isAnonymous() &&
-            ((this.purchaseDate==null && other.getPurchaseDate()==null) || 
+            ((this.purchaseDate==null && other.getPurchaseDate()==null) ||
              (this.purchaseDate!=null &&
               this.purchaseDate.equals(other.getPurchaseDate()))) &&
-            ((this.ownregDate==null && other.getOwnregDate()==null) || 
+            ((this.ownregDate==null && other.getOwnregDate()==null) ||
              (this.ownregDate!=null &&
               this.ownregDate.equals(other.getOwnregDate()))) &&
-            ((this.receptionDate==null && other.getReceptionDate()==null) || 
+            ((this.receptionDate==null && other.getReceptionDate()==null) ||
              (this.receptionDate!=null &&
               this.receptionDate.equals(other.getReceptionDate()))) &&
-            ((this.persidno==null && other.getPersidno()==null) || 
+            ((this.persidno==null && other.getPersidno()==null) ||
              (this.persidno!=null &&
               this.persidno.equals(other.getPersidno()))) &&
-            ((this.fullname==null && other.getFullname()==null) || 
+            ((this.fullname==null && other.getFullname()==null) ||
              (this.fullname!=null &&
               this.fullname.equals(other.getFullname()))) &&
-            ((this.address==null && other.getAddress()==null) || 
+            ((this.address==null && other.getAddress()==null) ||
              (this.address!=null &&
               this.address.equals(other.getAddress()))) &&
-            ((this.postalcode==null && other.getPostalcode()==null) || 
+            ((this.postalcode==null && other.getPostalcode()==null) ||
              (this.postalcode!=null &&
               this.postalcode.equals(other.getPostalcode()))) &&
-            ((this.city==null && other.getCity()==null) || 
+            ((this.city==null && other.getCity()==null) ||
              (this.city!=null &&
               this.city.equals(other.getCity()))) &&
-            ((this.ownerinsurancecode==null && other.getOwnerinsurancecode()==null) || 
+            ((this.ownerinsurancecode==null && other.getOwnerinsurancecode()==null) ||
              (this.ownerinsurancecode!=null &&
               this.ownerinsurancecode.equals(other.getOwnerinsurancecode()))) &&
-            ((this.coOwners==null && other.getCoOwners()==null) || 
+            ((this.coOwners==null && other.getCoOwners()==null) ||
              (this.coOwners!=null &&
               java.util.Arrays.equals(this.coOwners, other.getCoOwners())));
         __equalsCalc = null;
@@ -378,7 +388,8 @@ public class Owner  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -540,10 +551,10 @@ public class Owner  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -552,10 +563,10 @@ public class Owner  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

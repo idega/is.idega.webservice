@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Axle  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -45,7 +48,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Axle.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -55,7 +58,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Axle.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -65,7 +68,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Gets the axleNo value for this Axle.
-     * 
+     *
      * @return axleNo
      */
     public java.lang.String getAxleNo() {
@@ -75,7 +78,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Sets the axleNo value for this Axle.
-     * 
+     *
      * @param axleNo
      */
     public void setAxleNo(java.lang.String axleNo) {
@@ -85,7 +88,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Gets the wheelsNo value for this Axle.
-     * 
+     *
      * @return wheelsNo
      */
     public java.lang.String getWheelsNo() {
@@ -95,7 +98,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Sets the wheelsNo value for this Axle.
-     * 
+     *
      * @param wheelsNo
      */
     public void setWheelsNo(java.lang.String wheelsNo) {
@@ -105,7 +108,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Gets the axlepow value for this Axle.
-     * 
+     *
      * @return axlepow
      */
     public boolean[] getAxlepow() {
@@ -115,7 +118,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Sets the axlepow value for this Axle.
-     * 
+     *
      * @param axlepow
      */
     public void setAxlepow(boolean[] axlepow) {
@@ -125,7 +128,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Gets the wheelbase value for this Axle.
-     * 
+     *
      * @return wheelbase
      */
     public java.lang.String getWheelbase() {
@@ -135,7 +138,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Sets the wheelbase value for this Axle.
-     * 
+     *
      * @param wheelbase
      */
     public void setWheelbase(java.lang.String wheelbase) {
@@ -145,7 +148,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Gets the axletrack value for this Axle.
-     * 
+     *
      * @return axletrack
      */
     public java.lang.String[] getAxletrack() {
@@ -155,7 +158,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Sets the axletrack value for this Axle.
-     * 
+     *
      * @param axletrack
      */
     public void setAxletrack(java.lang.String[] axletrack) {
@@ -165,7 +168,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Gets the wheelaxle value for this Axle.
-     * 
+     *
      * @return wheelaxle
      */
     public java.lang.String[] getWheelaxle() {
@@ -175,7 +178,7 @@ public class Axle  implements java.io.Serializable {
 
     /**
      * Sets the wheelaxle value for this Axle.
-     * 
+     *
      * @param wheelaxle
      */
     public void setWheelaxle(java.lang.String[] wheelaxle) {
@@ -183,36 +186,43 @@ public class Axle  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Axle)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Axle)) {
+			return false;
+		}
         Axle other = (Axle) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.axleNo==null && other.getAxleNo()==null) || 
+            ((this.axleNo==null && other.getAxleNo()==null) ||
              (this.axleNo!=null &&
               this.axleNo.equals(other.getAxleNo()))) &&
-            ((this.wheelsNo==null && other.getWheelsNo()==null) || 
+            ((this.wheelsNo==null && other.getWheelsNo()==null) ||
              (this.wheelsNo!=null &&
               this.wheelsNo.equals(other.getWheelsNo()))) &&
-            ((this.axlepow==null && other.getAxlepow()==null) || 
+            ((this.axlepow==null && other.getAxlepow()==null) ||
              (this.axlepow!=null &&
               java.util.Arrays.equals(this.axlepow, other.getAxlepow()))) &&
-            ((this.wheelbase==null && other.getWheelbase()==null) || 
+            ((this.wheelbase==null && other.getWheelbase()==null) ||
              (this.wheelbase!=null &&
               this.wheelbase.equals(other.getWheelbase()))) &&
-            ((this.axletrack==null && other.getAxletrack()==null) || 
+            ((this.axletrack==null && other.getAxletrack()==null) ||
              (this.axletrack!=null &&
               java.util.Arrays.equals(this.axletrack, other.getAxletrack()))) &&
-            ((this.wheelaxle==null && other.getWheelaxle()==null) || 
+            ((this.wheelaxle==null && other.getWheelaxle()==null) ||
              (this.wheelaxle!=null &&
               java.util.Arrays.equals(this.wheelaxle, other.getWheelaxle())));
         __equalsCalc = null;
@@ -220,7 +230,8 @@ public class Axle  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -346,10 +357,10 @@ public class Axle  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -358,10 +369,10 @@ public class Axle  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

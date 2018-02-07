@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class InspectionRemark  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -37,7 +40,7 @@ public class InspectionRemark  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this InspectionRemark.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -47,7 +50,7 @@ public class InspectionRemark  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this InspectionRemark.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -57,7 +60,7 @@ public class InspectionRemark  implements java.io.Serializable {
 
     /**
      * Gets the itemcode value for this InspectionRemark.
-     * 
+     *
      * @return itemcode
      */
     public java.lang.String getItemcode() {
@@ -67,7 +70,7 @@ public class InspectionRemark  implements java.io.Serializable {
 
     /**
      * Sets the itemcode value for this InspectionRemark.
-     * 
+     *
      * @param itemcode
      */
     public void setItemcode(java.lang.String itemcode) {
@@ -77,7 +80,7 @@ public class InspectionRemark  implements java.io.Serializable {
 
     /**
      * Gets the itemname value for this InspectionRemark.
-     * 
+     *
      * @return itemname
      */
     public java.lang.String getItemname() {
@@ -87,7 +90,7 @@ public class InspectionRemark  implements java.io.Serializable {
 
     /**
      * Sets the itemname value for this InspectionRemark.
-     * 
+     *
      * @param itemname
      */
     public void setItemname(java.lang.String itemname) {
@@ -97,7 +100,7 @@ public class InspectionRemark  implements java.io.Serializable {
 
     /**
      * Gets the resultcode value for this InspectionRemark.
-     * 
+     *
      * @return resultcode
      */
     public java.lang.String getResultcode() {
@@ -107,7 +110,7 @@ public class InspectionRemark  implements java.io.Serializable {
 
     /**
      * Sets the resultcode value for this InspectionRemark.
-     * 
+     *
      * @param resultcode
      */
     public void setResultcode(java.lang.String resultcode) {
@@ -117,7 +120,7 @@ public class InspectionRemark  implements java.io.Serializable {
 
     /**
      * Gets the resultname value for this InspectionRemark.
-     * 
+     *
      * @return resultname
      */
     public java.lang.String getResultname() {
@@ -127,7 +130,7 @@ public class InspectionRemark  implements java.io.Serializable {
 
     /**
      * Sets the resultname value for this InspectionRemark.
-     * 
+     *
      * @param resultname
      */
     public void setResultname(java.lang.String resultname) {
@@ -135,30 +138,37 @@ public class InspectionRemark  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof InspectionRemark)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof InspectionRemark)) {
+			return false;
+		}
         InspectionRemark other = (InspectionRemark) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.itemcode==null && other.getItemcode()==null) || 
+            ((this.itemcode==null && other.getItemcode()==null) ||
              (this.itemcode!=null &&
               this.itemcode.equals(other.getItemcode()))) &&
-            ((this.itemname==null && other.getItemname()==null) || 
+            ((this.itemname==null && other.getItemname()==null) ||
              (this.itemname!=null &&
               this.itemname.equals(other.getItemname()))) &&
-            ((this.resultcode==null && other.getResultcode()==null) || 
+            ((this.resultcode==null && other.getResultcode()==null) ||
              (this.resultcode!=null &&
               this.resultcode.equals(other.getResultcode()))) &&
-            ((this.resultname==null && other.getResultname()==null) || 
+            ((this.resultname==null && other.getResultname()==null) ||
              (this.resultname!=null &&
               this.resultname.equals(other.getResultname())));
         __equalsCalc = null;
@@ -166,7 +176,8 @@ public class InspectionRemark  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -245,10 +256,10 @@ public class InspectionRemark  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -257,10 +268,10 @@ public class InspectionRemark  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

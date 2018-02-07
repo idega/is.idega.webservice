@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Vehicle  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -281,7 +284,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Vehicle.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -291,7 +294,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Vehicle.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -301,7 +304,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the permNo value for this Vehicle.
-     * 
+     *
      * @return permNo
      */
     public java.lang.String getPermNo() {
@@ -311,7 +314,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the permNo value for this Vehicle.
-     * 
+     *
      * @param permNo
      */
     public void setPermNo(java.lang.String permNo) {
@@ -321,7 +324,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the regNo value for this Vehicle.
-     * 
+     *
      * @return regNo
      */
     public java.lang.String getRegNo() {
@@ -331,7 +334,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the regNo value for this Vehicle.
-     * 
+     *
      * @param regNo
      */
     public void setRegNo(java.lang.String regNo) {
@@ -341,7 +344,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the vin value for this Vehicle.
-     * 
+     *
      * @return vin
      */
     public java.lang.String getVin() {
@@ -351,7 +354,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the vin value for this Vehicle.
-     * 
+     *
      * @param vin
      */
     public void setVin(java.lang.String vin) {
@@ -361,7 +364,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the typeNo value for this Vehicle.
-     * 
+     *
      * @return typeNo
      */
     public java.lang.String getTypeNo() {
@@ -371,7 +374,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the typeNo value for this Vehicle.
-     * 
+     *
      * @param typeNo
      */
     public void setTypeNo(java.lang.String typeNo) {
@@ -381,7 +384,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the type value for this Vehicle.
-     * 
+     *
      * @return type
      */
     public java.lang.String getType() {
@@ -391,7 +394,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the type value for this Vehicle.
-     * 
+     *
      * @param type
      */
     public void setType(java.lang.String type) {
@@ -401,7 +404,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the typeApproval value for this Vehicle.
-     * 
+     *
      * @return typeApproval
      */
     public java.lang.String getTypeApproval() {
@@ -411,7 +414,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the typeApproval value for this Vehicle.
-     * 
+     *
      * @param typeApproval
      */
     public void setTypeApproval(java.lang.String typeApproval) {
@@ -421,7 +424,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the typeapprovalextension value for this Vehicle.
-     * 
+     *
      * @return typeapprovalextension
      */
     public java.lang.String getTypeapprovalextension() {
@@ -431,7 +434,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the typeapprovalextension value for this Vehicle.
-     * 
+     *
      * @param typeapprovalextension
      */
     public void setTypeapprovalextension(java.lang.String typeapprovalextension) {
@@ -441,7 +444,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the eutypeapproval value for this Vehicle.
-     * 
+     *
      * @return eutypeapproval
      */
     public java.lang.String getEutypeapproval() {
@@ -451,7 +454,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the eutypeapproval value for this Vehicle.
-     * 
+     *
      * @param eutypeapproval
      */
     public void setEutypeapproval(java.lang.String eutypeapproval) {
@@ -461,7 +464,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the variant value for this Vehicle.
-     * 
+     *
      * @return variant
      */
     public java.lang.String getVariant() {
@@ -471,7 +474,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the variant value for this Vehicle.
-     * 
+     *
      * @param variant
      */
     public void setVariant(java.lang.String variant) {
@@ -481,7 +484,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the version value for this Vehicle.
-     * 
+     *
      * @return version
      */
     public java.lang.String getVersion() {
@@ -491,7 +494,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the version value for this Vehicle.
-     * 
+     *
      * @param version
      */
     public void setVersion(java.lang.String version) {
@@ -501,7 +504,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the modelcode value for this Vehicle.
-     * 
+     *
      * @return modelcode
      */
     public java.lang.String getModelcode() {
@@ -511,7 +514,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the modelcode value for this Vehicle.
-     * 
+     *
      * @param modelcode
      */
     public void setModelcode(java.lang.String modelcode) {
@@ -521,7 +524,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the make value for this Vehicle.
-     * 
+     *
      * @return make
      */
     public java.lang.String getMake() {
@@ -531,7 +534,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the make value for this Vehicle.
-     * 
+     *
      * @param make
      */
     public void setMake(java.lang.String make) {
@@ -541,7 +544,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the vehcom value for this Vehicle.
-     * 
+     *
      * @return vehcom
      */
     public java.lang.String getVehcom() {
@@ -551,7 +554,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the vehcom value for this Vehicle.
-     * 
+     *
      * @param vehcom
      */
     public void setVehcom(java.lang.String vehcom) {
@@ -561,7 +564,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the speccom value for this Vehicle.
-     * 
+     *
      * @return speccom
      */
     public java.lang.String getSpeccom() {
@@ -571,7 +574,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the speccom value for this Vehicle.
-     * 
+     *
      * @param speccom
      */
     public void setSpeccom(java.lang.String speccom) {
@@ -581,7 +584,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the color value for this Vehicle.
-     * 
+     *
      * @return color
      */
     public java.lang.String getColor() {
@@ -591,7 +594,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the color value for this Vehicle.
-     * 
+     *
      * @param color
      */
     public void setColor(java.lang.String color) {
@@ -601,7 +604,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the productYear value for this Vehicle.
-     * 
+     *
      * @return productYear
      */
     public java.lang.String getProductYear() {
@@ -611,7 +614,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the productYear value for this Vehicle.
-     * 
+     *
      * @param productYear
      */
     public void setProductYear(java.lang.String productYear) {
@@ -621,7 +624,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the modelYear value for this Vehicle.
-     * 
+     *
      * @return modelYear
      */
     public java.lang.String getModelYear() {
@@ -631,7 +634,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the modelYear value for this Vehicle.
-     * 
+     *
      * @param modelYear
      */
     public void setModelYear(java.lang.String modelYear) {
@@ -641,7 +644,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the preregDate value for this Vehicle.
-     * 
+     *
      * @return preregDate
      */
     public java.lang.String getPreregDate() {
@@ -651,7 +654,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the preregDate value for this Vehicle.
-     * 
+     *
      * @param preregDate
      */
     public void setPreregDate(java.lang.String preregDate) {
@@ -661,7 +664,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the reregdate value for this Vehicle.
-     * 
+     *
      * @return reregdate
      */
     public java.lang.String getReregdate() {
@@ -671,7 +674,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the reregdate value for this Vehicle.
-     * 
+     *
      * @param reregdate
      */
     public void setReregdate(java.lang.String reregdate) {
@@ -681,7 +684,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the customsDate value for this Vehicle.
-     * 
+     *
      * @return customsDate
      */
     public java.lang.String getCustomsDate() {
@@ -691,7 +694,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the customsDate value for this Vehicle.
-     * 
+     *
      * @param customsDate
      */
     public void setCustomsDate(java.lang.String customsDate) {
@@ -701,7 +704,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the firstregDate value for this Vehicle.
-     * 
+     *
      * @return firstregDate
      */
     public java.lang.String getFirstregDate() {
@@ -711,7 +714,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the firstregDate value for this Vehicle.
-     * 
+     *
      * @param firstregDate
      */
     public void setFirstregDate(java.lang.String firstregDate) {
@@ -721,7 +724,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the newregDate value for this Vehicle.
-     * 
+     *
      * @return newregDate
      */
     public java.lang.String getNewregDate() {
@@ -731,7 +734,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the newregDate value for this Vehicle.
-     * 
+     *
      * @param newregDate
      */
     public void setNewregDate(java.lang.String newregDate) {
@@ -741,7 +744,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the deregDate value for this Vehicle.
-     * 
+     *
      * @return deregDate
      */
     public java.lang.String getDeregDate() {
@@ -751,7 +754,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the deregDate value for this Vehicle.
-     * 
+     *
      * @param deregDate
      */
     public void setDeregDate(java.lang.String deregDate) {
@@ -761,7 +764,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the ownregDate value for this Vehicle.
-     * 
+     *
      * @return ownregDate
      */
     public java.lang.String getOwnregDate() {
@@ -771,7 +774,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the ownregDate value for this Vehicle.
-     * 
+     *
      * @param ownregDate
      */
     public void setOwnregDate(java.lang.String ownregDate) {
@@ -781,7 +784,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the manufacturer value for this Vehicle.
-     * 
+     *
      * @return manufacturer
      */
     public java.lang.String getManufacturer() {
@@ -791,7 +794,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the manufacturer value for this Vehicle.
-     * 
+     *
      * @param manufacturer
      */
     public void setManufacturer(java.lang.String manufacturer) {
@@ -801,7 +804,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the country value for this Vehicle.
-     * 
+     *
      * @return country
      */
     public java.lang.String getCountry() {
@@ -811,7 +814,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the country value for this Vehicle.
-     * 
+     *
      * @param country
      */
     public void setCountry(java.lang.String country) {
@@ -821,7 +824,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the importerpersidno value for this Vehicle.
-     * 
+     *
      * @return importerpersidno
      */
     public java.lang.String getImporterpersidno() {
@@ -831,7 +834,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the importerpersidno value for this Vehicle.
-     * 
+     *
      * @param importerpersidno
      */
     public void setImporterpersidno(java.lang.String importerpersidno) {
@@ -841,7 +844,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the importername value for this Vehicle.
-     * 
+     *
      * @return importername
      */
     public java.lang.String getImportername() {
@@ -851,7 +854,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the importername value for this Vehicle.
-     * 
+     *
      * @param importername
      */
     public void setImportername(java.lang.String importername) {
@@ -861,7 +864,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the _import value for this Vehicle.
-     * 
+     *
      * @return _import
      */
     public java.lang.String get_import() {
@@ -871,7 +874,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the _import value for this Vehicle.
-     * 
+     *
      * @param _import
      */
     public void set_import(java.lang.String _import) {
@@ -881,7 +884,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the vehiclestatus value for this Vehicle.
-     * 
+     *
      * @return vehiclestatus
      */
     public java.lang.String getVehiclestatus() {
@@ -891,7 +894,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the vehiclestatus value for this Vehicle.
-     * 
+     *
      * @param vehiclestatus
      */
     public void setVehiclestatus(java.lang.String vehiclestatus) {
@@ -901,7 +904,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the disastertype value for this Vehicle.
-     * 
+     *
      * @return disastertype
      */
     public java.lang.String getDisastertype() {
@@ -911,7 +914,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the disastertype value for this Vehicle.
-     * 
+     *
      * @param disastertype
      */
     public void setDisastertype(java.lang.String disastertype) {
@@ -921,7 +924,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the hasdisasters value for this Vehicle.
-     * 
+     *
      * @return hasdisasters
      */
     public boolean isHasdisasters() {
@@ -931,7 +934,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the hasdisasters value for this Vehicle.
-     * 
+     *
      * @param hasdisasters
      */
     public void setHasdisasters(boolean hasdisasters) {
@@ -941,7 +944,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the fixed value for this Vehicle.
-     * 
+     *
      * @return fixed
      */
     public boolean isFixed() {
@@ -951,7 +954,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the fixed value for this Vehicle.
-     * 
+     *
      * @param fixed
      */
     public void setFixed(boolean fixed) {
@@ -961,7 +964,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the hasaccidents value for this Vehicle.
-     * 
+     *
      * @return hasaccidents
      */
     public boolean isHasaccidents() {
@@ -971,7 +974,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the hasaccidents value for this Vehicle.
-     * 
+     *
      * @param hasaccidents
      */
     public void setHasaccidents(boolean hasaccidents) {
@@ -981,7 +984,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the usegroup value for this Vehicle.
-     * 
+     *
      * @return usegroup
      */
     public java.lang.String getUsegroup() {
@@ -991,7 +994,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the usegroup value for this Vehicle.
-     * 
+     *
      * @param usegroup
      */
     public void setUsegroup(java.lang.String usegroup) {
@@ -1001,7 +1004,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the regType value for this Vehicle.
-     * 
+     *
      * @return regType
      */
     public java.lang.String getRegType() {
@@ -1011,7 +1014,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the regType value for this Vehicle.
-     * 
+     *
      * @param regType
      */
     public void setRegType(java.lang.String regType) {
@@ -1021,7 +1024,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the plateTypefront value for this Vehicle.
-     * 
+     *
      * @return plateTypefront
      */
     public java.lang.String getPlateTypefront() {
@@ -1031,7 +1034,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the plateTypefront value for this Vehicle.
-     * 
+     *
      * @param plateTypefront
      */
     public void setPlateTypefront(java.lang.String plateTypefront) {
@@ -1041,7 +1044,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the plateTyperear value for this Vehicle.
-     * 
+     *
      * @return plateTyperear
      */
     public java.lang.String getPlateTyperear() {
@@ -1051,7 +1054,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the plateTyperear value for this Vehicle.
-     * 
+     *
      * @param plateTyperear
      */
     public void setPlateTyperear(java.lang.String plateTyperear) {
@@ -1061,7 +1064,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the plateStatus value for this Vehicle.
-     * 
+     *
      * @return plateStatus
      */
     public java.lang.String getPlateStatus() {
@@ -1071,7 +1074,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the plateStatus value for this Vehicle.
-     * 
+     *
      * @param plateStatus
      */
     public void setPlateStatus(java.lang.String plateStatus) {
@@ -1081,7 +1084,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the plateStorageLocation value for this Vehicle.
-     * 
+     *
      * @return plateStorageLocation
      */
     public java.lang.String getPlateStorageLocation() {
@@ -1091,7 +1094,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the plateStorageLocation value for this Vehicle.
-     * 
+     *
      * @param plateStorageLocation
      */
     public void setPlateStorageLocation(java.lang.String plateStorageLocation) {
@@ -1101,7 +1104,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the insuranceCompany value for this Vehicle.
-     * 
+     *
      * @return insuranceCompany
      */
     public java.lang.String getInsuranceCompany() {
@@ -1111,7 +1114,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the insuranceCompany value for this Vehicle.
-     * 
+     *
      * @param insuranceCompany
      */
     public void setInsuranceCompany(java.lang.String insuranceCompany) {
@@ -1121,7 +1124,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the insuranceStatus value for this Vehicle.
-     * 
+     *
      * @return insuranceStatus
      */
     public boolean isInsuranceStatus() {
@@ -1131,7 +1134,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the insuranceStatus value for this Vehicle.
-     * 
+     *
      * @param insuranceStatus
      */
     public void setInsuranceStatus(boolean insuranceStatus) {
@@ -1141,7 +1144,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the nextInspectionDate value for this Vehicle.
-     * 
+     *
      * @return nextInspectionDate
      */
     public java.lang.String getNextInspectionDate() {
@@ -1151,7 +1154,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the nextInspectionDate value for this Vehicle.
-     * 
+     *
      * @param nextInspectionDate
      */
     public void setNextInspectionDate(java.lang.String nextInspectionDate) {
@@ -1161,7 +1164,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the rebuilt value for this Vehicle.
-     * 
+     *
      * @return rebuilt
      */
     public boolean isRebuilt() {
@@ -1171,7 +1174,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the rebuilt value for this Vehicle.
-     * 
+     *
      * @param rebuilt
      */
     public void setRebuilt(boolean rebuilt) {
@@ -1181,7 +1184,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the offroad value for this Vehicle.
-     * 
+     *
      * @return offroad
      */
     public boolean isOffroad() {
@@ -1191,7 +1194,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the offroad value for this Vehicle.
-     * 
+     *
      * @param offroad
      */
     public void setOffroad(boolean offroad) {
@@ -1201,7 +1204,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the technical value for this Vehicle.
-     * 
+     *
      * @return technical
      */
     public is.lt.ws.VehicleRegistryService.Technical getTechnical() {
@@ -1211,7 +1214,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the technical value for this Vehicle.
-     * 
+     *
      * @param technical
      */
     public void setTechnical(is.lt.ws.VehicleRegistryService.Technical technical) {
@@ -1221,7 +1224,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the owners value for this Vehicle.
-     * 
+     *
      * @return owners
      */
     public is.lt.ws.VehicleRegistryService.Owner[] getOwners() {
@@ -1231,7 +1234,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the owners value for this Vehicle.
-     * 
+     *
      * @param owners
      */
     public void setOwners(is.lt.ws.VehicleRegistryService.Owner[] owners) {
@@ -1241,7 +1244,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the operators value for this Vehicle.
-     * 
+     *
      * @return operators
      */
     public is.lt.ws.VehicleRegistryService.Operator[] getOperators() {
@@ -1251,7 +1254,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the operators value for this Vehicle.
-     * 
+     *
      * @param operators
      */
     public void setOperators(is.lt.ws.VehicleRegistryService.Operator[] operators) {
@@ -1261,7 +1264,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the plates value for this Vehicle.
-     * 
+     *
      * @return plates
      */
     public is.lt.ws.VehicleRegistryService.Plate[] getPlates() {
@@ -1271,7 +1274,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the plates value for this Vehicle.
-     * 
+     *
      * @param plates
      */
     public void setPlates(is.lt.ws.VehicleRegistryService.Plate[] plates) {
@@ -1281,7 +1284,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the disasters value for this Vehicle.
-     * 
+     *
      * @return disasters
      */
     public is.lt.ws.VehicleRegistryService.Disaster[] getDisasters() {
@@ -1291,7 +1294,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the disasters value for this Vehicle.
-     * 
+     *
      * @param disasters
      */
     public void setDisasters(is.lt.ws.VehicleRegistryService.Disaster[] disasters) {
@@ -1301,7 +1304,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the registrations value for this Vehicle.
-     * 
+     *
      * @return registrations
      */
     public is.lt.ws.VehicleRegistryService.Registration[] getRegistrations() {
@@ -1311,7 +1314,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the registrations value for this Vehicle.
-     * 
+     *
      * @param registrations
      */
     public void setRegistrations(is.lt.ws.VehicleRegistryService.Registration[] registrations) {
@@ -1321,7 +1324,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the outofuses value for this Vehicle.
-     * 
+     *
      * @return outofuses
      */
     public is.lt.ws.VehicleRegistryService.OutOfUse[] getOutofuses() {
@@ -1331,7 +1334,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the outofuses value for this Vehicle.
-     * 
+     *
      * @param outofuses
      */
     public void setOutofuses(is.lt.ws.VehicleRegistryService.OutOfUse[] outofuses) {
@@ -1341,7 +1344,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the updatelocks value for this Vehicle.
-     * 
+     *
      * @return updatelocks
      */
     public is.lt.ws.VehicleRegistryService.Updatelock[] getUpdatelocks() {
@@ -1351,7 +1354,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the updatelocks value for this Vehicle.
-     * 
+     *
      * @param updatelocks
      */
     public void setUpdatelocks(is.lt.ws.VehicleRegistryService.Updatelock[] updatelocks) {
@@ -1361,7 +1364,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the stolens value for this Vehicle.
-     * 
+     *
      * @return stolens
      */
     public is.lt.ws.VehicleRegistryService.Stolen[] getStolens() {
@@ -1371,7 +1374,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the stolens value for this Vehicle.
-     * 
+     *
      * @param stolens
      */
     public void setStolens(is.lt.ws.VehicleRegistryService.Stolen[] stolens) {
@@ -1381,7 +1384,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the remarks value for this Vehicle.
-     * 
+     *
      * @return remarks
      */
     public is.lt.ws.VehicleRegistryService.Remark[] getRemarks() {
@@ -1391,7 +1394,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the remarks value for this Vehicle.
-     * 
+     *
      * @param remarks
      */
     public void setRemarks(is.lt.ws.VehicleRegistryService.Remark[] remarks) {
@@ -1401,7 +1404,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the inspections value for this Vehicle.
-     * 
+     *
      * @return inspections
      */
     public is.lt.ws.VehicleRegistryService.Inspection[] getInspections() {
@@ -1411,7 +1414,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the inspections value for this Vehicle.
-     * 
+     *
      * @param inspections
      */
     public void setInspections(is.lt.ws.VehicleRegistryService.Inspection[] inspections) {
@@ -1421,7 +1424,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the ownerRegistrationErrors value for this Vehicle.
-     * 
+     *
      * @return ownerRegistrationErrors
      */
     public is.lt.ws.VehicleRegistryService.OwnerRegistrationError[] getOwnerRegistrationErrors() {
@@ -1431,7 +1434,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the ownerRegistrationErrors value for this Vehicle.
-     * 
+     *
      * @param ownerRegistrationErrors
      */
     public void setOwnerRegistrationErrors(is.lt.ws.VehicleRegistryService.OwnerRegistrationError[] ownerRegistrationErrors) {
@@ -1441,7 +1444,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the vehicleChanges value for this Vehicle.
-     * 
+     *
      * @return vehicleChanges
      */
     public is.lt.ws.VehicleRegistryService.VehicleChange[] getVehicleChanges() {
@@ -1451,7 +1454,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the vehicleChanges value for this Vehicle.
-     * 
+     *
      * @param vehicleChanges
      */
     public void setVehicleChanges(is.lt.ws.VehicleRegistryService.VehicleChange[] vehicleChanges) {
@@ -1461,7 +1464,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the typeChanges value for this Vehicle.
-     * 
+     *
      * @return typeChanges
      */
     public is.lt.ws.VehicleRegistryService.TypeChange[] getTypeChanges() {
@@ -1471,7 +1474,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the typeChanges value for this Vehicle.
-     * 
+     *
      * @param typeChanges
      */
     public void setTypeChanges(is.lt.ws.VehicleRegistryService.TypeChange[] typeChanges) {
@@ -1481,7 +1484,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the specialEquipmentChanges value for this Vehicle.
-     * 
+     *
      * @return specialEquipmentChanges
      */
     public is.lt.ws.VehicleRegistryService.SpecialEquipmentChange[] getSpecialEquipmentChanges() {
@@ -1491,7 +1494,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the specialEquipmentChanges value for this Vehicle.
-     * 
+     *
      * @param specialEquipmentChanges
      */
     public void setSpecialEquipmentChanges(is.lt.ws.VehicleRegistryService.SpecialEquipmentChange[] specialEquipmentChanges) {
@@ -1501,7 +1504,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the addonsChanges value for this Vehicle.
-     * 
+     *
      * @return addonsChanges
      */
     public is.lt.ws.VehicleRegistryService.AddonsChange[] getAddonsChanges() {
@@ -1511,7 +1514,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the addonsChanges value for this Vehicle.
-     * 
+     *
      * @param addonsChanges
      */
     public void setAddonsChanges(is.lt.ws.VehicleRegistryService.AddonsChange[] addonsChanges) {
@@ -1521,7 +1524,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the superstructureChanges value for this Vehicle.
-     * 
+     *
      * @return superstructureChanges
      */
     public is.lt.ws.VehicleRegistryService.SuperstructureChange[] getSuperstructureChanges() {
@@ -1531,7 +1534,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the superstructureChanges value for this Vehicle.
-     * 
+     *
      * @param superstructureChanges
      */
     public void setSuperstructureChanges(is.lt.ws.VehicleRegistryService.SuperstructureChange[] superstructureChanges) {
@@ -1541,7 +1544,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the adrs value for this Vehicle.
-     * 
+     *
      * @return adrs
      */
     public is.lt.ws.VehicleRegistryService.Adr[] getAdrs() {
@@ -1551,7 +1554,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the adrs value for this Vehicle.
-     * 
+     *
      * @param adrs
      */
     public void setAdrs(is.lt.ws.VehicleRegistryService.Adr[] adrs) {
@@ -1561,7 +1564,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the latestRegistration value for this Vehicle.
-     * 
+     *
      * @return latestRegistration
      */
     public java.lang.String getLatestRegistration() {
@@ -1571,7 +1574,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the latestRegistration value for this Vehicle.
-     * 
+     *
      * @param latestRegistration
      */
     public void setLatestRegistration(java.lang.String latestRegistration) {
@@ -1581,7 +1584,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Gets the queryTimeStamp value for this Vehicle.
-     * 
+     *
      * @return queryTimeStamp
      */
     public java.util.Calendar getQueryTimeStamp() {
@@ -1591,7 +1594,7 @@ public class Vehicle  implements java.io.Serializable {
 
     /**
      * Sets the queryTimeStamp value for this Vehicle.
-     * 
+     *
      * @param queryTimeStamp
      */
     public void setQueryTimeStamp(java.util.Calendar queryTimeStamp) {
@@ -1599,201 +1602,208 @@ public class Vehicle  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Vehicle)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Vehicle)) {
+			return false;
+		}
         Vehicle other = (Vehicle) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.permNo==null && other.getPermNo()==null) || 
+            ((this.permNo==null && other.getPermNo()==null) ||
              (this.permNo!=null &&
               this.permNo.equals(other.getPermNo()))) &&
-            ((this.regNo==null && other.getRegNo()==null) || 
+            ((this.regNo==null && other.getRegNo()==null) ||
              (this.regNo!=null &&
               this.regNo.equals(other.getRegNo()))) &&
-            ((this.vin==null && other.getVin()==null) || 
+            ((this.vin==null && other.getVin()==null) ||
              (this.vin!=null &&
               this.vin.equals(other.getVin()))) &&
-            ((this.typeNo==null && other.getTypeNo()==null) || 
+            ((this.typeNo==null && other.getTypeNo()==null) ||
              (this.typeNo!=null &&
               this.typeNo.equals(other.getTypeNo()))) &&
-            ((this.type==null && other.getType()==null) || 
+            ((this.type==null && other.getType()==null) ||
              (this.type!=null &&
               this.type.equals(other.getType()))) &&
-            ((this.typeApproval==null && other.getTypeApproval()==null) || 
+            ((this.typeApproval==null && other.getTypeApproval()==null) ||
              (this.typeApproval!=null &&
               this.typeApproval.equals(other.getTypeApproval()))) &&
-            ((this.typeapprovalextension==null && other.getTypeapprovalextension()==null) || 
+            ((this.typeapprovalextension==null && other.getTypeapprovalextension()==null) ||
              (this.typeapprovalextension!=null &&
               this.typeapprovalextension.equals(other.getTypeapprovalextension()))) &&
-            ((this.eutypeapproval==null && other.getEutypeapproval()==null) || 
+            ((this.eutypeapproval==null && other.getEutypeapproval()==null) ||
              (this.eutypeapproval!=null &&
               this.eutypeapproval.equals(other.getEutypeapproval()))) &&
-            ((this.variant==null && other.getVariant()==null) || 
+            ((this.variant==null && other.getVariant()==null) ||
              (this.variant!=null &&
               this.variant.equals(other.getVariant()))) &&
-            ((this.version==null && other.getVersion()==null) || 
+            ((this.version==null && other.getVersion()==null) ||
              (this.version!=null &&
               this.version.equals(other.getVersion()))) &&
-            ((this.modelcode==null && other.getModelcode()==null) || 
+            ((this.modelcode==null && other.getModelcode()==null) ||
              (this.modelcode!=null &&
               this.modelcode.equals(other.getModelcode()))) &&
-            ((this.make==null && other.getMake()==null) || 
+            ((this.make==null && other.getMake()==null) ||
              (this.make!=null &&
               this.make.equals(other.getMake()))) &&
-            ((this.vehcom==null && other.getVehcom()==null) || 
+            ((this.vehcom==null && other.getVehcom()==null) ||
              (this.vehcom!=null &&
               this.vehcom.equals(other.getVehcom()))) &&
-            ((this.speccom==null && other.getSpeccom()==null) || 
+            ((this.speccom==null && other.getSpeccom()==null) ||
              (this.speccom!=null &&
               this.speccom.equals(other.getSpeccom()))) &&
-            ((this.color==null && other.getColor()==null) || 
+            ((this.color==null && other.getColor()==null) ||
              (this.color!=null &&
               this.color.equals(other.getColor()))) &&
-            ((this.productYear==null && other.getProductYear()==null) || 
+            ((this.productYear==null && other.getProductYear()==null) ||
              (this.productYear!=null &&
               this.productYear.equals(other.getProductYear()))) &&
-            ((this.modelYear==null && other.getModelYear()==null) || 
+            ((this.modelYear==null && other.getModelYear()==null) ||
              (this.modelYear!=null &&
               this.modelYear.equals(other.getModelYear()))) &&
-            ((this.preregDate==null && other.getPreregDate()==null) || 
+            ((this.preregDate==null && other.getPreregDate()==null) ||
              (this.preregDate!=null &&
               this.preregDate.equals(other.getPreregDate()))) &&
-            ((this.reregdate==null && other.getReregdate()==null) || 
+            ((this.reregdate==null && other.getReregdate()==null) ||
              (this.reregdate!=null &&
               this.reregdate.equals(other.getReregdate()))) &&
-            ((this.customsDate==null && other.getCustomsDate()==null) || 
+            ((this.customsDate==null && other.getCustomsDate()==null) ||
              (this.customsDate!=null &&
               this.customsDate.equals(other.getCustomsDate()))) &&
-            ((this.firstregDate==null && other.getFirstregDate()==null) || 
+            ((this.firstregDate==null && other.getFirstregDate()==null) ||
              (this.firstregDate!=null &&
               this.firstregDate.equals(other.getFirstregDate()))) &&
-            ((this.newregDate==null && other.getNewregDate()==null) || 
+            ((this.newregDate==null && other.getNewregDate()==null) ||
              (this.newregDate!=null &&
               this.newregDate.equals(other.getNewregDate()))) &&
-            ((this.deregDate==null && other.getDeregDate()==null) || 
+            ((this.deregDate==null && other.getDeregDate()==null) ||
              (this.deregDate!=null &&
               this.deregDate.equals(other.getDeregDate()))) &&
-            ((this.ownregDate==null && other.getOwnregDate()==null) || 
+            ((this.ownregDate==null && other.getOwnregDate()==null) ||
              (this.ownregDate!=null &&
               this.ownregDate.equals(other.getOwnregDate()))) &&
-            ((this.manufacturer==null && other.getManufacturer()==null) || 
+            ((this.manufacturer==null && other.getManufacturer()==null) ||
              (this.manufacturer!=null &&
               this.manufacturer.equals(other.getManufacturer()))) &&
-            ((this.country==null && other.getCountry()==null) || 
+            ((this.country==null && other.getCountry()==null) ||
              (this.country!=null &&
               this.country.equals(other.getCountry()))) &&
-            ((this.importerpersidno==null && other.getImporterpersidno()==null) || 
+            ((this.importerpersidno==null && other.getImporterpersidno()==null) ||
              (this.importerpersidno!=null &&
               this.importerpersidno.equals(other.getImporterpersidno()))) &&
-            ((this.importername==null && other.getImportername()==null) || 
+            ((this.importername==null && other.getImportername()==null) ||
              (this.importername!=null &&
               this.importername.equals(other.getImportername()))) &&
-            ((this._import==null && other.get_import()==null) || 
+            ((this._import==null && other.get_import()==null) ||
              (this._import!=null &&
               this._import.equals(other.get_import()))) &&
-            ((this.vehiclestatus==null && other.getVehiclestatus()==null) || 
+            ((this.vehiclestatus==null && other.getVehiclestatus()==null) ||
              (this.vehiclestatus!=null &&
               this.vehiclestatus.equals(other.getVehiclestatus()))) &&
-            ((this.disastertype==null && other.getDisastertype()==null) || 
+            ((this.disastertype==null && other.getDisastertype()==null) ||
              (this.disastertype!=null &&
               this.disastertype.equals(other.getDisastertype()))) &&
             this.hasdisasters == other.isHasdisasters() &&
             this.fixed == other.isFixed() &&
             this.hasaccidents == other.isHasaccidents() &&
-            ((this.usegroup==null && other.getUsegroup()==null) || 
+            ((this.usegroup==null && other.getUsegroup()==null) ||
              (this.usegroup!=null &&
               this.usegroup.equals(other.getUsegroup()))) &&
-            ((this.regType==null && other.getRegType()==null) || 
+            ((this.regType==null && other.getRegType()==null) ||
              (this.regType!=null &&
               this.regType.equals(other.getRegType()))) &&
-            ((this.plateTypefront==null && other.getPlateTypefront()==null) || 
+            ((this.plateTypefront==null && other.getPlateTypefront()==null) ||
              (this.plateTypefront!=null &&
               this.plateTypefront.equals(other.getPlateTypefront()))) &&
-            ((this.plateTyperear==null && other.getPlateTyperear()==null) || 
+            ((this.plateTyperear==null && other.getPlateTyperear()==null) ||
              (this.plateTyperear!=null &&
               this.plateTyperear.equals(other.getPlateTyperear()))) &&
-            ((this.plateStatus==null && other.getPlateStatus()==null) || 
+            ((this.plateStatus==null && other.getPlateStatus()==null) ||
              (this.plateStatus!=null &&
               this.plateStatus.equals(other.getPlateStatus()))) &&
-            ((this.plateStorageLocation==null && other.getPlateStorageLocation()==null) || 
+            ((this.plateStorageLocation==null && other.getPlateStorageLocation()==null) ||
              (this.plateStorageLocation!=null &&
               this.plateStorageLocation.equals(other.getPlateStorageLocation()))) &&
-            ((this.insuranceCompany==null && other.getInsuranceCompany()==null) || 
+            ((this.insuranceCompany==null && other.getInsuranceCompany()==null) ||
              (this.insuranceCompany!=null &&
               this.insuranceCompany.equals(other.getInsuranceCompany()))) &&
             this.insuranceStatus == other.isInsuranceStatus() &&
-            ((this.nextInspectionDate==null && other.getNextInspectionDate()==null) || 
+            ((this.nextInspectionDate==null && other.getNextInspectionDate()==null) ||
              (this.nextInspectionDate!=null &&
               this.nextInspectionDate.equals(other.getNextInspectionDate()))) &&
             this.rebuilt == other.isRebuilt() &&
             this.offroad == other.isOffroad() &&
-            ((this.technical==null && other.getTechnical()==null) || 
+            ((this.technical==null && other.getTechnical()==null) ||
              (this.technical!=null &&
               this.technical.equals(other.getTechnical()))) &&
-            ((this.owners==null && other.getOwners()==null) || 
+            ((this.owners==null && other.getOwners()==null) ||
              (this.owners!=null &&
               java.util.Arrays.equals(this.owners, other.getOwners()))) &&
-            ((this.operators==null && other.getOperators()==null) || 
+            ((this.operators==null && other.getOperators()==null) ||
              (this.operators!=null &&
               java.util.Arrays.equals(this.operators, other.getOperators()))) &&
-            ((this.plates==null && other.getPlates()==null) || 
+            ((this.plates==null && other.getPlates()==null) ||
              (this.plates!=null &&
               java.util.Arrays.equals(this.plates, other.getPlates()))) &&
-            ((this.disasters==null && other.getDisasters()==null) || 
+            ((this.disasters==null && other.getDisasters()==null) ||
              (this.disasters!=null &&
               java.util.Arrays.equals(this.disasters, other.getDisasters()))) &&
-            ((this.registrations==null && other.getRegistrations()==null) || 
+            ((this.registrations==null && other.getRegistrations()==null) ||
              (this.registrations!=null &&
               java.util.Arrays.equals(this.registrations, other.getRegistrations()))) &&
-            ((this.outofuses==null && other.getOutofuses()==null) || 
+            ((this.outofuses==null && other.getOutofuses()==null) ||
              (this.outofuses!=null &&
               java.util.Arrays.equals(this.outofuses, other.getOutofuses()))) &&
-            ((this.updatelocks==null && other.getUpdatelocks()==null) || 
+            ((this.updatelocks==null && other.getUpdatelocks()==null) ||
              (this.updatelocks!=null &&
               java.util.Arrays.equals(this.updatelocks, other.getUpdatelocks()))) &&
-            ((this.stolens==null && other.getStolens()==null) || 
+            ((this.stolens==null && other.getStolens()==null) ||
              (this.stolens!=null &&
               java.util.Arrays.equals(this.stolens, other.getStolens()))) &&
-            ((this.remarks==null && other.getRemarks()==null) || 
+            ((this.remarks==null && other.getRemarks()==null) ||
              (this.remarks!=null &&
               java.util.Arrays.equals(this.remarks, other.getRemarks()))) &&
-            ((this.inspections==null && other.getInspections()==null) || 
+            ((this.inspections==null && other.getInspections()==null) ||
              (this.inspections!=null &&
               java.util.Arrays.equals(this.inspections, other.getInspections()))) &&
-            ((this.ownerRegistrationErrors==null && other.getOwnerRegistrationErrors()==null) || 
+            ((this.ownerRegistrationErrors==null && other.getOwnerRegistrationErrors()==null) ||
              (this.ownerRegistrationErrors!=null &&
               java.util.Arrays.equals(this.ownerRegistrationErrors, other.getOwnerRegistrationErrors()))) &&
-            ((this.vehicleChanges==null && other.getVehicleChanges()==null) || 
+            ((this.vehicleChanges==null && other.getVehicleChanges()==null) ||
              (this.vehicleChanges!=null &&
               java.util.Arrays.equals(this.vehicleChanges, other.getVehicleChanges()))) &&
-            ((this.typeChanges==null && other.getTypeChanges()==null) || 
+            ((this.typeChanges==null && other.getTypeChanges()==null) ||
              (this.typeChanges!=null &&
               java.util.Arrays.equals(this.typeChanges, other.getTypeChanges()))) &&
-            ((this.specialEquipmentChanges==null && other.getSpecialEquipmentChanges()==null) || 
+            ((this.specialEquipmentChanges==null && other.getSpecialEquipmentChanges()==null) ||
              (this.specialEquipmentChanges!=null &&
               java.util.Arrays.equals(this.specialEquipmentChanges, other.getSpecialEquipmentChanges()))) &&
-            ((this.addonsChanges==null && other.getAddonsChanges()==null) || 
+            ((this.addonsChanges==null && other.getAddonsChanges()==null) ||
              (this.addonsChanges!=null &&
               java.util.Arrays.equals(this.addonsChanges, other.getAddonsChanges()))) &&
-            ((this.superstructureChanges==null && other.getSuperstructureChanges()==null) || 
+            ((this.superstructureChanges==null && other.getSuperstructureChanges()==null) ||
              (this.superstructureChanges!=null &&
               java.util.Arrays.equals(this.superstructureChanges, other.getSuperstructureChanges()))) &&
-            ((this.adrs==null && other.getAdrs()==null) || 
+            ((this.adrs==null && other.getAdrs()==null) ||
              (this.adrs!=null &&
               java.util.Arrays.equals(this.adrs, other.getAdrs()))) &&
-            ((this.latestRegistration==null && other.getLatestRegistration()==null) || 
+            ((this.latestRegistration==null && other.getLatestRegistration()==null) ||
              (this.latestRegistration!=null &&
               this.latestRegistration.equals(other.getLatestRegistration()))) &&
-            ((this.queryTimeStamp==null && other.getQueryTimeStamp()==null) || 
+            ((this.queryTimeStamp==null && other.getQueryTimeStamp()==null) ||
              (this.queryTimeStamp!=null &&
               this.queryTimeStamp.equals(other.getQueryTimeStamp())));
         __equalsCalc = null;
@@ -1801,7 +1811,8 @@ public class Vehicle  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -2624,10 +2635,10 @@ public class Vehicle  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -2636,10 +2647,10 @@ public class Vehicle  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

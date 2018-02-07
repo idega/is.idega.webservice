@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class VehicleAll  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -33,7 +36,7 @@ public class VehicleAll  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this VehicleAll.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -43,7 +46,7 @@ public class VehicleAll  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this VehicleAll.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -53,7 +56,7 @@ public class VehicleAll  implements java.io.Serializable {
 
     /**
      * Gets the vehicle value for this VehicleAll.
-     * 
+     *
      * @return vehicle
      */
     public is.lt.ws.VehicleRegistryService.Vehicle getVehicle() {
@@ -63,7 +66,7 @@ public class VehicleAll  implements java.io.Serializable {
 
     /**
      * Sets the vehicle value for this VehicleAll.
-     * 
+     *
      * @param vehicle
      */
     public void setVehicle(is.lt.ws.VehicleRegistryService.Vehicle vehicle) {
@@ -73,7 +76,7 @@ public class VehicleAll  implements java.io.Serializable {
 
     /**
      * Gets the vehicleExtra value for this VehicleAll.
-     * 
+     *
      * @return vehicleExtra
      */
     public is.lt.ws.VehicleRegistryService.VehicleExtra getVehicleExtra() {
@@ -83,7 +86,7 @@ public class VehicleAll  implements java.io.Serializable {
 
     /**
      * Sets the vehicleExtra value for this VehicleAll.
-     * 
+     *
      * @param vehicleExtra
      */
     public void setVehicleExtra(is.lt.ws.VehicleRegistryService.VehicleExtra vehicleExtra) {
@@ -93,7 +96,7 @@ public class VehicleAll  implements java.io.Serializable {
 
     /**
      * Gets the queryTimeStamp value for this VehicleAll.
-     * 
+     *
      * @return queryTimeStamp
      */
     public java.util.Calendar getQueryTimeStamp() {
@@ -103,7 +106,7 @@ public class VehicleAll  implements java.io.Serializable {
 
     /**
      * Sets the queryTimeStamp value for this VehicleAll.
-     * 
+     *
      * @param queryTimeStamp
      */
     public void setQueryTimeStamp(java.util.Calendar queryTimeStamp) {
@@ -111,27 +114,34 @@ public class VehicleAll  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof VehicleAll)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof VehicleAll)) {
+			return false;
+		}
         VehicleAll other = (VehicleAll) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.vehicle==null && other.getVehicle()==null) || 
+            ((this.vehicle==null && other.getVehicle()==null) ||
              (this.vehicle!=null &&
               this.vehicle.equals(other.getVehicle()))) &&
-            ((this.vehicleExtra==null && other.getVehicleExtra()==null) || 
+            ((this.vehicleExtra==null && other.getVehicleExtra()==null) ||
              (this.vehicleExtra!=null &&
               this.vehicleExtra.equals(other.getVehicleExtra()))) &&
-            ((this.queryTimeStamp==null && other.getQueryTimeStamp()==null) || 
+            ((this.queryTimeStamp==null && other.getQueryTimeStamp()==null) ||
              (this.queryTimeStamp!=null &&
               this.queryTimeStamp.equals(other.getQueryTimeStamp())));
         __equalsCalc = null;
@@ -139,7 +149,8 @@ public class VehicleAll  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -207,10 +218,10 @@ public class VehicleAll  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -219,10 +230,10 @@ public class VehicleAll  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

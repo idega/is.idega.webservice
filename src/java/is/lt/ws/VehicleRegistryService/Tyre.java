@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Tyre  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -25,7 +28,7 @@ public class Tyre  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Tyre.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -35,7 +38,7 @@ public class Tyre  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Tyre.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -45,7 +48,7 @@ public class Tyre  implements java.io.Serializable {
 
     /**
      * Gets the tyreaxle value for this Tyre.
-     * 
+     *
      * @return tyreaxle
      */
     public java.lang.String[] getTyreaxle() {
@@ -55,7 +58,7 @@ public class Tyre  implements java.io.Serializable {
 
     /**
      * Sets the tyreaxle value for this Tyre.
-     * 
+     *
      * @param tyreaxle
      */
     public void setTyreaxle(java.lang.String[] tyreaxle) {
@@ -63,21 +66,28 @@ public class Tyre  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Tyre)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Tyre)) {
+			return false;
+		}
         Tyre other = (Tyre) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.tyreaxle==null && other.getTyreaxle()==null) || 
+            ((this.tyreaxle==null && other.getTyreaxle()==null) ||
              (this.tyreaxle!=null &&
               java.util.Arrays.equals(this.tyreaxle, other.getTyreaxle())));
         __equalsCalc = null;
@@ -85,7 +95,8 @@ public class Tyre  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -143,10 +154,10 @@ public class Tyre  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -155,10 +166,10 @@ public class Tyre  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

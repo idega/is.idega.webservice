@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Inspection  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -53,7 +56,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Inspection.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -63,7 +66,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Inspection.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -73,7 +76,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Gets the date value for this Inspection.
-     * 
+     *
      * @return date
      */
     public java.lang.String getDate() {
@@ -83,7 +86,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Sets the date value for this Inspection.
-     * 
+     *
      * @param date
      */
     public void setDate(java.lang.String date) {
@@ -93,7 +96,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Gets the reinspectionDate value for this Inspection.
-     * 
+     *
      * @return reinspectionDate
      */
     public java.lang.String getReinspectionDate() {
@@ -103,7 +106,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Sets the reinspectionDate value for this Inspection.
-     * 
+     *
      * @param reinspectionDate
      */
     public void setReinspectionDate(java.lang.String reinspectionDate) {
@@ -113,7 +116,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Gets the station value for this Inspection.
-     * 
+     *
      * @return station
      */
     public java.lang.String getStation() {
@@ -123,7 +126,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Sets the station value for this Inspection.
-     * 
+     *
      * @param station
      */
     public void setStation(java.lang.String station) {
@@ -133,7 +136,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Gets the type value for this Inspection.
-     * 
+     *
      * @return type
      */
     public java.lang.String getType() {
@@ -143,7 +146,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Sets the type value for this Inspection.
-     * 
+     *
      * @param type
      */
     public void setType(java.lang.String type) {
@@ -153,7 +156,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Gets the officer value for this Inspection.
-     * 
+     *
      * @return officer
      */
     public java.lang.String getOfficer() {
@@ -163,7 +166,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Sets the officer value for this Inspection.
-     * 
+     *
      * @param officer
      */
     public void setOfficer(java.lang.String officer) {
@@ -173,7 +176,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Gets the result value for this Inspection.
-     * 
+     *
      * @return result
      */
     public java.lang.String getResult() {
@@ -183,7 +186,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Sets the result value for this Inspection.
-     * 
+     *
      * @param result
      */
     public void setResult(java.lang.String result) {
@@ -193,7 +196,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Gets the odometer value for this Inspection.
-     * 
+     *
      * @return odometer
      */
     public java.lang.String getOdometer() {
@@ -203,7 +206,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Sets the odometer value for this Inspection.
-     * 
+     *
      * @param odometer
      */
     public void setOdometer(java.lang.String odometer) {
@@ -213,7 +216,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Gets the remarks value for this Inspection.
-     * 
+     *
      * @return remarks
      */
     public is.lt.ws.VehicleRegistryService.InspectionRemark[] getRemarks() {
@@ -223,7 +226,7 @@ public class Inspection  implements java.io.Serializable {
 
     /**
      * Sets the remarks value for this Inspection.
-     * 
+     *
      * @param remarks
      */
     public void setRemarks(is.lt.ws.VehicleRegistryService.InspectionRemark[] remarks) {
@@ -231,42 +234,49 @@ public class Inspection  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Inspection)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Inspection)) {
+			return false;
+		}
         Inspection other = (Inspection) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.date==null && other.getDate()==null) || 
+            ((this.date==null && other.getDate()==null) ||
              (this.date!=null &&
               this.date.equals(other.getDate()))) &&
-            ((this.reinspectionDate==null && other.getReinspectionDate()==null) || 
+            ((this.reinspectionDate==null && other.getReinspectionDate()==null) ||
              (this.reinspectionDate!=null &&
               this.reinspectionDate.equals(other.getReinspectionDate()))) &&
-            ((this.station==null && other.getStation()==null) || 
+            ((this.station==null && other.getStation()==null) ||
              (this.station!=null &&
               this.station.equals(other.getStation()))) &&
-            ((this.type==null && other.getType()==null) || 
+            ((this.type==null && other.getType()==null) ||
              (this.type!=null &&
               this.type.equals(other.getType()))) &&
-            ((this.officer==null && other.getOfficer()==null) || 
+            ((this.officer==null && other.getOfficer()==null) ||
              (this.officer!=null &&
               this.officer.equals(other.getOfficer()))) &&
-            ((this.result==null && other.getResult()==null) || 
+            ((this.result==null && other.getResult()==null) ||
              (this.result!=null &&
               this.result.equals(other.getResult()))) &&
-            ((this.odometer==null && other.getOdometer()==null) || 
+            ((this.odometer==null && other.getOdometer()==null) ||
              (this.odometer!=null &&
               this.odometer.equals(other.getOdometer()))) &&
-            ((this.remarks==null && other.getRemarks()==null) || 
+            ((this.remarks==null && other.getRemarks()==null) ||
              (this.remarks!=null &&
               java.util.Arrays.equals(this.remarks, other.getRemarks())));
         __equalsCalc = null;
@@ -274,7 +284,8 @@ public class Inspection  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -402,10 +413,10 @@ public class Inspection  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -414,10 +425,10 @@ public class Inspection  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

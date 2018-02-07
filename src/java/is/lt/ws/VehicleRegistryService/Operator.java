@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Operator  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -61,7 +64,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Operator.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -71,7 +74,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Operator.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -81,7 +84,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the current value for this Operator.
-     * 
+     *
      * @return current
      */
     public boolean isCurrent() {
@@ -91,7 +94,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the current value for this Operator.
-     * 
+     *
      * @param current
      */
     public void setCurrent(boolean current) {
@@ -101,7 +104,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the mainoperator value for this Operator.
-     * 
+     *
      * @return mainoperator
      */
     public java.lang.String getMainoperator() {
@@ -111,7 +114,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the mainoperator value for this Operator.
-     * 
+     *
      * @param mainoperator
      */
     public void setMainoperator(java.lang.String mainoperator) {
@@ -121,7 +124,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the serial value for this Operator.
-     * 
+     *
      * @return serial
      */
     public java.lang.String getSerial() {
@@ -131,7 +134,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the serial value for this Operator.
-     * 
+     *
      * @param serial
      */
     public void setSerial(java.lang.String serial) {
@@ -141,7 +144,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the startDate value for this Operator.
-     * 
+     *
      * @return startDate
      */
     public java.lang.String getStartDate() {
@@ -151,7 +154,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the startDate value for this Operator.
-     * 
+     *
      * @param startDate
      */
     public void setStartDate(java.lang.String startDate) {
@@ -161,7 +164,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the endDate value for this Operator.
-     * 
+     *
      * @return endDate
      */
     public java.lang.String getEndDate() {
@@ -171,7 +174,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the endDate value for this Operator.
-     * 
+     *
      * @param endDate
      */
     public void setEndDate(java.lang.String endDate) {
@@ -181,7 +184,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the persidno value for this Operator.
-     * 
+     *
      * @return persidno
      */
     public java.lang.String getPersidno() {
@@ -191,7 +194,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the persidno value for this Operator.
-     * 
+     *
      * @param persidno
      */
     public void setPersidno(java.lang.String persidno) {
@@ -201,7 +204,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the fullname value for this Operator.
-     * 
+     *
      * @return fullname
      */
     public java.lang.String getFullname() {
@@ -211,7 +214,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the fullname value for this Operator.
-     * 
+     *
      * @param fullname
      */
     public void setFullname(java.lang.String fullname) {
@@ -221,7 +224,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the address value for this Operator.
-     * 
+     *
      * @return address
      */
     public java.lang.String getAddress() {
@@ -231,7 +234,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the address value for this Operator.
-     * 
+     *
      * @param address
      */
     public void setAddress(java.lang.String address) {
@@ -241,7 +244,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the postalcode value for this Operator.
-     * 
+     *
      * @return postalcode
      */
     public java.lang.String getPostalcode() {
@@ -251,7 +254,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the postalcode value for this Operator.
-     * 
+     *
      * @param postalcode
      */
     public void setPostalcode(java.lang.String postalcode) {
@@ -261,7 +264,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Gets the city value for this Operator.
-     * 
+     *
      * @return city
      */
     public java.lang.String getCity() {
@@ -271,7 +274,7 @@ public class Operator  implements java.io.Serializable {
 
     /**
      * Sets the city value for this Operator.
-     * 
+     *
      * @param city
      */
     public void setCity(java.lang.String city) {
@@ -279,46 +282,53 @@ public class Operator  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Operator)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Operator)) {
+			return false;
+		}
         Operator other = (Operator) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
             this.current == other.isCurrent() &&
-            ((this.mainoperator==null && other.getMainoperator()==null) || 
+            ((this.mainoperator==null && other.getMainoperator()==null) ||
              (this.mainoperator!=null &&
               this.mainoperator.equals(other.getMainoperator()))) &&
-            ((this.serial==null && other.getSerial()==null) || 
+            ((this.serial==null && other.getSerial()==null) ||
              (this.serial!=null &&
               this.serial.equals(other.getSerial()))) &&
-            ((this.startDate==null && other.getStartDate()==null) || 
+            ((this.startDate==null && other.getStartDate()==null) ||
              (this.startDate!=null &&
               this.startDate.equals(other.getStartDate()))) &&
-            ((this.endDate==null && other.getEndDate()==null) || 
+            ((this.endDate==null && other.getEndDate()==null) ||
              (this.endDate!=null &&
               this.endDate.equals(other.getEndDate()))) &&
-            ((this.persidno==null && other.getPersidno()==null) || 
+            ((this.persidno==null && other.getPersidno()==null) ||
              (this.persidno!=null &&
               this.persidno.equals(other.getPersidno()))) &&
-            ((this.fullname==null && other.getFullname()==null) || 
+            ((this.fullname==null && other.getFullname()==null) ||
              (this.fullname!=null &&
               this.fullname.equals(other.getFullname()))) &&
-            ((this.address==null && other.getAddress()==null) || 
+            ((this.address==null && other.getAddress()==null) ||
              (this.address!=null &&
               this.address.equals(other.getAddress()))) &&
-            ((this.postalcode==null && other.getPostalcode()==null) || 
+            ((this.postalcode==null && other.getPostalcode()==null) ||
              (this.postalcode!=null &&
               this.postalcode.equals(other.getPostalcode()))) &&
-            ((this.city==null && other.getCity()==null) || 
+            ((this.city==null && other.getCity()==null) ||
              (this.city!=null &&
               this.city.equals(other.getCity())));
         __equalsCalc = null;
@@ -326,7 +336,8 @@ public class Operator  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -462,10 +473,10 @@ public class Operator  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -474,10 +485,10 @@ public class Operator  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

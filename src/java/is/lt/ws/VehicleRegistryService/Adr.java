@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Adr  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -57,7 +60,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Adr.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -67,7 +70,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Adr.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -77,7 +80,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Gets the date value for this Adr.
-     * 
+     *
      * @return date
      */
     public java.lang.String getDate() {
@@ -87,7 +90,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Sets the date value for this Adr.
-     * 
+     *
      * @param date
      */
     public void setDate(java.lang.String date) {
@@ -97,7 +100,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Gets the expires value for this Adr.
-     * 
+     *
      * @return expires
      */
     public java.lang.String getExpires() {
@@ -107,7 +110,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Sets the expires value for this Adr.
-     * 
+     *
      * @param expires
      */
     public void setExpires(java.lang.String expires) {
@@ -117,7 +120,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Gets the EXII value for this Adr.
-     * 
+     *
      * @return EXII
      */
     public boolean isEXII() {
@@ -127,7 +130,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Sets the EXII value for this Adr.
-     * 
+     *
      * @param EXII
      */
     public void setEXII(boolean EXII) {
@@ -137,7 +140,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Gets the EXIII value for this Adr.
-     * 
+     *
      * @return EXIII
      */
     public boolean isEXIII() {
@@ -147,7 +150,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Sets the EXIII value for this Adr.
-     * 
+     *
      * @param EXIII
      */
     public void setEXIII(boolean EXIII) {
@@ -157,7 +160,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Gets the FL value for this Adr.
-     * 
+     *
      * @return FL
      */
     public boolean isFL() {
@@ -167,7 +170,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Sets the FL value for this Adr.
-     * 
+     *
      * @param FL
      */
     public void setFL(boolean FL) {
@@ -177,7 +180,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Gets the OX value for this Adr.
-     * 
+     *
      * @return OX
      */
     public boolean isOX() {
@@ -187,7 +190,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Sets the OX value for this Adr.
-     * 
+     *
      * @param OX
      */
     public void setOX(boolean OX) {
@@ -197,7 +200,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Gets the AT value for this Adr.
-     * 
+     *
      * @return AT
      */
     public boolean isAT() {
@@ -207,7 +210,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Sets the AT value for this Adr.
-     * 
+     *
      * @param AT
      */
     public void setAT(boolean AT) {
@@ -217,7 +220,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Gets the pressExpires value for this Adr.
-     * 
+     *
      * @return pressExpires
      */
     public java.lang.String getPressExpires() {
@@ -227,7 +230,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Sets the pressExpires value for this Adr.
-     * 
+     *
      * @param pressExpires
      */
     public void setPressExpires(java.lang.String pressExpires) {
@@ -237,7 +240,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Gets the invalidDate value for this Adr.
-     * 
+     *
      * @return invalidDate
      */
     public java.lang.String getInvalidDate() {
@@ -247,7 +250,7 @@ public class Adr  implements java.io.Serializable {
 
     /**
      * Sets the invalidDate value for this Adr.
-     * 
+     *
      * @param invalidDate
      */
     public void setInvalidDate(java.lang.String invalidDate) {
@@ -255,24 +258,31 @@ public class Adr  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Adr)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Adr)) {
+			return false;
+		}
         Adr other = (Adr) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.date==null && other.getDate()==null) || 
+            ((this.date==null && other.getDate()==null) ||
              (this.date!=null &&
               this.date.equals(other.getDate()))) &&
-            ((this.expires==null && other.getExpires()==null) || 
+            ((this.expires==null && other.getExpires()==null) ||
              (this.expires!=null &&
               this.expires.equals(other.getExpires()))) &&
             this.EXII == other.isEXII() &&
@@ -280,10 +290,10 @@ public class Adr  implements java.io.Serializable {
             this.FL == other.isFL() &&
             this.OX == other.isOX() &&
             this.AT == other.isAT() &&
-            ((this.pressExpires==null && other.getPressExpires()==null) || 
+            ((this.pressExpires==null && other.getPressExpires()==null) ||
              (this.pressExpires!=null &&
               this.pressExpires.equals(other.getPressExpires()))) &&
-            ((this.invalidDate==null && other.getInvalidDate()==null) || 
+            ((this.invalidDate==null && other.getInvalidDate()==null) ||
              (this.invalidDate!=null &&
               this.invalidDate.equals(other.getInvalidDate())));
         __equalsCalc = null;
@@ -291,7 +301,8 @@ public class Adr  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -405,10 +416,10 @@ public class Adr  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -417,10 +428,10 @@ public class Adr  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

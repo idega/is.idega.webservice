@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Updatelock  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -33,7 +36,7 @@ public class Updatelock  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Updatelock.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -43,7 +46,7 @@ public class Updatelock  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Updatelock.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -53,7 +56,7 @@ public class Updatelock  implements java.io.Serializable {
 
     /**
      * Gets the startDate value for this Updatelock.
-     * 
+     *
      * @return startDate
      */
     public java.lang.String getStartDate() {
@@ -63,7 +66,7 @@ public class Updatelock  implements java.io.Serializable {
 
     /**
      * Sets the startDate value for this Updatelock.
-     * 
+     *
      * @param startDate
      */
     public void setStartDate(java.lang.String startDate) {
@@ -73,7 +76,7 @@ public class Updatelock  implements java.io.Serializable {
 
     /**
      * Gets the endDate value for this Updatelock.
-     * 
+     *
      * @return endDate
      */
     public java.lang.String getEndDate() {
@@ -83,7 +86,7 @@ public class Updatelock  implements java.io.Serializable {
 
     /**
      * Sets the endDate value for this Updatelock.
-     * 
+     *
      * @param endDate
      */
     public void setEndDate(java.lang.String endDate) {
@@ -93,7 +96,7 @@ public class Updatelock  implements java.io.Serializable {
 
     /**
      * Gets the type value for this Updatelock.
-     * 
+     *
      * @return type
      */
     public java.lang.String getType() {
@@ -103,7 +106,7 @@ public class Updatelock  implements java.io.Serializable {
 
     /**
      * Sets the type value for this Updatelock.
-     * 
+     *
      * @param type
      */
     public void setType(java.lang.String type) {
@@ -111,27 +114,34 @@ public class Updatelock  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Updatelock)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Updatelock)) {
+			return false;
+		}
         Updatelock other = (Updatelock) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.startDate==null && other.getStartDate()==null) || 
+            ((this.startDate==null && other.getStartDate()==null) ||
              (this.startDate!=null &&
               this.startDate.equals(other.getStartDate()))) &&
-            ((this.endDate==null && other.getEndDate()==null) || 
+            ((this.endDate==null && other.getEndDate()==null) ||
              (this.endDate!=null &&
               this.endDate.equals(other.getEndDate()))) &&
-            ((this.type==null && other.getType()==null) || 
+            ((this.type==null && other.getType()==null) ||
              (this.type!=null &&
               this.type.equals(other.getType())));
         __equalsCalc = null;
@@ -139,7 +149,8 @@ public class Updatelock  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -208,10 +219,10 @@ public class Updatelock  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -220,10 +231,10 @@ public class Updatelock  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }

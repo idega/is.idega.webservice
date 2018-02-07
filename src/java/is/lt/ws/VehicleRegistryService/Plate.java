@@ -7,6 +7,9 @@
 
 package is.lt.ws.VehicleRegistryService;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Plate  implements java.io.Serializable {
     private is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData;
 
@@ -37,7 +40,7 @@ public class Plate  implements java.io.Serializable {
 
     /**
      * Gets the extensionData value for this Plate.
-     * 
+     *
      * @return extensionData
      */
     public is.lt.ws.VehicleRegistryService.ExtensionDataObject getExtensionData() {
@@ -47,7 +50,7 @@ public class Plate  implements java.io.Serializable {
 
     /**
      * Sets the extensionData value for this Plate.
-     * 
+     *
      * @param extensionData
      */
     public void setExtensionData(is.lt.ws.VehicleRegistryService.ExtensionDataObject extensionData) {
@@ -57,7 +60,7 @@ public class Plate  implements java.io.Serializable {
 
     /**
      * Gets the date value for this Plate.
-     * 
+     *
      * @return date
      */
     public java.lang.String getDate() {
@@ -67,7 +70,7 @@ public class Plate  implements java.io.Serializable {
 
     /**
      * Sets the date value for this Plate.
-     * 
+     *
      * @param date
      */
     public void setDate(java.lang.String date) {
@@ -77,7 +80,7 @@ public class Plate  implements java.io.Serializable {
 
     /**
      * Gets the regno value for this Plate.
-     * 
+     *
      * @return regno
      */
     public java.lang.String getRegno() {
@@ -87,7 +90,7 @@ public class Plate  implements java.io.Serializable {
 
     /**
      * Sets the regno value for this Plate.
-     * 
+     *
      * @param regno
      */
     public void setRegno(java.lang.String regno) {
@@ -97,7 +100,7 @@ public class Plate  implements java.io.Serializable {
 
     /**
      * Gets the reggroup value for this Plate.
-     * 
+     *
      * @return reggroup
      */
     public java.lang.String getReggroup() {
@@ -107,7 +110,7 @@ public class Plate  implements java.io.Serializable {
 
     /**
      * Sets the reggroup value for this Plate.
-     * 
+     *
      * @param reggroup
      */
     public void setReggroup(java.lang.String reggroup) {
@@ -117,7 +120,7 @@ public class Plate  implements java.io.Serializable {
 
     /**
      * Gets the reggroupname value for this Plate.
-     * 
+     *
      * @return reggroupname
      */
     public java.lang.String getReggroupname() {
@@ -127,7 +130,7 @@ public class Plate  implements java.io.Serializable {
 
     /**
      * Sets the reggroupname value for this Plate.
-     * 
+     *
      * @param reggroupname
      */
     public void setReggroupname(java.lang.String reggroupname) {
@@ -135,30 +138,37 @@ public class Plate  implements java.io.Serializable {
     }
 
     private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Plate)) return false;
+    @Override
+	public synchronized boolean equals(java.lang.Object obj) {
+        if (!(obj instanceof Plate)) {
+			return false;
+		}
         Plate other = (Plate) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
+        if (obj == null) {
+			return false;
+		}
+        if (this == obj) {
+			return true;
+		}
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }
         __equalsCalc = obj;
         boolean _equals;
-        _equals = true && 
-            ((this.extensionData==null && other.getExtensionData()==null) || 
+        _equals = true &&
+            ((this.extensionData==null && other.getExtensionData()==null) ||
              (this.extensionData!=null &&
               this.extensionData.equals(other.getExtensionData()))) &&
-            ((this.date==null && other.getDate()==null) || 
+            ((this.date==null && other.getDate()==null) ||
              (this.date!=null &&
               this.date.equals(other.getDate()))) &&
-            ((this.regno==null && other.getRegno()==null) || 
+            ((this.regno==null && other.getRegno()==null) ||
              (this.regno!=null &&
               this.regno.equals(other.getRegno()))) &&
-            ((this.reggroup==null && other.getReggroup()==null) || 
+            ((this.reggroup==null && other.getReggroup()==null) ||
              (this.reggroup!=null &&
               this.reggroup.equals(other.getReggroup()))) &&
-            ((this.reggroupname==null && other.getReggroupname()==null) || 
+            ((this.reggroupname==null && other.getReggroupname()==null) ||
              (this.reggroupname!=null &&
               this.reggroupname.equals(other.getReggroupname())));
         __equalsCalc = null;
@@ -166,7 +176,8 @@ public class Plate  implements java.io.Serializable {
     }
 
     private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
+    @Override
+	public synchronized int hashCode() {
         if (__hashCodeCalc) {
             return 0;
         }
@@ -245,10 +256,10 @@ public class Plate  implements java.io.Serializable {
      * Get Custom Serializer
      */
     public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
@@ -257,10 +268,10 @@ public class Plate  implements java.io.Serializable {
      * Get Custom Deserializer
      */
     public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
+           java.lang.String mechType,
+           java.lang.Class _javaType,
            javax.xml.namespace.QName _xmlType) {
-        return 
+        return
           new  org.apache.axis.encoding.ser.BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }
