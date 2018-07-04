@@ -15,6 +15,7 @@ import javax.xml.rpc.ServiceException;
 
 import org.apache.axis.client.Stub;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
@@ -34,14 +35,15 @@ import is.lt.ws.ServiceSoap;
 import is.lt.ws.VehicleRegistryService.Vehicle;
 import is.lt.ws.VehicleRegistryService.VehicleRegistryServiceLocator;
 
+@Primary
 @Scope(BeanDefinition.SCOPE_SINGLETON)
 @Service("vehicleRegistryWebService")
 public class VehicleRegistryWebServiceBean extends DefaultSpringBean implements VehicleRegistryWebService {
 
-	private static final String VEHICLE_REGISTRY_CACHE = "vehicle_registry_cache";
-	private static final String VEHICLE_REGISTRY_PASSWORD = "vehicle_registry_password";
-	private static final String VEHICLE_REGISTRY_USER = "vehicle_registry_user";
-	private static final String VEHICLE_REGISTRY_ENDPOINT = "vehicle_registry_endpoint";
+	public static final String	VEHICLE_REGISTRY_CACHE = "vehicle_registry_cache",
+								VEHICLE_REGISTRY_PASSWORD = "vehicle_registry_password",
+								VEHICLE_REGISTRY_USER = "vehicle_registry_user",
+								VEHICLE_REGISTRY_ENDPOINT = "vehicle_registry_endpoint";
 
 	private void setTimeout(Stub port, int timeout) {
 		if (port == null || timeout < 0) {
