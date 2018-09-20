@@ -301,7 +301,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 					IWMainApplication.getDefaultIWApplicationContext() :
 					iwc;
 			CitizenBusiness citizenBusiness = IBOLookup.getServiceInstance(iwac, CitizenBusiness.class);
-			return citizenBusiness.getHomePageForCitizen(iwc, personalID, fullName, appProperty, cookie);
+			return citizenBusiness.getHomePageForCitizen(iwc, personalID, fullName, appProperty, cookie, null);
 		} catch (Exception e) {
 			getLogger().log(Level.WARNING, "Error getting home page for citizen with personal ID: " + personalID, e);
 		}
@@ -488,12 +488,12 @@ public class IslandDotIsService extends DefaultSpringBean {
 					//Do nothing - cert not trusted yet
 				}
 			}
-			if (!trusted)
+			if (!trusted) {
 				throw new Exception("Certificate is not trusted.");
-			else if (getSettings().getBoolean("island.is_check_serial_on_validate", false)) {
-				if (cert.getSubjectDN().toString().contains("SERIALNUMBER=6503760649") && cert.getIssuerDN().toString().startsWith("CN=Traustur	bunadur"))
+			} else if (getSettings().getBoolean("island.is_check_serial_on_validate", false)) {
+				if (cert.getSubjectDN().toString().contains("SERIALNUMBER=6503760649") && cert.getIssuerDN().toString().startsWith("CN=Traustur	bunadur")) {
 					trusted = true;
-				else {
+				} else {
 					throw new Exception("Certificate is not trusted, does not contain serial number.");
 				}
 			}
