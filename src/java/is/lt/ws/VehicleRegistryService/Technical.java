@@ -87,8 +87,6 @@ public class Technical  implements java.io.Serializable {
 
     private java.lang.String co2;
 
-    private java.lang.String weightedCo2;
-
     private java.lang.String brakedevice;
 
     private java.lang.String snumber;
@@ -110,6 +108,16 @@ public class Technical  implements java.io.Serializable {
     private java.lang.String mainCategory;
 
     private java.lang.String excemptionCategory;
+
+    private java.lang.String weightedCo2;
+
+    private java.lang.String vehicleSubGroup;
+
+    private java.lang.String standingNo;
+
+    private java.lang.String co2_WLTP;
+
+    private java.lang.String weightedCo2_WLTP;
 
     public Technical() {
     }
@@ -153,7 +161,6 @@ public class Technical  implements java.io.Serializable {
            java.lang.String extraurban,
            java.lang.String combined,
            java.lang.String co2,
-           java.lang.String weightedCo2,
            java.lang.String brakedevice,
            java.lang.String snumber,
            java.lang.String t_massoftrbr,
@@ -164,7 +171,12 @@ public class Technical  implements java.io.Serializable {
            is.lt.ws.VehicleRegistryService.Mass mass,
            java.lang.String priceRange,
            java.lang.String mainCategory,
-           java.lang.String excemptionCategory) {
+           java.lang.String excemptionCategory,
+           java.lang.String weightedCo2,
+           java.lang.String vehicleSubGroup,
+           java.lang.String standingNo,
+           java.lang.String co2_WLTP,
+           java.lang.String weightedCo2_WLTP) {
            this.extensionData = extensionData;
            this.vehgroup = vehgroup;
            this.engine = engine;
@@ -203,7 +215,6 @@ public class Technical  implements java.io.Serializable {
            this.extraurban = extraurban;
            this.combined = combined;
            this.co2 = co2;
-           this.weightedCo2 = weightedCo2;
            this.brakedevice = brakedevice;
            this.snumber = snumber;
            this.t_massoftrbr = t_massoftrbr;
@@ -215,6 +226,11 @@ public class Technical  implements java.io.Serializable {
            this.priceRange = priceRange;
            this.mainCategory = mainCategory;
            this.excemptionCategory = excemptionCategory;
+           this.weightedCo2 = weightedCo2;
+           this.vehicleSubGroup = vehicleSubGroup;
+           this.standingNo = standingNo;
+           this.co2_WLTP = co2_WLTP;
+           this.weightedCo2_WLTP = weightedCo2_WLTP;
     }
 
 
@@ -979,26 +995,6 @@ public class Technical  implements java.io.Serializable {
 
 
     /**
-     * Gets the weightedCo2 value for this Technical.
-     *
-     * @return weightedCo2
-     */
-    public java.lang.String getWeightedCo2() {
-        return weightedCo2;
-    }
-
-
-    /**
-     * Sets the weightedCo2 value for this Technical.
-     *
-     * @param weightedCo2
-     */
-    public void setWeightedCo2(java.lang.String weightedCo2) {
-        this.weightedCo2 = weightedCo2;
-    }
-
-
-    /**
      * Gets the brakedevice value for this Technical.
      *
      * @return brakedevice
@@ -1217,6 +1213,106 @@ public class Technical  implements java.io.Serializable {
         this.excemptionCategory = excemptionCategory;
     }
 
+
+    /**
+     * Gets the weightedCo2 value for this Technical.
+     *
+     * @return weightedCo2
+     */
+    public java.lang.String getWeightedCo2() {
+        return weightedCo2;
+    }
+
+
+    /**
+     * Sets the weightedCo2 value for this Technical.
+     *
+     * @param weightedCo2
+     */
+    public void setWeightedCo2(java.lang.String weightedCo2) {
+        this.weightedCo2 = weightedCo2;
+    }
+
+
+    /**
+     * Gets the vehicleSubGroup value for this Technical.
+     *
+     * @return vehicleSubGroup
+     */
+    public java.lang.String getVehicleSubGroup() {
+        return vehicleSubGroup;
+    }
+
+
+    /**
+     * Sets the vehicleSubGroup value for this Technical.
+     *
+     * @param vehicleSubGroup
+     */
+    public void setVehicleSubGroup(java.lang.String vehicleSubGroup) {
+        this.vehicleSubGroup = vehicleSubGroup;
+    }
+
+
+    /**
+     * Gets the standingNo value for this Technical.
+     *
+     * @return standingNo
+     */
+    public java.lang.String getStandingNo() {
+        return standingNo;
+    }
+
+
+    /**
+     * Sets the standingNo value for this Technical.
+     *
+     * @param standingNo
+     */
+    public void setStandingNo(java.lang.String standingNo) {
+        this.standingNo = standingNo;
+    }
+
+
+    /**
+     * Gets the co2_WLTP value for this Technical.
+     *
+     * @return co2_WLTP
+     */
+    public java.lang.String getCo2_WLTP() {
+        return co2_WLTP;
+    }
+
+
+    /**
+     * Sets the co2_WLTP value for this Technical.
+     *
+     * @param co2_WLTP
+     */
+    public void setCo2_WLTP(java.lang.String co2_WLTP) {
+        this.co2_WLTP = co2_WLTP;
+    }
+
+
+    /**
+     * Gets the weightedCo2_WLTP value for this Technical.
+     *
+     * @return weightedCo2_WLTP
+     */
+    public java.lang.String getWeightedCo2_WLTP() {
+        return weightedCo2_WLTP;
+    }
+
+
+    /**
+     * Sets the weightedCo2_WLTP value for this Technical.
+     *
+     * @param weightedCo2_WLTP
+     */
+    public void setWeightedCo2_WLTP(java.lang.String weightedCo2_WLTP) {
+        this.weightedCo2_WLTP = weightedCo2_WLTP;
+    }
+
     private java.lang.Object __equalsCalc = null;
     @Override
 	public synchronized boolean equals(java.lang.Object obj) {
@@ -1348,9 +1444,6 @@ public class Technical  implements java.io.Serializable {
             ((this.co2==null && other.getCo2()==null) ||
              (this.co2!=null &&
               this.co2.equals(other.getCo2()))) &&
-            ((this.weightedCo2==null && other.getWeightedCo2()==null) ||
-             (this.weightedCo2!=null &&
-              this.weightedCo2.equals(other.getWeightedCo2()))) &&
             ((this.brakedevice==null && other.getBrakedevice()==null) ||
              (this.brakedevice!=null &&
               this.brakedevice.equals(other.getBrakedevice()))) &&
@@ -1383,7 +1476,22 @@ public class Technical  implements java.io.Serializable {
               this.mainCategory.equals(other.getMainCategory()))) &&
             ((this.excemptionCategory==null && other.getExcemptionCategory()==null) ||
              (this.excemptionCategory!=null &&
-              this.excemptionCategory.equals(other.getExcemptionCategory())));
+              this.excemptionCategory.equals(other.getExcemptionCategory()))) &&
+            ((this.weightedCo2==null && other.getWeightedCo2()==null) ||
+             (this.weightedCo2!=null &&
+              this.weightedCo2.equals(other.getWeightedCo2()))) &&
+            ((this.vehicleSubGroup==null && other.getVehicleSubGroup()==null) ||
+             (this.vehicleSubGroup!=null &&
+              this.vehicleSubGroup.equals(other.getVehicleSubGroup()))) &&
+            ((this.standingNo==null && other.getStandingNo()==null) ||
+             (this.standingNo!=null &&
+              this.standingNo.equals(other.getStandingNo()))) &&
+            ((this.co2_WLTP==null && other.getCo2_WLTP()==null) ||
+             (this.co2_WLTP!=null &&
+              this.co2_WLTP.equals(other.getCo2_WLTP()))) &&
+            ((this.weightedCo2_WLTP==null && other.getWeightedCo2_WLTP()==null) ||
+             (this.weightedCo2_WLTP!=null &&
+              this.weightedCo2_WLTP.equals(other.getWeightedCo2_WLTP())));
         __equalsCalc = null;
         return _equals;
     }
@@ -1516,9 +1624,6 @@ public class Technical  implements java.io.Serializable {
         if (getCo2() != null) {
             _hashCode += getCo2().hashCode();
         }
-        if (getWeightedCo2() != null) {
-            _hashCode += getWeightedCo2().hashCode();
-        }
         if (getBrakedevice() != null) {
             _hashCode += getBrakedevice().hashCode();
         }
@@ -1551,6 +1656,21 @@ public class Technical  implements java.io.Serializable {
         }
         if (getExcemptionCategory() != null) {
             _hashCode += getExcemptionCategory().hashCode();
+        }
+        if (getWeightedCo2() != null) {
+            _hashCode += getWeightedCo2().hashCode();
+        }
+        if (getVehicleSubGroup() != null) {
+            _hashCode += getVehicleSubGroup().hashCode();
+        }
+        if (getStandingNo() != null) {
+            _hashCode += getStandingNo().hashCode();
+        }
+        if (getCo2_WLTP() != null) {
+            _hashCode += getCo2_WLTP().hashCode();
+        }
+        if (getWeightedCo2_WLTP() != null) {
+            _hashCode += getWeightedCo2_WLTP().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -1829,13 +1949,6 @@ public class Technical  implements java.io.Serializable {
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
         elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("weightedCo2");
-        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "WeightedCo2"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("brakedevice");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Brakedevice"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
@@ -1908,6 +2021,41 @@ public class Technical  implements java.io.Serializable {
         elemField = new org.apache.axis.description.ElementDesc();
         elemField.setFieldName("excemptionCategory");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "ExcemptionCategory"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("weightedCo2");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "WeightedCo2"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("vehicleSubGroup");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "VehicleSubGroup"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("standingNo");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "StandingNo"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("co2_WLTP");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "Co2_WLTP"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("weightedCo2_WLTP");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "WeightedCo2_WLTP"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setMinOccurs(0);
         elemField.setNillable(false);

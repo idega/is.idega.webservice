@@ -143,6 +143,12 @@ public class Vehicle  implements java.io.Serializable {
 
     private java.util.Calendar queryTimeStamp;
 
+    private java.lang.String formerCountry;
+
+    private java.lang.String nextInspectionDateIfPassedInspectionToday;
+
+    private java.lang.String taxGroup;
+
     public Vehicle() {
     }
 
@@ -212,7 +218,10 @@ public class Vehicle  implements java.io.Serializable {
            is.lt.ws.VehicleRegistryService.SuperstructureChange[] superstructureChanges,
            is.lt.ws.VehicleRegistryService.Adr[] adrs,
            java.lang.String latestRegistration,
-           java.util.Calendar queryTimeStamp) {
+           java.util.Calendar queryTimeStamp,
+           java.lang.String formerCountry,
+           java.lang.String nextInspectionDateIfPassedInspectionToday,
+           java.lang.String taxGroup) {
            this.extensionData = extensionData;
            this.permNo = permNo;
            this.regNo = regNo;
@@ -279,6 +288,9 @@ public class Vehicle  implements java.io.Serializable {
            this.adrs = adrs;
            this.latestRegistration = latestRegistration;
            this.queryTimeStamp = queryTimeStamp;
+           this.formerCountry = formerCountry;
+           this.nextInspectionDateIfPassedInspectionToday = nextInspectionDateIfPassedInspectionToday;
+           this.taxGroup = taxGroup;
     }
 
 
@@ -1601,6 +1613,66 @@ public class Vehicle  implements java.io.Serializable {
         this.queryTimeStamp = queryTimeStamp;
     }
 
+
+    /**
+     * Gets the formerCountry value for this Vehicle.
+     *
+     * @return formerCountry
+     */
+    public java.lang.String getFormerCountry() {
+        return formerCountry;
+    }
+
+
+    /**
+     * Sets the formerCountry value for this Vehicle.
+     *
+     * @param formerCountry
+     */
+    public void setFormerCountry(java.lang.String formerCountry) {
+        this.formerCountry = formerCountry;
+    }
+
+
+    /**
+     * Gets the nextInspectionDateIfPassedInspectionToday value for this Vehicle.
+     *
+     * @return nextInspectionDateIfPassedInspectionToday
+     */
+    public java.lang.String getNextInspectionDateIfPassedInspectionToday() {
+        return nextInspectionDateIfPassedInspectionToday;
+    }
+
+
+    /**
+     * Sets the nextInspectionDateIfPassedInspectionToday value for this Vehicle.
+     *
+     * @param nextInspectionDateIfPassedInspectionToday
+     */
+    public void setNextInspectionDateIfPassedInspectionToday(java.lang.String nextInspectionDateIfPassedInspectionToday) {
+        this.nextInspectionDateIfPassedInspectionToday = nextInspectionDateIfPassedInspectionToday;
+    }
+
+
+    /**
+     * Gets the taxGroup value for this Vehicle.
+     *
+     * @return taxGroup
+     */
+    public java.lang.String getTaxGroup() {
+        return taxGroup;
+    }
+
+
+    /**
+     * Sets the taxGroup value for this Vehicle.
+     *
+     * @param taxGroup
+     */
+    public void setTaxGroup(java.lang.String taxGroup) {
+        this.taxGroup = taxGroup;
+    }
+
     private java.lang.Object __equalsCalc = null;
     @Override
 	public synchronized boolean equals(java.lang.Object obj) {
@@ -1805,7 +1877,16 @@ public class Vehicle  implements java.io.Serializable {
               this.latestRegistration.equals(other.getLatestRegistration()))) &&
             ((this.queryTimeStamp==null && other.getQueryTimeStamp()==null) ||
              (this.queryTimeStamp!=null &&
-              this.queryTimeStamp.equals(other.getQueryTimeStamp())));
+              this.queryTimeStamp.equals(other.getQueryTimeStamp()))) &&
+            ((this.formerCountry==null && other.getFormerCountry()==null) ||
+             (this.formerCountry!=null &&
+              this.formerCountry.equals(other.getFormerCountry()))) &&
+            ((this.nextInspectionDateIfPassedInspectionToday==null && other.getNextInspectionDateIfPassedInspectionToday()==null) ||
+             (this.nextInspectionDateIfPassedInspectionToday!=null &&
+              this.nextInspectionDateIfPassedInspectionToday.equals(other.getNextInspectionDateIfPassedInspectionToday()))) &&
+            ((this.taxGroup==null && other.getTaxGroup()==null) ||
+             (this.taxGroup!=null &&
+              this.taxGroup.equals(other.getTaxGroup())));
         __equalsCalc = null;
         return _equals;
     }
@@ -2139,6 +2220,15 @@ public class Vehicle  implements java.io.Serializable {
         }
         if (getQueryTimeStamp() != null) {
             _hashCode += getQueryTimeStamp().hashCode();
+        }
+        if (getFormerCountry() != null) {
+            _hashCode += getFormerCountry().hashCode();
+        }
+        if (getNextInspectionDateIfPassedInspectionToday() != null) {
+            _hashCode += getNextInspectionDateIfPassedInspectionToday().hashCode();
+        }
+        if (getTaxGroup() != null) {
+            _hashCode += getTaxGroup().hashCode();
         }
         __hashCodeCalc = false;
         return _hashCode;
@@ -2620,6 +2710,27 @@ public class Vehicle  implements java.io.Serializable {
         elemField.setFieldName("queryTimeStamp");
         elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "QueryTimeStamp"));
         elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("formerCountry");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "FormerCountry"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("nextInspectionDateIfPassedInspectionToday");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "NextInspectionDateIfPassedInspectionToday"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
+        elemField.setNillable(false);
+        typeDesc.addFieldDesc(elemField);
+        elemField = new org.apache.axis.description.ElementDesc();
+        elemField.setFieldName("taxGroup");
+        elemField.setXmlName(new javax.xml.namespace.QName("https://ws.lt.is/VehicleRegistryService", "TaxGroup"));
+        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setMinOccurs(0);
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
