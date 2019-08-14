@@ -38,6 +38,9 @@ import org.opensaml.common.SignableSAMLObject;
 import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.Attribute;
 import org.opensaml.saml2.core.AttributeStatement;
+import org.opensaml.saml2.core.Audience;
+import org.opensaml.saml2.core.AudienceRestriction;
+import org.opensaml.saml2.core.Conditions;
 import org.opensaml.saml2.core.Response;
 import org.opensaml.saml2.core.SubjectConfirmation;
 import org.opensaml.security.SAMLSignatureProfileValidator;
@@ -51,6 +54,7 @@ import org.opensaml.xml.parse.XMLParserException;
 import org.opensaml.xml.schema.impl.XSStringImpl;
 import org.opensaml.xml.security.x509.BasicX509Credential;
 import org.opensaml.xml.signature.KeyInfo;
+import org.opensaml.xml.signature.Signature;
 import org.opensaml.xml.signature.SignatureValidator;
 import org.opensaml.xml.validation.ValidationException;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -74,6 +78,7 @@ import com.idega.presentation.IWContext;
 import com.idega.user.data.User;
 import com.idega.util.CoreConstants;
 import com.idega.util.IOUtil;
+import com.idega.util.ListUtil;
 import com.idega.util.RequestUtil;
 import com.idega.util.StringUtil;
 import com.idega.util.expression.ELUtil;
@@ -356,10 +361,16 @@ public class IslandDotIsService extends DefaultSpringBean {
 
 		String personalID = null;
 		try {
-			SignableSAMLObject signedObject = (SignableSAMLObject) unmarshall(samlString);
+			boolean debug = getSettings().getBoolean("island.is.debug", false);
+
+			SignableSAMLObject signedObject = (SignableSAMLObject) unmarshall(samlString, debug);
 			if (signedObject == null) {
 				getLogger().warning("Signed object is unknown (" + signedObject + ") from SAML message: " + samlString);
 				return null;
+			}
+
+			if (debug) {
+				getLogger().info("Unmarshalled SAML:\n" + signedObject);
 			}
 
 			SignableSAMLObject samlObject = (SignableSAMLObject) validateSignature(signedObject, getTrustStore());
@@ -383,6 +394,47 @@ public class IslandDotIsService extends DefaultSpringBean {
 				throw new Exception("Token date expired (getNotOnOrAfter = " + assertion.getConditions().getNotOnOrAfter() + " ), server_date: " + serverDate);
 			}
 
+			//	Validate audience
+			String correctAudience = getSettings().getProperty("island.is.correct_audience");
+			if (!StringUtil.isEmpty(correctAudience) && getSettings().getBoolean("island.is.validate_audience", true)) {
+				Conditions conditions = assertion.getConditions();
+				List<AudienceRestriction> audienceRestrictions = conditions == null ? null : conditions.getAudienceRestrictions();
+				if (ListUtil.isEmpty(audienceRestrictions)) {
+					throw new Exception("No audience(s) at assertion's (" + assertion + ") conditions: " + conditions);
+				}
+
+				boolean validAudience = false;
+				for (Iterator<AudienceRestriction> iter = audienceRestrictions.iterator(); (!validAudience && iter.hasNext());) {
+					AudienceRestriction audienceRestriction = iter.next();
+					List<Audience> audiences = audienceRestriction.getAudiences();
+					if (ListUtil.isEmpty(audiences)) {
+						continue;
+					}
+
+					for (Iterator<Audience> iter2 = audiences.iterator(); (!validAudience && iter2.hasNext());) {
+						Audience audience = iter2.next();
+						if (audience == null) {
+							continue;
+						}
+
+						String audienceURI = audience.getAudienceURI();
+						if (StringUtil.isEmpty(audienceURI)) {
+							continue;
+						}
+
+						if (audienceURI.toLowerCase().indexOf(correctAudience) != -1) {
+							validAudience = true;
+						} else {
+							getLogger().warning("Audience " + audienceURI + " is not correct for " + correctAudience);
+						}
+					}
+				}
+				if (!validAudience) {
+					throw new Exception("Correct audience (" + correctAudience + ") not found at audience restrictions (" + audienceRestrictions +
+							") of assertion's (" + assertion + ") conditions (" + conditions + ")");
+				}
+			}
+
 			// Validate the assertions for IP, useragent and authId.
 			personalID = getPersonalIDFromValidatedAssertion(assertion, userIP, userAgent, authId);
 			ok = true;
@@ -399,10 +451,14 @@ public class IslandDotIsService extends DefaultSpringBean {
 	}
 
 	//	Unmarshall SAML string
-	private final XMLObject unmarshall(final String samlString) throws Exception {
+	private final XMLObject unmarshall(final String samlString, boolean debug) throws Exception {
 		InputStream stream = null;
 		try {
 			byte[] samlToken = Base64.getDecoder().decode(samlString);
+
+			if (debug) {
+				getLogger().info("SAML response:\n" + new String(samlToken));
+			}
 
 			//	Initialize the library
 			DefaultBootstrap.bootstrap();
@@ -447,11 +503,16 @@ public class IslandDotIsService extends DefaultSpringBean {
 	private final SAMLObject validateSignature(final SignableSAMLObject tokenSaml, KeyStore keyStore) throws Exception {
 		ByteArrayInputStream bis = null;
 		try {
+			Signature signature = tokenSaml.getSignature();
+			if (signature == null) {
+				throw new Exception("Siganture is not provided for " + tokenSaml);
+			}
+
 			// Validate structure signature
 			final SAMLSignatureProfileValidator sigProfValidator = new SAMLSignatureProfileValidator();
 			try {
 				// Indicates signature id conform to SAML Signature profile
-				sigProfValidator.validate(tokenSaml.getSignature());
+				sigProfValidator.validate(signature);
 			} catch (ValidationException e) {
 				//ValidationException: signature isn't conform to SAML Signature profile.
 				throw new Exception(e);
@@ -459,7 +520,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 
 			String aliasCert = null;
 			X509Certificate certificate;
-			final KeyInfo keyInfo = tokenSaml.getSignature().getKeyInfo();
+			final KeyInfo keyInfo = signature.getKeyInfo();
 			final org.opensaml.xml.signature.X509Certificate xmlCert = keyInfo.getX509Datas().get(0).getX509Certificates().get(0);
 			final CertificateFactory certFact = CertificateFactory.getInstance("X.509");
 			bis = new ByteArrayInputStream(Base64.getDecoder().decode(xmlCert.getValue()));
@@ -500,13 +561,16 @@ public class IslandDotIsService extends DefaultSpringBean {
 
 			// Validate signature
 			final SignatureValidator sigValidator = new SignatureValidator(entityX509Cred);
-			sigValidator.validate(tokenSaml.getSignature());
-		} catch (Exception e) {
-			getLogger().log(Level.WARNING, "Error validating signature", e);
+			sigValidator.validate(signature);
+
+			return tokenSaml;
+		} catch (Throwable e) {
+			String error = "Error validating signature for " + tokenSaml;
+			getLogger().log(Level.WARNING, error + ": " + e.getMessage(), e);
+			throw new Exception(error);
 		} finally {
 			IOUtil.close(bis);
 		}
-		return tokenSaml;
 	}
 
 	private Assertion getAssertion(final Response samlResponse, final String userIP, final boolean ipValidate) throws Exception {
