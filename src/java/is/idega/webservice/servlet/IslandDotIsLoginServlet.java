@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.idega.builder.bean.AdvancedProperty;
 import com.idega.presentation.IWContext;
 import com.idega.util.CoreConstants;
 import com.idega.util.StringHandler;
@@ -49,13 +50,14 @@ public class IslandDotIsLoginServlet extends HttpServlet {
 
 		IslandDotIsService service = ELUtil.getInstance().getBean(IslandDotIsService.BEAN_NAME);
 
-		String personalID = service.getPersonalIDFromSAMLMessage(request, response, saml);
+		AdvancedProperty personalIdAndName = service.getPersonalIDAndNameFromSAMLMessage(request, response, saml);
+		String personalID = personalIdAndName == null ? null : personalIdAndName.getId();
 		if (StringUtil.isEmpty(personalID)) {
 			response.sendRedirect(CoreConstants.PAGES_URI_PREFIX);
 			return;
 		}
 
-		String responsePage = service.getHomePageForCitizen(personalID, iwc);
+		String responsePage = service.getHomePageForCitizen(personalID, personalIdAndName == null ? null : personalIdAndName.getValue(), iwc);
 		response.sendRedirect(StringUtil.isEmpty(responsePage) ? CoreConstants.PAGES_URI_PREFIX : responsePage);
 	}
 

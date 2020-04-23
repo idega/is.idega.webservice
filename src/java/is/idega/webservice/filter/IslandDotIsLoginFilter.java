@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.idega.builder.bean.AdvancedProperty;
 import com.idega.presentation.IWContext;
 import com.idega.servlet.filter.BaseFilter;
 import com.idega.util.CoreConstants;
@@ -44,13 +45,15 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 		String token = iwc.getParameter("token");
 		if (uri.indexOf("innskraningislanddotis") != -1) {
 			if (token != null && !"".equals(token.trim())) {
-				String personalID = service.getPersonalIDFromSAMLMessage(request, response, token);
+				AdvancedProperty personalIdAndName = service.getPersonalIDAndNameFromSAMLMessage(request, response, token);
+				String personalID = personalIdAndName == null ? null : personalIdAndName.getId();
+				String name = personalIdAndName == null ? null : personalIdAndName.getValue();
 				if (StringUtil.isEmpty(personalID)) {
 					personalID = service.getPersonalIDFromToken(token, iwc.getRemoteIpAddress());
 				}
 
 				if (personalID != null && !"".equals(personalID.trim())) {
-					String responsePage = service.getHomePageForCitizen(personalID, iwc);
+					String responsePage = service.getHomePageForCitizen(personalID, name, iwc);
 					response.sendRedirect(StringUtil.isEmpty(responsePage) ? CoreConstants.PAGES_URI_PREFIX : responsePage);
 					return;
 				} else {

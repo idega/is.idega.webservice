@@ -62,6 +62,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import com.idega.builder.bean.AdvancedProperty;
 import com.idega.business.IBOLookup;
 import com.idega.business.IBORuntimeException;
 import com.idega.core.accesscontrol.business.LoginBusinessBean;
@@ -296,8 +297,8 @@ public class IslandDotIsService extends DefaultSpringBean {
 		}
 	}
 
-	public String getHomePageForCitizen(String personalID, IWContext iwc) {
-		return getHomePageForCitizen(iwc, personalID, null, "login_via_island.is_homepage", getApplicationProperty("island_is.oauth_client", "felix_auth_gateway_client"));
+	public String getHomePageForCitizen(String personalID, String fullName, IWContext iwc) {
+		return getHomePageForCitizen(iwc, personalID, fullName, "login_via_island.is_homepage", getApplicationProperty("island_is.oauth_client", "felix_auth_gateway_client"));
 	}
 
 	public String getHomePageForCitizen(IWContext iwc, String personalID, String fullName, String appProperty, String cookie) {
@@ -314,7 +315,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 	}
 
 	/* SAML 2.0 */
-	public String getPersonalIDFromSAMLMessage(HttpServletRequest request, HttpServletResponse response, String saml) {
+	public AdvancedProperty getPersonalIDAndNameFromSAMLMessage(HttpServletRequest request, HttpServletResponse response, String saml) {
 		String userIP = request.getHeader("X-FORWARDED-FOR");
 		if (StringUtil.isEmpty(userIP)) {
 			userIP = request.getRemoteAddr();
@@ -322,13 +323,13 @@ public class IslandDotIsService extends DefaultSpringBean {
 		String userAgent = request.getHeader(RequestUtil.HEADER_USER_AGENT.toLowerCase());
 		String authId = request.getParameter("authid");
 
-		String personalID = getPesonalIDFromValidatedSaml(saml, userIP, userAgent, authId);
-		if (StringUtil.isEmpty(personalID)) {
+		AdvancedProperty personalIdAndName = getPesonalIDAndNameFromValidatedSaml(saml, userIP, userAgent, authId);
+		if (personalIdAndName == null || StringUtil.isEmpty(personalIdAndName.getId())) {
 			getLogger().warning("Unknown personal ID from SAML message: '" + saml + "', user IP: " + userIP + ", user agent: " + userAgent + ", auth. ID: " + authId + ", request: " + request.getRequestURI());
 			return null;
 		}
 
-		return personalID;
+		return personalIdAndName;
 	}
 
 	private KeyStore getTrustStore() throws Exception {
@@ -352,14 +353,14 @@ public class IslandDotIsService extends DefaultSpringBean {
 		}
 	}
 
-	private String getPesonalIDFromValidatedSaml(final String samlString, final String userIP, final String userAgent, final String authId) {
+	private AdvancedProperty getPesonalIDAndNameFromValidatedSaml(final String samlString, final String userIP, final String userAgent, final String authId) {
 		boolean ok = false;
 		if (StringUtil.isEmpty(samlString)) {
 			getLogger().warning("SAML message not provided");
 			return null;
 		}
 
-		String personalID = null;
+		AdvancedProperty personalIdAndName = null;
 		try {
 			boolean debug = getSettings().getBoolean("island.is.debug", false);
 
@@ -436,7 +437,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 			}
 
 			// Validate the assertions for IP, useragent and authId.
-			personalID = getPersonalIDFromValidatedAssertion(assertion, userIP, userAgent, authId);
+			personalIdAndName = getPersonalIDAndNameFromValidatedAssertion(assertion, userIP, userAgent, authId);
 			ok = true;
 		} catch (Exception e) {
 			//SAML not verified
@@ -447,7 +448,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 			}
 		}
 
-		return personalID;
+		return personalIdAndName;
 	}
 
 	//	Unmarshall SAML string
@@ -610,7 +611,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 	* @param authId The auth ID
 	* @throws Exception
 	*/
-	private String getPersonalIDFromValidatedAssertion(final Assertion assertion, String ip, String ua, String authId) throws Exception {
+	private AdvancedProperty getPersonalIDAndNameFromValidatedAssertion(final Assertion assertion, String ip, String ua, String authId) throws Exception {
 		final List<XMLObject> listExtensions = assertion.getOrderedChildren();
 		boolean find = false;
 		AttributeStatement requestedAttr = null;
@@ -632,7 +633,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 		XMLObject xmlObj;
 		boolean ipOk = false, uaOk = false, authIdOk = false;
 		// Process the attributes.
-		String personalID = null;
+		String personalID = null, name = null;
 		for (int nextAttribute = 0; nextAttribute < reqAttrs.size(); nextAttribute++) {
 			final Attribute attribute = reqAttrs.get(nextAttribute);
 			attributeName = attribute.getName();
@@ -655,9 +656,13 @@ public class IslandDotIsService extends DefaultSpringBean {
 				xmlObj = attribute.getOrderedChildren().get(0);
 				personalID = ((XSStringImpl) xmlObj).getValue();
 			}
+			if (attributeName.equals("Name")) {
+				xmlObj = attribute.getOrderedChildren().get(0);
+				name = ((XSStringImpl) xmlObj).getValue();
+			}
 		}
 		if (ipOk || authIdOk || uaOk) {
-			return personalID;
+			return new AdvancedProperty(personalID, name);
 		}
 
 		throw new Exception(String.format("Assertions not valid. IP valid: %b, user agent valid: %b, auth ID valid: %b", ipOk, uaOk, authIdOk));
