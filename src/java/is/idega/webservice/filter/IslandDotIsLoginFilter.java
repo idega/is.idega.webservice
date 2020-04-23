@@ -17,7 +17,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import com.idega.presentation.IWContext;
 import com.idega.servlet.filter.BaseFilter;
 import com.idega.util.CoreConstants;
-import com.idega.util.CoreUtil;
 import com.idega.util.StringUtil;
 
 import is.idega.webservice.business.IslandDotIsService;
@@ -35,8 +34,7 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 		HttpServletRequest request = (HttpServletRequest) srequest;
 		HttpServletResponse response = (HttpServletResponse) sresponse;
 
-		IWContext iwc = CoreUtil.getIWContext();
-		iwc = iwc == null ? new IWContext(request, response, request.getSession().getServletContext()) : iwc;
+		IWContext iwc = new IWContext(request, response, request.getSession().getServletContext());
 		WebApplicationContext springContext = WebApplicationContextUtils.getWebApplicationContext(iwc.getServletContext());
 		IslandDotIsService service = (IslandDotIsService) springContext.getBean(IslandDotIsService.BEAN_NAME);
 

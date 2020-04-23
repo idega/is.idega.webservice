@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.idega.presentation.IWContext;
 import com.idega.util.CoreConstants;
-import com.idega.util.CoreUtil;
 import com.idega.util.StringHandler;
 import com.idega.util.StringUtil;
 import com.idega.util.expression.ELUtil;
@@ -31,8 +30,7 @@ public class IslandDotIsLoginServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		IWContext iwc = CoreUtil.getIWContext();
-		iwc = iwc == null ? new IWContext(request, response, getServletContext()) : iwc;
+		IWContext iwc = new IWContext(request, response, getServletContext());
 
 		String saml = null;
 		try {
