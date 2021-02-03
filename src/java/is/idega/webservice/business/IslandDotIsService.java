@@ -223,7 +223,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 	}
 
 	private Map<String, String> samlInfo(String response) {
-		Map<String, String> info = new HashMap<String, String>();
+		Map<String, String> info = new HashMap<>();
 		Builder parser = new Builder();
 		Document docXML = null;
 
@@ -466,7 +466,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 
 			//	Get parser pool manager
 			final BasicParserPool ppMgr = new BasicParserPool();
-			final HashMap<String, Boolean> features = new HashMap<String, Boolean>();
+			final HashMap<String, Boolean> features = new HashMap<>();
 			features.put(XMLConstants.FEATURE_SECURE_PROCESSING, Boolean.TRUE);
 			ppMgr.setBuilderFeatures(features);
 			ppMgr.setNamespaceAware(true);
