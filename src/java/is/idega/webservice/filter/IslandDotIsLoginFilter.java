@@ -89,7 +89,7 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 				AdvancedProperty personalIdAndName = service.getPersonalIDAndNameFromSAMLMessage(request, response, token);
 				String personalID = personalIdAndName == null ? null : personalIdAndName.getId();
 				String name = personalIdAndName == null ? null : personalIdAndName.getValue();
-				if (StringUtil.isEmpty(personalID)) {
+				if (StringUtil.isEmpty(personalID) && iwc.getApplicationSettings().getBoolean("island.is_auth_via_ws", false)) {
 					personalID = service.getPersonalIDFromToken(token, iwc.getRemoteIpAddress());
 				}
 
@@ -97,9 +97,9 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 					String responsePage = service.getHomePageForCitizen(personalID, name, iwc);
 					response.sendRedirect(StringUtil.isEmpty(responsePage) ? CoreConstants.PAGES_URI_PREFIX : responsePage);
 					return;
-				} else {
-					LOGGER.warning("Unable to get personal ID from token: " + token + ". URI: " + uri);
 				}
+
+				LOGGER.warning("Unable to get personal ID from token: " + token + ". URI: " + uri);
 			} else {
 				LOGGER.warning("Token is not provided as parameter with name 'token'");
 			}
