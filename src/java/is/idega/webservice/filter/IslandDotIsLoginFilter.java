@@ -17,6 +17,8 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.idega.builder.bean.AdvancedProperty;
 import com.idega.core.accesscontrol.business.LoginBusinessBean;
+import com.idega.idegaweb.IWMainApplication;
+import com.idega.idegaweb.IWMainApplicationSettings;
 import com.idega.presentation.IWContext;
 import com.idega.servlet.filter.BaseFilter;
 import com.idega.user.data.User;
@@ -33,12 +35,25 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 	public void destroy() {
 	}
 
+	private boolean isDebugEnabled(IWMainApplicationSettings settings) {
+		settings = settings == null ? IWMainApplication.getDefaultIWMainApplication().getSettings() : settings;
+		return settings.getBoolean("island.is.debug", false);
+	}
+
 	private boolean logout(IWContext iwc) {
 		User user = null;
 		try {
 			if (iwc == null) {
 				LOGGER.warning(IWContext.class.getName() + " is not provided");
 				return false;
+			}
+
+			IWMainApplicationSettings settings = iwc.getApplicationSettings();
+			if (!settings.getBoolean("island.is_logout_first", false)) {
+				if (isDebugEnabled(settings)) {
+					LOGGER.info("No need to logout first");
+				}
+				return true;
 			}
 
 			user = iwc.isLoggedOn() ? iwc.getCurrentUser() : null;
@@ -78,7 +93,8 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 		WebApplicationContext springContext = WebApplicationContextUtils.getWebApplicationContext(iwc.getServletContext());
 		IslandDotIsService service = (IslandDotIsService) springContext.getBean(IslandDotIsService.BEAN_NAME);
 
-		String errorPage = iwc.getApplicationSettings().getProperty("login_via_island.errorpage");
+		IWMainApplicationSettings settings = iwc.getApplicationSettings();
+		String errorPage = settings.getProperty("login_via_island.errorpage");
 
 		String uri = request.getRequestURI();
 		String token = iwc.getParameter("token");
@@ -89,12 +105,22 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 				AdvancedProperty personalIdAndName = service.getPersonalIDAndNameFromSAMLMessage(request, response, token);
 				String personalID = personalIdAndName == null ? null : personalIdAndName.getId();
 				String name = personalIdAndName == null ? null : personalIdAndName.getValue();
-				if (StringUtil.isEmpty(personalID) && iwc.getApplicationSettings().getBoolean("island.is_auth_via_ws", false)) {
+				if (StringUtil.isEmpty(personalID) && settings.getBoolean("island.is_auth_via_ws", false)) {
 					personalID = service.getPersonalIDFromToken(token, iwc.getRemoteIpAddress());
 				}
 
 				if (personalID != null && !"".equals(personalID.trim())) {
 					String responsePage = service.getHomePageForCitizen(personalID, name, iwc);
+					if (isDebugEnabled(settings)) {
+						User loggedInUser = null;
+						try {
+							loggedInUser = iwc.isLoggedOn() ? iwc.getCurrentUser() : null;
+						} catch (Exception e) {
+							LOGGER.log(Level.WARNING, "Error getting logged in user for " + name + " (" + personalID + "): '" + responsePage + "'", e);
+						}
+						LOGGER.info("Home page for " + name + " (" + personalID + "): '" + responsePage + "'. " +
+								(loggedInUser == null ? "User is not logged in!" : "Logged in user: " + loggedInUser));
+					}
 					response.sendRedirect(StringUtil.isEmpty(responsePage) ? CoreConstants.PAGES_URI_PREFIX : responsePage);
 					return;
 				}
