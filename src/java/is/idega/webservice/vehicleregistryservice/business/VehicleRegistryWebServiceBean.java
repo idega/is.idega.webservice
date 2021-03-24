@@ -1,6 +1,5 @@
 package is.idega.webservice.vehicleregistryservice.business;
 
-import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
@@ -9,8 +8,6 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.logging.Level;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Unmarshaller;
 import javax.xml.rpc.ServiceException;
 
 import org.apache.axis.client.Stub;
@@ -25,13 +22,8 @@ import com.idega.idegaweb.IWMainApplication;
 import com.idega.idegaweb.IWMainApplicationSettings;
 import com.idega.util.ArrayUtil;
 import com.idega.util.CoreConstants;
-import com.idega.util.IOUtil;
 import com.idega.util.IWTimestamp;
-import com.idega.util.StringHandler;
-import com.idega.util.StringUtil;
 
-import is.lt.ws.ServiceLocator;
-import is.lt.ws.ServiceSoap;
 import is.lt.ws.VehicleRegistryService.Vehicle;
 import is.lt.ws.VehicleRegistryService.VehicleRegistryServiceLocator;
 
@@ -69,31 +61,18 @@ public class VehicleRegistryWebServiceBean extends DefaultSpringBean implements 
 	}
 
 	private Vehicle[] getVehicleViaNewWS(String endpoint, String userid, String password, int timeout, String registrationNumber, String permNo) throws MalformedURLException, ServiceException, RemoteException {
-		ServiceLocator locator = new ServiceLocator();
-		ServiceSoap port = locator.getServiceSoap(new URL(endpoint));
+		VehicleRegistryServiceLocator locator = new VehicleRegistryServiceLocator();
+		is.lt.ws.VehicleRegistryService.VehicleRegistryServiceSoap port = locator.getVehicleRegistryServiceSoap12(new URL(endpoint));
 		setTimeout((Stub) port, timeout);
 
-		String vehicleInfo = port.allVehicleInformation(userid, password, null, permNo, registrationNumber, null);
-		if (StringUtil.isEmpty(vehicleInfo)) {
-			return null;
-		}
-
-		InputStream stream = null;
-		try {
-			JAXBContext jaxbContext = JAXBContext.newInstance(Vehicle.class);
-			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-			stream = StringHandler.getStreamFromString(vehicleInfo);
-			Vehicle vehicle = (Vehicle) jaxbUnmarshaller.unmarshal(stream);
-			if (vehicle != null) {
-				return new Vehicle[] {vehicle};
-			}
-		} catch (Exception e) {
-			getLogger().log(Level.WARNING, "Error creating " + Vehicle.class.getName() + " object from " + vehicleInfo, e);
-		} finally {
-			IOUtil.close(stream);
-		}
-
-		return null;
+		return port.basicVehicleInformation(
+				userid,
+				password,
+				permNo,
+				registrationNumber,
+				CoreConstants.EMPTY,
+				CoreConstants.EMPTY
+		);
 	}
 
 	@Override
@@ -171,7 +150,7 @@ public class VehicleRegistryWebServiceBean extends DefaultSpringBean implements 
 					}
 					String permNo = null;
 
-					Collection<Vehicle> registered = new ArrayList<Vehicle>();
+					Collection<Vehicle> registered = new ArrayList<>();
 					for (Vehicle vehicle : vehicles) {
 						if (!vehicle.getLatestRegistration().startsWith("Afskr")) {
 							registered.add(vehicle);

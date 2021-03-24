@@ -140,16 +140,10 @@ public class AccidentVehicle  implements java.io.Serializable {
     private java.lang.Object __equalsCalc = null;
     @Override
 	public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof AccidentVehicle)) {
-			return false;
-		}
+        if (!(obj instanceof AccidentVehicle)) return false;
         AccidentVehicle other = (AccidentVehicle) obj;
-        if (obj == null) {
-			return false;
-		}
-        if (this == obj) {
-			return true;
-		}
+        if (obj == null) return false;
+        if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }

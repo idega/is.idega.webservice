@@ -140,16 +140,10 @@ public class Plate  implements java.io.Serializable {
     private java.lang.Object __equalsCalc = null;
     @Override
 	public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Plate)) {
-			return false;
-		}
+        if (!(obj instanceof Plate)) return false;
         Plate other = (Plate) obj;
-        if (obj == null) {
-			return false;
-		}
-        if (this == obj) {
-			return true;
-		}
+        if (obj == null) return false;
+        if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }

@@ -356,16 +356,10 @@ public class Wage  implements java.io.Serializable {
     private java.lang.Object __equalsCalc = null;
     @Override
 	public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Wage)) {
-			return false;
-		}
+        if (!(obj instanceof Wage)) return false;
         Wage other = (Wage) obj;
-        if (obj == null) {
-			return false;
-		}
-        if (this == obj) {
-			return true;
-		}
+        if (obj == null) return false;
+        if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }

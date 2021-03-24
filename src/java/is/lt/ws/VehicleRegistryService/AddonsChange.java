@@ -140,16 +140,10 @@ public class AddonsChange  implements java.io.Serializable {
     private java.lang.Object __equalsCalc = null;
     @Override
 	public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof AddonsChange)) {
-			return false;
-		}
+        if (!(obj instanceof AddonsChange)) return false;
         AddonsChange other = (AddonsChange) obj;
-        if (obj == null) {
-			return false;
-		}
-        if (this == obj) {
-			return true;
-		}
+        if (obj == null) return false;
+        if (this == obj) return true;
         if (__equalsCalc != null) {
             return (__equalsCalc == obj);
         }

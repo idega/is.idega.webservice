@@ -26,7 +26,7 @@ public class VehicleRegistryServiceLocator extends org.apache.axis.client.Servic
     }
 
     // Use to get a proxy class for VehicleRegistryServiceSoap12
-    private java.lang.String VehicleRegistryServiceSoap12_address = "https://ws.lt.is/vehicleregistry/vehicleregistryservice.asmx";
+    private java.lang.String VehicleRegistryServiceSoap12_address = "https://api-developer.creditinfo.is/vehicleregistry/vehicleregistryservice.asmx";
 
     public java.lang.String getVehicleRegistryServiceSoap12Address() {
         return VehicleRegistryServiceSoap12_address;
@@ -71,7 +71,7 @@ public class VehicleRegistryServiceLocator extends org.apache.axis.client.Servic
 
 
     // Use to get a proxy class for VehicleRegistryServiceSoap
-    private java.lang.String VehicleRegistryServiceSoap_address = "https://ws.lt.is/vehicleregistry/vehicleregistryservice.asmx";
+    private java.lang.String VehicleRegistryServiceSoap_address = "https://api-developer.creditinfo.is/vehicleregistry/vehicleregistryservice.asmx";
 
     public java.lang.String getVehicleRegistryServiceSoapAddress() {
         return VehicleRegistryServiceSoap_address;
