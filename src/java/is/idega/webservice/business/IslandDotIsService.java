@@ -77,6 +77,7 @@ import com.idega.idegaweb.IWApplicationContext;
 import com.idega.idegaweb.IWMainApplication;
 import com.idega.presentation.IWContext;
 import com.idega.user.data.User;
+import com.idega.util.ArrayUtil;
 import com.idega.util.CoreConstants;
 import com.idega.util.IOUtil;
 import com.idega.util.ListUtil;
@@ -336,9 +337,33 @@ public class IslandDotIsService extends DefaultSpringBean {
 		KeyStore keyStore = KeyStore.getInstance("JKS");
 		keyStore.load(null, CoreConstants.EMPTY.toCharArray());
 		CertificateFactory certFactory = CertificateFactory.getInstance("X509");
-		keyStore.setCertificateEntry("Audkennisrot", getCertificate(certFactory, "Audkennisrot.cer"));
-		keyStore.setCertificateEntry("Traust_audkenni", getCertificate(certFactory, "Traust_audkenni.cer"));
-		keyStore.setCertificateEntry("Traustur_bunadur", getCertificate(certFactory, "Traustur_bunadur.cer"));
+		String certsProp = getApplication().getSettings().getProperty(
+				"island.is_certs",
+				"Islandsrot=Islandsrot.cer,Milliskilriki=Milliskilriki.cer,Undirritunarskilrikid=SAML_undirritunarskilrikid.cer"
+		);
+		if (StringUtil.isEmpty(certsProp)) {
+			return keyStore;
+		}
+		String[] certs = certsProp.split(CoreConstants.COMMA);
+		if (ArrayUtil.isEmpty(certs)) {
+			return keyStore;
+		}
+		for (String cert: certs) {
+			try {
+				String[] props = StringUtil.isEmpty(cert) ? null : cert.split(CoreConstants.EQ);
+				if (ArrayUtil.isEmpty(props) || props.length < 2) {
+					getLogger().warning("Invalid cert. props: " + cert);
+					continue;
+				}
+
+				String name = props[0];
+				String path = props[1];
+				keyStore.setCertificateEntry(name, getCertificate(certFactory, path));
+				getLogger().info("Loaded " + cert);
+			} catch (Exception e) {
+				getLogger().log(Level.WARNING, "Error loading certificate " + cert, e);
+			}
+		}
 		return keyStore;
 	}
 
