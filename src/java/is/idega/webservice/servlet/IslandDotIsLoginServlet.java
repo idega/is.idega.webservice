@@ -29,10 +29,7 @@ public class IslandDotIsLoginServlet extends HttpServlet {
 		doPost(request, response);
 	}
 
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		IWContext iwc = new IWContext(request, response, getServletContext());
-
+	private AdvancedProperty getAuthorizedViaSAML(IWContext iwc, HttpServletRequest request, HttpServletResponse response, IslandDotIsService service) {
 		String saml = null;
 		try {
 			saml = StringHandler.getContentFromReader(request.getReader());
@@ -48,9 +45,31 @@ public class IslandDotIsLoginServlet extends HttpServlet {
 			}
 		}
 
+		return service.getPersonalIDAndNameFromSAMLMessage(request, response, saml);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		IWContext iwc = new IWContext(request, response, getServletContext());
 		IslandDotIsService service = ELUtil.getInstance().getBean(IslandDotIsService.BEAN_NAME);
 
-		AdvancedProperty personalIdAndName = service.getPersonalIDAndNameFromSAMLMessage(request, response, saml);
+		String uri = request.getRequestURI();
+		if (!StringUtil.isEmpty(uri) && uri.indexOf("/innskraningislanddotis/register/oidc") != -1) {
+			String state = iwc.getParameter("state");
+			String verifier = iwc.getParameter("verifier");
+			service.setOIDC(state, verifier);
+			return;
+		}
+
+		AdvancedProperty personalIdAndName = null;
+		String code = request.getParameter("code");
+		if (!StringUtil.isEmpty(code)) {
+			personalIdAndName = service.getPersonalIDAndNameFromOIDC(request, response);
+		}
+		if (personalIdAndName == null) {
+			personalIdAndName = getAuthorizedViaSAML(iwc, request, response, service);
+		}
+
 		String personalID = personalIdAndName == null ? null : personalIdAndName.getId();
 		if (StringUtil.isEmpty(personalID)) {
 			response.sendRedirect(CoreConstants.PAGES_URI_PREFIX);

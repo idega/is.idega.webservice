@@ -1,13 +1,13 @@
 package is.idega.webservice.business;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.rmi.RemoteException;
 import java.security.KeyStore;
 import java.security.cert.Certificate;
@@ -15,18 +15,20 @@ import java.security.cert.CertificateExpiredException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
+import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.logging.Level;
 
 import javax.ejb.FinderException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.HttpMethod;
 import javax.xml.XMLConstants;
 import javax.xml.rpc.ServiceException;
 import javax.xml.rpc.holders.StringHolder;
@@ -62,6 +64,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.idega.builder.bean.AdvancedProperty;
 import com.idega.business.IBOLookup;
 import com.idega.business.IBORuntimeException;
@@ -71,23 +75,31 @@ import com.idega.core.accesscontrol.data.LoginTable;
 import com.idega.core.accesscontrol.data.LoginTableHome;
 import com.idega.core.accesscontrol.data.bean.UserLogin;
 import com.idega.core.business.DefaultSpringBean;
+import com.idega.core.file.util.MimeTypeUtil;
 import com.idega.data.IDOLookup;
 import com.idega.data.IDOLookupException;
 import com.idega.idegaweb.IWApplicationContext;
 import com.idega.idegaweb.IWMainApplication;
+import com.idega.idegaweb.IWMainApplicationSettings;
 import com.idega.presentation.IWContext;
+import com.idega.restful.util.ConnectionUtil;
 import com.idega.user.data.User;
 import com.idega.util.ArrayUtil;
 import com.idega.util.CoreConstants;
 import com.idega.util.IOUtil;
+import com.idega.util.IWTimestamp;
 import com.idega.util.ListUtil;
 import com.idega.util.RequestUtil;
+import com.idega.util.StringHandler;
 import com.idega.util.StringUtil;
 import com.idega.util.expression.ELUtil;
+import com.sun.jersey.api.client.ClientResponse;
 
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerAccessPointLocator;
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerType;
 import is.idega.idegaweb.egov.accounting.business.CitizenBusiness;
+import is.idega.webservice.model.Token;
+import is.idega.webservice.model.TokenResponse;
 import is.skra.kosingar.kodun.KodunLocator;
 import is.skra.kosingar.kodun.Kodun_PortType;
 import is.skra.kosingar.kodun.Status;
@@ -112,6 +124,24 @@ public class IslandDotIsService extends DefaultSpringBean {
 	private static final String LOGIN_SERVICE_ENDPOINT = "island.is_login_service_endpoint";
 	private static final String LOGIN_SERVICE_USER = "island.is_login_service_user";
 	private static final String LOGIN_SERVICE_PASSWORD = "island.is_login_service_password";
+
+	private Map<String, String> oidc = new HashMap<>();
+
+	public void setOIDC(String state, String verifier) {
+		if (StringUtil.isEmpty(state) || StringUtil.isEmpty(verifier)) {
+			return;
+		}
+
+		oidc.put(state, verifier);
+	}
+
+	public String getOIDCVerifier(String state) {
+		if (StringUtil.isEmpty(state)) {
+			return null;
+		}
+
+		return oidc.remove(state);
+	}
 
 	public boolean createHash(String personalId, String token, String ipAddress) {
 		String endpoint = IWMainApplication
@@ -194,33 +224,6 @@ public class IslandDotIsService extends DefaultSpringBean {
 		}
 
 		return null;
-	}
-
-	public static void main(String args[]) {
-		IslandDotIsService test = new IslandDotIsService();
-		BufferedReader input = null;
-		try {
-			String line = null;
-			StringBuilder saml = new StringBuilder();
-			input = new BufferedReader(new FileReader("/Users/palli/response.txt"));
-			while ((line = input.readLine()) != null) {
-				saml.append(line);
-			}
-			Map<String, String> resp = test.samlInfo(saml.toString());
-			Set<String> keys = resp.keySet();
-			for (String key : keys) {
-				String value = resp.get(key);
-				getLogger(IslandDotIsService.class).info(key + " = " + value);
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			IOUtil.close(input);
-		}
 	}
 
 	private Map<String, String> samlInfo(String response) {
@@ -312,6 +315,194 @@ public class IslandDotIsService extends DefaultSpringBean {
 		} catch (Exception e) {
 			getLogger().log(Level.WARNING, "Error getting home page for citizen with personal ID: " + personalID, e);
 		}
+		return null;
+	}
+
+	/* OIDC */
+	public AdvancedProperty getPersonalIDAndNameFromOIDC(HttpServletRequest req, HttpServletResponse resp) {
+		String oidcCode = null;
+		String responseValue = null;
+		try {
+			IWMainApplicationSettings settings = getSettings();
+			String server = settings.getProperty("island.is_oidc", "https://innskra.island.is");
+			String tokenURI = settings.getProperty("island.is_oidc_token_uri", "/connect/token");
+			if (server.endsWith(CoreConstants.SLASH) && tokenURI.startsWith(CoreConstants.SLASH)) {
+				tokenURI = tokenURI.substring(1);
+			}
+
+			String clientId = settings.getProperty("island.is_client_id");
+			oidcCode = req.getParameter("code");
+			String redirectUri = URLEncoder.encode(settings.getProperty("island.is_redirect_uri"), CoreConstants.ENCODING_UTF8);
+			String codeVerifier = getOIDCVerifier(req.getParameter("state"));
+			String payload = MessageFormat.format(
+					"grant_type={0}&code={1}&redirect_uri={2}&code_verifier={3}&client_id={4}",
+					new Object[] {
+							"authorization_code",	//	0
+							oidcCode,				//	1
+							redirectUri,			//	2
+							codeVerifier,			//	3
+							URLEncoder.encode(		//	4
+									clientId,
+									CoreConstants.ENCODING_UTF8
+							)
+					}
+			);
+			String clientSecret = settings.getProperty("island.is_client_secret");
+			String authorization = RequestUtil.getBasicAuthorizationHeader(clientId, clientSecret);
+			ClientResponse response = ConnectionUtil.getInstance().getResponseFromREST(
+					server + tokenURI,
+					Long.valueOf(payload.length()),
+					MimeTypeUtil.MIME_TYPE_ENCODED_URL,
+					HttpMethod.POST,
+					payload,
+					Arrays.asList(
+							new AdvancedProperty(null, MimeTypeUtil.MIME_TYPE_ENCODED_URL, RequestUtil.HEADER_CONTENT_TYPE),
+							new AdvancedProperty(null, authorization, RequestUtil.HEADER_AUTHORIZATION)
+					),
+					null
+			);
+			if (response == null || response.getStatus() != javax.ws.rs.core.Response.Status.OK.getStatusCode()) {
+				getLogger().warning("No response (" + response + ") or response status is not OK: " + (response == null ? "unknown" : response.getStatus()) +
+						" for getting token. Code: " + oidcCode);
+				return null;
+			}
+
+			Gson gson = new GsonBuilder().disableHtmlEscaping().create();
+
+			responseValue = StringHandler.getContentFromInputStream(response.getEntityInputStream());
+			responseValue = URLDecoder.decode(responseValue, CoreConstants.ENCODING_UTF8);
+			TokenResponse tokenResponse = gson.fromJson(responseValue, TokenResponse.class);
+			if (tokenResponse == null || StringUtil.isEmpty(tokenResponse.getId_token())) {
+				getLogger().warning("Token not provided in response " + responseValue + ". Code: " + oidcCode);
+				return null;
+			}
+
+			String tokenId = tokenResponse.getId_token();
+			Token token = getToken(gson, tokenId);
+			String personalID = token == null ? null : token.getNationalId();
+			String name = token == null ? null : token.getName();
+			if (StringUtil.isEmpty(personalID) || StringUtil.isEmpty(name)) {
+				getLogger().warning("Failed to get personal ID and/or name from " + tokenId + ". Code: " + oidcCode + ". Response:\n" + responseValue);
+				return null;
+			}
+
+			return new AdvancedProperty(personalID, name);
+		} catch (Exception e) {
+			getLogger().log(
+					Level.WARNING,
+					"Error authorizing via OIDC. Code: " + oidcCode + (StringUtil.isEmpty(responseValue) ? CoreConstants.EMPTY : ". Response:\n" + responseValue),
+					e
+			);
+		}
+		return null;
+	}
+
+	private Token getToken(Gson gson, String value) {
+		if (StringUtil.isEmpty(value)) {
+			getLogger().warning("Token value encoded in Base64 is not provided");
+			return null;
+		}
+
+		String tokenValue = null, json = null;
+		try {
+			List<String> toRemove = Arrays.asList(CoreConstants.DOT, CoreConstants.MINUS, CoreConstants.UNDER);
+			for (String remove: toRemove) {
+				value = StringHandler.replace(value, remove, CoreConstants.EMPTY);
+			}
+			if (StringUtil.isEmpty(value)) {
+				getLogger().warning("Token can not be created from empty string");
+				return null;
+			}
+			if (value.length() > 4) {
+				while (value.length() % 4 != 0) {
+					value = value.substring(0, value.length() - 1);
+				}
+			}
+
+			byte[] bytes = Base64.getDecoder().decode(value.getBytes(StandardCharsets.UTF_8));
+			tokenValue = new String(bytes, StandardCharsets.UTF_8);
+			String[] parts = tokenValue.split(CoreConstants.TAB);
+			if (ArrayUtil.isEmpty(parts)) {
+				getLogger().warning("There are no tab symbols in token value " + tokenValue + ". Base64 encoded value: " + value);
+				return null;
+			}
+
+			json = parts[0];
+			if (StringUtil.isEmpty(json)) {
+				getLogger().warning("There are no parts in JSONs " + Arrays.asList(parts) + ". Token value " + tokenValue + ". Base64 encoded value: " + value);
+				return null;
+			}
+
+			if (json.indexOf(CoreConstants.CURLY_BRACKET_RIGHT) == -1) {
+				getLogger().warning("There is no '" + CoreConstants.CURLY_BRACKET_RIGHT + "' in JSON " + json + ". Token value " + tokenValue + ". Base64 encoded value: " + value);
+				return null;
+			}
+
+			String[] jsonParts = json.split(CoreConstants.CURLY_BRACKET_RIGHT);
+			if (ArrayUtil.isEmpty(jsonParts)) {
+				getLogger().warning("There are no objects in JSON " + json + ". Token value " + tokenValue + ". Base64 encoded value: " + value);
+				return null;
+			}
+
+			for (String jsonPart: jsonParts) {
+				Token token = null;
+				try {
+					if (!jsonPart.endsWith(CoreConstants.CURLY_BRACKET_RIGHT)) {
+						jsonPart = jsonPart.concat(CoreConstants.CURLY_BRACKET_RIGHT);
+					}
+					token = gson.fromJson(jsonPart, Token.class);
+				} catch (Throwable t) {}
+				if (token == null || StringUtil.isEmpty(token.getNationalId())) {
+					continue;
+				}
+
+				long clockSkew = getSettings().getInt("island.is_clock_skew", 300) * 1000;
+				long nowMillis = System.currentTimeMillis();
+				long nowSeconds = nowMillis / 1000;
+				long lowerNow = nowSeconds + clockSkew;
+                long upperNow = nowSeconds - clockSkew;
+				IWTimestamp now = new IWTimestamp(nowMillis);
+				Long nbf = token.getNbf();
+				Long iat = token.getIat();
+				Long exp = token.getExp();
+
+				//	Validate time stamps
+				if (iat == null) {
+					throw new Exception("IAT was not provided. Token " + token);
+				}
+				if (lowerNow < iat) {
+					throw new Exception("IAT (" + iat + ") is in the future. Server time: " + now + ". Token " + token);
+				}
+
+				if (nbf != null && lowerNow < nbf) {
+					throw new Exception("NBF (" + nbf + " ) is in the future. Server time: " + now + ". Token " + token);
+				}
+
+				if (exp == null) {
+					throw new Exception("EXP was not provided. Token " + token);
+				}
+				if (exp < upperNow) {
+					throw new Exception("EXP (" + exp + " ) is in the past. Server time: " + now + ". Token " + token);
+				}
+
+				//	Validate audience
+				String correctAudience = getSettings().getProperty("island.is.correct_audience");
+				if (!StringUtil.isEmpty(correctAudience) && getSettings().getBoolean("island.is.validate_audience", true)) {
+					String audience = token.getAud();
+					if (StringUtil.isEmpty(audience) || !audience.equals(correctAudience)) {
+						throw new Exception("Wrong audience: '" + audience + "', expected: '" + correctAudience + "'. Token " + token);
+					}
+				}
+
+				getLogger().info("Resolved token " + token + " from " + jsonPart + ". Token value " + tokenValue + ". Base64 encoded value: " + value);
+				return token;
+			}
+		} catch (Exception e) {
+			getLogger().log(Level.WARNING, "Error creating token from " + json + ". Token value: "+ tokenValue + ". Base64 encoded value: " + value, e);
+			return null;
+		}
+
+		getLogger().warning("Failed to create token from " + json + ". Token value: "+ tokenValue + ". Base64 encoded value: " + value);
 		return null;
 	}
 

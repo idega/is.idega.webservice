@@ -126,8 +126,6 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 				}
 
 				LOGGER.warning("Unable to get personal ID from token: " + token + ". URI: " + uri);
-			} else {
-				LOGGER.warning("Token is not provided as parameter with name 'token'");
 			}
 
 			if (!StringUtil.isEmpty(errorPage)) {
