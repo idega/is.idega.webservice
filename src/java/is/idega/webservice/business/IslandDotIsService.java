@@ -98,6 +98,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerAccessPointLocator;
 import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerType;
 import is.idega.idegaweb.egov.accounting.business.CitizenBusiness;
+import is.idega.webservice.betrireykjavik.presentation.BetriReykjavikAuthentication;
 import is.idega.webservice.model.Token;
 import is.idega.webservice.model.TokenResponse;
 import is.skra.kosingar.kodun.KodunLocator;
@@ -561,7 +562,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 	private Certificate getCertificate(CertificateFactory certFactory, String certFile) throws Exception {
 		InputStream stream = null;
 		try {
-			stream = IOUtil.getStreamFromJar("is.idega.webservice", "resources/certificates/".concat(certFile));
+			stream = IOUtil.getStreamFromJar(BetriReykjavikAuthentication.IW_BUNDLE_IDENTIFIER, "resources/certificates/".concat(certFile));
 			Certificate certificate = certFactory.generateCertificate(stream);
 			return certificate;
 		} finally {
