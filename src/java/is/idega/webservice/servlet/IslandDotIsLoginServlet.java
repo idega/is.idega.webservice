@@ -57,7 +57,7 @@ public class IslandDotIsLoginServlet extends HttpServlet {
 		if (!StringUtil.isEmpty(uri) && uri.indexOf("/innskraningislanddotis/register/oidc") != -1) {
 			String state = iwc.getParameter("state");
 			String verifier = iwc.getParameter("verifier");
-			service.setOIDC(state, verifier);
+			service.setOIDC(state, verifier, iwc.getParameter("redirect"));
 			return;
 		}
 
@@ -77,6 +77,10 @@ public class IslandDotIsLoginServlet extends HttpServlet {
 		}
 
 		String responsePage = service.getHomePageForCitizen(personalID, personalIdAndName == null ? null : personalIdAndName.getValue(), iwc);
+		if (!StringUtil.isEmpty(responsePage) && !StringUtil.isEmpty(personalIdAndName.getName())) {
+			String redirect = personalIdAndName.getName();
+			responsePage = responsePage.concat(CoreConstants.AMP).concat("page=").concat(redirect);
+		}
 		response.sendRedirect(StringUtil.isEmpty(responsePage) ? CoreConstants.PAGES_URI_PREFIX : responsePage);
 	}
 

@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 
 import javax.ejb.FinderException;
@@ -126,17 +127,17 @@ public class IslandDotIsService extends DefaultSpringBean {
 	private static final String LOGIN_SERVICE_USER = "island.is_login_service_user";
 	private static final String LOGIN_SERVICE_PASSWORD = "island.is_login_service_password";
 
-	private Map<String, String> oidc = new HashMap<>();
+	private Map<String, AdvancedProperty> oidc = new ConcurrentHashMap<>();
 
-	public void setOIDC(String state, String verifier) {
+	public void setOIDC(String state, String verifier, String redirect) {
 		if (StringUtil.isEmpty(state) || StringUtil.isEmpty(verifier)) {
 			return;
 		}
 
-		oidc.put(state, verifier);
+		oidc.put(state, new AdvancedProperty(verifier, redirect));
 	}
 
-	public String getOIDCVerifier(String state) {
+	public AdvancedProperty getOIDCVerifier(String state) {
 		if (StringUtil.isEmpty(state)) {
 			return null;
 		}
@@ -334,7 +335,8 @@ public class IslandDotIsService extends DefaultSpringBean {
 			String clientId = settings.getProperty("island.is_client_id");
 			oidcCode = req.getParameter("code");
 			String redirectUri = URLEncoder.encode(settings.getProperty("island.is_redirect_uri"), CoreConstants.ENCODING_UTF8);
-			String codeVerifier = getOIDCVerifier(req.getParameter("state"));
+			AdvancedProperty props = getOIDCVerifier(req.getParameter("state"));
+			String codeVerifier = props == null ? null : props.getId();
 			String payload = MessageFormat.format(
 					"grant_type={0}&code={1}&redirect_uri={2}&code_verifier={3}&client_id={4}",
 					new Object[] {
@@ -387,7 +389,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 				return null;
 			}
 
-			return new AdvancedProperty(personalID, name);
+			return new AdvancedProperty(personalID, name, props == null ? null : props.getValue());
 		} catch (Exception e) {
 			getLogger().log(
 					Level.WARNING,
