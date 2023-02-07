@@ -15,6 +15,8 @@ import java.security.cert.CertificateExpiredException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Base64;
@@ -24,6 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 import javax.ejb.FinderException;
@@ -65,6 +68,13 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import com.auth0.jwk.JwkProvider;
+import com.auth0.jwk.JwkProviderBuilder;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.auth0.jwt.interfaces.RSAKeyProvider;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.idega.builder.bean.AdvancedProperty;
@@ -126,6 +136,8 @@ public class IslandDotIsService extends DefaultSpringBean {
 	private static final String LOGIN_SERVICE_ENDPOINT = "island.is_login_service_endpoint";
 	private static final String LOGIN_SERVICE_USER = "island.is_login_service_user";
 	private static final String LOGIN_SERVICE_PASSWORD = "island.is_login_service_password";
+
+	private static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
 
 	private Map<String, AdvancedProperty> oidc = new ConcurrentHashMap<>();
 
@@ -328,6 +340,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 			IWMainApplicationSettings settings = getSettings();
 			String server = settings.getProperty("island.is_oidc", "https://innskra.island.is");
 			String tokenURI = settings.getProperty("island.is_oidc_token_uri", "/connect/token");
+			String pathToJWKSToken = settings.getProperty("island.is_oidc_jwks", "/.well-known/openid-configuration/jwks");
 			if (server.endsWith(CoreConstants.SLASH) && tokenURI.startsWith(CoreConstants.SLASH)) {
 				tokenURI = tokenURI.substring(1);
 			}
@@ -370,18 +383,22 @@ public class IslandDotIsService extends DefaultSpringBean {
 				return null;
 			}
 
-			Gson gson = new GsonBuilder().disableHtmlEscaping().create();
-
 			responseValue = StringHandler.getContentFromInputStream(response.getEntityInputStream());
 			responseValue = URLDecoder.decode(responseValue, CoreConstants.ENCODING_UTF8);
-			TokenResponse tokenResponse = gson.fromJson(responseValue, TokenResponse.class);
+			TokenResponse tokenResponse = GSON.fromJson(responseValue, TokenResponse.class);
 			if (tokenResponse == null || StringUtil.isEmpty(tokenResponse.getId_token())) {
 				getLogger().warning("Token not provided in response " + responseValue + ". Code: " + oidcCode);
 				return null;
 			}
 
 			String tokenId = tokenResponse.getId_token();
-			Token token = getToken(gson, tokenId);
+			Token token = null;
+			try {
+				token = getToken(server, pathToJWKSToken, tokenId);
+			} catch (Throwable t) {
+				getLogger().log(Level.WARNING, "Error getting token from " + tokenId + ". Response:\n" + responseValue, t);
+			}
+			token = token == null ? getToken(tokenId) : token;
 			String personalID = token == null ? null : token.getNationalId();
 			String name = token == null ? null : token.getName();
 			if (StringUtil.isEmpty(personalID) || StringUtil.isEmpty(name)) {
@@ -400,7 +417,61 @@ public class IslandDotIsService extends DefaultSpringBean {
 		return null;
 	}
 
-	private Token getToken(Gson gson, String value) {
+	private Token getToken(String issuer, String pathToJWKSToken, String idToken) throws Exception {
+		if (StringUtil.isEmpty(issuer) || StringUtil.isEmpty(idToken)) {
+			getLogger().warning("Issuer (" + issuer + ") or ID token (" +  idToken + ") not provided");
+			return null;
+		}
+
+		if (issuer.endsWith(CoreConstants.SLASH)) {
+			issuer = issuer.substring(0, issuer.length() - 1);
+		}
+
+		URL url = new URL(issuer.concat(pathToJWKSToken));
+		JwkProvider jwkProvider = new JwkProviderBuilder(url)
+				// cache up to 10 JWKs for up to 24 hours
+				.cached(10, 24, TimeUnit.HOURS)
+				// up to 10 JWKs can be retrieved within one minute
+				.rateLimited(10, 1, TimeUnit.MINUTES)
+				// Connect timeout of 1 second, read timeout of 2 seconds (values are in milliseconds)
+				.timeouts(1000, 2000)
+				.build();
+
+		RSAKeyProvider keyProvider = new RSAKeyProvider() {
+
+			@Override
+			public RSAPublicKey getPublicKeyById(String kid) {
+				try {
+					return (RSAPublicKey) jwkProvider.get(kid).getPublicKey();
+				} catch (Throwable t) {
+					getLogger().log(Level.WARNING, "Error getting public key by ID " + kid + " for " + idToken, t);
+				}
+				return null;
+			}
+
+			@Override
+			public RSAPrivateKey getPrivateKey() {
+				return null;
+			}
+
+			@Override
+			public String getPrivateKeyId() {
+				return null;
+			}
+		};
+		Algorithm algorithm = Algorithm.RSA256(keyProvider);
+		JWTVerifier verifier = JWT.require(algorithm)
+			.withIssuer(issuer)
+			.build();
+
+		DecodedJWT decodedJWT = verifier.verify(idToken);
+		String payload = decodedJWT.getPayload();
+		byte[] bytes = Base64.getDecoder().decode(payload.getBytes(StandardCharsets.UTF_8));
+		payload = new String(bytes, StandardCharsets.UTF_8);
+		return GSON.fromJson(payload, Token.class);
+    }
+
+	private Token getToken(String value) {
 		if (StringUtil.isEmpty(value)) {
 			getLogger().warning("Token value encoded in Base64 is not provided");
 			return null;
@@ -453,7 +524,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 					if (!jsonPart.endsWith(CoreConstants.CURLY_BRACKET_RIGHT)) {
 						jsonPart = jsonPart.concat(CoreConstants.CURLY_BRACKET_RIGHT);
 					}
-					token = gson.fromJson(jsonPart, Token.class);
+					token = GSON.fromJson(jsonPart, Token.class);
 				} catch (Throwable t) {}
 				if (token == null || StringUtil.isEmpty(token.getNationalId())) {
 					continue;
@@ -505,7 +576,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 			return null;
 		}
 
-		getLogger().warning("Failed to create token from " + json + ". Token value: "+ tokenValue + ". Base64 encoded value: " + value);
+		getLogger().warning("Failed to create token from JSON '" + json + "'. Token value: " + tokenValue + ". Base64 encoded value: " + value);
 		return null;
 	}
 
