@@ -43,10 +43,6 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>com.idega.block.platform</groupId>
-      <artifactId>org.apache.axis</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.idega.block.addon</groupId>
       <artifactId>com.idega.restful</artifactId>
     </dependency>
@@ -86,6 +82,77 @@
         <artifactId>jackson-databind</artifactId>
         <version>2.12.1</version>
 	 </dependency>
+	 
+	 <!-- Axis 2 -->
+	 <dependency>
+        <groupId>org.apache.ws.xmlschema</groupId>
+        <artifactId>xmlschema-core</artifactId>
+        <version>2.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.axis2</groupId>
+        <artifactId>axis2-kernel</artifactId>
+        <version>1.6.1</version>
+        <exclusions>
+            <exclusion>
+              <groupId>javax.ws.rs</groupId>
+              <artifactId>jsr311-api</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>javax.servlet</groupId>
+              <artifactId>servlet-api</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-javamail_1.4_spec</artifactId>
+            </exclusion>
+            <exclusion>
+              <groupId>org.apache.ws.commons.schema</groupId>
+              <artifactId>XmlSchema</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.axis2</groupId>
+        <artifactId>axis2-adb</artifactId>
+        <version>1.6.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.axis2</groupId>
+        <artifactId>axis2-transport-http</artifactId>
+        <version>1.6.1</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.axis2</groupId>
+        <artifactId>axis2-transport-local</artifactId>
+        <version>1.6.1</version>
+    </dependency>
   </dependencies>
+  
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+            <executions>
+
+                <execution>
+                    <id>usXMLWebService</id>
+                    <phase>generate-sources</phase>
+                    <goals>
+                        <goal>wsdl2code</goal>
+                    </goals>
+                    <configuration>
+                        <packageName>is.idega.webservice.fasteignaskra.is</packageName>
+                        <databindingName>adb</databindingName>
+                        <generateServerSide>false</generateServerSide>
+                        <wsdlFile>src/main/axis2/fasteignaskra.wsdl</wsdlFile>
+                    </configuration>
+                </execution>
+               
+            </executions>
+        </plugin>
+    </plugins>
+ </build>
   
 </project>
