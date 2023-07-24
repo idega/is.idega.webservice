@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetCompanies">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCompaniesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompaniesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PingServer">
+        <s:complexType />
+      </s:element>
+      <s:element name="PingServerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PingServerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filter" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReturnTree" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderBy" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReturnTree" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataOrderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataFields">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Fields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderBy" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReturnTree" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataFieldsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataFieldsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsChanges">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDataReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dsChanges">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="returnChanges" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDataReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveDataReturnResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OpenQueryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetIDResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCube">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="queryString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCubeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCubeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserResult" type="tns:TMUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TMUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SchemaName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SchemaGroup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Schema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetQueries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="YfirFlokkur" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UndirFlokkur" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQueriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQueriesResult" type="tns:ArrayOfQuery" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfQuery">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Query" nillable="true" type="tns:Query" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Query">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="QueryId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubGroupText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubGroupCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetQueryInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FieldInfo" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQueryInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQueryInfoResult" type="tns:QueryInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="QueryInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="paramList" type="tns:ArrayOfParamInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="fieldList" type="tns:ArrayOfFieldInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfParamInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ParamInfo" nillable="true" type="tns:ParamInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ParamInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FromField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FromList" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToList" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FromDefValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToDefValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mask" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Length" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DBField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Order" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FromValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFieldInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FieldInfo" nillable="true" type="tns:FieldInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FieldInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Field" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GenReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfParamInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenReportResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenReportFilePath">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfParamInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenReportFilePathResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenReportFilePathResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfParamInfo" />
+            <s:element minOccurs="0" maxOccurs="1" name="ResultParam" type="tns:ArrayOfResultField" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfResultField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResultField" nillable="true" type="tns:ResultField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResultField">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultType" type="tns:enumResultFieldType" />
+          <s:element minOccurs="1" maxOccurs="1" name="AggregateType" type="tns:enumAggrType" />
+          <s:element minOccurs="0" maxOccurs="1" name="FieldName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CrossTabField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CrossTabValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CrossTabResultField" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enumResultFieldType">
+        <s:restriction base="s:string">
+          <s:enumeration value="value" />
+          <s:enumeration value="crosstab" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="enumAggrType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Group" />
+          <s:enumeration value="Sum" />
+          <s:enumeration value="Count" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GenDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunProc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProcId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ArrayOfProcParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProcParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProcParam" nillable="true" type="tns:ProcParam" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProcParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fdef" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListCombo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Length" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Order" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RunProcResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RunProcResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProcId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcInfoResult" type="tns:ProcInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProcInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="paramList" type="tns:ArrayOfProcParam" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProcs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProcsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcsResult" type="tns:ArrayOfProc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Proc" nillable="true" type="tns:Proc" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Proc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProcId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCompaniesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompanies" />
+  </wsdl:message>
+  <wsdl:message name="GetCompaniesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingServerSoapIn">
+    <wsdl:part name="parameters" element="tns:PingServer" />
+  </wsdl:message>
+  <wsdl:message name="PingServerSoapOut">
+    <wsdl:part name="parameters" element="tns:PingServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetDataOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataFieldsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataFields" />
+  </wsdl:message>
+  <wsdl:message name="GetDataFieldsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveData" />
+  </wsdl:message>
+  <wsdl:message name="SaveDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveDataReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveDataReturn" />
+  </wsdl:message>
+  <wsdl:message name="SaveDataReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveDataReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpenQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:OpenQuery" />
+  </wsdl:message>
+  <wsdl:message name="OpenQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:OpenQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetID" />
+  </wsdl:message>
+  <wsdl:message name="GetIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCubeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCube" />
+  </wsdl:message>
+  <wsdl:message name="GetCubeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCubeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQueriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQueries" />
+  </wsdl:message>
+  <wsdl:message name="GetQueriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQueriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQueryInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetQueryInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQueryInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenReportSoapIn">
+    <wsdl:part name="parameters" element="tns:GenReport" />
+  </wsdl:message>
+  <wsdl:message name="GenReportSoapOut">
+    <wsdl:part name="parameters" element="tns:GenReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenReportFilePathSoapIn">
+    <wsdl:part name="parameters" element="tns:GenReportFilePath" />
+  </wsdl:message>
+  <wsdl:message name="GenReportFilePathSoapOut">
+    <wsdl:part name="parameters" element="tns:GenReportFilePathResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:GenDataSet" />
+  </wsdl:message>
+  <wsdl:message name="GenDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:GenDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="RunProcSoapIn">
+    <wsdl:part name="parameters" element="tns:RunProc" />
+  </wsdl:message>
+  <wsdl:message name="RunProcSoapOut">
+    <wsdl:part name="parameters" element="tns:RunProcResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetProcInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcs" />
+  </wsdl:message>
+  <wsdl:message name="GetProcsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MainSoap">
+    <wsdl:operation name="GetCompanies">
+      <wsdl:input message="tns:GetCompaniesSoapIn" />
+      <wsdl:output message="tns:GetCompaniesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PingServer">
+      <wsdl:input message="tns:PingServerSoapIn" />
+      <wsdl:output message="tns:PingServerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input message="tns:GetDataSoapIn" />
+      <wsdl:output message="tns:GetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataOrder">
+      <wsdl:input message="tns:GetDataOrderSoapIn" />
+      <wsdl:output message="tns:GetDataOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFields">
+      <wsdl:input message="tns:GetDataFieldsSoapIn" />
+      <wsdl:output message="tns:GetDataFieldsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveData">
+      <wsdl:input message="tns:SaveDataSoapIn" />
+      <wsdl:output message="tns:SaveDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDataReturn">
+      <wsdl:input message="tns:SaveDataReturnSoapIn" />
+      <wsdl:output message="tns:SaveDataReturnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenQuery">
+      <wsdl:input message="tns:OpenQuerySoapIn" />
+      <wsdl:output message="tns:OpenQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetID">
+      <wsdl:input message="tns:GetIDSoapIn" />
+      <wsdl:output message="tns:GetIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCube">
+      <wsdl:input message="tns:GetCubeSoapIn" />
+      <wsdl:output message="tns:GetCubeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input message="tns:GetUserSoapIn" />
+      <wsdl:output message="tns:GetUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQueries">
+      <wsdl:input message="tns:GetQueriesSoapIn" />
+      <wsdl:output message="tns:GetQueriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryInfo">
+      <wsdl:input message="tns:GetQueryInfoSoapIn" />
+      <wsdl:output message="tns:GetQueryInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenReport">
+      <wsdl:input message="tns:GenReportSoapIn" />
+      <wsdl:output message="tns:GenReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenReportFilePath">
+      <wsdl:input message="tns:GenReportFilePathSoapIn" />
+      <wsdl:output message="tns:GenReportFilePathSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenDataSet">
+      <wsdl:input message="tns:GenDataSetSoapIn" />
+      <wsdl:output message="tns:GenDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunProc">
+      <wsdl:input message="tns:RunProcSoapIn" />
+      <wsdl:output message="tns:RunProcSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcInfo">
+      <wsdl:input message="tns:GetProcInfoSoapIn" />
+      <wsdl:output message="tns:GetProcInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProcs">
+      <wsdl:input message="tns:GetProcsSoapIn" />
+      <wsdl:output message="tns:GetProcsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MainSoap" type="tns:MainSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCompanies">
+      <soap:operation soapAction="http://tempuri.org/GetCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingServer">
+      <soap:operation soapAction="http://tempuri.org/PingServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataOrder">
+      <soap:operation soapAction="http://tempuri.org/GetDataOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFields">
+      <soap:operation soapAction="http://tempuri.org/GetDataFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveData">
+      <soap:operation soapAction="http://tempuri.org/SaveData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDataReturn">
+      <soap:operation soapAction="http://tempuri.org/SaveDataReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenQuery">
+      <soap:operation soapAction="http://tempuri.org/OpenQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetID">
+      <soap:operation soapAction="http://tempuri.org/GetID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCube">
+      <soap:operation soapAction="http://tempuri.org/GetCube" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueries">
+      <soap:operation soapAction="http://tempuri.org/GetQueries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryInfo">
+      <soap:operation soapAction="http://tempuri.org/GetQueryInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenReport">
+      <soap:operation soapAction="http://tempuri.org/GenReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenReportFilePath">
+      <soap:operation soapAction="http://tempuri.org/GenReportFilePath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenDataSet">
+      <soap:operation soapAction="http://tempuri.org/GenDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunProc">
+      <soap:operation soapAction="http://tempuri.org/RunProc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcInfo">
+      <soap:operation soapAction="http://tempuri.org/GetProcInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcs">
+      <soap:operation soapAction="http://tempuri.org/GetProcs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MainSoap12" type="tns:MainSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCompanies">
+      <soap12:operation soapAction="http://tempuri.org/GetCompanies" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingServer">
+      <soap12:operation soapAction="http://tempuri.org/PingServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap12:operation soapAction="http://tempuri.org/GetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataOrder">
+      <soap12:operation soapAction="http://tempuri.org/GetDataOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataFields">
+      <soap12:operation soapAction="http://tempuri.org/GetDataFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveData">
+      <soap12:operation soapAction="http://tempuri.org/SaveData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDataReturn">
+      <soap12:operation soapAction="http://tempuri.org/SaveDataReturn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenQuery">
+      <soap12:operation soapAction="http://tempuri.org/OpenQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetID">
+      <soap12:operation soapAction="http://tempuri.org/GetID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCube">
+      <soap12:operation soapAction="http://tempuri.org/GetCube" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://tempuri.org/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueries">
+      <soap12:operation soapAction="http://tempuri.org/GetQueries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQueryInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetQueryInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenReport">
+      <soap12:operation soapAction="http://tempuri.org/GenReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenReportFilePath">
+      <soap12:operation soapAction="http://tempuri.org/GenReportFilePath" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenDataSet">
+      <soap12:operation soapAction="http://tempuri.org/GenDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunProc">
+      <soap12:operation soapAction="http://tempuri.org/RunProc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetProcInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProcs">
+      <soap12:operation soapAction="http://tempuri.org/GetProcs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Main">
+    <wsdl:port name="MainSoap" binding="tns:MainSoap">
+		<soap:address location="https://webservices.fasteignaskra.is/main.asmx"/>
+	</wsdl:port>
+    <wsdl:port name="MainSoap12" binding="tns:MainSoap12">
+      <soap12:address location="https://webservices.fasteignaskra.is/main.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
