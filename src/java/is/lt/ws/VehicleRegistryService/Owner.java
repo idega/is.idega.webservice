@@ -1,12 +1,15 @@
 package is.lt.ws.VehicleRegistryService;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
 import com.idega.util.ArrayUtil;
 import com.idega.util.StringUtil;
 
-public class Owner {
+public class Owner implements Serializable {
+
+	private static final long serialVersionUID = 2271772808616359046L;
 
 	public ExtensionData ExtensionData;
 	public String Current;

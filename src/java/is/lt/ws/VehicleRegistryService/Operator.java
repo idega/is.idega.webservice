@@ -1,8 +1,12 @@
 package is.lt.ws.VehicleRegistryService;
 
+import java.io.Serializable;
+
 import com.idega.util.StringUtil;
 
-public class Operator {
+public class Operator implements Serializable {
+
+	private static final long serialVersionUID = 9104175368081717183L;
 
 	public ExtensionData ExtensionData;
 	public String Current;

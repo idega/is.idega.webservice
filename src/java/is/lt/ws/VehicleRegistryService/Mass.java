@@ -1,6 +1,9 @@
 package is.lt.ws.VehicleRegistryService;
 
-public class Mass {
+import java.io.Serializable;
+
+public class Mass implements Serializable {
+	private static final long serialVersionUID = 3091548189864872740L;
 	public ExtensionData ExtensionData;
 	public String Massinro;
 	public String Massofveh;

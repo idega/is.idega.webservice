@@ -1,6 +1,9 @@
 package is.lt.ws.VehicleRegistryService;
 
-public class Massdaxle {
+import java.io.Serializable;
+
+public class Massdaxle implements Serializable {
+	private static final long serialVersionUID = 7894781156590359758L;
 	public boolean nil;
 	public String d5p1;
 }

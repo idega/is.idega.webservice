@@ -1,6 +1,9 @@
 package is.lt.ws.VehicleRegistryService;
 
-public class Remark {
+import java.io.Serializable;
+
+public class Remark implements Serializable {
+	private static final long serialVersionUID = -6019413630721922989L;
 	public ExtensionData ExtensionData;
 	public String Date;
 	public String Text;

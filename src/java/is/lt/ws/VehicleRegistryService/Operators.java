@@ -1,8 +1,11 @@
 package is.lt.ws.VehicleRegistryService;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Operators {
+public class Operators implements Serializable {
+
+	private static final long serialVersionUID = -2834154728944585355L;
 
 	public List<Operator> Operator;
 

@@ -1,7 +1,10 @@
 package is.lt.ws.VehicleRegistryService;
 
-public class Technical {
-	public Object ExtensionData;
+import java.io.Serializable;
+
+public class Technical implements Serializable {
+	private static final long serialVersionUID = -8388179873446024673L;
+	public ExtensionData ExtensionData;
 	public String Vehgroup;
 	public String Engine;
 	public String Pass;
@@ -55,10 +58,10 @@ public class Technical {
 	public String StandingNo;
 	public String Co2_WLTP;
 	public String WeightedCo2_WLTP;
-	public Object getExtensionData() {
+	public ExtensionData getExtensionData() {
 		return ExtensionData;
 	}
-	public void setExtensionData(Object extensionData) {
+	public void setExtensionData(ExtensionData extensionData) {
 		ExtensionData = extensionData;
 	}
 	public String getVehgroup() {

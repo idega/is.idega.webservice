@@ -1,6 +1,9 @@
 package is.lt.ws.VehicleRegistryService;
 
-public class Inspection {
+import java.io.Serializable;
+
+public class Inspection implements Serializable {
+	private static final long serialVersionUID = 3757494316730973670L;
 	public ExtensionData ExtensionData;
 	public String Date;
 	public String ReinspectionDate;

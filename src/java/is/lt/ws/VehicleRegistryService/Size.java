@@ -1,6 +1,9 @@
 package is.lt.ws.VehicleRegistryService;
 
-public class Size {
+import java.io.Serializable;
+
+public class Size implements Serializable {
+	private static final long serialVersionUID = 2696714104139017243L;
 	public ExtensionData ExtensionData;
 	public String Length;
 	public String Width;

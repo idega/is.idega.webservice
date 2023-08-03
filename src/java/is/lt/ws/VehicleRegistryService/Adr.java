@@ -1,6 +1,9 @@
 package is.lt.ws.VehicleRegistryService;
 
-public class Adr { 
+import java.io.Serializable;
+
+public class Adr implements Serializable {
+	private static final long serialVersionUID = 4691740306121914786L;
 	public ExtensionData ExtensionData;
 	public String Date;
 	public String Expires;

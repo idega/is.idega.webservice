@@ -1,6 +1,9 @@
 package is.lt.ws.VehicleRegistryService;
 
-public class Axle { 
+import java.io.Serializable;
+
+public class Axle implements Serializable {
+	private static final long serialVersionUID = 4891655483565560508L;
 	public ExtensionData ExtensionData;
 	public String AxleNo;
 	public String WheelsNo;

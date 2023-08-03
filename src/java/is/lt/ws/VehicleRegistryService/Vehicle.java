@@ -1,5 +1,6 @@
 package is.lt.ws.VehicleRegistryService;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,9 +8,11 @@ import com.idega.util.ArrayUtil;
 import com.idega.util.ListUtil;
 import com.idega.util.StringUtil;
 
-public class Vehicle {
+public class Vehicle implements Serializable {
 
-	public Object ExtensionData;
+	private static final long serialVersionUID = 3172786451631766419L;
+
+	public ExtensionData ExtensionData;
 	public String PermNo;
 	public String RegNo;
 	public String Vin;
@@ -79,10 +82,10 @@ public class Vehicle {
 	public String NextInspectionDateIfPassedInspectionToday;
 	public String TaxGroup;
 
-	public Object getExtensionData() {
+	public ExtensionData getExtensionData() {
 		return ExtensionData;
 	}
-	public void setExtensionData(Object extensionData) {
+	public void setExtensionData(ExtensionData extensionData) {
 		ExtensionData = extensionData;
 	}
 	public String getPermNo() {

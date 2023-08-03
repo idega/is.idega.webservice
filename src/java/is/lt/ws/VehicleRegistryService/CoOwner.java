@@ -1,6 +1,10 @@
 package is.lt.ws.VehicleRegistryService;
 
-public class CoOwner extends Owner {
+import java.io.Serializable;
+
+public class CoOwner extends Owner implements Serializable {
+
+	private static final long serialVersionUID = 8945359060695788998L;
 
 	public CoOwner() {
 		super();

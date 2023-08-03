@@ -1,8 +1,11 @@
 package is.lt.ws.VehicleRegistryService;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class CoOwners {
+public class CoOwners implements Serializable {
+
+	private static final long serialVersionUID = 6361243475666484611L;
 
 	public List<CoOwner> CoOwner;
 
