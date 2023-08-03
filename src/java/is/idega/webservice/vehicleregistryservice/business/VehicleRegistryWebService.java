@@ -1,6 +1,6 @@
 package is.idega.webservice.vehicleregistryservice.business;
 
-import is.idega.webservice.model.vehicle.Vehicle;
+import is.lt.ws.VehicleRegistryService.Vehicle;
 
 public interface VehicleRegistryWebService {
 

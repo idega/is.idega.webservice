@@ -33,13 +33,18 @@ import com.idega.util.StringHandler;
 import com.idega.util.StringUtil;
 import com.sun.jersey.api.client.ClientResponse;
 
-import is.idega.webservice.model.vehicle.CoOwner;
-import is.idega.webservice.model.vehicle.CoOwners;
-import is.idega.webservice.model.vehicle.Operator;
-import is.idega.webservice.model.vehicle.Operators;
-import is.idega.webservice.model.vehicle.Owner;
-import is.idega.webservice.model.vehicle.Owners;
-import is.idega.webservice.model.vehicle.Vehicle;
+import is.lt.ws.VehicleRegistryService.CoOwner;
+import is.lt.ws.VehicleRegistryService.CoOwners;
+import is.lt.ws.VehicleRegistryService.Mass;
+import is.lt.ws.VehicleRegistryService.Operator;
+import is.lt.ws.VehicleRegistryService.Operators;
+import is.lt.ws.VehicleRegistryService.Owner;
+import is.lt.ws.VehicleRegistryService.Owners;
+import is.lt.ws.VehicleRegistryService.Remark;
+import is.lt.ws.VehicleRegistryService.Remarks;
+import is.lt.ws.VehicleRegistryService.Size;
+import is.lt.ws.VehicleRegistryService.Technical;
+import is.lt.ws.VehicleRegistryService.Vehicle;
 
 @Primary
 @Scope(BeanDefinition.SCOPE_SINGLETON)
@@ -144,13 +149,24 @@ public class VehicleRegistryWebServiceBean extends DefaultSpringBean implements 
 			vehicle.setInsuranceCompany(getValue(element, "InsuranceCompany"));
 			vehicle.setInsuranceStatus(getValue(element, "InsuranceStatus"));
 
+			vehicle.setPlateStatus(getValue(element, "PlateStatus"));
+			vehicle.setVehiclestatus(getValue(element, "Vehiclestatus"));
+
 			vehicle.setOwners(getOwners(element));
 			vehicle.setOperators(getOperators(element));
+
+			vehicle.setTechnical(getTechnical(element));
+			vehicle.setRemarks(getRemarks(element));
 
 			results.add(vehicle);
 		}
 
 		return results;
+	}
+
+	private String getValue(Elements elements, String tag) {
+		Element el = ListUtil.isEmpty(elements) ? null : elements.get(0);
+		return getValue(el, tag);
 	}
 
 	private <T extends Element> String getValue(T documentOrElement, String tag) {
@@ -169,6 +185,71 @@ public class VehicleRegistryWebServiceBean extends DefaultSpringBean implements 
 			value = element == null ? null : element.text();
 		}
 		return value;
+	}
+
+	private <T extends Element> Remarks getRemarks(T document) {
+		if (document == null) {
+			return null;
+		}
+
+		Elements remarksEls = document.getElementsByTag("Remark");
+		if (ListUtil.isEmpty(remarksEls)) {
+			return null;
+		}
+
+		Remarks remarksObject = new Remarks();
+		List<Remark> remarks = new ArrayList<>();
+		remarksObject.Remark = remarks;
+		for (Iterator<Element> iter = remarksEls.iterator(); iter.hasNext();) {
+			Element remarkEl = iter.next();
+			Remark remark = new Remark();
+			remarks.add(remark);
+			remark.setText(getValue(remarkEl, "Text"));
+			remark.setDate(getValue(remarkEl, "Date"));
+			remark.setInvalidDate(getValue(remarkEl, "InvalidDate"));
+		}
+		return remarksObject;
+	}
+
+	private <T extends Element> Technical getTechnical(T document) {
+		if (document == null) {
+			return null;
+		}
+
+		Elements technicalEls = document.getElementsByTag("Technical");
+		if (ListUtil.isEmpty(technicalEls)) {
+			return null;
+		}
+
+		Element technicalEl = technicalEls.get(0);
+		Technical technical = new Technical();
+
+		Elements sizeEl = technicalEl.getElementsByTag("Size");
+		if (!ListUtil.isEmpty(sizeEl)) {
+			Size size = new Size();
+			technical.setSize(size);
+			size.setLength(getValue(sizeEl, "Length"));
+			size.setWidth(getValue(sizeEl, "Width"));
+			size.setHeight(getValue(sizeEl, "Height"));
+		}
+
+		Elements massEl = technicalEl.getElementsByTag("Mass");
+		if (!ListUtil.isEmpty(massEl)) {
+			Mass mass = new Mass();
+			technical.setMass(mass);
+			mass.setMassinro(getValue(massEl, "Massinro"));
+		}
+
+		technical.setVehgroup(getValue(technicalEl, "Vehgroup"));
+		technical.setEngine(getValue(technicalEl, "Engine"));
+		technical.setEnginecode(getValue(technicalEl, "Enginecode"));
+		technical.setEngingemanuf(getValue(technicalEl, "Engingemanuf"));
+		technical.setNocylinders(getValue(technicalEl, "Nocylinders"));
+		technical.setCapacity(getValue(technicalEl, "Capacity"));
+		technical.setMaxnetpow(getValue(technicalEl, "Maxnetpow"));
+		technical.setMaxspeed(getValue(technicalEl, "Maxspeed"));
+
+		return technical;
 	}
 
 	private <T extends Element> Owners getOwners(T document) {
@@ -283,7 +364,7 @@ public class VehicleRegistryWebServiceBean extends DefaultSpringBean implements 
 				getLogger().info("[VehicleRegistryWebService] Starting lookup on vehicle '" + registrationNumber + "': " + new IWTimestamp(start).toString());
 			}
 
-			String endpoint = settings.getProperty(VEHICLE_REGISTRY_ENDPOINT, CoreConstants.EMPTY);//"https://ws.lt.is/VehicleRegistry/VehicleRegistryService.asmx/BasicVehicleInformation";
+			String endpoint = settings.getProperty(VEHICLE_REGISTRY_ENDPOINT, CoreConstants.EMPTY);
 			String userid = settings.getProperty(VEHICLE_REGISTRY_USER, CoreConstants.EMPTY);
 			String password = settings.getProperty(VEHICLE_REGISTRY_PASSWORD, CoreConstants.EMPTY);
 
