@@ -1,8 +1,10 @@
 package is.lt.ws.VehicleRegistryService;
 
 import java.util.Arrays;
+import java.util.List;
 
 import com.idega.util.ArrayUtil;
+import com.idega.util.StringUtil;
 
 public class Owner {
 
@@ -32,6 +34,37 @@ public class Owner {
 		Fullname = fullName;
 	}
 
+	public Owner(
+			Object extensionData,
+			boolean current,
+			boolean anonymous,
+			String purchaseDate,
+			String ownregDate,
+			String receptionDate,
+			String persidno,
+			String fullname,
+			String address,
+			String postalcode,
+			String city,
+			String ownerinsurancecode,
+			CoOwner[] coOwners
+	) {
+		this();
+
+		setCurrent(current);
+		setAnonymous(String.valueOf(anonymous));
+		setPurchaseDate(purchaseDate);
+		setOwnregDate(ownregDate);
+		setReceptionDate(receptionDate);
+		setPersidno(persidno);
+		setFullname(fullname);
+		setAddress(address);
+		setPostalcode(postalcode);
+		setCity(city);
+		setOwnerinsurancecode(ownerinsurancecode);
+		setCoOwners(coOwners);
+	}
+
 	public ExtensionData getExtensionData() {
 		return ExtensionData;
 	}
@@ -40,6 +73,9 @@ public class Owner {
 	}
 	public String getCurrent() {
 		return Current;
+	}
+	public boolean isCurrent() {
+		return StringUtil.isEmpty(Current) ? Boolean.FALSE : Boolean.valueOf(Current) || "1".equals(Current);
 	}
 	public void setCurrent(Boolean current) {
 		if (current != null) {
@@ -109,8 +145,9 @@ public class Owner {
 	public void setOwnerinsurancecode(String ownerinsurancecode) {
 		Ownerinsurancecode = ownerinsurancecode;
 	}
-	public CoOwners getCoOwners() {
-		return CoOwners;
+	public CoOwner[] getCoOwners() {
+		List<CoOwner> coOwners = CoOwners == null ? null : CoOwners.CoOwner;
+		return ArrayUtil.convertListToArray(coOwners);
 	}
 	public void setCoOwners(CoOwners coOwners) {
 		CoOwners = coOwners;

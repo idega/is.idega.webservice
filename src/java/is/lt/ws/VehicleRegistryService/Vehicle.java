@@ -1,8 +1,11 @@
 package is.lt.ws.VehicleRegistryService;
 
 import java.util.Arrays;
+import java.util.List;
 
 import com.idega.util.ArrayUtil;
+import com.idega.util.ListUtil;
+import com.idega.util.StringUtil;
 
 public class Vehicle {
 
@@ -331,6 +334,9 @@ public class Vehicle {
 	public String getInsuranceStatus() {
 		return InsuranceStatus;
 	}
+	public boolean isInsuranceStatus() {
+		return StringUtil.isEmpty(InsuranceStatus) ? Boolean.FALSE : Boolean.valueOf(InsuranceStatus) || "1".equals(InsuranceStatus);
+	}
 	public void setInsuranceStatus(Boolean insuranceStatus) {
 		if (insuranceStatus != null) {
 			setInsuranceStatus(String.valueOf(insuranceStatus));
@@ -363,8 +369,9 @@ public class Vehicle {
 	public void setTechnical(Technical technical) {
 		Technical = technical;
 	}
-	public Owners getOwners() {
-		return Owners;
+	public Owner[] getOwners() {
+		List<Owner> owners = Owners == null ? null : Owners.Owner;
+		return ArrayUtil.convertListToArray(owners);
 	}
 	public void setOwners(Owner[] owners) {
 		if (!ArrayUtil.isEmpty(owners)) {
@@ -375,8 +382,9 @@ public class Vehicle {
 	public void setOwners(Owners owners) {
 		Owners = owners;
 	}
-	public Operators getOperators() {
-		return Operators;
+	public Operator[] getOperators() {
+		List<Operator> operators = Operators == null ? null : Operators.Operator;
+		return ArrayUtil.convertListToArray(operators);
 	}
 	public void setOperators(Operator[] operators) {
 		if (!ArrayUtil.isEmpty(operators)) {
@@ -423,8 +431,9 @@ public class Vehicle {
 	public void setStolens(Stolens stolens) {
 		Stolens = stolens;
 	}
-	public Remarks getRemarks() {
-		return Remarks;
+	public Remark[] getRemarks() {
+		List<Remark> remarks = Remarks == null ? null : Remarks.Remark;
+		return ListUtil.isEmpty(remarks) ? null : ArrayUtil.convertListToArray(remarks);
 	}
 	public void setRemarks(Remark[] remarks) {
 		if (ArrayUtil.isEmpty(remarks)) {

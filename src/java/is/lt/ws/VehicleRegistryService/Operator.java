@@ -1,5 +1,7 @@
 package is.lt.ws.VehicleRegistryService;
 
+import com.idega.util.StringUtil;
+
 public class Operator {
 
 	public ExtensionData ExtensionData;
@@ -61,6 +63,9 @@ public class Operator {
 	}
 	public String getCurrent() {
 		return Current;
+	}
+	public boolean isCurrent() {
+		return StringUtil.isEmpty(Current) ? Boolean.FALSE : Boolean.valueOf(Current) || "1".equals(Current);
 	}
 	public void setCurrent(Boolean current) {
 		if (current != null) {
