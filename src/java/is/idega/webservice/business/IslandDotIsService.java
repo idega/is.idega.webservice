@@ -1,14 +1,11 @@
 package is.idega.webservice.business;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.rmi.RemoteException;
 import java.security.KeyStore;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateExpiredException;
@@ -34,8 +31,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.HttpMethod;
 import javax.xml.XMLConstants;
-import javax.xml.rpc.ServiceException;
-import javax.xml.rpc.holders.StringHolder;
 
 import org.joda.time.DateTime;
 import org.opensaml.DefaultBootstrap;
@@ -106,36 +101,16 @@ import com.idega.util.StringUtil;
 import com.idega.util.expression.ELUtil;
 import com.sun.jersey.api.client.ClientResponse;
 
-import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerAccessPointLocator;
-import eGOVDKM_AuthConsumer.EGOVDKM_AuthConsumerType;
 import is.idega.idegaweb.egov.accounting.business.CitizenBusiness;
-import is.idega.webservice.betrireykjavik.presentation.BetriReykjavikAuthentication;
+import is.idega.webservice.WebServiceConstants;
 import is.idega.webservice.model.Token;
 import is.idega.webservice.model.TokenResponse;
-import is.skra.kosingar.kodun.KodunLocator;
-import is.skra.kosingar.kodun.Kodun_PortType;
-import is.skra.kosingar.kodun.Status;
-import localhost.eGovSAMLGenerator.webServices.generateSAMLFromToken.holders.__StatusHolder;
-import nu.xom.Builder;
-import nu.xom.Document;
-import nu.xom.Element;
-import nu.xom.Elements;
-import nu.xom.ParsingException;
-import nu.xom.ValidityException;
 
 @Scope(BeanDefinition.SCOPE_SINGLETON)
 @Service(IslandDotIsService.BEAN_NAME)
 public class IslandDotIsService extends DefaultSpringBean {
 
 	public static final String BEAN_NAME = "islandDotIsService";
-
-	private static final String ELECTION_SERVICE_ENDPOINT = "island.is_election_service_endpoint";
-	private static final String ELECTION_SERVICE_USER = "island.is_election_service_user";
-	private static final String ELECTION_SERVICE_PASSWORD = "island.is_election_service_password";
-
-	private static final String LOGIN_SERVICE_ENDPOINT = "island.is_login_service_endpoint";
-	private static final String LOGIN_SERVICE_USER = "island.is_login_service_user";
-	private static final String LOGIN_SERVICE_PASSWORD = "island.is_login_service_password";
 
 	private static final Gson GSON = new GsonBuilder().disableHtmlEscaping().create();
 
@@ -157,135 +132,6 @@ public class IslandDotIsService extends DefaultSpringBean {
 		return oidc.remove(state);
 	}
 
-	public boolean createHash(String personalId, String token, String ipAddress) {
-		String endpoint = IWMainApplication
-				.getDefaultIWApplicationContext()
-				.getApplicationSettings()
-				.getProperty(
-						ELECTION_SERVICE_ENDPOINT,
-						"https://egov.webservice.is/sst/runtime.asvc/com.actional.soapstation.eGOV_SKRA_KosningKodun");
-		String user = IWMainApplication.getDefaultIWApplicationContext()
-				.getApplicationSettings()
-				.getProperty(ELECTION_SERVICE_USER, "");
-
-		String password = IWMainApplication.getDefaultIWApplicationContext()
-				.getApplicationSettings()
-				.getProperty(ELECTION_SERVICE_PASSWORD, "");
-
-		try {
-			KodunLocator locator = new KodunLocator();
-			Kodun_PortType port = locator
-					.geteGovElection_wsd_kodun_Port(new URL(endpoint));
-			((org.apache.axis.client.Stub) port).setUsername(user);
-			((org.apache.axis.client.Stub) port).setPassword(password);
-			Status status = port.hashSSNForElection(token, personalId,
-					ipAddress);
-
-			if (status.getCode() == 0) {
-				return true;
-			}
-
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (ServiceException e) {
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-
-		return false;
-	}
-
-	public String getPersonalIDFromToken(String token, String ipAddress) {
-		String endpoint = IWMainApplication
-				.getDefaultIWApplicationContext()
-				.getApplicationSettings()
-				.getProperty(
-						LOGIN_SERVICE_ENDPOINT,
-						"https://egov.webservice.is/sst/runtime.asvc/com.actional.soapstation.eGOVDKM_AuthConsumer.AccessPoint?WSDL");
-		String user = IWMainApplication.getDefaultIWApplicationContext()
-				.getApplicationSettings().getProperty(LOGIN_SERVICE_USER, "");
-
-		String password = IWMainApplication.getDefaultIWApplicationContext()
-				.getApplicationSettings()
-				.getProperty(LOGIN_SERVICE_PASSWORD, "");
-
-		try {
-			EGOVDKM_AuthConsumerAccessPointLocator locator = new EGOVDKM_AuthConsumerAccessPointLocator();
-			EGOVDKM_AuthConsumerType port = locator
-					.geteGOVDKM_AuthConsumerAccessPointPort(new URL(endpoint));
-			((org.apache.axis.client.Stub) port).setUsername(user);
-			((org.apache.axis.client.Stub) port).setPassword(password);
-
-			__StatusHolder status = new __StatusHolder();
-			StringHolder saml = new StringHolder();
-
-			port.generateSAMLFromToken(token, ipAddress, status, saml);
-
-			if (status.value.getCode() == 0) {
-				Map<String, String> resp = samlInfo(saml.value);
-				String personalId = resp.get("SSN");
-				if (personalId != null) {
-					return personalId;
-				}
-			}
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (ServiceException e) {
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-
-		return null;
-	}
-
-	private Map<String, String> samlInfo(String response) {
-		Map<String, String> info = new HashMap<>();
-		Builder parser = new Builder();
-		Document docXML = null;
-
-		try {
-			docXML = parser.build( response, "" );
-			insertAttributesInMap( info, docXML.getRootElement() );
-		}
-		catch( ValidityException e ) {
-			e.printStackTrace();
-		}
-		catch( ParsingException e ) {
-			e.printStackTrace();
-		}
-		catch( IOException e ) {
-			e.printStackTrace();
-		}
-
-		return info;
-	}
-
-	private Element firstChild( Element parent, String name, String namespace ) {
-		Element childElement = parent.getFirstChildElement( name );
-
-		if( (childElement == null) && (namespace != null) ) {
-			childElement = parent.getFirstChildElement( name, namespace );
-		}
-
-		return childElement;
-	}
-	private void insertAttributesInMap( Map<String, String> info, Element assertion ) {
-		Element AttributeStatement = firstChild( assertion, "AttributeStatement", "urn:oasis:names:tc:SAML:1.0:assertion" );
-		Elements attributes = AttributeStatement.getChildElements();
-
-		// Insert all the attributes, from the Attributestatement tag, into the info dictionary
-		for( int i = 0; i < attributes.size(); i++ ) {
-			Element child = attributes.get( i );
-
-			if( child.getLocalName().equals( "Attribute" ) ) {
-				String key = child.getAttribute( "AttributeName" ).getValue();
-				String val = child.getChildElements().get( 0 ).getValue();
-				info.put( key, val );
-			}
-		}
-	}
 	public User authenticateUser(String username, String password)
 			throws java.rmi.RemoteException {
 		try {
@@ -635,7 +481,7 @@ public class IslandDotIsService extends DefaultSpringBean {
 	private Certificate getCertificate(CertificateFactory certFactory, String certFile) throws Exception {
 		InputStream stream = null;
 		try {
-			stream = IOUtil.getStreamFromJar(BetriReykjavikAuthentication.IW_BUNDLE_IDENTIFIER, "resources/certificates/".concat(certFile));
+			stream = IOUtil.getStreamFromJar(WebServiceConstants.IW_BUNDLE_IDENTIFIER, "resources/certificates/".concat(certFile));
 			Certificate certificate = certFactory.generateCertificate(stream);
 			return certificate;
 		} finally {

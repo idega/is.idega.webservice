@@ -49,16 +49,31 @@
     <dependency>
       <groupId>com.idega.block.egov</groupId>
       <artifactId>is.idega.idegaweb.egov.accounting</artifactId>
-     </dependency>
-     <dependency>
-      <groupId>xom</groupId>
-      <artifactId>xom</artifactId>
-      <type>jar</type>
-      <version>1.2.5</version>
-     </dependency>
-     <!-- 3rd parties -->
-     <dependency>
-		<groupId>org.opensaml</groupId>
+      <exclusions>
+      	<exclusion>
+      		<groupId>com.idega.block.platform</groupId>
+      		<artifactId>org.apache.axis</artifactId>
+      	</exclusion>
+      	<exclusion>
+      		<groupId>org.apache.axis</groupId>
+      		<artifactId>axis</artifactId>
+      	</exclusion>
+      	<exclusion>
+      		<groupId>org.apache.axis</groupId>
+      		<artifactId>axis-jaxrpc</artifactId>
+      	</exclusion>
+      </exclusions>
+    </dependency>
+ 
+    <!-- 3rd parties -->
+    <dependency>
+    	<groupId>xom</groupId>
+    	<artifactId>xom</artifactId>
+    	<type>jar</type>
+    	<version>1.2.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.opensaml</groupId>
 		<artifactId>opensaml</artifactId>
 		<version>2.6.4</version>
      </dependency>
@@ -119,11 +134,27 @@
         <groupId>org.apache.axis2</groupId>
         <artifactId>axis2-transport-http</artifactId>
         <version>1.6.1</version>
+        <exclusions>
+        	<exclusion>
+        		<groupId>org.apache.httpcomponents</groupId>
+        		<artifactId>httpcore</artifactId>
+        	</exclusion>
+        </exclusions>
     </dependency>
     <dependency>
         <groupId>org.apache.axis2</groupId>
         <artifactId>axis2-transport-local</artifactId>
         <version>1.6.1</version>
+    </dependency>
+    <dependency>
+      	<groupId>org.apache.httpcomponents</groupId>
+      	<artifactId>httpcore</artifactId>
+      	<version>4.4.13</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.jsoup</groupId>
+    	<artifactId>jsoup</artifactId>
+    	<version>1.8.3</version>
     </dependency>
   </dependencies>
   
@@ -134,7 +165,7 @@
             <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
             <executions>
 
-                <!-- Production webservice for ship offer -->
+                <!-- WS for Property registry -->
                 <execution>
                     <id>fasteignaskra</id>
                     <phase>generate-sources</phase>

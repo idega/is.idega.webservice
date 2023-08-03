@@ -105,9 +105,6 @@ public class IslandDotIsLoginFilter extends BaseFilter {
 				AdvancedProperty personalIdAndName = service.getPersonalIDAndNameFromSAMLMessage(request, response, token);
 				String personalID = personalIdAndName == null ? null : personalIdAndName.getId();
 				String name = personalIdAndName == null ? null : personalIdAndName.getValue();
-				if (StringUtil.isEmpty(personalID) && settings.getBoolean("island.is_auth_via_ws", false)) {
-					personalID = service.getPersonalIDFromToken(token, iwc.getRemoteIpAddress());
-				}
 
 				if (personalID != null && !"".equals(personalID.trim())) {
 					String responsePage = service.getHomePageForCitizen(personalID, name, iwc);
