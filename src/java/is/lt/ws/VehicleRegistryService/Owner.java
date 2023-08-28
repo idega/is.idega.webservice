@@ -150,7 +150,9 @@ public class Owner implements Serializable {
 	}
 	public CoOwner[] getCoOwners() {
 		List<CoOwner> coOwners = CoOwners == null ? null : CoOwners.CoOwner;
-		return ArrayUtil.convertListToArray(coOwners);
+		CoOwner[] coOwnersArray = ArrayUtil.convertListToArray(coOwners);
+		coOwnersArray = coOwnersArray == null ? new CoOwner[] {} : coOwnersArray;
+		return coOwnersArray;
 	}
 	public void setCoOwners(CoOwners coOwners) {
 		CoOwners = coOwners;
